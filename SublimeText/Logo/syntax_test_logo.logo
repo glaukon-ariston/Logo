@@ -1,4 +1,7 @@
 % SYNTAX TEST "Packages/Logo/Logo.sublime-syntax"
+% Author: Galukon Ariston
+% URL: https://github.com/glaukon-ariston/Logo
+%
 
 ; comment {/%) blah blah blah
 % <- punctuation.definition.comment
@@ -16,10 +19,9 @@
 %                       ^^^ constant.numeric
 %                           ^^^ constant.numeric
 
-  true false end
+  true false
 % ^^^^ constant.language
 %      ^^^^^ constant.language
-%            ^^^^ constant.language
 
   []
 % ^ meta.sequence.list.empty punctuation.section.sequence.begin
