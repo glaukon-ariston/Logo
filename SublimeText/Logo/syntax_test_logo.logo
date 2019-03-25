@@ -1,0 +1,74 @@
+% SYNTAX TEST "Packages/Logo/Logo.sublime-syntax"
+
+; comment {/%) blah blah blah
+% <- punctuation.definition.comment
+%^^^^^^^^^^^^^^^ comment.line
+
+  123 -98 +17 0x22
+% ^^^ constant.numeric
+%     ^^^ constant.numeric
+%         ^^^ constant.numeric
+
+  -.002 123.6e10 1.0E-5 -1. 0.0
+% ^^^^^ constant.numeric
+%       ^^^^^^^^ constant.numeric
+%                ^^^^^^ constant.numeric
+%                       ^^^ constant.numeric
+%                           ^^^ constant.numeric
+
+  true false end
+% ^^^^ constant.language
+%      ^^^^^ constant.language
+%            ^^^^ constant.language
+
+  []
+% ^ meta.sequence.list.empty punctuation.section.sequence.begin
+%  ^ meta.sequence.list.empty punctuation.section.sequence.end
+
+  [2+3]
+% ^ meta.sequence.list punctuation.section.sequence.begin
+%  ^^^ variable.other.constant
+%     ^ punctuation.section.sequence.end
+
+  [1+2 -1 -.002 123.6e10 1.0E-5 -1. 0.0 output true Welcome to FMSLogo Demonstration (more?)]
+% ^ meta.sequence.list punctuation.section.sequence.begin
+%  ^^^ variable.other.constant
+%      ^ constant.numeric
+%        ^^^^^^ keyword.control
+%               ^^^^^^ constant.language
+%                    ^^^^^^ variable.other.constant
+
+  print "abc;comment ~
+% ^^^^^ support.function
+%           ^ comment.line.semicolon punctuation.definition.comment
+%            ^^^^^^^^^ comment.line.semicolon
+
+
+  ?1 ?1.2 ?-1.0E-5
+% ^ entity.name.function
+%  ^ constant.numeric.integer.decimal
+%    ^ entity.name.function
+%     ^^^ constant.numeric.float.decimal
+%         ^ entity.name.function
+%          ^^^^^^^ constant.numeric.float.decimal
+
+  \?1
+%  ^ source
+
+  ?
+% ^ entity.name.function
+
+
+to function :abc :123 :x [:some more with default butfirst :x]
+  [1+2 1 2 3 list] fd 10
+  ]
+end
+
+
+
+
+
+
+
+
+

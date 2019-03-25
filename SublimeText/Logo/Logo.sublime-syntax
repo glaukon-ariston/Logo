@@ -1,0 +1,498 @@
+%YAML 1.2
+---
+# https://github.com/SublimeText/PackageDev/wiki/Syntax-Definitions
+# http://www.sublimetext.com/docs/3/scope_naming.html
+# http://www.sublimetext.com/docs/3/syntax.html
+# Syntax Development Tips/Advice
+# https://github.com/sublimehq/Packages/issues/757
+#
+# Programming language Logo syntax highlighting
+# http://el.media.mit.edu/logo-foundation/index.html
+# Definitions taken from FMSLogo 7.4.0 Help
+#
+name: Logo
+file_extensions: [logo, lgo]
+first_line_match: "-[*]- logo -[*]-"
+scope: source.logo
+
+
+variables:
+  # TODO tilde (~), semicolon (;), backslash (\) escape, vertical bars (|)
+  word_separators: '\[\]\(\)+\-*/=<>\s'
+  word_separators_brackets: '\[\]\s'
+  word_separators_quoted: ';\[\]\(\)\s'
+  word_in_brackets: '[^{{word_separators_brackets}}]+'
+  word_quoted: '[^{{word_separators_quoted}}]+'
+  word: '[^{{word_separators}}]+'
+
+  # Similar to the number regexps in the Clojure reader.
+  non_symbol_chars: \s,;\(\)\[\]{}\"`~@\^\\
+  non_number_chars: '{{non_symbol_chars}}#'''
+  sign: '[-+]?'
+  integer: '({{sign}})\d+'
+  hex_integer: '({{sign}})(0[Xx])[0-9A-Fa-f]+'
+  n_radix_integer: '({{sign}})((?:[2-9]|[1-9]\d+)[Rr])[0-9A-Za-z]+'
+  ratio: '({{sign}})\d+(/)\d+'
+  floating_point: |-
+    (?x:
+      {{sign}}
+      (\d+\.(\d+)? | (\d+)?\.\d+)
+      (?:[Ee][-+]?\d+)?
+    )
+
+  numeral: '({{integer}})|({{hex_integer}})|({{floating_point}})'
+
+contexts:
+  prototype:
+    - include: stray_close_bracket
+    - include: comment
+
+  main:
+    - include: function
+    - include: expression
+
+  expression:
+    - include: literal_num
+    - include: q-mark
+    - include: list
+    - include: word
+
+  comment:
+    - match: (;).*$\n?
+      scope: comment.line.semicolon.logo
+      captures:
+        1: punctuation.definition.comment.logo
+
+  stray_close_bracket:
+    - match: \]
+      scope: invalid.illegal.stray-bracket-end.logo
+
+  literal_num:
+    - include: number
+    - include: literal
+
+  literal:
+    - include: language_constants
+    - include: predefined_words
+    - include: argument
+    - include: quoted
+
+  language_constants:
+    - match: \b(true|false)\b
+      scope: constant.language.logo
+
+  word:
+    - match: '{{word}}'
+      scope: variable.other.constant.logo
+
+  argument:
+    - match: ':{{word}}'
+      scope: variable.parameter.logo
+
+  number:
+    - match: '{{hex_integer}}(?=[{{non_number_chars}}])'
+      scope: constant.numeric.integer.hexadecimal.logo
+      captures:
+        2: punctuation.definition.numeric.hexadecimal.logo
+    - match: '{{floating_point}}(?=[{{non_number_chars}}])'
+      scope: constant.numeric.float.decimal.logo
+    - match: '{{integer}}(?=[{{non_number_chars}}])'
+      scope: constant.numeric.integer.decimal.logo
+
+  quoted:
+    - match: '"'
+      scope: punctuation.definition.string.begin.logo
+      push: quoted-tail
+
+  quoted-tail:
+    - meta_scope: string.quoted.double.logo
+    - match: \\.
+      scope: constant.character.escape.logo
+    - match: '(?=[{{word_separators_quoted}}])'
+      scope: punctuation.definition.string.end.logo
+      pop: true
+
+  q-mark:
+    - match: (?:[^\\])(\?)
+      captures:
+        1: entity.name.function.logo
+      set:
+        - include: number
+        - match: '(?=[{{word_separators}}])'
+          pop: true
+
+  list:
+    - match: (\[)\s*(\])
+      scope: meta.sequence.list.empty.logo
+      captures:
+        1: punctuation.section.sequence.begin.logo
+        2: punctuation.section.sequence.end.logo
+      pop: true
+    - match: \[
+      scope: punctuation.section.sequence.begin.logo
+      push: inside_list
+
+  inside_list:
+    - meta_include_prototype: false
+    - include: comment
+    - meta_scope: meta.sequence.list.logo
+    - match: \]
+      scope: punctuation.section.sequence.end.logo
+      pop: true
+    - match: '\s+'
+      scope: punctuation.separator.sequence.logo
+    - include: list
+    - match: '({{numeral}})(?=[{{word_separators_brackets}}])'
+      scope: constant.numeric.logo
+    - include: literal
+    - match: '{{word_in_brackets}}'
+      scope: variable.other.constant.logo
+
+  function:
+    - match: |-
+        (?x:
+          ^
+          \s*
+          \b((?i:to))\b
+          \s+
+          # function name
+          ({{word}})
+        )
+      scope: meta.function.logo
+      captures:
+        1: keyword.declaration.function
+        2: entity.name.function.logo
+      push: function_args
+
+  function_args:
+    - meta_content_scope: meta.function.parameters.logo
+    - match: '$\n'
+      set: function_innards
+    - match: ':{{word}}'
+      scope: meta.function.parameter.logo
+    - match: '(?=\[)'
+      set: function_args_optional
+
+  function_args_optional:
+    - meta_content_scope: meta.function.parameters.optional.logo
+    - match: '$\n'
+      set: function_innards
+    - match: ':{{word}}'
+      scope: meta.function.parameter.logo
+    - include: expression
+
+  function_innards:
+    - meta_content_scope: meta.function.innards.logo
+    - match: '\bend\b'
+      scope: punctuation.definition.function.end.logo
+      pop: true
+    - include: expression
+
+  predefined_words:
+    - include: shorthands
+    - include: data_structure_constructors
+    - include: data_structure_selectors
+    - include: data_structure_mutators
+    - include: data_structure_predicates
+    - include: data_structure_queries
+    - include: transmitters
+    - include: receivers
+    - include: file_access
+    - include: hardware_communications
+    - include: dll_communications
+    - include: keyboard_and_mouse_access
+    - include: numeric_operations
+    - include: arithmetic_predicates
+    - include: random_numbers
+    - include: print_formatting
+    - include: bitwise_operations
+    - include: logical_operations
+    - include: multiple_turtles
+    - include: turtle_motion
+    - include: turtle_motion_queries
+    - include: window_control
+    - include: drawing_3d_solids
+    - include: turtle_and_window_queries
+    - include: pen_control
+    - include: pen_queries
+    - include: procedure_definition
+    - include: variable_definition
+    - include: property_lists
+    - include: workspace_predicates
+    - include: workspace_queries
+    - include: workspace_inspection
+    - include: workspace_control
+    - include: debug_commands
+    - include: control_commands
+    - include: template_based_iteration
+    - include: macro_commands
+    - include: special_variables
+    - include: environment_commands
+    - include: directory_commands
+    - include: window_commands
+    - include: dialog_commands
+    - include: listbox_commands
+    - include: combobox_commands
+    - include: scrollbar_commands
+    - include: button_commands
+    - include: static_commands
+    - include: group_box_commands
+    - include: checkbox_commands
+    - include: radio_button_commands
+    - include: win_debug_commands
+    - include: modal_vs_modeless_windows
+    - include: bitmap_commands
+    - include: networking_commands
+    - include: midi_commands
+    - include: sound_wave_commands
+    - include: sound_commands
+    - include: media_control_commands
+
+  # Data Structure Commands
+  data_structure_constructors:
+    - match: \b(?i:word|list|sentence|fput|lput|array|mdarray|listtoarray|arraytolist|combine|reverse|sort|gensym)\b
+      scope: storage.type.function-type.logo
+
+  data_structure_selectors:
+    - match: \b(?i:first|firsts|last|butfirst|butfirsts|butlast|item|mditem|pick|remove|remdup|quoted)\b
+      scope: support.function.logo
+
+  data_structure_mutators:
+    - match: \b(?i:setitem|mdsetitem|\.setfirst|\.setbf|\.setitem|push|pop|queue|dequeue)\b
+      scope: support.function.logo
+
+  data_structure_predicates:
+    - match: \b(?i:wordp|numberp|listp|arrayp|emptyp|equalp|notequalp|beforep|\.eq|memberp|substringp|backslashedp)\b
+      scope: support.function.logo
+
+  data_structure_queries:
+    - match: \b(?i:count|ascii|rawascii|char|member|lowercase|uppercase|standout|parse|runparse|time|timemilli)\b
+      scope: support.function.logo
+
+  # Communication
+  transmitters:
+    - match: \b(?i:print|type|show)\b
+      scope: support.function.logo
+
+  receivers:
+    - match: \b(?i:readlist|readword|readchar|readchars|readrawline)\b
+      scope: support.function.logo
+
+  file_access:
+    - match: \b(?i:openread|openwrite|openappend|openupdate|close|allopen|closeall|erasefile|dribble|nodribble|setread|setwrite|reader|writer|setreadpos|setwritepos|readpos|writepos|eofp)\b
+      scope: support.function.logo
+
+  hardware_communications:
+    - match: \b(?i:portopen|portclose|portflush|portmode|portreadarray|portreadchar|portwritearray|portwritechar|inport|outport|inportb|outportb|ingameport)\b
+      scope: support.function.logo
+
+  dll_communications:
+    - match: \b(?i:dllload|dllcall|dllfree)\b
+      scope: support.function.logo
+
+  keyboard_and_mouse_access:
+    - match: \b(?i:keyp|keyboardon|keyboardoff|keyboardvalue|mouseon|mouseoff|mousepos|cleartext|setcursor|cursor|setmargins)\b
+      scope: support.function.logo
+
+  # Arithmetic
+  numeric_operations:
+    - match: \b(?i:sum|difference|minus|product|quotient|remainder|modulo|int|round|abs|sign|sqrt|power|exp|log10|ln|pi|goldenratio|tan|radtan|sin|radsin|cos|radcos|arctan|radarctan|arcsin|radarcsin|arccos|radarccos)\b
+      scope: support.function.logo
+
+  arithmetic_predicates:
+    - match: \b(?i:lessp|lessequalp|greaterp|greaterequalp)\b
+      scope: support.function.logo
+
+  random_numbers:
+    - match: \b(?i:random|rerandom)\b
+      scope: support.function.logo
+
+  print_formatting:
+    - match: \b(?i:form)\b
+      scope: support.function.logo
+
+  bitwise_operations:
+    - match: \b(?i:bitand|bitor|bitxor|bitnot|ashift|lshift)\b
+      scope: support.function.logo
+
+  # Logical Operations
+  logical_operations:
+    - match: \b(?i:and|or|not)\b
+      scope: support.function.logo
+
+  # Graphics
+  multiple_turtles:
+    - match: \b(?i:setturtle|turtle|hasownpenp|turtles|bitmapturtle|nobitmapturtle|setturtlemode|turtlemode|ask)\b
+      scope: support.function.logo
+
+  turtle_motion:
+    - match: \b(?i:forward|back|left|right|leftroll|rightroll|downpitch|uppitch|setpos|setposxyz|setxy|setxyz|setx|sety|setz|home|setheading|setroll|setpitch|setorientation|ellipsearc|ellipsearc2|ellipse|ellipse2|arc|arc2|circle|circle2)\b
+      scope: support.function.logo
+
+  turtle_motion_queries:
+    - match: \b(?i:pos|posxyz|xcor|ycor|zcor|heading|roll|pitch|orientation|towards|towardsxyz|distance|distancexyz|pixel|scrunch|turtle control|showturtle|hideturtle|clean|clearscreen|wrap|window|fence|perspective|fill|slowdraw|label|setpixel|fontfacenames|setlabelfont|labelfont|labelsize)\b
+      scope: support.function.logo
+
+  window_control:
+    - match: \b(?i:textscreen|fullscreen|splitscreen|setscrunch|refresh|norefresh|zoom|scrollx|scrolly|setfocus|getfocus|icon|unicon|minimize|restore|maximize|windowset)\b
+      scope: support.function.logo
+
+  drawing_3d_solids:
+    - match: \b(?i:polystart|polyend|polyview|setlight|light)\b
+      scope: support.function.logo
+
+  turtle_and_window_queries:
+    - match: \b(?i:shownp)\b
+      scope: support.function.logo
+
+  pen_control:
+    - match: \b(?i:pendown|penup|penpaint|penerase|penreverse|pennormal|setpencolor|setfloodcolor|setscreencolor|setpensize|setpenpattern|setpen|clearpalette)\b
+      scope: support.function.logo
+
+  pen_queries:
+    - match: \b(?i:pendownp|penmode|pencolor|floodcolor|screencolor|pensize|penpattern|pen)\b
+      scope: support.function.logo
+
+  # Workspace Management
+  procedure_definition:
+    - match: \b(?i:define|text|fulltext|copydef|arity)\b    # to|end|
+      scope: support.function.logo
+
+  variable_definition:
+    - match: \b(?i:make|name|local|localmake|thing)\b
+      scope: support.function.logo
+
+  property_lists:
+    - match: \b(?i:pprop|gprop|remprop|plist)\b
+      scope: support.function.logo
+
+  workspace_predicates:
+    - match: \b(?i:procedurep|primitivep|definedp|namep|macrop|proplistp)\b
+      scope: support.function.logo
+
+  workspace_queries:
+    - match: \b(?i:contents|procedures|names|plists|namelist|pllist|buried|stepped|traced)\b
+      scope: support.function.logo
+
+  workspace_inspection:
+    - match: \b(?i:po|poall|pops|pons|popls|pon|popl|pot|pots)\b
+      scope: support.function.logo
+
+  workspace_control:
+    - match: \b(?i:erase|erall|erps|erns|erpls|ern|erpl|bury|buryall|buryname|unbury|unburyall|unburyname|trace|untrace|step|unstep|edit|edall|edps|edns|edpls|edn|edpl|save|savel|load)\b
+      scope: support.function.logo
+
+  debug_commands:
+    - match: \b(?i:nodes|status|nostatus)\b
+      scope: support.function.logo
+
+  # Control Structures
+  control_commands:
+    - match: \b(?i:run|runresult|repeat|repcount|if|ifelse|test|iftrue|iffalse|true|false|stop|output|catch|throw|error|pause|continue|yield|noyield|eventcheck|setcursorwait|setcursornowait|halt|wait|settimer|cleartimer|bye|\.maybeoutput|ignore|\`|for|forever|do\.while|while|do\.until|until)\b
+      scope: keyword.control.logo
+
+  template_based_iteration:
+    - match: \b(?i:apply|invoke|foreach|map|map.se|filter|find|reduce|crossmap|cascade|cascade.2|transfer|iseq|rseq)\b
+      scope: support.function.logo
+
+  # Macro Commands
+  macro_commands:
+    - match: \b(?i:\.macro|\.defmacro|macroexpand)\b
+      scope: support.function.logo
+
+  # Special Variables
+  special_variables:
+    - match: \b(?i:caseignoredp|erract|printdepthlimit|printwidthlimit|redefp|startup)\b
+      scope: support.function.logo
+
+  # Environment Commands
+  environment_commands:
+    - match: \b(?i:logoversion|machine|shell)\b
+      scope: support.function.logo
+
+  # Directory Commands
+  directory_commands:
+    - match: \b(?i:dir|files|directories|chdir|popdir|mkdir|rmdir)\b
+      scope: support.function.logo
+
+  # Windows Commands
+  window_commands:
+    - match: \b(?i:windowcreate|windowdelete|windowenable)\b
+      scope: support.function.logo
+
+  dialog_commands:
+    - match: \b(?i:dialogcreate|dialogdelete|dialogenable)\b
+      scope: support.function.logo
+
+  listbox_commands:
+    - match: \b(?i:listboxcreate|listboxdelete|listboxenable|listboxgetselect|listboxaddstring|listboxdeletestring)\b
+      scope: support.function.logo
+
+  combobox_commands:
+    - match: \b(?i:comboboxcreate|comboboxdelete|comboboxenable|comboboxgettext|comboboxsettext|comboboxaddstring|comboboxdeletestring)\b
+      scope: support.function.logo
+
+  scrollbar_commands:
+    - match: \b(?i:scrollbarcreate|scrollbardelete|scrollbarenable|scrollbarset|scrollbarget)\b
+      scope: support.function.logo
+
+  button_commands:
+    - match: \b(?i:buttoncreate|buttondelete|buttonenable|buttonupdate)\b
+      scope: support.function.logo
+
+  static_commands:
+    - match: \b(?i:staticcreate|staticdelete|staticupdate)\b
+      scope: support.function.logo
+
+  group_box_commands:
+    - match: \b(?i:groupboxcreate|groupboxdelete)\b
+      scope: support.function.logo
+
+  checkbox_commands:
+    - match: \b(?i:checkboxcreate|checkboxdelete|checkboxenable|checkboxset|checkboxget)\b
+      scope: support.function.logo
+
+  radio_button_commands:
+    - match: \b(?i:radiobuttoncreate|radiobuttondelete|radiobuttonenable|radiobuttonset|radiobuttonget)\b
+      scope: support.function.logo
+
+  win_debug_commands:
+    - match: \b(?i:debugwindows)\b
+      scope: support.function.logo
+
+  modal_vs_modeless_windows:
+    - match: \b(?i:messagebox|yesnobox|selectbox|questionbox|dialogfileopen|dialogfilesave|windowfileedit)\b
+      scope: support.function.logo
+
+  # Bitmap Commands
+  bitmap_commands:
+    - match: \b(?i:bitcut|bitcopy|bitpaste|bitpastetoindex|bitfit|setbitindex|bitindex|setbitmode|bitmode|bitblock|bitload|bitsave|bitsize|bitloadsize|gifload|gifsave|gifsize|setactivearea|activearea)\b
+      scope: support.function.logo
+
+  # Networking Commands
+  networking_commands:
+    - match: \b(?i:netstartup|netshutdown|netaccepton|netacceptoff|netacceptreceivevalue|netacceptsendvalue|netconnecton|netconnectoff|netconnectsendvalue|netconnectreceivevalue)\b
+      scope: support.function.logo
+
+  # Multimedia Commands
+  midi_commands:
+    - match: \b(?i:midiopen|midiclose|midimessage)\b
+      scope: support.function.logo
+
+  sound_wave_commands:
+    - match: \b(?i:playwave)\b
+      scope: support.function.logo
+
+  sound_commands:
+    - match: \b(?i:soundon|soundoff|tone|sound)\b
+      scope: support.function.logo
+
+  media_control_commands:
+    - match: \b(?i:mci)\b
+      scope: support.function.logo
+
+  shorthands:
+    # butfirst back butlast continue clearscreen cleartext edit erase forward fullscreen hideturtle iffalse iftrue leftroll left output pencolor pendown penerase print penup penreverse readchar readlist rightroll right readword sentence setfloodcolor setheading setpencolor setscreencolor splitscreen showturtle textscreen uppitch
+    - match: \b(?i:bf|bk|bl|co|cs|ct|ed|er|fd|fs|ht|iff|ift|lr|lt|op|pc|pd|pe|pr|pu|px|rc|rl|rr|rt|rw|se|setfc|şeth|setpc|setsc|ss|st|ts|up)\b
+      scope: support.function.logo
+
