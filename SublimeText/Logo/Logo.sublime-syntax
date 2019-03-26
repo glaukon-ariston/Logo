@@ -111,13 +111,13 @@ contexts:
       scope: variable.parameter.logo
 
   number:
-    - match: '{{hex_integer}}(?=[{{non_number_chars}}])'
+    - match: '{{hex_integer}}(?=[{{word_separators}}])'
       scope: constant.numeric.integer.hexadecimal.logo
       captures:
         2: punctuation.definition.numeric.hexadecimal.logo
-    - match: '{{floating_point}}(?=[{{non_number_chars}}])'
+    - match: '{{floating_point}}(?=[{{word_separators}}])'
       scope: constant.numeric.float.decimal.logo
-    - match: '{{integer}}(?=[{{non_number_chars}}])'
+    - match: '{{integer}}(?=[{{word_separators}}])'
       scope: constant.numeric.integer.decimal.logo
 
   quoted:
