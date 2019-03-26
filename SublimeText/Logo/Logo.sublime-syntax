@@ -2,6 +2,7 @@
 ---
 # Author: Galukon Ariston
 # URL: https://github.com/glaukon-ariston/Logo
+# Created: 25.03.2019
 #
 # https://github.com/SublimeText/PackageDev/wiki/Syntax-Definitions
 # http://www.sublimetext.com/docs/3/scope_naming.html
@@ -9,7 +10,6 @@
 # Syntax Development Tips/Advice
 # https://github.com/sublimehq/Packages/issues/757
 #
-# Programming language Logo syntax highlighting
 # http://el.media.mit.edu/logo-foundation/index.html
 # Definitions taken from FMSLogo 7.4.0 Help
 #
@@ -58,9 +58,11 @@ contexts:
     - include: literal_num
     - include: q-mark
     - include: list
+    - include: parenthesis
     - include: word
 
   comment:
+    - meta_include_prototype: false
     - match: (;).*$\n?
       scope: comment.line.semicolon.logo
       captures:
@@ -69,6 +71,8 @@ contexts:
   stray_close_bracket:
     - match: \]
       scope: invalid.illegal.stray-bracket-end.logo
+    - match: \)
+      scope: invalid.illegal.stray-parens-end.logo
 
   literal_num:
     - include: number
@@ -79,6 +83,20 @@ contexts:
     - include: predefined_words
     - include: argument
     - include: quoted
+    - include: operators
+
+  operators: [
+    {match: \*   , scope: keyword.operator.arithmetic.logo},
+    {match: \+   , scope: keyword.operator.arithmetic.logo},
+    {match: \-   , scope: keyword.operator.arithmetic.logo},
+    {match: /    , scope: keyword.operator.arithmetic.logo},
+    {match: \=   , scope: keyword.operator.logical.logo},
+    {match: <>   , scope: keyword.operator.logical.logo},
+    {match: <    , scope: keyword.operator.logical.logo},
+    {match: <=   , scope: keyword.operator.logical.logo},
+    {match: \>   , scope: keyword.operator.logical.logo},
+    {match: \>=  , scope: keyword.operator.logical.logo},
+  ]
 
   language_constants:
     - match: \b(true|false)\b
@@ -108,6 +126,8 @@ contexts:
       push: quoted-tail
 
   quoted-tail:
+    - meta_include_prototype: false
+    - include: comment
     - meta_scope: string.quoted.double.logo
     - match: \\.
       scope: constant.character.escape.logo
@@ -124,6 +144,25 @@ contexts:
         - match: '(?=[{{word_separators}}])'
           pop: true
 
+  parenthesis:
+    - match: (\()\s*(\))
+      scope: meta.empty.logo
+      captures:
+        1: punctuation.section.parens.begin.logo
+        2: punctuation.section.parens.end.logo
+      pop: true
+    - match: \(
+      scope: punctuation.section.parens.begin.logo
+      push: parenthesis_inside
+
+  parenthesis_inside:
+    - meta_include_prototype: false
+    - include: comment
+    - match: \)
+      scope: punctuation.section.end.logo
+      pop: true
+    - include: expression
+
   list:
     - match: (\[)\s*(\])
       scope: meta.sequence.list.empty.logo
@@ -133,9 +172,9 @@ contexts:
       pop: true
     - match: \[
       scope: punctuation.section.sequence.begin.logo
-      push: inside_list
+      push: list_inside
 
-  inside_list:
+  list_inside:
     - meta_include_prototype: false
     - include: comment
     - meta_scope: meta.sequence.list.logo
@@ -144,6 +183,9 @@ contexts:
       pop: true
     - match: '\s+'
       scope: punctuation.separator.sequence.logo
+    - include: expression
+
+  list_insideX:
     - include: list
     - match: '({{numeral}})(?=[{{word_separators_brackets}}])'
       scope: constant.numeric.logo
@@ -267,6 +309,8 @@ contexts:
   data_structure_predicates:
     - match: \b(?i:wordp|numberp|listp|arrayp|emptyp|equalp|notequalp|beforep|\.eq|memberp|substringp|backslashedp)\b
       scope: support.function.logo
+    - match: \b(?i:word\?|number\?|list\?|array\?|empty\?|equal\?|notequal\?|before\?|member\?|substring\?|backslashed\?)\b
+      scope: support.function.logo
 
   data_structure_queries:
     - match: \b(?i:count|ascii|rawascii|char|member|lowercase|uppercase|standout|parse|runparse|time|timemilli)\b
@@ -300,15 +344,15 @@ contexts:
   # Arithmetic
   numeric_operations:
     - match: \b(?i:sum|difference|minus|product|quotient|remainder|modulo|int|round|abs|sign|sqrt|power|exp|log10|ln|pi|goldenratio|tan|radtan|sin|radsin|cos|radcos|arctan|radarctan|arcsin|radarcsin|arccos|radarccos)\b
-      scope: support.function.logo
+      scope: keyword.operator.arithmetic.logo
 
   arithmetic_predicates:
     - match: \b(?i:lessp|lessequalp|greaterp|greaterequalp)\b
-      scope: support.function.logo
+      scope: keyword.operator.arithmetic.logo
 
   random_numbers:
     - match: \b(?i:random|rerandom)\b
-      scope: support.function.logo
+      scope: keyword.operator.arithmetic.logo
 
   print_formatting:
     - match: \b(?i:form)\b
@@ -316,12 +360,12 @@ contexts:
 
   bitwise_operations:
     - match: \b(?i:bitand|bitor|bitxor|bitnot|ashift|lshift)\b
-      scope: support.function.logo
+      scope: keyword.operator.bitwise.logo
 
   # Logical Operations
   logical_operations:
     - match: \b(?i:and|or|not)\b
-      scope: support.function.logo
+      scope: keyword.operator.logical.logo
 
   # Graphics
   multiple_turtles:
