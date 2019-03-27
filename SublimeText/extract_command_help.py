@@ -19,7 +19,6 @@ import itertools
 
 
 MANUAL_ROOT = r'D:/fmslogo-source-r4806/logo/trunk/manual/'
-MANUAL_ROOT = r'C:/boris/app/dev/fmslogo-source-r4806/logo/trunk/manual/'
 
 SUBSTITUTIONS = {
     '&PRODUCTNAME;': 'FMSLogo',
@@ -97,6 +96,7 @@ def gen_completions(synopsis):
             print('%s: len %d' % (command, len(desc)))
         x = { "trigger": '%s\t%s' % (command.lower(), desc), "contents": '%s %s' % (command.lower(), gen_params(params)) }
         completions['completions'].append(x)
+
     [addCompletion(command, params, desc) for ss in synopsis for (command, params, desc) in ss]
     print('generic_names = %s' % (generic_names))
     print('desc_sizes = %s' % (sorted(desc_sizes, reverse=True)))
@@ -119,9 +119,7 @@ def parse_files(root):
 def main():
     t0 = datetime.datetime.now()
     print(t0, 'Start')
-
     parse_files(MANUAL_ROOT)
-
     t1 = datetime.datetime.now()
     print(t1, 'End. dT = %s' % (t1-t0))
 
