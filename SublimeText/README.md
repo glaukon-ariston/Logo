@@ -1,10 +1,10 @@
-# Logo files Syntax Highlighting for SublimeText
+# Syntax Highlighting, Auto Completion and Inline Help for Logo files in SublimeText
 
-A .sublime-syntax file that SublimeText editor can use for (among other things) syntax highlighting of Logo files.
+A SublimeText package that adds syntax highlighting, auto completion and inline help for Logo files.
 
 ## Installation
 
-Download the files (the Logo directory) and place them in the Packages/User subdirectory (in SublimeText click on Preferences|Browse Packages...).
+Download the Logo directory and place it in the Packages/User subdirectory (in SublimeText click on Preferences|Browse Packages...).
 
 ## Useful Links
 - [SublimeText - Syntax Definitions](http://www.sublimetext.com/docs/3/syntax.html)
