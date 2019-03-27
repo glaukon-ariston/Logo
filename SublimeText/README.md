@@ -14,4 +14,4 @@ Download the files (the Logo directory) and place them in the Packages/User subd
 - [Logo Foundation](http://el.media.mit.edu/logo-foundation/index.html)
 - [FMSLogo](http://fmslogo.sourceforge.net/)
 
-<img src="demo.png" hspace="1em" />
+<img src="demo_animated.png" hspace="1em" />
