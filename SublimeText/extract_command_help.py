@@ -18,7 +18,7 @@ import collections
 import itertools
 
 
-MANUAL_ROOT = r'D:/fmslogo-source-r4806/logo/trunk/manual/'
+MANUAL_ROOT = r'c:/boris/app/dev/fmslogo-source-r4806/logo/trunk/manual/'
 
 SUBSTITUTIONS = {
     '&PRODUCTNAME;': 'FMSLogo',
@@ -26,6 +26,20 @@ SUBSTITUTIONS = {
 }
 
 MAX_DESC_SIZE = 170
+
+PREFIXES = 'active arrayTo before bit bitLoad bitmap bitPasteTo but buttOn clear checkbox \
+    combobox comboboxAdd comboboxDelete comboboxGet comboboxSet debug dialog dialogFile dll \
+    erase event flood fontface gif greater greaterp groupbox has keyboard listbox \
+    listboxDelete listTo logo maybe message midi net netAccept netAcceptReceive \
+    netAcceptSend netConnect netConnectReceive netConnectSend noBitmap open pen port portRead \
+    portWrite print printDepth printWidth radio radioButton read readRaw scrollbar \
+    set setActive setCursor setFlood setLabel setPen setRead setScreen setTurtle setWrite static \
+    text turtle unbury window windowFile'.split()
+
+
+def concat(xs):
+    '''concat :: [[a]] -> [a]'''
+    return list(itertools.chain.from_iterable(xs))
 
 
 def get(tree, name):
@@ -64,6 +78,20 @@ def parse_file(filepath):
 
 
 def gen_completions(synopsis):
+    syn_sorted = sorted(concat(synopsis), key=lambda x: x[0].lower())
+    commands = [command.lower() for (command, _, _) in syn_sorted]
+
+    def camelCase(c_):
+        c = c_
+        for p in PREFIXES:
+            if c_.startswith(p.lower()) and len(c_) > len(p):
+                n = len(p)
+                c = p + c[n].upper() + c[n+1:]
+        return c
+    camelCaseCmds = {c: camelCase(c) for c in commands}
+    with codecs.open('commands.txt', 'wb', 'utf-8') as f:
+        [f.write('%s\n' % (cc)) for c, cc in camelCaseCmds.items()]
+
     completions = {
         'scope': 'source.logo',
         'completions': ['logo']
@@ -94,10 +122,12 @@ def gen_completions(synopsis):
             desc = desc[:i+1] if i >= 0 else desc
             desc = desc[:MAX_DESC_SIZE]
             print('%s: len %d' % (command, len(desc)))
-        x = { "trigger": '%s\t%s' % (command.lower(), desc), "contents": '%s %s' % (command.lower(), gen_params(params)) }
+        c = camelCaseCmds[command.lower()]
+        suffix = '\n\t\nend\n\n' if c == 'to' else ''
+        x = { "trigger": '%s\t%s' % (c, desc), "contents": '%s %s' % (c, gen_params(params) + suffix) }
         completions['completions'].append(x)
 
-    [addCompletion(command, params, desc) for ss in synopsis for (command, params, desc) in ss]
+    [addCompletion(command, params, desc) for (command, params, desc) in syn_sorted]
     print('generic_names = %s' % (generic_names))
     print('desc_sizes = %s' % (sorted(desc_sizes, reverse=True)))
     return completions
