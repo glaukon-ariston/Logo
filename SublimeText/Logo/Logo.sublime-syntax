@@ -14,7 +14,7 @@
 # Definitions taken from FMSLogo 7.4.0 Help
 #
 name: Logo
-file_extensions: [logo, lgo]
+file_extensions: [logo, lgo, lg]
 first_line_match: "-[*]- logo -[*]-"
 scope: source.logo
 

@@ -1,0 +1,27 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open", 
+                 "caption": "Logo",
+                 "id": "repl_logo",
+                 "mnemonic": "l",
+                 "args": {
+                    "type": "sublime_logo",
+                    "encoding": "utf8",
+                    "cmd": ["usblogo.exe -l"],
+                    "cwd": "$file_path",
+                    "external_id": "Logo",
+                    "syntax": "Packages/Logo/Logo.sublime-syntax"
+                    }
+                }
+            ]   
+        }]
+    }
+]
