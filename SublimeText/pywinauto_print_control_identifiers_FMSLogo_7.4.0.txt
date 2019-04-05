@@ -1,0 +1,185 @@
+Control Identifiers:
+
+wxWindowNR - 'FMSLogo'    (L108, T3, R1082, B771)
+['wxWindowNR', 'FMSLogowxWindowNR', 'FMSLogo', 'wxWindowNR0', 'wxWindowNR1']
+child_window(title="FMSLogo", class_name="wxWindowNR")
+   | 
+   | wxWindowNR - 'splitter'    (L116, T54, R1074, B763)
+   | ['wxWindowNR2', 'splitterwxWindowNR', 'splitter']
+   | child_window(title="splitter", class_name="wxWindowNR")
+   |    | 
+   |    | wxWindowNR - 'panel'    (L118, T56, R1072, B166)
+   |    | ['wxWindowNR3', 'panel', 'panelwxWindowNR', 'panel0', 'panel1', 'panelwxWindowNR0', 'panelwxWindowNR1']
+   |    | child_window(title="panel", class_name="wxWindowNR")
+   |    | 
+   |    | wxWindowNR - 'panel'    (L118, T173, R1072, B761)
+   |    | ['wxWindowNR4', 'panel2', 'panelwxWindowNR2']
+   |    | child_window(title="panel", class_name="wxWindowNR")
+   |    |    | 
+   |    |    | wxWindow - 'text'    (L122, T173, R910, B733)
+   |    |    | ['wxWindow', 'textwxWindow', 'text']
+   |    |    | child_window(title="text", class_name="wxWindow")
+   |    |    | 
+   |    |    | wxWindowNR - 'stcwindow'    (L122, T735, R910, B757)
+   |    |    | ['wxWindowNR5', 'stcwindow', 'stcwindowwxWindowNR']
+   |    |    | child_window(title="stcwindow", class_name="wxWindowNR")
+   |    |    | 
+   |    |    | Button - 'Zaustavi'    (L912, T177, R990, B202)
+   |    |    | ['Zaustavi', 'ZaustaviButton', 'Button', 'Button0', 'Button1']
+   |    |    | child_window(title="Zaustavi", class_name="Button")
+   |    |    | 
+   |    |    | Button - 'Trace'    (L990, T177, R1068, B202)
+   |    |    | ['Button2', 'TraceButton', 'Trace']
+   |    |    | child_window(title="Trace", class_name="Button")
+   |    |    | 
+   |    |    | Button - 'Pauziraj'    (L912, T202, R990, B227)
+   |    |    | ['PauzirajButton', 'Button3', 'Pauziraj']
+   |    |    | child_window(title="Pauziraj", class_name="Button")
+   |    |    | 
+   |    |    | Button - 'Stanje'    (L990, T202, R1068, B227)
+   |    |    | ['Stanje', 'Button4', 'StanjeButton']
+   |    |    | child_window(title="Stanje", class_name="Button")
+   |    |    | 
+   |    |    | Button - 'Step'    (L912, T227, R990, B252)
+   |    |    | ['Step', 'Button5', 'StepButton']
+   |    |    | child_window(title="Step", class_name="Button")
+   |    |    | 
+   |    |    | Button - 'Ispočetka'    (L990, T227, R1068, B252)
+   |    |    | ['Button6', 'IspočetkaButton', 'Ispočetka']
+   |    |    | child_window(title="Ispočetka", class_name="Button")
+   |    |    | 
+   |    |    | Button - 'Izvrši'    (L912, T732, R990, B757)
+   |    |    | ['Button7', 'Izvrši', 'IzvršiButton']
+   |    |    | child_window(title="Izvrši", class_name="Button")
+   |    |    | 
+   |    |    | Button - 'Uredi sve'    (L990, T732, R1068, B757)
+   |    |    | ['Button8', 'Uredi sveButton', 'Uredi sve']
+   |    |    | child_window(title="Uredi sve", class_name="Button")
+   |    | 
+   |    | wxWindow - 'text'    (L122, T173, R910, B733)
+   |    | ['wxWindow', 'textwxWindow', 'text']
+   |    | child_window(title="text", class_name="wxWindow")
+   |    | 
+   |    | wxWindowNR - 'stcwindow'    (L122, T735, R910, B757)
+   |    | ['wxWindowNR5', 'stcwindow', 'stcwindowwxWindowNR']
+   |    | child_window(title="stcwindow", class_name="wxWindowNR")
+   |    | 
+   |    | Button - 'Zaustavi'    (L912, T177, R990, B202)
+   |    | ['Zaustavi', 'ZaustaviButton', 'Button', 'Button0', 'Button1']
+   |    | child_window(title="Zaustavi", class_name="Button")
+   |    | 
+   |    | Button - 'Trace'    (L990, T177, R1068, B202)
+   |    | ['Button2', 'TraceButton', 'Trace']
+   |    | child_window(title="Trace", class_name="Button")
+   |    | 
+   |    | Button - 'Pauziraj'    (L912, T202, R990, B227)
+   |    | ['PauzirajButton', 'Button3', 'Pauziraj']
+   |    | child_window(title="Pauziraj", class_name="Button")
+   |    | 
+   |    | Button - 'Stanje'    (L990, T202, R1068, B227)
+   |    | ['Stanje', 'Button4', 'StanjeButton']
+   |    | child_window(title="Stanje", class_name="Button")
+   |    | 
+   |    | Button - 'Step'    (L912, T227, R990, B252)
+   |    | ['Step', 'Button5', 'StepButton']
+   |    | child_window(title="Step", class_name="Button")
+   |    | 
+   |    | Button - 'Ispočetka'    (L990, T227, R1068, B252)
+   |    | ['Button6', 'IspočetkaButton', 'Ispočetka']
+   |    | child_window(title="Ispočetka", class_name="Button")
+   |    | 
+   |    | Button - 'Izvrši'    (L912, T732, R990, B757)
+   |    | ['Button7', 'Izvrši', 'IzvršiButton']
+   |    | child_window(title="Izvrši", class_name="Button")
+   |    | 
+   |    | Button - 'Uredi sve'    (L990, T732, R1068, B757)
+   |    | ['Button8', 'Uredi sveButton', 'Uredi sve']
+   |    | child_window(title="Uredi sve", class_name="Button")
+   | 
+   | wxWindowNR - 'panel'    (L118, T56, R1072, B166)
+   | ['wxWindowNR3', 'panel', 'panelwxWindowNR', 'panel0', 'panel1', 'panelwxWindowNR0', 'panelwxWindowNR1']
+   | child_window(title="panel", class_name="wxWindowNR")
+   | 
+   | wxWindowNR - 'panel'    (L118, T173, R1072, B761)
+   | ['wxWindowNR4', 'panel2', 'panelwxWindowNR2']
+   | child_window(title="panel", class_name="wxWindowNR")
+   |    | 
+   |    | wxWindow - 'text'    (L122, T173, R910, B733)
+   |    | ['wxWindow', 'textwxWindow', 'text']
+   |    | child_window(title="text", class_name="wxWindow")
+   |    | 
+   |    | wxWindowNR - 'stcwindow'    (L122, T735, R910, B757)
+   |    | ['wxWindowNR5', 'stcwindow', 'stcwindowwxWindowNR']
+   |    | child_window(title="stcwindow", class_name="wxWindowNR")
+   |    | 
+   |    | Button - 'Zaustavi'    (L912, T177, R990, B202)
+   |    | ['Zaustavi', 'ZaustaviButton', 'Button', 'Button0', 'Button1']
+   |    | child_window(title="Zaustavi", class_name="Button")
+   |    | 
+   |    | Button - 'Trace'    (L990, T177, R1068, B202)
+   |    | ['Button2', 'TraceButton', 'Trace']
+   |    | child_window(title="Trace", class_name="Button")
+   |    | 
+   |    | Button - 'Pauziraj'    (L912, T202, R990, B227)
+   |    | ['PauzirajButton', 'Button3', 'Pauziraj']
+   |    | child_window(title="Pauziraj", class_name="Button")
+   |    | 
+   |    | Button - 'Stanje'    (L990, T202, R1068, B227)
+   |    | ['Stanje', 'Button4', 'StanjeButton']
+   |    | child_window(title="Stanje", class_name="Button")
+   |    | 
+   |    | Button - 'Step'    (L912, T227, R990, B252)
+   |    | ['Step', 'Button5', 'StepButton']
+   |    | child_window(title="Step", class_name="Button")
+   |    | 
+   |    | Button - 'Ispočetka'    (L990, T227, R1068, B252)
+   |    | ['Button6', 'IspočetkaButton', 'Ispočetka']
+   |    | child_window(title="Ispočetka", class_name="Button")
+   |    | 
+   |    | Button - 'Izvrši'    (L912, T732, R990, B757)
+   |    | ['Button7', 'Izvrši', 'IzvršiButton']
+   |    | child_window(title="Izvrši", class_name="Button")
+   |    | 
+   |    | Button - 'Uredi sve'    (L990, T732, R1068, B757)
+   |    | ['Button8', 'Uredi sveButton', 'Uredi sve']
+   |    | child_window(title="Uredi sve", class_name="Button")
+   | 
+   | wxWindow - 'text'    (L122, T173, R910, B733)
+   | ['wxWindow', 'textwxWindow', 'text']
+   | child_window(title="text", class_name="wxWindow")
+   | 
+   | wxWindowNR - 'stcwindow'    (L122, T735, R910, B757)
+   | ['wxWindowNR5', 'stcwindow', 'stcwindowwxWindowNR']
+   | child_window(title="stcwindow", class_name="wxWindowNR")
+   | 
+   | Button - 'Zaustavi'    (L912, T177, R990, B202)
+   | ['Zaustavi', 'ZaustaviButton', 'Button', 'Button0', 'Button1']
+   | child_window(title="Zaustavi", class_name="Button")
+   | 
+   | Button - 'Trace'    (L990, T177, R1068, B202)
+   | ['Button2', 'TraceButton', 'Trace']
+   | child_window(title="Trace", class_name="Button")
+   | 
+   | Button - 'Pauziraj'    (L912, T202, R990, B227)
+   | ['PauzirajButton', 'Button3', 'Pauziraj']
+   | child_window(title="Pauziraj", class_name="Button")
+   | 
+   | Button - 'Stanje'    (L990, T202, R1068, B227)
+   | ['Stanje', 'Button4', 'StanjeButton']
+   | child_window(title="Stanje", class_name="Button")
+   | 
+   | Button - 'Step'    (L912, T227, R990, B252)
+   | ['Step', 'Button5', 'StepButton']
+   | child_window(title="Step", class_name="Button")
+   | 
+   | Button - 'Ispočetka'    (L990, T227, R1068, B252)
+   | ['Button6', 'IspočetkaButton', 'Ispočetka']
+   | child_window(title="Ispočetka", class_name="Button")
+   | 
+   | Button - 'Izvrši'    (L912, T732, R990, B757)
+   | ['Button7', 'Izvrši', 'IzvršiButton']
+   | child_window(title="Izvrši", class_name="Button")
+   | 
+   | Button - 'Uredi sve'    (L990, T732, R1068, B757)
+   | ['Button8', 'Uredi sveButton', 'Uredi sve']
+   | child_window(title="Uredi sve", class_name="Button")

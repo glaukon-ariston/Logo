@@ -2,6 +2,8 @@
 
 A SublimeText package that adds syntax highlighting, auto completion and inline help for Logo files. Inline help provided in English and Croatian. 
 
+<img src="demo_animation.png" hspace="1em" />
+
 ## Installation
 
 Download the Logo directory and place it in the Packages/User subdirectory (in SublimeText click on Preferences|Browse Packages...). Then go into the Logo directory and copy either `Logo.sublime-completions_en` or `Logo.sublime-completions_en` into `Logo.sublime-completions` . This way you choose between English and Croatian inline help. The Croatian help has been Google translated and then programmatically corrected so align your expectation accordingly.  
@@ -28,4 +30,30 @@ Download the Logo directory and place it in the Packages/User subdirectory (in S
 - [LibreLogo](http://librelogo.org/en/) is the simple, localized, Logo-like programming environment of LibreOffice with turtle vector graphics for teaching of computing (programming and word processing), DTP and graphic design.
 - [FMSLogo](http://fmslogo.sourceforge.net/)
 
-<img src="demo_animation.png" hspace="1em" />
+## Remote Application Control
+By using [pywinauto](https://pywinauto.github.io/) python package we can with ease control other application running on the same machine. Start with [How to](https://pywinauto.readthedocs.io/en/latest/HowTo.html) document for a description of how to use `pywinauto`.
+
+The following is an example of how to control FMSLogo from `python`. See the output of the `print_control_identifiers` method [here](./pywinauto_print_control_identifiers_FMSLogo_7.4.0.txt)
+```python
+from pywinauto.application import Application
+# app = Application().start(r"c:\path\to\your\application -a -n -y --arguments")
+# app = Application().connect(path=r"c:\path\to\your\application")
+# app = Application().connect(title_re=".*FMSLogo", class_name="FMSLogo")
+app = Application().start(r"C:/app/dev/FMSLogo/FMSLogo.exe")
+app.FMSLogo.menu_select("Datoteka->Učitaj")  # Croatian FMSLogo
+app.FMSLogo.menu_select("File->Open")   # English FMSLogo
+dialogs = app.windows()
+dlg = app.top_window()
+dlg.print_control_identifiers()
+dlg.stcwindow.type_keys('help')
+dlg.['IzvršiButton'].click()
+dlg.stcwindow.type_keys('forward{VK_SPACE}100')
+dlg['Button7'].click()
+dlg.stcwindow.type_keys('rt{VK_SPACE}90{VK_SPACE}forward{VK_SPACE}50{ENTER}')
+dlg.stcwindow.type_keys('rt{ }90{ }forward{ }50{ENTER}')
+dlg.stcwindow.set_text('rt 90 forward 50')
+dlg.text.DrawOutline("red")
+dlg.child_window(title="text", class_name="wxWindow").DrawOutline("red")
+dlg.child_window(title="text", class_name="wxWindow").texts()
+```
+
