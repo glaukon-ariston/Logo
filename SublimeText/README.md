@@ -6,7 +6,7 @@ A SublimeText package that adds syntax highlighting, auto completion and inline 
 
 ## Installation
 
-Download the Logo directory and place it in the Packages/User subdirectory (in SublimeText click on Preferences|Browse Packages...). Then go into the Logo directory and copy either `Logo.sublime-completions_en` or `Logo.sublime-completions_en` into `Logo.sublime-completions` . This way you choose between English and Croatian inline help. The Croatian help has been Google translated and then programmatically corrected so align your expectation accordingly.  
+Download the Logo directory and place it in the Packages/User subdirectory (in SublimeText click on Preferences|Browse Packages...). Then go into the Logo directory and copy either `Logo.sublime-completions_en` or `Logo.sublime-completions_hr` into `Logo.sublime-completions` . This way you choose between English and Croatian inline help. The Croatian help has been Google translated and then programmatically corrected so align your expectations accordingly.  
 
 ## Useful SublimeText Links
 - [SublimeText - Syntax Definitions](http://www.sublimetext.com/docs/3/syntax.html)
@@ -20,7 +20,7 @@ Download the Logo directory and place it in the Packages/User subdirectory (in S
 - StackOverflow [logo-lang](https://stackoverflow.com/questions/tagged/logo-lang) tagged questions
 - [comp.lang.logo](https://groups.google.com/forum/#!forum/comp.lang.logo) newsgroup
 - [Logo Foundation](http://el.media.mit.edu/logo-foundation/index.html)
-- Ian Bicking on [Logo](http://www.ianbicking.org/blog/2007/10/logo.html)
+- [Ian Bicking on Logo](http://www.ianbicking.org/blog/2007/10/logo.html)
 - [Introduction to Computer Programming](http://guyhaas.com/bfoit/itp/IntroCmds.html)
 
 ## Logo Implementations
@@ -31,9 +31,10 @@ Download the Logo directory and place it in the Packages/User subdirectory (in S
 - [FMSLogo](http://fmslogo.sourceforge.net/)
 
 ## Remote Application Control
-By using [pywinauto](https://pywinauto.github.io/) python package we can with ease control other application running on the same machine. Start with [How to](https://pywinauto.readthedocs.io/en/latest/HowTo.html) document for a description of how to use `pywinauto`.
+By using [pywinauto](https://pywinauto.github.io/) python package you can control other application running on the same machine. Start with [How to](https://pywinauto.readthedocs.io/en/latest/HowTo.html) document for a description of how to use `pywinauto`.
 
-The following is an example of how to control FMSLogo from `python`. See the output of the `print_control_identifiers` method [here](./pywinauto_print_control_identifiers_FMSLogo_7.4.0.txt)
+The following code shows how to control FMSLogo from `python`. See the output of the `dlg.print_control_identifiers()` method [here](./pywinauto_print_control_identifiers_FMSLogo_7.4.0.txt).
+
 ```python
 from pywinauto.application import Application
 # app = Application().start(r"c:\path\to\your\application -a -n -y --arguments")
