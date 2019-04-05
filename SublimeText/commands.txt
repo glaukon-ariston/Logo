@@ -48,7 +48,7 @@ bitCut
 bitFit
 bitIndex
 bitLoad
-bitLoadsize
+bitLoadSize
 bitmapTurtle
 bitMode
 bitNot
@@ -118,8 +118,8 @@ dequeue
 dialogCreate
 dialogDelete
 dialogEnable
-dialogFileopen
-dialogFilesave
+dialogFileOpen
+dialogFileSave
 difference
 dir
 directories
@@ -497,7 +497,7 @@ setTimer
 setTurtle
 setTurtleMode
 setWrite
-setWritepos
+setWritePos
 setX
 setXy
 setXyz
@@ -569,7 +569,7 @@ window
 windowCreate
 windowDelete
 windowEnable
-windowFileedit
+windowFileEdit
 windowSet
 winhelp
 word

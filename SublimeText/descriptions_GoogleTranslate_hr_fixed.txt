@@ -1,0 +1,657 @@
+0! Daje umnožak ulaza. Ako nema ulaza, tada PRODUCT daje 1.
+1! Daje zbroj ulaza. Ako nema ulaza, SUM daje 0.
+2! Daje razliku između ulaza.
+3! Daje negativno na ulaz.
+4! . DEFMACRO je kao DEFINE s istim iznimkama kao i .MACRO.
+5! Daje TRUE ako su thing1 i thing2 isti objekt, tako da će primjena mutatora na jedan promijeniti i drugi. Inače daje FALSE, čak i ako su ulazi jednaki u vrijednosti.
+6! Makro je posebna vrsta postupka čiji se izlaz ocjenjuje kao upute u kontekstu pozivatelja makronaredbe. .MACRO je poput TO-a osim što novi postupak postaje makro.
+7! Radi kao OUTPUT, osim što izraz koji daje ulaznu vrijednost možda neće dati vrijednost, u kojem slučaju je učinak jednak STOP-u. Ovo je namijenjeno za uporabu u definicijama upravljačke strukture, za slučajeve u kojima ne znate je li neki izraz proizveo vrijednost.
+8! Mijenja BUTFIRST ulaza popisa na zadanu vrijednost.
+9! Promijeni prvi član popisa kao vrijednost.
+10! Promijenite indeks th stavku polja kao vrijednost. Ovo je slično SETITEM-u, osim što ne provjerava cirkularnost.
+11! Prikazuje količnik ulaza. To jest, ispisuje dividendu podijeljenu s djeliteljem. QUOTIENT daje cijeli broj ako i samo ako je dividenda višestruka od djelitelja. Na primjer, QUOTIENT 5 2 je 2,5, a ne 2, ali QUOTIENT 4 2 je 2, a ne 2,0.
+12! Daje TRUE ako je num1 strogo manji od num2. Daje FALSE u suprotnom.
+13! Daje TRUE ako je num1 manji ili jednak num2. Daje FALSE u suprotnom.
+14! Daje FALSE ako su oba ulaza jednaka, TRUE inače.
+15! Daje TRUE ako su oba ulaza jednaka u suprotnom FALSE.
+16! Daje TRUE ako je num1 strogo veći od num2. Daje FALSE u suprotnom.
+17! Daje TRUE ako je num1 veći ili jednak num2. Daje FALSE u suprotnom.
+18! Izvodi popis jednak njegovom ulazu, ali s određenim zamjenama.
+19! Daje apsolutnu vrijednost (veličinu) ulaza.
+20! Daje trenutno aktivno područje, kao što je postavljeno u SETACTIVEAREA.
+21! Ispisuje popis čiji su članovi imena svih datoteka koje su trenutno otvorene. Ovaj popis ne sadrži datoteku DRIBBLE.
+22! Daje TRUE ako su svi ulazi TRUE u suprotnom FALSE. Svi ulazi moraju biti TRUE ili FALSE.
+23! Daje TRUE ako su svi ulazi TRUE u suprotnom FALSE. Svi ulazi moraju biti TRUE ili FALSE.
+24! Naredba ili operacija koja pokreće predložak, ispunjavajući svoje slotove članovima inputlist-a. Broj članova u unosu ulaza mora biti prihvatljiv broj mjesta za predložak.
+25! Crtanje luka (dijela kruga) na temelju smjera kornjače, položaja kornjače i ulaza. Središnja točka luka je trenutni položaj kornjače. ARC ne pomiče kornjaču.
+26! Pomiče kornjaču duž luka (dio kruga). Luk izmjenjuje količinu koju daje kut za ulaz. Veličina (zakrivljenost) luka se temelji na ulazu u radijus.
+27! Izvodi inverzni kosinus ulaza. Izlaz je dan u stupnjevima u rasponu [0, 180]. num mora biti u rasponu [-1, 1].
+28! Daje inverzni sinus ulaza. Izlaz je dan u stupnjevima u rasponu [-90, 90]. num mora biti u rasponu [-1, 1].
+29! S jednim ulazom daje inverzni tangentni kut od num. Izlaz je prikazan u stupnjevima u rasponu [-90,90].
+30! S jednim ulazom daje inverzni tangentni kut od num. Izlaz je prikazan u stupnjevima u rasponu [-90,90].
+31! Daje popis od tri broja: minimalni, zadani i maksimalni broj ulaza za postupak čije je ime ulaz. Greška je ako ne postoji takav postupak.
+32! Daje niz stavki veličine, od kojih je svaki na početku prazan popis. Ulaz veličine mora biti ne-negativni cijeli broj.
+33! Daje niz stavki veličine, od kojih je svaki na početku prazan popis. Ulaz veličine mora biti ne-negativni cijeli broj.
+34! Daje TRUE ako je ulaz niz, FALSE inače.
+35! Daje TRUE ako je ulaz niz, FALSE inače.
+36! Daje popis čiji su članovi elementi ulaznog niza. Prva stavka izlaza je prvi element niza, bez obzira na podrijetlo polja.
+37! Izvodi broj od 0-255 koji predstavlja znak u trenutnoj kodnoj stranici.
+38! Daje int aritmetički-pomaknute ulijevo po količini bitova. Ako je iznos negativan, pomak je desno s produžetkom znaka. Ulazi moraju biti cijeli brojevi.
+39! Određuje određenoj kornjači da pokrene određeni skup uputa (koje su obično upute za kornjače).
+40! Pomiče kornjaču unatrag, točno nasuprot smjeru kojim se kreće, do određene udaljenosti, mjereno koracima kornjača. Smjer kornjače se ne mijenja.
+41! Daje TRUE ako je znak izvorno unesen s obrnutom crtom (prije njega ili između okomitih crta (|) kako bi se spriječilo njegovo uobičajeno značenjsko značenje). Daje FALSE u suprotnom.
+42! Daje TRUE ako je znak izvorno unesen s obrnutom crtom (prije njega ili između okomitih crta (|) kako bi se spriječilo njegovo uobičajeno značenjsko značenje). Daje FALSE u suprotnom.
+43! Daje TRUE ako je riječ 1 dolazi prije riječi 2 u ASCII slijedu redoslijeda (za riječi slova, abecednim redom). Osjetljivost slučaja određena je vrijednošću CASEIGNOREDP-a.
+44! Daje TRUE ako je riječ 1 dolazi prije riječi 2 u ASCII slijedu redoslijeda (za riječi slova, abecednim redom). Osjetljivost slučaja određena je vrijednošću CASEIGNOREDP-a.
+45! Ako je riječ riječ, ispisuje riječ koja sadrži sve osim prvog znaka ulaza. Ako je stvar popis, daje popis koji sadrži sve osim prvog člana ulaza.
+46! Ispisuje popis koji sadrži BUTFIRST svakog člana popisa ulaza. Greška je ako je bilo koji član popisa ulaza prazan. Sam ulaz može biti prazan, iu tom slučaju izlaz je također prazan.
+47! Daje bitni AND svojih ulaza, koji moraju biti cijeli brojevi. Ako nema ulaza, BITAND daje vrijednost sa svim postavljenim bitovima.
+48! Daje bitni AND svojih ulaza, koji moraju biti cijeli brojevi. Ako nema ulaza, BITAND daje vrijednost sa svim postavljenim bitovima.
+49! Crtanje neprozirnog bloka (pravokutnika) zadanih dimenzija tako da je trenutni položaj kornjače u donjem lijevom kutu bloka. Boja bloka je vrijednost FLOODCOLOR-a.
+50! Kopira dio slike i pohranjuje je u memoriju (ili u međuspremnik, ako je BITINDEX 0). Bilo kada kasnije, BITPASTE možete koristiti za "lijepljenje" na sliku. FMSLogo kopira pravokutnik počevši od položaja kornjače s širinom piksela širine i visinom piksela visine.
+51! Izrezuje dio slike i pohranjuje je u memoriju (ili u međuspremnik, ako je BITINDEX 0). Bilo kada kasnije, BITPASTE možete "zalijepiti" natrag u sliku. FMSLogo reže pravokutnik počevši od položaja kornjače s širinom piksela širine i visinom piksela visine.
+52! Promijeni veličinu (ili "uklapa") trenutno "izrezanu" (BITCUT ili BITCOPY) sliku u određene dimenzije. Bilo kada kasnije, možete "zalijepiti" (BITPASTE) natrag u sliku. FMSLogo uklapa "izrezanu" sliku u širinu piksela širine i visinu piksela visine.
+53! Daje trenutni indeks bitmapa, kako ga postavlja SETBITINDEX. Zadani indeks je 0.
+54! Učitava bitmapu određenu ulaznim imenom datoteke. Ulaz naziva datoteke mora biti riječ koja je naziv valjane bitmap datoteke.
+55! Ispišite širinu i visinu bitmape koja je određena unosom naziva datoteke. Ulaz naziva datoteke mora biti riječ koja je naziv valjane bitmap datoteke.
+56! Prikazuje trenutnu kornjaču (vidi SETTURTLE) u odgovarajući bafer (vidi BITCUT). BITMAPTURTLE može mapirati kornjaču 0 na bitmapu 0, kornjaču 1 na bitmapu 1, kornjaču 2 na bitmapu 2, itd., Na bazi po kornjači.
+57! Prikazuje trenutnu kornjaču (vidi SETTURTLE) u odgovarajući bafer (vidi BITCUT). BITMAPTURTLE može mapirati kornjaču 0 na bitmapu 0, kornjaču 1 na bitmapu 1, kornjaču 2 na bitmapu 2, itd., Na bazi po kornjači.
+58! Daje trenutni način bitmapa koji je postavio SETBITMODE.
+59! Izvodi bitnu negaciju ulaza, koji mora biti cijeli broj.
+60! Daje bitni OR svojih ulaza, koji moraju biti cijeli brojevi. Ako nema ulaza, BITOR daje vrijednost bez postavljenih bitova.
+61! Daje bitni OR svojih ulaza, koji moraju biti cijeli brojevi. Ako nema ulaza, BITOR daje vrijednost bez postavljenih bitova.
+62! Lijepi sliku BITCUT u bitmap indeks koji je odredio BITINDEX. Ako je BITINDEX 0, BITPASTE zalijepi sadržaj međuspremnika. Bitmapa se lijepi na mjesto kornjače, a kornjača je u donjem lijevom kutu.
+63! Lijepi cijelu sliku koja je "izrezana" s BITCUT na x, y koordinatu bitmapa na ulazu indeksa. Nemojte brkati pokazatelje ovdje; ulazni indeks određuje indeks koji će se zalijepiti, dok SETBITINDEX navodi indeks za kopiranje.
+64! Sprema sliku (bitmapnu sliku) vašeg rada na disk računala. Također vam omogućuje da dodate više posla postojećem djelu. Dimenzije slike određuje ACTIVEAREA.
+65! Sprema sliku (bitmapnu sliku) vašeg rada na disk računala. Također vam omogućuje da dodate više posla postojećem djelu. Dimenzije slike određuje ACTIVEAREA.
+66! Ispišite širinu i visinu bitmape koju određuje trenutni BITINDEX. Izlaz je dvodijelni popis oblika [širina visine]. BITSIZE daje [0 0] ako nije učitana bitmapa.
+67! Daje bitni ekskluzivni OR svojih ulaza, koji moraju biti cijeli brojevi. Ako nema ulaza, BITXOR daje vrijednost bez postavljenih bitova.
+68! Daje bitni ekskluzivni OR svojih ulaza, koji moraju biti cijeli brojevi. Ako nema ulaza, BITXOR daje vrijednost bez postavljenih bitova.
+69! Pomiče kornjaču unatrag, točno nasuprot smjeru kojim se kreće, do određene udaljenosti, mjereno koracima kornjača. Smjer kornjače se ne mijenja.
+70! Ako je ulaz riječ, BUTLAST ispisuje riječ koja sadrži sve osim zadnjeg znaka ulaza. Ako je ulaz popis, BUTLAST daje popis koji sadrži sve osim zadnjeg člana ulaza.
+71! Ispisuje popis sadržaja koji se sastoji od tri popisa, odnosno s imenima svih zakopanih postupaka, varijabli i popisa svojstava u radnom prostoru.
+72! Buries procedure, varijable i popise svojstava imenovanih u inputlistu sadržaja. "Stvar" koja je pokopana nije uključena u popise izlaza prema SADRŽAJU, PROCEDURAMA, IMENU ili PLISTIMA, ali je uključena u izlazni popis popisa pomoću BURIED-a.
+73! Buries sve postupke, varijable i popise svojstava u radnom prostoru. BURYALL skraćuje BURY SADRŽAJ.
+74! Buries varijablu (e) imenovane u ulazu. BURYNAME skraćuje BURY NAMELIST.
+75! Buries varijablu (e) imenovane u ulazu. BURYNAME skraćuje BURY NAMELIST.
+76! Ako je riječ riječ, ispisuje riječ koja sadrži sve osim prvog znaka ulaza. Ako je stvar popis, daje popis koji sadrži sve osim prvog člana ulaza.
+77! Ispisuje popis koji sadrži BUTFIRST svakog člana popisa ulaza. Greška je ako je bilo koji član popisa ulaza prazan. Sam ulaz može biti prazan, iu tom slučaju izlaz je također prazan.
+78! Ako je ulaz riječ, BUTLAST ispisuje riječ koja sadrži sve osim zadnjeg znaka ulaza. Ako je ulaz popis, BUTLAST daje popis koji sadrži sve osim zadnjeg člana ulaza.
+79! Stvara kontrolu gumba. Kontrola gumba omogućuje korisniku pokretanje događaja. Jedina funkcija kontrole gumba je pokretanje popisa instrukcija povratnog poziva kada se pritisne.
+80! Briše (zatvara) gumb koji je označen imenom.
+81! Omogućuje ili onemogućuje gumb identificiran po imenu. Ako je stanje jednako TRUE, tada je gumb omogućen. Ako je stanje jednako FALSE, gumb je onemogućen.
+82! Zamjenjuje tekst na gumb koji je označen nazivom s tekstom.
+83! BYE izlazi iz FMSLogo.
+84! Ispisuje rezultat primjene predloška (ili nekoliko predložaka, pogledajte odjeljak pod nazivom Ponovljeno na temelju predloška) uz zadanu vrijednost koja prvi put popunjava utor, a rezultat svake aplikacije koja popunjava utor za sljedeću aplikaciju.
+85! Ispisuje rezultat primjene predloška (ili nekoliko predložaka, pogledajte odjeljak pod nazivom Ponovljeno na temelju predloška) uz zadanu vrijednost koja prvi put popunjava utor, a rezultat svake aplikacije koja popunjava utor za sljedeću aplikaciju.
+86! Ispisuje rezultat primjene predloška (ili nekoliko predložaka, pogledajte odjeljak pod nazivom Ponovljeno na temelju predloška) uz zadanu vrijednost koja prvi put popunjava utor, a rezultat svake aplikacije koja popunjava utor za sljedeću aplikaciju.
+87! Daje rezultat pozivanja CASCADE-a s istim ulazima. Jedina razlika je u tome što je zadani broj ulaza pet umjesto tri.
+88! Obično se mala slova i velika slova smatraju jednakima prema EQUALP, BEFOREP, MEMBERP, itd. Međutim, ako postoji varijabla pod nazivom CASEIGNOREDP i njezina vrijednost nije TRUE, onda ti predikati razmatraju mala i velika slova za biti različit (to jest, nije jednak).
+89! Naredba ili operacija koja pokreće ulaz i izlaze sa instrukcijskim popisom bez obzira na izlaze s uputama. Ako lista instrukcija pokreće THROW instrukciju s oznakom koja je jednaka ulaznoj oznaci (usporedba slova neosjetljiva), tada se izvršavanje liste instrukcija odmah prekida.
+90! Daje znak predstavljen brojem brojčanog koda, koji mora biti cijeli broj između 0 i 255.
+91! Mijenja trenutni radni direktorij u naziv direktorija, baš kao i DOS naredbu CHDIR (cd). Ulaz imenika direktorija mora biti riječ. Možete koristiti DIR za popis datoteka i direktorija.
+92! Stvara kontrolnu kućicu. Kontrolni okvir se koristi kako bi se korisniku dala mogućnost odabira između True i False. Potvrdni okvir mora biti povezan s kontrolom grupnog okvira (pogledajte GROUPBOXCREATE).
+93! Briše (zatvara) potvrdni okvir koji je označen imenom.
+94! Omogućuje ili onemogućuje potvrdni okvir po imenu. Ako je stanje jednako TRUE, potvrdni okvir je omogućen. Ako je stanje jednako FALSE, potvrdni je okvir onemogućen.
+95! Ispisuje stanje (Točno ili Netočno) potvrdnog okvira koji je označen imenom.
+96! Postavlja stanje potvrdnog okvira koji je označen nazivom. stanje mora biti True (označeno) ili False (neprovjereno).
+97! Crtanje kruga na temelju položaja kornjače i ulaza radijusa. Središnja točka kruga je trenutni položaj kornjače. KRUG ne pomiče kornjaču.
+98! Pomiče kornjaču u smjeru kazaljke na satu duž kruga zadanog radijusa. Kornjača završava u istom položaju u kojem počinje.
+99! Briše sve crte koje je kornjača nacrtala na grafičkom prozoru. Stanje kornjače (položaj, smjer, način olovke, itd.) Se ne mijenja.
+100! CLEARPALETTE ne radi ništa. Čuva se radi kompatibilnosti sa starim programima, ali njegova funkcija više nije potrebna.
+101! Ispunjava prozor sa SCREENCOLOR-om i šalje kornjaču u početni položaj i smjer.
+102! Briše sav tekst unutar okvira za opoziv naredbi u prozoru zapovjednika.
+103! Briše tajmer koji je zakazao SETTIMER i identificira se pomoću ID-a (1-31).
+104! Zatvara datoteku s nazivom datoteke. Svi sljedeći pokušaji čitanja ili zapisivanja u datoteku neće uspjeti.
+105! Zatvara sve otvorene datoteke.
+106! Završava trenutnu interaktivnu stanku i vraća se u kontekst PAUSE poziva koji ga je pokrenuo. Ako je CONTINUE dan ulaz, ta se vrijednost koristi kao izlaz iz PAUSE.
+107! Završava trenutnu interaktivnu stanku i vraća se u kontekst PAUSE poziva koji ga je pokrenuo. Ako je CONTINUE dan ulaz, ta se vrijednost koristi kao izlaz iz PAUSE.
+108! Kombinira oba njegova ulaza u jednu vrijednost. Ako je drugi ulaz riječ, to se ponaša kao WORD. Ako je drugi ulaz popis, to se ponaša kao FPUT.
+109! Dodaje stavku u dio popisa iz izbornika koji je identificiran imenom.
+110! Stvara kontrolu kombiniranog izbornika. Kontrola kombiniranog izbornika daje korisniku izbor stavki i omogućuje im da unesu izbor koji nije naveden. Combobox je dvije kontrole u jednom: listbox kontrolu i uredi kontrolu.
+111! Briše (zatvara) kombinirani okvir koji je identificiran imenom.
+112! Briše stavku na indeksu iz dijela listne liste kombinacijskog okvira koji je identificiran imenom.
+113! Omogućuje ili onemogućuje kombinirani okvir označen imenom. Ako je stanje jednako TRUE, onda je kombinirani okvir omogućen. Ako je stanje jednako FALSE, onda je kombinirani okvir onemogućen.
+114! Ispisuje tekst unutar kontrolnog dijela za uređivanje kombinacijskog okvira koji je identificiran imenom. To može biti odabrana stavka unutar dijela popisa ili može biti nešto što je korisnik unio u dio za uređivanje.
+115! Postavlja sadržaj kontrolnog dijela za uređivanje kombinacijskog okvira koji je identificiran imenom.
+116! Ispisuje popis sadržaja koji se sastoji od tri popisa koji sadrže nazive definiranih postupaka, varijabli i popisa svojstava. Ovaj popis uključuje sve nepokarene imenovane stavke u radnom prostoru.
+117! Završava trenutnu interaktivnu stanku i vraća se u kontekst PAUSE poziva koji ga je pokrenuo. Ako je CONTINUE dan ulaz, ta se vrijednost koristi kao izlaz iz PAUSE.
+118! Završava trenutnu interaktivnu stanku i vraća se u kontekst PAUSE poziva koji ga je pokrenuo. Ako je CONTINUE dan ulaz, ta se vrijednost koristi kao izlaz iz PAUSE.
+119! Stvara novu proceduru nazvanu newname koja je identična proceduri oldname, koja može biti primitivna. Ako je newname već definirano, izgubi se njegova prethodna definicija. Ako je newname primitiv, redefiniranje nije dopušteno osim ako varijabla REDEFP nema vrijednost TRUE.
+120! Daje kosinus kuta, koji se uzima u stupnjevima.
+121! Ispisuje broj znakova u stvarima, ako je riječ riječ; daje broj stavki u stvarima, ako je to popis ili niz. (Za polje to može ili ne mora biti indeks zadnje stavke, ovisno o porijeklu polja.)
+122! Ispisuje popis s rezultatima procjene predloška. Svaki popis podataka pridonosi mjestu u predlošku; broj mjesta jednak je broju ulaza popisa podataka.
+123! Ispisuje popis s rezultatima procjene predloška. Svaki popis podataka pridonosi mjestu u predlošku; broj mjesta jednak je broju ulaza popisa podataka.
+124! Ispunjava prozor sa SCREENCOLOR-om i šalje kornjaču u početni položaj i smjer.
+125! Briše sav tekst unutar okvira za opoziv naredbi u prozoru zapovjednika.
+126! CURSOR nije podržan u FMSLogo.
+127! Ispisuje stablo (hijerarhiju odnosa roditelj-dijete) prozora. Za svaki ispisani prozor ispisuju se i tip i naziv prozora.
+128! Ispisuje stablo (hijerarhiju odnosa roditelj-dijete) prozora. Za svaki ispisani prozor ispisuju se i tip i naziv prozora.
+129! Definira postupak s imenom procname i tekstom definicije. Ako već postoji postupak s istim imenom, nova definicija zamjenjuje staru. Ulaz teksta mora biti popis čiji su članovi popisi.
+130! Daje TRUE ako je ulaz ime korisničke procedure ili knjižnične procedure.
+131! Daje TRUE ako je ulaz ime korisničke procedure ili knjižnične procedure.
+132! Ispisuje najnoviju (najstariju) stvar koja je uvrštena u red s QUEUE. Ova se vrijednost uklanja iz reda čekanja.
+133! Stvara prozor koji je pogodan za korištenje kao dijaloški okvir. Prozor dijaloga koristi se kao okvir u koji dodajete druge objekte ili kontrole prozora (ponekad se nazivaju widgeti).
+134! Briše (zatvara) dijalog čije je ime ime. Svi dječji prozori i kontrole su također izbrisani.
+135! Omogućuje ili onemogućuje dijalog identificiran po imenu. Ako je stanje jednako TRUE, tada je prozor omogućen. Ako je stanje jednako FALSE, prozor je onemogućen.
+136! Prikazuje standardni prozor "Otvori" prozora. Ne otvara datoteku; to samo dopušta korisniku da odabere željenu datoteku pomoću grafičkog korisničkog sučelja. Ulaz naziva datoteke koristi se za postavljanje zadanih vrijednosti imena, direktorija i / ili proširenja.
+137! Prikazuje standardni dijaloški okvir prozora "Spremi kao". Ne sprema datoteku; to samo dopušta korisniku da odabere željenu datoteku pomoću grafičkog korisničkog sučelja. Ulaz naziva datoteke koristi se za postavljanje zadanih vrijednosti imena, direktorija i / ili proširenja.
+138! Daje razliku između ulaza.
+139! Ispisuje datoteke i direktorije u trenutnom direktoriju. Ispisuje popis FILES i popis DIREKTORIJA.
+140! Ispisuje popis imena svakog direktorija u trenutnom radnom direktoriju.
+141! Daje udaljenost koju kornjača mora voziti duž ravne linije kako bi došla do položaja danog kao ulaz za položaj. Ulaz položaja mora biti popis koji sadrži dvije stavke, X i Y koordinate.
+142! Daje broj, udaljenost koju kornjača mora proći ravnom linijom kako bi dosegla 3D koordinatu. Ulaz položaja mora biti popis s tri stavke koji sadrži X, Y i Z koordinate položaja.
+143! Poziva izvornu funkciju sustava Windows s danim argumentima i daje povratnu vrijednost funkcije. Funkciju mora izvesti DLL koji je učitan s DLLLOAD.
+144! Poziva izvornu funkciju sustava Windows s danim argumentima i daje povratnu vrijednost funkcije. Funkciju mora izvesti DLL koji je učitan s DLLLOAD.
+145! Uklanja DLL koji je učitan s DLLLOAD. Ako je dllname unesen, tada se DLL s tim imenom iskrcava. U suprotnom, najnoviji učitani DLL se iskrcava.
+146! Uklanja DLL koji je učitan s DLLLOAD. Ako je dllname unesen, tada se DLL s tim imenom iskrcava. U suprotnom, najnoviji učitani DLL se iskrcava.
+147! Učitava DLL (Dynamic Linked Library) nazvan dllfilename u FMSLogo. Nakon učitavanja možete pozvati funkcije pomoću DLLCALL-a. Kada završite, DLL možete isprazniti pomoću DLLFREE.
+148! Ponavljano vrednuje popis instrukcija sve dok se procijenjeni conditionlist i dalje prikazuje FALSE. DO.UNTIL procjenjuje instrukcijski popis prije procjene uvjeta, tako da se popis instrukcija uvijek izvodi barem jednom.
+149! Ponavljano vrednuje popis instrukcija sve dok se procijenjeni conditionlist zadrži TRUE. DO.WHILE procjenjuje popis instrukcija prije ocjenjivanja uvjeta, tako da se popis instrukcija uvijek izvodi barem jednom.
+150! Usmjerite nos kornjače prema dolje prema navedenom kutu, mjereno u stupnjevima (1/360 kruga).
+151! Usmjerite nos kornjače prema dolje prema navedenom kutu, mjereno u stupnjevima (1/360 kruga).
+152! Stvara novu datoteku čije je ime ulazni naziv datoteke, kao što je OPENWRITE, i započinje snimanje u toj datoteci sve što se čita s tipkovnice. Ovo pisanje je dodatak pisanju WRITER-u.
+153! Otvara definicije imenovanih stavki u uređivaču.
+154! Otvara sve definicije u radnom prostoru u uređivaču.
+155! Otvara definicije imenovanih stavki u uređivaču.
+156! Otvara sve imenovane varijable u uređivaču.
+157! Otvara sve imenovane varijable u uređivaču.
+158! Otvara sve nepokidane varijable u uređivaču.
+159! Otvara sve imenovane popise svojstava u uređivaču.
+160! Otvara sve imenovane popise svojstava u uređivaču.
+161! Otvara sve nepovučene popise svojstava u uređivaču.
+162! Otvara sve nepokorene postupke u uređivaču.
+163! Crtanje elipse na temelju smjera kornjače, položaja kornjače i zadanih ulaza. Središnja točka elipse je trenutni položaj kornjače. ELLIPSE ne pomiče kornjaču.
+164! Crtanje elipse kao da se kornjača pomiče u smjeru kazaljke na satu u elipsi. Veličina i oblik elipse određeni su inline.semiaxis i crosswise.semiaxis ulaza. Inline.semiaxis ulaz je udaljenost od središnje točke elipse do ruba elipse u smjeru u kojem se kornjača trenutno kreće.
+165! Povlači dio (ili sve) elipse na temelju smjera kornjače, položaja kornjače i danih ulaza. ELLIPSEARC ne pomiče kornjaču. Središnja točka eliptičnog luka je trenutni položaj kornjače.
+166! Pomiče kornjaču u smjeru kazaljke na satu preko eliptičnog luka. Luk obuhvaća stupnjeve elipse arc.angle, počevši od točke opisane stupnjevima start.angle i završavajući na točki opisanoj s (start.angle + arc.angle).
+167! Daje TRUE ako je stvar ili prazan niz ili prazna lista, FALSE inače.
+168! Daje TRUE ako je stvar ili prazan niz ili prazna lista, FALSE inače.
+169! END ograničava kraj postupka koji je definiran s TO.
+170! Daje TRUE ako nema više znakova za čitanje u datoteci za čitanje, FALSE inače.
+171! Daje TRUE ako nema više znakova za čitanje u datoteci za čitanje, FALSE inače.
+172! Daje TRUE ako su oba ulaza jednaka u suprotnom FALSE.
+173! Daje TRUE ako su oba ulaza jednaka u suprotnom FALSE.
+174! Briše procedure, varijable i popise svojstava imenovanih u listi sadržaja. Nakon brisanja, imenovane stvari se ne mogu pozivati ​​ili upućivati. Primitivne procedure se ne brišu ako varijabla REDEFP nema vrijednost TRUE.
+175! Briše sve nepokorene procedure, varijable i popise svojstava iz radnog prostora.
+176! Briše sve nepokorene procedure, varijable i popise svojstava iz radnog prostora.
+177! Briše procedure, varijable i popise svojstava imenovanih u listi sadržaja. Nakon brisanja, imenovane stvari se ne mogu pozivati ​​ili upućivati. Primitivne procedure se ne brišu ako varijabla REDEFP nema vrijednost TRUE.
+178! Briše (briše, uklanja) datoteku pod nazivom naziv datoteke. Datoteka trenutno ne smije biti otvorena.
+179! Briše (briše, uklanja) datoteku pod nazivom naziv datoteke. Datoteka trenutno ne smije biti otvorena.
+180! Briše varijable koje su navedene u ulazu iz radnog prostora. ERN skraćuje ERASE NAMELIST.
+181! Briše varijable koje su navedene u ulazu iz radnog prostora. ERN skraćuje ERASE NAMELIST.
+182! Briše sve nepokretne varijable iz radnog prostora. ERNS skraćuje ERASE NAMES.
+183! Briše popise svojstava imenovanih na ulazu iz radnog prostora. ERPL skraćuje ERASE PLLIST.
+184! Briše popise svojstava imenovanih na ulazu iz radnog prostora. ERPL skraćuje ERASE PLLIST.
+185! Briše sve unburied popise imovine iz radnog prostora. ERPLS skraćuje OBELEŽAVANJE PLISTA.
+186! Briše sve nepokorene postupke iz radnog prostora. ERPS skraćuje postupak brisanja.
+187! ERRACT je instrukcijski popis koji se pokreće kad god se pogreška izbaci i ne postoji CATCH oznaka za "ERROR. ERRACT obično ima vrijednost [PAUSE] kako bi se omogućilo interaktivno otklanjanje pogrešaka.
+188! Ispisuje popis koji opisuje upravo uhvaćenu pogrešku, ako postoji. Ako nije otkrivena pogreška od posljednje uporabe ERROR-a, tada ERROR ispisuje prazan popis. Popis pogrešaka sadrži četiri člana: cijeli broj koji odgovara vrsti pogreške, tekst poruke o pogrešci, naziv postupka u kojem se pogreška dogodila i redak na kojem je došlo do pogreške.
+189! EVENTCHECK naredba je poput pozivanja YIELD odmah nakon čega slijedi NOYIELD. Provjerava da li neki događaji čekaju na obradu. Neke naredbe koje unose "povratne pozive" pokreću ih u stanju bez prinosa.
+190! Daje e (2.718281828 ...) na snagu eksponenta.
+191! Ovo je posebna riječ koja označava negativno stanje. FALSE je rezervirana vrijednost, a ne postupak ili varijabla.
+192! Pomiče kornjaču naprijed u smjeru kojim se kreće prema određenoj udaljenosti, mjerenoj koracima kornjača. Smjer kornjače se ne mijenja.
+193! Navodi kornjači da uđe u način "ograda". U ogradnom modu, kada se od kornjače traži da se pomakne iza granice grafičkog prozora, pomiče se što je dalje moguće, a zatim se zaustavlja na rubu s porukom pogreške "izvan granica".
+194! Ispisuje popis imena svake datoteke u trenutnom radnom direktoriju. Imena datoteka sortirana su abecednim redom.
+195! Ispunjava područje grafičkog prozora koji sadrži kornjaču i ograničeno je crtama koje su ranije izvučene. Ispunjava trenutnu vrijednost FLOODCOLOR-a.
+196! Ispunjava područje grafičkog prozora koji sadrži kornjaču i ograničeno je crtama koje su ranije izvučene. Ispunjava trenutnu vrijednost FLOODCOLOR-a.
+197! Daje riječ ili popis, ovisno o vrsti ulaza podataka, koji sadrži podskup članova (za popis) ili znakove (za riječ) ulaza. Ulaz uvjeta predloška procjenjuje se jednom za svakog člana podataka i mora proizvesti vrijednost TRUE ili FALSE.
+198! Daje prva stavka ulaznog podatka za koju je vrijednost dobivena vrednovanjem predloška uvjeta s tom stavkom u svojem utoru TRUE. Ako ne postoji takva stavka, FIND daje prazan popis.
+199! Ako je stvar riječ, ispisuje prvi znak riječi. Ako je stvar popis, daje prvi član popisa. Ako je stvar niz, ispisuje podrijetlo polja (tj. Indeks prvog elementa polja).
+200! Ispisuje popis koji sadrži PRVI od svakog člana popisa ulaza. Greška je ako je bilo koji član popisa ulaza prazan. Sam ulaz može biti prazan, iu tom slučaju izlaz je također prazan.
+201! Daje informacije o boji poplave. To je ili indeks boje (broj od 0 do 15) ili popis intenziteta intenziteta, ovisno o tome kako je postavljena boja poplave.
+202! Daje informacije o boji poplave. To je ili indeks boje (broj od 0 do 15) ili popis intenziteta intenziteta, ovisno o tome kako je postavljena boja poplave.
+203! Ispisuje popis imena svih fontova fonta koje podržava operacijski sustav. Redoslijed popisa nije definiran.
+204! FOR je fleksibilan alat za iteraciju.
+205! Naredba koja procjenjuje templatelist više puta, jednom za svaku stavku u datalistu. Ako je dano više od jednog popisa podataka, svaki od njih mora biti iste duljine. Ako su ulazni podaci riječi, tada se predložak procjenjuje jednom za svaki znak.
+206! Naredba koja procjenjuje templatelist više puta, jednom za svaku stavku u datalistu. Ako je dano više od jednog popisa podataka, svaki od njih mora biti iste duljine. Ako su ulazni podaci riječi, tada se predložak procjenjuje jednom za svaki znak.
+207! Više puta izvodi popis uputa, zauvijek.
+208! Daje riječ koja sadrži ispisivi broj num, po mogućnosti prije razmaka (i stoga nije broj u svrhu izvođenja aritmetičkih operacija). Izlaz ima najmanje širine znakova, uključujući točno precizne znamenke nakon decimalne točke.
+209! Pomiče kornjaču naprijed u smjeru kojim se kreće prema određenoj udaljenosti, mjerenoj koracima kornjača. Smjer kornjače se ne mijenja.
+210! Ispisuje popis jednak popisu sa stvarima koje se stavljaju na prednju stranu.
+211! Odvojite prozor zapovjednika iz prozora zaslona kako biste mogli promijeniti veličinu kako biste povećali prostor za grafiku. Prozor za zapovjednika je uvijek na vrhu prozora zaslona, ​​tako da vam može biti korisno minimizirati prozor zapovjednika nakon što ga isključite.
+212! Odvojite prozor zapovjednika iz prozora zaslona kako biste mogli promijeniti veličinu kako biste povećali prostor za grafiku. Prozor za zapovjednika je uvijek na vrhu prozora zaslona, ​​tako da vam može biti korisno minimizirati prozor zapovjednika nakon što ga isključite.
+213! Ispisuje prikaz postupka u kojem se čuvaju informacije o formatiranju. Ako je postupak definiran s TO, EDIT ili LOAD, izlaz je popis riječi.
+214! Daje jedinstvenu riječ svaki put kad je pozvana. Riječi su oblika G1, G2, itd. Ovo se obično koristi za dinamičko generiranje naziva varijabli.
+215! Ispisuje naslov (naslov) prozora u fokusu.
+216! Učitava GIF sliku (komprimiranu bitmapu) određenu ulaznim imenom datoteke. Ulaz naziva datoteke mora biti riječ koja je naziv valjane GIF datoteke.
+217! Spremite sliku svog rada kao sliku GIF (izgovara se "jif") tako da se može koristiti na web-stranicama ili e-pošti. Dimenzije slike određuje ACTIVEAREA.
+218! Spremite sliku svog rada kao sliku GIF (izgovara se "jif") tako da se može koristiti na web-stranicama ili e-pošti. Dimenzije slike određuje ACTIVEAREA.
+219! Spremite sliku svog rada kao sliku GIF (izgovara se "jif") tako da se može koristiti na web-stranicama ili e-pošti. Dimenzije slike određuje ACTIVEAREA.
+220! Spremite sliku svog rada kao sliku GIF (izgovara se "jif") tako da se može koristiti na web-stranicama ili e-pošti. Dimenzije slike određuje ACTIVEAREA.
+221! Ispišite širinu i visinu GIF datoteke koja je određena unosom naziva datoteke. Ulaz naziva datoteke mora biti riječ koja je naziv valjane GIF datoteke.
+222! Daje bliska aproksimacija zlatnog omjera, koji je (1 + SQRT 5) / 2.
+223! Mijenja mjesto izvršenja u postupku na određenu oznaku.
+224! Ispisuje vrijednost svojstva imenom ime svojstva u popisu svojstava pod nazivom plistname ili praznim popisom ako nema takve imovine ili popisa svojstava.
+225! Daje TRUE ako je num1 strogo veći od num2. Daje FALSE u suprotnom.
+226! Daje TRUE ako je num1 veći ili jednak num2. Daje FALSE u suprotnom.
+227! Daje TRUE ako je num1 veći ili jednak num2. Daje FALSE u suprotnom.
+228! Daje TRUE ako je num1 strogo veći od num2. Daje FALSE u suprotnom.
+229! Napravite kontrolu grupnog okvira. Kontrola grupnog okvira je jedinstvena kontrola u usporedbi s drugim kontrolama jer sve to radi grupne radio gumbe (vidi RADIOBUTTONCREATE) i potvrdne okvire (vidi CHECKBOXCREATE) i grafički i logički.
+230! Briše (zatvara) kontrolu grupnog okvira koja je označena imenom.
+231! Naredba HALT odmah zaustavlja FMSLogo od obrade daljnjih naredbi i vraća kontrolu zapovjedniku. To je isto kao i pritiskanje tipke za zaustavljanje.
+232! Daje TRUE ako trenutno odabrana kornjača ima vlastitu postavku za PENMODE, PENSIZE i PENCOLOR. Daje FALSE ako trenutno odabrana kornjača dijeli postavke olovke s drugim kornjačama.
+233! Daje TRUE ako trenutno odabrana kornjača ima vlastitu postavku za PENMODE, PENSIZE i PENCOLOR. Daje FALSE ako trenutno odabrana kornjača dijeli postavke olovke s drugim kornjačama.
+234! Daje smjer kornjače mjereno u stupnjevima u smjeru kazaljke na satu od pozitivne Y-osi.
+235! Otvara priručnik za FMSLogo. HELP ima dva oblika: sa i bez ulaza ključne riječi. Kada nijedna ključna riječ nije dana, FMSLogo otvara FMSLogo priručnik na sadržaj.
+236! Otvara priručnik za FMSLogo. HELP ima dva oblika: sa i bez ulaza ključne riječi. Kada nijedna ključna riječ nije dana, FMSLogo otvara FMSLogo priručnik na sadržaj.
+237! Čini kornjaču nevidljivom. Da bi kornjača ponovno bila vidljiva, nazovite SHOWTURTLE.
+238! Pomiče kornjaču u središte zaslona i postavlja smjer kornjače, smjer i skretanje na 0.
+239! Čini kornjaču nevidljivom. Da bi kornjača ponovno bila vidljiva, nazovite SHOWTURTLE.
+240! Minimizira prozor čiji se naslov podudara s opisom. Pojam "ICON" dolazi iz starih vremena kada su Windows aplikacije minimizirane u male ikone.
+241! Naredba ili operacija gdje: Ako se uvjet procjenjuje na TRUE, onda IF pokreće true.instructionlist. Ako se stanje procjenjuje na FALSE, tada IF ništa ne čini. Ako je dao false.instructionlist ulaz, ako djeluje kao IFELSE.
+242! Naredba ili operacija gdje: Ako se uvjet procjenjuje na TRUE, onda IF pokreće true.instructionlist. Ako se stanje procjenjuje na FALSE, tada IF ništa ne čini. Ako je dao false.instructionlist ulaz, ako djeluje kao IFELSE.
+243! Naredba ili operacija gdje: Ako se uvjet procjenjuje na TRUE, IFELSE pokreće true.instructionlist. Ako uvjet procijeni na FALSE, IFELSE pokreće false.instructionlist.
+244! Pokreće popis instrukcija ako je najnovija TEST instrukcija imala FALSE ulaz. Inače ne radi ništa. TEST mora biti u istom postupku ili superprocesu.
+245! Pokreće popis instrukcija ako je najnovija TEST instrukcija imala FALSE ulaz. Inače ne radi ništa. TEST mora biti u istom postupku ili superprocesu.
+246! Pokreće popis instrukcija ako je najnovija TEST instrukcija imala TRUE ulaz. Inače ne radi ništa. TEST mora biti u istom postupku ili superprocesu.
+247! Pokreće popis instrukcija ako je najnovija TEST instrukcija imala TRUE ulaz. Inače ne radi ništa. TEST mora biti u istom postupku ili superprocesu.
+248! IGNORE ne radi ništa. To je korisno kada se izraz procijeni na nuspojavu i njegov stvarni izlaz je nevažan.
+249! Čita vrijednost (ili otpor preko) kanala porta igre određenog maskom. Ulaz maske mora biti 1, 2, 4 ili 8. Ako je maska ​​1, INGAMEPORT čita os x.
+250! Čita 2 bajta (16 bita) iz porta određenog portidom i ispisuje podatke kao cijeli broj. Portidni ulaz određuje port "Hardware".
+251! Čita jedan bajt iz porta navedenog s portid i ispisuje podatke kao cijeli broj. Portidni ulaz određuje port "Hardware".
+252! Daje svoj ulaz s uklonjenim djelomičnim dijelom. To jest, INT daje cijeli broj s istim znakom kao i ulaz, čija je apsolutna vrijednost najveći cijeli broj manji ili jednak apsolutnoj vrijednosti ulaza.
+253! Postupak koji pokreće predložak, punjenje mjesta s preostalim ulazima. Broj ulaza mora biti prihvatljiv broj mjesta za predložak. Protuzakonito je koristiti primitivni TO kao predložak, ali sve drugo je u redu.
+254! Postupak koji pokreće predložak, punjenje mjesta s preostalim ulazima. Broj ulaza mora biti prihvatljiv broj mjesta za predložak. Protuzakonito je koristiti primitivni TO kao predložak, ali sve drugo je u redu.
+255! Ispisuje uzastopni poredani popis brojeva koji počinju s od i završavaju s do. Ako je od veći od do, tada ISEQ daje niz koji se broji unatrag.
+256! Ako je stvar riječ, stavka ITEM ispisuje indeksni znak riječi.
+257! Predikat koji ispisuje TRUE ako ima više znakova za čitanje iz čitanog toka. Ako je čitani tok datoteka, onda je KEYP ekvivalent NE EOFP. Ako je tok za čitanje postavljen na Commander, tada KEYP uvijek daje TRUE.
+258! Onemogućuje privlačenje događaja tipkovnice.
+259! Pokreće događaje u tipkovnici i šalje ih u keydown i keyup. Kada se pritisne tipka, zove se keydown. Kada se tipka otpusti, zove se keyup. Možete odrediti tipku koju ste pritisnuli ili otpustili pozivanjem KEYBOARDVALUE u postupku keydown ili keyup.
+260! Pokreće događaje u tipkovnici i šalje ih u keydown i keyup. Kada se pritisne tipka, zove se keydown. Kada se tipka otpusti, zove se keyup. Možete odrediti tipku koju ste pritisnuli ili otpustili pozivanjem KEYBOARDVALUE u postupku keydown ili keyup.
+261! Daje broj koji odgovara zadnjem ključu koji je pritisnut ili otpušten. Broj koji daje ovisi o pritisnutoj tipki i o tome je li KEYBOARDON dobio jedan ili dva ulaza.
+262! Predikat koji ispisuje TRUE ako ima više znakova za čitanje iz čitanog toka. Ako je čitani tok datoteka, onda je KEYP ekvivalent NE EOFP. Ako je tok za čitanje postavljen na Commander, tada KEYP uvijek daje TRUE.
+263! Ispisuje tekst na zaslon na trenutačnom položaju i smjeru kornjače.
+264! Ispisuje popis koji opisuje trenutni font koji koristi naredba LABEL.
+265! Izvodi veličinu (širinu i visinu) danog teksta ako je prikazana s naredbom LABEL. Ulaz može biti riječ ili popis. Izlaz je popis s dvije stavke [širina visine].
+266! Ako je stvar riječ, ispisuje posljednji znak riječi. Ako je stvar popis, daje zadnji član popisa.
+267! Okreće kornjaču u smjeru suprotnom od kazaljke na satu za određeni kut, mjereno u stupnjevima (1/360 kruga).
+268! Vrtite kornjaču prema lijevoj strani prema navedenom kutu, mjereno u stupnjevima (1/360 kruga).
+269! Daje TRUE ako je num1 strogo manji od num2. Daje FALSE u suprotnom.
+270! Daje TRUE ako je num1 manji ili jednak num2. Daje FALSE u suprotnom.
+271! Daje TRUE ako je num1 manji ili jednak num2. Daje FALSE u suprotnom.
+272! Daje TRUE ako je num1 strogo manji od num2. Daje FALSE u suprotnom.
+273! Ispušta atribute osvjetljenja kao popis dva broja, vrijednosti ambijenta i difuzije.
+274! Ispisuje popis čiji su članovi njegovi ulazi, što može biti bilo koja stvar iz logotipa (riječ, popis ili niz).
+275! Ispisuje popis čiji su članovi njegovi ulazi, što može biti bilo koja stvar iz logotipa (riječ, popis ili niz).
+276! Izlaz TRUE ako je ulaz popis, FALSE inače.
+277! Dodaje stavku u popisni okvir koji je označen imenom.
+278! Stvara kontrolu popisa. Kontrolna ploča popisa prikazuje korisniku skup stavki i omogućuje im da odaberu jednu od njih.
+279! Briše (zatvara) popisni popis čije je ime ime.
+280! Briše stavku s indeksa iz popisa koji je označen imenom.
+281! Omogućuje ili onemogućuje popisni okvir koji je označen imenom. Ako je stanje jednako TRUE, tada je omogućen popisni okvir. Ako je stanje jednako FALSE, popisni je popis onemogućen.
+282! Ispisuje odabranu stavku unutar popisa koji je označen imenom. Izlaz poprima oblik popisa koji obuhvaća tekst trenutno odabranog retka. Ako ništa nije odabrano, LISTBOXGETSELECT daje prazan popis.
+283! Izlaz TRUE ako je ulaz popis, FALSE inače.
+284! Daje niz s istim elementima kao popis ulaznih podataka.
+285! Daje niz s istim elementima kao popis ulaznih podataka.
+286! Daje prirodni logaritam num. To jest, e (2.718281828 ...) podignut na izlaz = num.
+287! Čita upute iz datoteke s nazivom datoteke i pokreće ih. Datoteka može sadržavati definicije procedure s TO-om, a one se prihvaćaju čak i ako postupak s istim imenom već postoji.
+288! Stvara varijable koje su lokalne za trenutačno pokrenutu proceduru. LOCAL prihvaća kao ulaz jednu ili više riječi ili popis riječi. Lokalna varijabla je stvorena za svaku od ovih riječi, s tom riječju kao svojim nazivom.
+289! Stvara varijable koje su lokalne za trenutačno pokrenutu proceduru. LOCAL prihvaća kao ulaz jednu ili više riječi ili popis riječi. Lokalna varijabla je stvorena za svaku od ovih riječi, s tom riječju kao svojim nazivom.
+290! Stvara varijable koje su lokalne za trenutačno pokrenutu proceduru. LOCAL prihvaća kao ulaz jednu ili više riječi ili popis riječi. Lokalna varijabla je stvorena za svaku od ovih riječi, s tom riječju kao svojim nazivom.
+291! LOCALMAKE objavljuje lokalnu varijablu i dodjeljuje joj varijablu. To je prikladna skraćenica za sljedeći kod: LOCAL varname MAKE vrijednost varname
+292! Daje zajednički logaritam num. To jest, 10 podignuto na izlaz je num.
+293! Ispisuje popis s četiri stavke koji opisuje verziju logotipa koju koristite. Prva stavka je naziv aplikacije (FMSLogo). Druga stavka je verzija FMSLogo-a.
+294! Daje riječ koja je kopija riječi, ali sa svim velikim slovima promijenjenim u odgovarajuće malo slovo.
+295! Ispisuje popis jednak popisu sa stvarima koje su dodane kao posljednja stavka.
+296! Vrtite kornjaču prema lijevoj strani prema navedenom kutu, mjereno u stupnjevima (1/360 kruga).
+297! Daje int pomaknuli su se logički ulijevo po količini bitova. Ako je iznos negativan, pomak je desno s nultom ispunom. Ulazi moraju biti cijeli brojevi.
+298! Okreće kornjaču u smjeru suprotnom od kazaljke na satu za određeni kut, mjereno u stupnjevima (1/360 kruga).
+299! Ispisuje popis koji opisuje karakteristike stroja. Popis ima sljedeći format: [IsWindowsWordsize BitmapWidth BitmapHeight IsPaletteEnable WindowsVersionMajor WindowsVersionMinor RadnoPrimjernaRegistriranjeRegistriranje DesktopWidth DesktopHeight OuterWindowWidth OuterWindowHeight InnerWindowWidth InnerWindowHeight] Tablica u nastavku prikazuje značenje svakog člana.
+300! Daje TRUE ako je ulaz ime korisničkog makroa ili makronaredbe knjižnice. Daje FALSE u suprotnom.
+301! Operacija koja unosi logotip (macrocall) koji pokreće makro i ispisuje logotip u kojem će makro prevesti ulazni izraz.
+302! Daje TRUE ako je ulaz ime korisničkog makroa ili makronaredbe knjižnice. Daje FALSE u suprotnom.
+303! Naredba koja dodjeljuje vrijednost vrijednosti varijabli pod nazivom varname, koja mora biti riječ. Imena varijabli nisu osjetljiva na veličinu slova. Ako varijabla s istim nazivom već postoji, vrijednost te varijable se mijenja.
+304! Daje riječ ili popis, ovisno o vrsti ulaza podataka, iste duljine kao i ulaz podataka. (Ako je dano više od jednog ulaza podataka, izlaz je istog tipa kao i podaci1.) Svaka stavka izlaza rezultat je vrednovanja templatelista, popunjavajući mjesta odgovarajućim stavkama ulaza podataka (s) ).
+305! Daje riječ ili popis, ovisno o vrsti ulaza podataka, iste duljine kao i ulaz podataka. (Ako je dano više od jednog ulaza podataka, izlaz je istog tipa kao i podaci1.) Svaka stavka izlaza rezultat je vrednovanja templatelista, popunjavajući mjesta odgovarajućim stavkama ulaza podataka (s) ).
+306! Ispisuje popis oblikovan ponovnim vrednovanjem templatelista i ulančavanjem rezultata pomoću SENTENCE. To jest, članovi rezultata su članovi rezultata evaluacija.
+307! Ispisuje popis oblikovan ponovnim vrednovanjem templatelista i ulančavanjem rezultata pomoću SENTENCE. To jest, članovi rezultata su članovi rezultata evaluacija.
+308! Maksimizira prozor čiji se naslov podudara s opisom.
+309! MCI vam omogućuje pisanje Logo postupaka za upravljanje multimedijskim uređajima. Pomoću njega možete povezati zvukove s koracima crtanja slike. Možete pripovijedati vlastiti dijaprojekciju.
+310! MCI vam omogućuje pisanje Logo postupaka za upravljanje multimedijskim uređajima. Pomoću njega možete povezati zvukove s koracima crtanja slike. Možete pripovijedati vlastiti dijaprojekciju.
+311! Daje višedimenzionalni niz.
+312! Daje višedimenzionalni niz.
+313! Daje stavku višedimenzionalnog niza (ili višedimenzionalnu listu) odabranu po popisu brojeva (popis indeksa).
+314! Zamjenjuje stavku u višedimenzionalnom nizu s novom vrijednošću. Stavka koju želite zamijeniti odabire se pomoću popisa indeksa.
+315! Ako je thing2 riječ ili popis i ako bi MEMBERP s ovim ulazima izlazio TRUE, onda bi MEMBER izašao dio od stvari2 iz prvog primjera stvari1 do kraja. Ako bi MEMBERP izlaz FALSE, onda MEMBER ispisuje praznu riječ ili popis prema tipu stvari2.
+316! Ispisuje TRUE ako je thing1 član of stvar2. Daje FALSE u suprotnom.
+317! Ispisuje TRUE ako je thing1 član of stvar2. Daje FALSE u suprotnom.
+318! Prikazuje dijaloški okvir s naslovom u naslovnoj traci i porukom kao porukom. Dijalog ima gumb "OK" i "Cancel". Obrada se ne nastavlja sve dok korisnik ne klikne na jedan od ovih gumba.
+319! Zatvara MIDI uređaj koji je otvoren pomoću MIDIOPEN.
+320! Šalje MIDI poruku MIDI sekvenceru. Prije korištenja ove naredbe morate pozvati MIDIOPEN.
+321! Otvara MIDI uređaj i pristupa mu putem upravljačkog programa MIDI uređaja. Odabrani upravljački program uređaja ovisi o nekoliko stvari. Ako nema ulaza, MIDIOPEN pokušava koristiti MIDI-MAPPER.
+322! Otvara MIDI uređaj i pristupa mu putem upravljačkog programa MIDI uređaja. Odabrani upravljački program uređaja ovisi o nekoliko stvari. Ako nema ulaza, MIDIOPEN pokušava koristiti MIDI-MAPPER.
+323! Minimizira prozor čiji se naslov podudara s opisom.
+324! Daje negativno na ulaz.
+325! Stvara (stvara) direktorij, a zatim u njega mijenja (CHDIR). Ulaz imenika direktorija mora biti riječ (naziv direktorija koji želite napraviti). Možete koristiti naredbu DIR za popis datoteka i direktorija u trenutnom direktoriju.
+326! Daje ostatak dijeljenja dividende podijeljen s djeliteljem. I dividenda i djelitelj moraju biti brojevi, a djelitelj ne smije biti 0.
+327! Onemogućuje hvatanje događaja miša.
+328! Počinje hvatanje događaja miša koji se šalju u prozor "FMSLogo" i prosljeđuje ih na lijevo-desno, lijevo-bočno, desno-desno-desno-gore-desno ili premještati, ovisno o vrsti događaja.
+329! Izvedite položaj miša u trenutku kada je posljednji događaj miša generiran. Položaj se daje kao popis s dvije stavke: [X, Y]. Miš se prvo mora uključiti pozivanjem MOUSEON.
+330! Naredba koja dodjeljuje vrijednost vrijednosti varijabli pod nazivom varname, koja mora biti riječ. Imena varijabli nisu osjetljiva na veličinu slova. Ako varijabla s istim nazivom već postoji, vrijednost te varijable se mijenja.
+331! Daje TRUE ako je ulaz ime varijable. Daje FALSE u suprotnom.
+332! Ispisuje popis sadržaja koji se sastoji od praznog popisa nakon kojeg slijedi popis imena ili naziva danih kao ulaz. To je korisno u kombinaciji s postupcima kontrole radnog prostora koji zahtijevaju popis sadržaja kao ulaz.
+333! Ispisuje popis sadržaja koji se sastoji od praznog popisa nakon kojeg slijedi popis imena ili naziva danih kao ulaz. To je korisno u kombinaciji s postupcima kontrole radnog prostora koji zahtijevaju popis sadržaja kao ulaz.
+334! Daje TRUE ako je ulaz ime varijable. Daje FALSE u suprotnom.
+335! Ispisuje popis sadržaja koji se sastoji od popisa praznih procedura (koji pokazuje da nema naziva procedure), a slijedi popis svih nepokrivenih imena varijabli u radnom prostoru.
+336! Zaustavlja prihvaćanje dolaznih veza.
+337! Omogućuje prihvaćanje veze putem mreže na lokalnom portu. Kada su podaci dostupni, FMSLogo pokreće popis primljenih instrukcija. Da biste dobili primljene podatke, pokrenite NETACCEPTRECEIVEVALUE u popisu instrukcija za prijem.
+338! Ispisuje vrijednost posljednjih primljenih mrežnih podataka u utičnici za prihvaćanje. Najbolje je nazvati ovu proceduru u Vašem prijemnom kodu povratnog poziva vaše NETACCEPTON instrukcije.
+339! Šalje podatke iz prihvatne utičnice.
+340! Isključuje vezu koja je stvorena s NETCONNECTON. Nakon pokretanja ove naredbe, NETCONNECTSENDVALUE i NETCONNECTRECEIVEVALUE više ne rade.
+341! Pokreće vezu preko mreže s udaljenim TCP portom na remotemachinename. Za isključivanje poziva za povezivanje NETCONNECTOFF. Za dobivanje primljenih podataka nazovite NETCONNECTRECEIVEVALUE u popisu instrukcija za primanje.
+342! Ispisuje vrijednost posljednjih mrežnih podataka primljenih na vezu koja je stvorena s NETCONNECTON-om. Najbolje je nazvati ovu proceduru u vašem prijemnom povratnom kodu vaše NETCONNECTON naredbe.
+343! Šalje podatke iz veze koja je stvorena s NETCONNECTON-om.
+344! Isključuje umrežavanje u FMSLogu. Nijedna mrežna procedura u FMSLogu neće raditi dok ponovno ne pozovete NETSTARTUP.
+345! Uključuje umrežavanje u FMSLogu. To se mora pozvati prije nego što počne raditi bilo koja druga mrežna naredba.
+346! Uključuje umrežavanje u FMSLogu. To se mora pozvati prije nego što počne raditi bilo koja druga mrežna naredba.
+347! Vraća kornjaču na prvobitni oblik trokuta. To je suprotno od BITMAPTURTLE.
+348! Ispisuje popis od dva broja. Prvi je broj čvorova memorije koji se trenutno koriste. Drugi je maksimalni broj čvorova koji su se koristili u bilo koje vrijeme od zadnjeg pozivanja NODES-a.
+349! Zaustavlja kopiranje podataka u datoteku driblinga i zatvara datoteku.
+350! Govori logotipu da se ne sjeća kornjačevih prijedloga. To ubrzava crtanje, ali sprječava oporavak ako je prozor zaklonjen drugim prozorom.
+351! Zatvara prozor skočnog statusa, ako je otvoren. Ova naredba ima isti učinak kao i pritiskanje gumba statusa kada je pritisnuta.
+352! Izlaz TRUE ako je ulaz FALSE i obrnuto. Ulaz mora biti boolean vrijednost.
+353! Daje FALSE ako su oba ulaza jednaka, TRUE inače.
+354! Daje FALSE ako su oba ulaza jednaka, TRUE inače.
+355! NOYIELD poručuje FMSLogu da ne prekida pokretanje logotipa kako bi obradio Windows poruke, kao što su ulaz tipkovnice, klikovi mišem ili obavijesti kako bi preoblikovao zaslon.
+356! Daje TRUE ako je stvar broj u suprotnom FALSE.
+357! Daje TRUE ako je stvar broj u suprotnom FALSE.
+358! Završava pokretanje postupka u kojem se pojavljuje. Taj postupak ispisuje vrijednost u kontekst u kojem je pozvan. Nemojte biti zbunjeni: OUTPUT sam je naredba, ali procedura koja pokreće OUTPUT je operacija.
+359! Otvara datoteku s nazivom datoteke za pisanje. Ako datoteka po datom nazivu datoteke već postoji, položaj za pisanje se u početku postavlja na kraj stare datoteke, tako da joj se novi pisani podaci dodaju.
+360! Otvara datoteku s nazivom datoteke za pisanje. Ako datoteka po datom nazivu datoteke već postoji, položaj za pisanje se u početku postavlja na kraj stare datoteke, tako da joj se novi pisani podaci dodaju.
+361! Otvara datoteku s nazivom datoteke za čitanje. Položaj čitanja je u početku na početku datoteke.
+362! Otvara datoteku s nazivom datoteke za čitanje. Položaj čitanja je u početku na početku datoteke.
+363! Otvara datoteku pod nazivom naziv datoteke za čitanje i pisanje. Položaj za čitanje i pisanje u početku se postavlja na kraj stare datoteke, ako postoji. Svaka otvorena datoteka ima samo jedno mjesto za čitanje i pisanje.
+364! Otvara datoteku pod nazivom naziv datoteke za čitanje i pisanje. Položaj za čitanje i pisanje u početku se postavlja na kraj stare datoteke, ako postoji. Svaka otvorena datoteka ima samo jedno mjesto za čitanje i pisanje.
+365! Otvara datoteku s nazivom datoteke za pisanje. Ako datoteka prema datom nazivu datoteke već postoji, stara se verzija briše i stvara se nova, prazna datoteka.
+366! Otvara datoteku s nazivom datoteke za pisanje. Ako datoteka prema datom nazivu datoteke već postoji, stara se verzija briše i stvara se nova, prazna datoteka.
+367! Daje TRUE ako je najmanje jedan ulaz TRUE. Daje FALSE u suprotnom. Svi ulazi moraju biti TRUE ili FALSE.
+368! Daje TRUE ako je najmanje jedan ulaz TRUE. Daje FALSE u suprotnom. Svi ulazi moraju biti TRUE ili FALSE.
+369! Ispisuje popis, svaki od kornjača u [stupcu postavljanja] u stupnjevima. Važno je razumjeti svoju orijentaciju u 3D.
+370! Piše podatke u "hardverski" port naveden s portid. Ulaz podataka mora biti cijeli bajt od 2 bajta (broj od 0 do 65525).
+371! Piše podatke u "hardverski" port naveden s portid. Ulaz podataka mora biti jedan bajt cijeli broj (broj od 0 do 255).
+372! Završava pokretanje postupka u kojem se pojavljuje. Taj postupak ispisuje vrijednost u kontekst u kojem je pozvan. Nemojte biti zbunjeni: OUTPUT sam je naredba, ali procedura koja pokreće OUTPUT je operacija.
+373! Daje popis koji bi nastao ako se riječ unese kao odgovor na rad READLIST. To jest, PARSE READWORD daje istu vrijednost kao i READLIST za iste pročitane znakove.
+374! Naredba ili radnja koja ulazi u interaktivnu stanku. Od korisnika se traže upute s dijaloškim okvirom koji sadrži naziv procedure u kojoj je bio aktiviran PAUSE.
+375! Daje informacije o boji olovke. To je ili indeks boje (broj od 0 - 15) ili popis intenziteta intenziteta crvene zelene boje, ovisno o tome kako je postavljena boja olovke.
+376! Postavlja položaj olovke na "dolje", bez promjene načina rada.
+377! Postavlja položaj olovke na "dolje" i način rada olovke na "brisanje". U načinu brisanja, olovka crta u boji koju je opisao SCREENCOLOR. Koristite PENPAINT za vraćanje olovke u normalnu uporabu.
+378! Ispisuje popis koji sadrži položaj olovke, način rada i značajke specifične za hardver, koje može koristiti SETPEN. Izlaz je popis s sljedećim članovima: [PENDOWNP PENMODE PENSIZOR PENPAINT].
+379! Daje informacije o boji olovke. To je ili indeks boje (broj od 0 - 15) ili popis intenziteta intenziteta crvene zelene boje, ovisno o tome kako je postavljena boja olovke.
+380! Daje informacije o boji olovke. To je ili indeks boje (broj od 0 - 15) ili popis intenziteta intenziteta crvene zelene boje, ovisno o tome kako je postavljena boja olovke.
+381! Postavlja položaj olovke na "dolje", bez promjene načina rada.
+382! Ispisuje TRUE ako je olovka dolje, FALSE ako je gore.
+383! Ispisuje TRUE ako je olovka dolje, FALSE ako je gore.
+384! Postavlja položaj olovke na "dolje" i način rada olovke na "brisanje". U načinu brisanja, olovka crta u boji koju je opisao SCREENCOLOR. Koristite PENPAINT za vraćanje olovke u normalnu uporabu.
+385! Daje jedna od riječi "paint", "erase" ili "reverse" prema trenutnom načinu rada olovke.
+386! Postavlja stanje olovke na početne zadane postavke prema dolje i boje.
+387! Postavlja položaj olovke na "dolje", a način rada na olovku na "bojenje". U načinu boje, olovka crta u boji koju je opisao PENCOLOR. Ovo je zadani način rada.
+388! PENPATTERN nije podržan u FMSLogo.
+389! Postavlja položaj olovke na "dolje", a način rada olovke na "obrnuto". U obrnutom načinu, olovka crta boju koja je bitna negacija bilo kojeg piksela ispod olovke.
+390! Izvodi veličinu olovke kao popis s dvije stavke: [Width Height]. FMSLogo zanemaruje stavku širine.
+391! Postavlja položaj olovke na "gore", bez promjene načina rada.
+392! Navodi kornjači da uđe u način "perspektive". Modus perspektive dodaje treću dimenziju (os Z) kornjači u kojoj živi. Perspektiva je izraz koji opisuje kako gledamo trodimenzionalni svijet na dvodimenzionalnoj površini.
+393! Daje vrijednost pi (3,14159265358979 ...).
+394! Daje iz nasumično odabrane stavke.
+395! Daje kut nagiba kornjače u stupnjevima. Važno je razumjeti svoju orijentaciju u 3D.
+396! Daje boju piksela koji je trenutno pod kornjačom. Ovisno o tome kako je boja posljednje postavljena, izlaz je ili popis brojeva s tri stavke koji predstavlja intenzitet crvene, zelene i plave piksela ili cjelobrojni indeks boje piksela.
+397! Reproducira datoteku s valovima.
+398! Ispisuje popis svojstava u popisu svojstava pod nazivom plistname. Neparne stavke u popisu su nazivi svojstava, a parne stavke su vrijednosti svojstava.
+399! Ispisuje popis sadržaja, koji je popis od tri popisa. Prva dva popisa su prazna, što znači da se ne vraćaju nazivi procedura ili imena varijabli. Treći popis je popis imena svih nepokopanih popisa svojstava u radnom prostoru.
+400! Ispisuje popis sadržaja koji se sastoji od dva prazna popisa iza kojih slijedi popis imena ili naziva danih kao ulaz. Pod trećim podlistom podrazumijevaju se nazivi popisa imovine.
+401! Ispisuje popis sadržaja koji se sastoji od dva prazna popisa iza kojih slijedi popis imena ili naziva danih kao ulaz. Pod trećim podlistom podrazumijevaju se nazivi popisa imovine.
+402! Ispisuje definicije svih postupaka, varijabli i popisa svojstava imenovanih u listi sadržaja na trenutni tok pisanja. Pogledajte odjeljak Upiti radnog prostora za objašnjenje formata liste sadržaja.
+403! Ispisuje sve nepokorene definicije u radnom prostoru u trenutni tok pisanja. POALL skraćuje PO SADRŽAJ.
+404! Dovršava definiciju poligona koji je pokrenut s najnovijim POLYSTART pozivom.
+405! Pokreće definiciju novog poligona. Svaki sljedeći potez dok je kornjača spuštena dodaje koordinat odredišta kao vrh na poligon. Definicija poligona dovršena je pokretanjem naredbe POLYEND.
+406! POLYVIEW briše zaslon i prikazuje sve poligone definirane s POLYSTART i POLYEND kao zasjenjene poligone. Prikazuju se samo zasjenjeni poligoni. Poligoni su osvijetljeni u skladu s položajem izvora svjetla pomoću SETTURTLE -3 i konfiguracije osvjetljenja koja je postavljena pomoću SETLIGHT.
+407! Ispisuje definicije imenovanih varijabli u trenutni tok pisanja. PON skraćuje PO NAMELIST.
+408! Ispisuje definicije imenovanih varijabli u trenutni tok pisanja. PON skraćuje PO NAMELIST.
+409! Ispisuje definicije svih nepokopanih varijabli u radnom prostoru u trenutni tok pisanja. PONS skraćuje PO NAMES.
+410! Ispisuje najnoviju stvar koju je gurnuo na stack imenovan stackname (koristeći PUSH) i uklanja tog člana iz stog.
+411! Izbacuje vas (1 razina) iz direktorija. To je jednako: CHDIR "..
+412! Ispisuje sadržaj imenovanih popisa svojstava u trenutni tok pisanja. POPL skraćuje PO PLLIST.
+413! Ispisuje sadržaj imenovanih popisa svojstava u trenutni tok pisanja. POPL skraćuje PO PLLIST.
+414! Ispisuje sadržaj svih nepokrpanih popisa svojstava u radnom prostoru u trenutni tok pisanja. POPLS skraćuje PO PLISTE.
+415! Ispisuje definicije svih nepokopanih postupaka u radnom prostoru u trenutni tok pisanja. POPS skraćuje PO POSTUPKE.
+416! Zatvara port koji je otvorio PORTOPEN.
+417! Isprazni sve izlazne podatke puferovane memorije na otvoreni priključak.
+418! Postavlja način rada (brzina, paritet, podatkovni bitovi i zaustavni bitovi) otvorenog COM porta. Značajka kontrole protoka ne može se podesiti preko FMSLogo.
+419! Omogućuje vam pristup serijskim i paralelnim priključcima računala. Ulazni ulaz je niz koji je naziv porta koji želite otvoriti (na primjer, COM1-COM4 i LPT1-LPT3).
+420! Čita podatke iz trenutno otvorenog porta u dani međuspremnik. PORTREADARRAY pokušava čitati brojeve bajtova iz porta, ako su dostupni. Kada se bajtovi upisuju u međuspremnik, oni se pišu kao mali cijeli brojevi (između -128 i 127).
+421! Čita jedan bajt iz trenutno otvorenog porta i daje kao cijeli broj od -128 do 127. Također daje "-1" ako znak nije dostupan. Stoga, ako PORTREADCHAR daje -1, to može biti da nema dostupnog znaka ili da je uspješno pročitao -1 bajt.
+422! PORTWRITEARRAY piše u trenutno otvoreni port s podacima u me uspremniku, koji mora biti niz cijelih brojeva veličine bajta. Pokušava napisati broj bajtova u port, ako je moguće.
+423! Piše jedan bajt u trenutno otvoreni port. PORTWRITECHAR daje 1 ako je bajt uspješno napisan i daje -1 u suprotnom. Ulaz podataka mora biti cijeli broj od 0 do 255.
+424! Ispisuje trenutni položaj kornjače, kao popis dva broja, X i Y koordinate.
+425! Ispisuje trenutni položaj kornjače, kao popis od tri broja, X, Y i Z koordinata.
+426! Ispisuje naslovne linije imenovanih postupaka, definicije imenovanih varijabli i sadržaj imenovanih popisa svojstava u trenutni tok pisanja. Za popise svojstava, cijeli popis je prikazan u jednom retku umjesto kao niz PPROP uputa kao u PO.
+427! Ispisuje redak naslova svih nepokopanih postupaka u radnom prostoru u trenutni tok pisanja. POTS skraćuje POT PROCEDURE.
+428! Izlazna baza podignuta je na snagu eksponenta. Ako je baza negativna, tada eksponent mora biti cijeli broj.
+429! Dodaje svojstvo popisu svojstava pod nazivom plistname. Svojstvo se zove ime svojstva i ima vrijednost vrijednosti. Ako ne postoji popis svojstava pod nazivom plistname, on se kreira.
+430! Postavlja položaj olovke na "dolje", a način rada na olovku na "bojenje". U načinu boje, olovka crta u boji koju je opisao PENCOLOR. Ovo je zadani način rada.
+431! Ispisuje ulaz ili ulaz u trenutni tok pisanja (u početku prozor za naredbe-podsjetnik). Svi su ulazi ispisani u jednom retku, odvojeni razmacima, a završavaju se novim retkom.
+432! Ispisuje ulaz ili ulaz u trenutni tok pisanja (u početku prozor za naredbe-podsjetnik). Svi su ulazi ispisani u jednom retku, odvojeni razmacima, a završavaju se novim retkom.
+433! Izlaz TRUE ako je ulaz ime primitivnog (onaj koji je ugrađen u FMSLogo), inače daje FALSE. Napominjemo da su mnoge procedure FMSLogo-a knjižnične procedure, a ne primitivci.
+434! Izlaz TRUE ako je ulaz ime primitivnog (onaj koji je ugrađen u FMSLogo), inače daje FALSE. Napominjemo da su mnoge procedure FMSLogo-a knjižnične procedure, a ne primitivci.
+435! Ispisuje ulaz ili ulaz u trenutni tok pisanja (u početku prozor za naredbe-podsjetnik). Svi su ulazi ispisani u jednom retku, odvojeni razmacima, a završavaju se novim retkom.
+436! Ispisuje ulaz ili ulaz u trenutni tok pisanja (u početku prozor za naredbe-podsjetnik). Svi su ulazi ispisani u jednom retku, odvojeni razmacima, a završavaju se novim retkom.
+437! PRINTDEPTHLIMIT je posebna varijabla. Ako je njegova vrijednost ne-negativan cijeli broj, tada FMSLogo tretira svoju vrijednost kao maksimalnu dubinu strukture podliste (ili subarra) koja se ispisuje pomoću PRINT, itd.
+438! PRINTWIDTHLIMIT je posebna varijabla. Ako je njegova vrijednost ne-negativan cijeli broj, FMSLogo svoju vrijednost tretira kao maksimalni broj stavki u bilo kojem popisu (ili nizu) koji je ispisao PRINT, itd.
+439! Izlaz TRUE ako je ulaz ime postupka, drugačije daje FALSE.
+440! Izlaz TRUE ako je ulaz ime postupka, drugačije daje FALSE.
+441! Ispisuje popis sadržaja koji se sastoji od svih nepokarenih korisnički definiranih postupaka u radnom prostoru.
+442! Daje umnožak ulaza. Ako nema ulaza, tada PRODUCT daje 1.
+443! Daje umnožak ulaza. Ako nema ulaza, tada PRODUCT daje 1.
+444! Izlaz TRUE ako je ulaz ime popisa svojstava, drugačije daje FALSE.
+445! Izlaz TRUE ako je ulaz ime popisa svojstava, drugačije daje FALSE.
+446! Postavlja položaj olovke na "gore", bez promjene načina rada.
+447! Dodaje stvar na prednji dio stog čije ime je stackname.
+448! Postavlja položaj olovke na "dolje", a način rada olovke na "obrnuto". U obrnutom načinu, olovka crta boju koja je bitna negacija bilo kojeg piksela ispod olovke.
+449! Prikazuje dijaloški okvir s naslovom u naslovnoj traci, pitanje kao poruku i kontrolu uređivanja za ulaz teksta. Dijaloški okvir također ima gumbe "OK" i "Cancel". Obrada se ne nastavlja sve dok korisnik ne klikne na jedan od ovih gumba.
+450! Dodaje stvar na stražnji dio reda čije je ime queuename.
+451! Ako je ulaz riječ, QUOTED daje s prednje strane s znakom dvostrukog citiranja ("), inače QUOTED daje bez obzira na ulaz.
+452! Prikazuje količnik ulaza. To jest, ispisuje dividendu podijeljenu s djeliteljem. QUOTIENT daje cijeli broj ako i samo ako je dividenda višestruka od djelitelja. Na primjer, QUOTIENT 5 2 je 2,5, a ne 2, ali QUOTIENT 4 2 je 2, a ne 2,0.
+453! Prikazuje količnik ulaza. To jest, ispisuje dividendu podijeljenu s djeliteljem. QUOTIENT daje cijeli broj ako i samo ako je dividenda višestruka od djelitelja. Na primjer, QUOTIENT 5 2 je 2,5, a ne 2, ali QUOTIENT 4 2 je 2, a ne 2,0.
+454! Izvodi inverzni kosinus ulaza. Izlaz je dan u radijanima u rasponu [0, PI]. num mora biti u rasponu [-1, 1].
+455! Daje inverzni sinus ulaza. Izlaz je dan u radijanima u rasponu [-PI / 2, PI / 2]. num mora biti u rasponu [-1, 1].
+456! S jednim ulazom daje inverzni tangentni kut od num. Izlaz je dan u radijanima u rasponu [-PI / 2, PI / 2].
+457! S jednim ulazom daje inverzni tangentni kut od num. Izlaz je dan u radijanima u rasponu [-PI / 2, PI / 2].
+458! Daje kosinus kuta, koji se uzima u radijanima.
+459! Stvara radio kontrolni gumb. Upravljački gumb s gumbom omogućuje korisniku da odabere stavku s dva stanja (TRUE ili FALSE). No, uz to je ograničenje da samo jedan radio gumb unutar grupe okvir može biti postavljen na TRUE u bilo kojem trenutku.
+460! Briše (zatvara) radio gumb koji je označen imenom.
+461! Omogućuje ili onemogućuje radio gumb identificiran po imenu. Ako je stanje jednako TRUE, tada je omogućen radio gumb. Ako je stanje jednako FALSE, radio gumb je onemogućen.
+462! Daje stanje (TRUE ili FALSE) radio gumba koji je označen imenom.
+463! Postavlja stanje radio gumba koji je označen nazivom. stanje mora biti TRUE (pritisnuto) ili FALSE (neispisano).
+464! Daje sinusni kut, koji se uzima u radijanima.
+465! Daje tangens kuta, koji se uzima u radijanima.
+466! Daje jednolični slučajni cijeli broj od 0 do ulaza raspona (ne uključujući ulaz za raspon). Ulaz raspona mora biti nenegativan cijeli broj.
+467! Daje broj koji predstavlja znak u vašoj trenutnoj kodnoj stranici.
+468! Čita jedan znak iz čitanog toka i daje. Ako je čitani tok otvoren za čitanje teksta, tada se znak ispisuje kao riječ. Ako je čitani tok otvoren za binarno čitanje, tada se znak ispisuje kao broj.
+469! Čita znakove brojeva iz čitanog toka i daje te znakove kao riječ. Ako je broj veći od broja preostalih znakova u struji čitanja, READCHARS šalje ostatak toka čitanja.
+470! Čita jedan znak iz čitanog toka i daje. Ako je čitani tok otvoren za čitanje teksta, tada se znak ispisuje kao riječ. Ako je čitani tok otvoren za binarno čitanje, tada se znak ispisuje kao broj.
+471! Čita znakove brojeva iz čitanog toka i daje te znakove kao riječ. Ako je broj veći od broja preostalih znakova u struji čitanja, READCHARS šalje ostatak toka čitanja.
+472! Daje ime trenutne strujne datoteke za čitanje, ili prazni popis, ako je čitanje struja zapovjednik.
+473! Čita redak iz čitanog toka (u početku je skočni dijaloški okvir) i ispisuje taj redak kao popis. Redak je podijeljen na stavke kao da su u uputama upisivane u uglatim zagradama.
+474! Ispisuje položaj znaka datoteke trenutne datoteke struje čitanja kao broj. Izlazna vrijednost 0 znači da je položaj čitanja na početku toka.
+475! Čita redak iz čitanog toka i daje taj redak kao riječ. READRAWLINE prikazuje točan niz znakova koji se pojavljuju u retku, bez posebnog značenja za obrnutu kosu crtu, vertikalnu traku, tildu ili bilo koje druge znakove za oblikovanje.
+476! Čita liniju iz toka čitanja i ispisuje taj redak kao riječ (bez redoslijeda na kraju retka). Izlaz je jedna riječ čak i ako red sadrži razmake, zagrade itd.
+477! Ako je TRUE, dopušta se primitivama da se izbrišu (vidi ERASE) ili redefinirati (pogledajte COPYDEF).
+478! Ispisuje rezultat primjene predloška kako bi se akumulirale stavke ulaza podataka, dvije stavke odjednom.
+479! Kaže logotipu da zapamti kornjačeve prijedloge kako bi ih se moglo rekonstruirati u slučaju da je grafički prozor zaklonjen drugim prozorom.
+480! Ispisuje ostatak dijeljenja dividende prema djelitelju. I dividenda i djelitelj moraju biti brojevi, a djelitelj ne smije biti 0.
+481! Ispisuje kopiju ulaza s uklonjenim duplikatima. Ako su dva ili više članova ulaza jednaki, krajnji desni član je onaj koji ostaje u izlazu.
+482! Daje nova stvar koja je jednaka stvarima kod kojih su svi članovi jednaki stvarima koje treba ukloniti.
+483! Uklanja svojstvo imenom ime iz popisa svojstava pod nazivom plistname, ako postoji. Ako REMPROP ukloni završno svojstvo iz popisa svojstava, tada se popis svojstava može izbrisati.
+484! Daje broj trenutnog ponavljanja popisa naredbi REPEAT naredbe. To znači da daje 1 kada se prvi put pokreće popis naredbi, daje 2 po drugi put i tako dalje.
+485! Ponavlja upute u popisu s uputama, brojati puta.
+486! Omogućuje reprodukciju RANDOM reprodukcije. Obično je redoslijed slučajnih brojeva različit svaki put kad se koristi logotip. Ako vam je potreban isti redoslijed pseudo-slučajnih brojeva više puta, na primjer, za ispravljanje pogrešaka programa, pokrenite RERANDOM prije prvog pozivanja RANDOM ili PICK.
+487! Omogućuje reprodukciju RANDOM reprodukcije. Obično je redoslijed slučajnih brojeva različit svaki put kad se koristi logotip. Ako vam je potreban isti redoslijed pseudo-slučajnih brojeva više puta, na primjer, za ispravljanje pogrešaka programa, pokrenite RERANDOM prije prvog pozivanja RANDOM ili PICK.
+488! Vraća (unminimizes ili unmaximizes) prozor čiji naslov odgovara opisu veličine i položaja koji je imao prije nego je minimiziran ili maksimiziran.
+489! Daje obrnuto od ulaza.
+490! Okreće kornjaču u smjeru kazaljke na satu za određeni kut, mjereno u stupnjevima (1/360 kruga).
+491! Vrtite kornjaču prema desnoj strani za određeni kut, mjereno u stupnjevima (1/360 kruga).
+492! Čita redak iz čitanog toka (u početku je skočni dijaloški okvir) i ispisuje taj redak kao popis. Redak je podijeljen na stavke kao da su u uputama upisivane u uglatim zagradama.
+493! Uklanja (briše) direktorij imenom directoryname. Ulaz imenika direktorija mora biti riječ (naziv postojećeg direktorija). Ne možete ukloniti direktorij ako je to vaš radni direktorij.
+494! Daje kut okretanja kornjače u stupnjevima. Važno je razumjeti svoju orijentaciju u 3D.
+495! Na ulaz unosi najbliži cijeli broj.
+496! Vrtite kornjaču prema desnoj strani za određeni kut, mjereno u stupnjevima (1/360 kruga).
+497! Daje poredani popis brojeva jednako razmaknutih racionalnih brojeva koji počinju od i završavaju s do. Ako je od je veći od do, onda RSEQ daje slijed koji se broji unatrag.
+498! Okreće kornjaču u smjeru kazaljke na satu za određeni kut, mjereno u stupnjevima (1/360 kruga).
+499! Pokreće upute u popisu s uputama; daje ako popis sadrži izraz koji daje.
+500! Ispisuje popis koji bi nastao ako je riječ (riječ ili popis) unesena kao redak s uputama; znakovi kao što su infix operatori i zagrade su odvojeni članovi izlaza.
+501! Pokreće upute u popisu s uputama. RUNRESULT daje prazan popis ako te upute ne proizvode izlaz. Inače, ispisuje popis čiji je jedini član izlaz iz pokretanja popisa s uputama za ulaz.
+502! Čita liniju iz toka čitanja i ispisuje taj redak kao riječ (bez redoslijeda na kraju retka). Izlaz je jedna riječ čak i ako red sadrži razmake, zagrade itd.
+503! Sprema definicije svih nepokopanih postupaka, varijabli i popisa svojstava u datoteci pod nazivom filename.
+504! Sprema definicije procedura, varijabli i popisa svojstava koje je odredila lista sadržaja u datoteku pod nazivom naziv datoteke.
+505! Daje informacije o boji zaslona. To je ili indeks boje (broj od 0 do 15) ili popis intenziteta intenziteta, ovisno o tome kako je postavljena boja zaslona.
+506! Daje informacije o boji zaslona. To je ili indeks boje (broj od 0 do 15) ili popis intenziteta intenziteta, ovisno o tome kako je postavljena boja zaslona.
+507! Stvara kontrolu klizača. Kontrole s pomičnom trakom omogućuju korisniku da odabere vrijednost pomicanjem "scroller-a" duž trake koja predstavlja raspon mogućih vrijednosti. Položaj klizača često je povezan sa statičkom kontrolom koja prikazuje trenutnu poziciju klizača, ali to nije potrebno.
+508! Briše (zatvara) klizač koji se identificira po imenu.
+509! Omogućuje ili onemogućuje klizač s nazivom. Ako je stanje jednako TRUE, tada je klizač omogućen. Ako je stanje jednako FALSE, onda je klizna traka onemogućena.
+510! Ispišite trenutnu poziciju kontrole klizača koja je označena imenom. Izlaz je unutar raspona koji je odredio SCROLLBARSET.
+511! Odredite raspon i trenutnu poziciju kontrole klizača koja je označena imenom. SCROLLBARSET možete pozvati više puta na istom klizaču.
+512! Pomiče horizontalni klizač u prozoru "Zaslon". Ulaz deltaxa je iznos za pomicanje položaja pomicanja. Pozitivni broj se pomiče u desno, a negativan broj pomiče lijevo.
+513! Pomiče okomiti klizač u prozoru "Zaslon". Deltay je iznos za pomicanje položaja pomicanja za. Pozitivni broj se pomiče prema dolje, a negativan broj se pomiče prema gore.
+514! Ispisuje popis koji sadrži dva broja, faktore X i Y, koje koristi SETSCRUNCH. Imajte na umu da SETSCRUNCH uzima dva broja kao ulaz, a ne jedan popis brojeva.
+515! Ispisuje popis čiji su članovi njegovi ulazi, ako ti ulazi nisu popisi. Daje članovi ulaza, ako su ti ulazi popisi.
+516! Ispisuje popis čiji su članovi njegovi ulazi, ako ti ulazi nisu popisi. Daje članovi ulaza, ako su ti ulazi popisi.
+517! Prikazuje dijaloški okvir s naslovom kao naslovnu traku i popisom odabira kao popis izbora. Dijalog također ima gumb "OK" i "Cancel". FMSLogo ne procjenjuje daljnje upute dok korisnik ne klikne na jedan od ovih gumba.
+518! Ispisuje popis čiji su članovi njegovi ulazi, ako ti ulazi nisu popisi. Daje članovi ulaza, ako su ti ulazi popisi.
+519! Ispisuje popis čiji su članovi njegovi ulazi, ako ti ulazi nisu popisi. Daje članovi ulaza, ako su ti ulazi popisi.
+520! Postavlja aktivno područje za ispis i spremanje slika. Ulaz područja mora biti popis obrasca: [XLow YLow XHigh YHigh]. Svi članovi moraju biti cijeli brojevi.
+521! Postavlja trenutni bafer rezanja bitmape prema indeksu. Ulaz indeksa mora biti broj od 0 do 1023. Njegova je svrha omogućiti pohranjivanje više slika u memoriju spremnih za brzo lijepljenje pri animaciji.
+522! Postavlja trenutni način bitmapa u skladu s načinom rada. Način ulaza mora biti broj od 1 do 9. Značenje svake vrijednosti daje se u sljedećoj tablici: Način Značenje 1 Uzmi kopiju memorije, a zatim kopiraj na zaslon 2 Uzmi kopiju memorije ILI kopiju zaslona, ​​a zatim kopiraj na zaslon 3 Uzmi kopiju memorije I sa kopijom zaslona i kopiraj na ekran. 4 Uzmi kopiju memorije XOR s kopijom zaslona i kopiraj na ekran. 5 Uzmi kopiju memorije I s invertnim zaslonom i kopiraj na zaslon. 7 Uzmite kopiju memorije ILI s kopijom zaslona, ​​a zatim se preokrenite na zaslon. 8 Uklonite memoriju ili kopirajte zaslon i kopirajte ga na zaslon.
+523! SETCURSOR nije podržan u FMSLogo.
+524! SETCURSORNOWAIT mijenja pokazivač u poznati oblik strelice. To bi trebalo biti neposredno prije poziva na YIELD.
+525! SETCURSORWAIT postavlja pokazivač na poznati oblik pješčanog sata. Njegova je svrha ukazati na dvije stvari. Prvo, to znači da trenutna operacija može potrajati neko vrijeme. Drugo, to znači da korisnik nema kontrolu sve dok se operacija ne dovrši.
+526! Postavlja boju poplave u boju, koja može biti indeks boje ili vektor boje. Indeks boje je broj od 0 - 15. Vektor boja je popis intenziteta [crveno zelene], svaki u rasponu od 0 do 255.
+527! Postavlja boju poplave u boju, koja može biti indeks boje ili vektor boje. Indeks boje je broj od 0 - 15. Vektor boja je popis intenziteta [crveno zelene], svaki u rasponu od 0 do 255.
+528! Postavlja boju poplave u boju, koja može biti indeks boje ili vektor boje. Indeks boje je broj od 0 - 15. Vektor boja je popis intenziteta [crveno zelene], svaki u rasponu od 0 do 255.
+529! Odabire prozor čiji je naslov (ili naslov) naslov. Kada je prozor fokusiran, on je odabran i sav ulaz tipkovnice je usmjeren na njega.
+530! Pretvara kornjaču u novi apsolutni naslov. Kut ulaz je smjer u stupnjevima u smjeru kazaljke na satu od pozitivne Y-osi. U PERSPECTIVE modu, ulazni kut je smjer u stupnjevima od pozitivne X-osi prema pozitivnoj Y-osi koja se okreće oko Z-osi.
+531! Pretvara kornjaču u novi apsolutni naslov. Kut ulaz je smjer u stupnjevima u smjeru kazaljke na satu od pozitivne Y-osi. U PERSPECTIVE modu, ulazni kut je smjer u stupnjevima od pozitivne X-osi prema pozitivnoj Y-osi koja se okreće oko Z-osi.
+532! Zamjenjuje indeksnu stavku ulaznog niza s novom vrijednošću.
+533! Postavlja font koji će koristiti naredba LABEL.
+534! Određuje kako POLYVIEW osvjetljava poligone. Ulaz svojstava je popis od dva broja u rasponu od 0,0 do 1,0, količini ambijentalnog i difuznog svjetla. Ambijentalna komponenta definira koliko pozadinskog svjetla ima; što je veći broj svjetliji.
+535! SETMARGINS nije podržan (ili nije potreban) u FMSLogo.
+536! Orijentira kornjaču do nove apsolutne orijentacije. Ulaz za orijentaciju je popis, [tarifni broj skale] u stupnjevima. Važno je razumjeti svoju orijentaciju u 3D.
+537! Postavlja boju olovke u boju, koja može biti indeks boje ili vektor boje. Indeks boje je broj od 0 - 15. Vektor boja je popis intenziteta [crveno zelene], svaki u rasponu od 0 do 255.
+538! Određuje položaj olovke, način rada i karakteristike ovisne o hardveru u skladu s informacijama u unosu karakteristika. Ulaz karakteristika je popis sa sljedećim članovima: [PENDOWNP PENMODE PENSIZOR PENPAINT].
+539! Postavlja boju olovke u boju, koja može biti indeks boje ili vektor boje. Indeks boje je broj od 0 - 15. Vektor boja je popis intenziteta [crveno zelene], svaki u rasponu od 0 do 255.
+540! Postavlja boju olovke u boju, koja može biti indeks boje ili vektor boje. Indeks boje je broj od 0 - 15. Vektor boja je popis intenziteta [crveno zelene], svaki u rasponu od 0 do 255.
+541! SETPENPATTERN nije podržan u FMSLogo.
+542! Postavite debljinu olovke. Ulaz veličine mora biti ili pozitivan cijeli broj koji označava širinu olovke ili popis oblika [širina visine]. Kada je ulaz veličine popis, SETPENSIZE zanemaruje komponentu visine, ali to se može promijeniti u budućem izdanju.
+543! Kornjaču postavite na novu, apsolutnu visinu. Kut ulaz je nagib u stupnjevima koji je pozitivan od negativne Z-osi do pozitivne Y-osi koja se okreće oko X-osi.
+544! Postavlja piksel ispod kornjače na boju koju opisuje colorvector. Ulaz colorvector mora biti popis od tri stavke intenziteta [crveno zelene], od kojih svaki mora biti cijeli broj od 0 do 255.
+545! Pomiče kornjaču do apsolutne X, Y koordinate. Ulazni položaj je popis dva broja, X i Y koordinata.
+546! Pomiče kornjaču do apsolutne X, Y, Z koordinate. Ulazni položaj je popis od tri broja, X, Y i Z koordinata.
+547! Postavlja tok za čitanje u datoteku pod nazivom naziv datoteke. Tok za čitanje koristi READLIST, READWORD, itd. Datoteka mora već biti otvorena pomoću OPENREAD ili OPENUPDATE. Ako je ulaz prazan popis, čitani tok postaje zapovjednik, kao i obično.
+548! Postavlja pokazivač datoteke za datoteku za čitanje tako da sljedeći READLIST, itd., Počne čitati na char-ov znak u datoteci, računajući od 0. (To jest, SETREADPOS 0 počinje čitati od početka datoteke.) To je besmisleno ako je čitani tok [].
+549! Vrtite kornjaču do nove apsolutne role. Kut ulaz je valjanje u stupnjevima koje je pozitivno od pozitivne X-osi do negativne Z-osi koja se okreće oko Y-osi.
+550! Postavlja boju pozadine zaslona na boju i mijenja cijeli zaslon na tu boju. Ulaz boje može biti indeks boje ili vektor boje. Indeks boje je broj od 0 do 15.
+551! Postavlja boju pozadine zaslona na boju i mijenja cijeli zaslon na tu boju. Ulaz boje može biti indeks boje ili vektor boje. Indeks boje je broj od 0 do 15.
+552! Postavlja boju pozadine zaslona na boju i mijenja cijeli zaslon na tu boju. Ulaz boje može biti indeks boje ili vektor boje. Indeks boje je broj od 0 do 15.
+553! SETSCRUNCH nije potreban za ispravljanje problema s prikazom, ali je dostupan osobama koje žele namjerno pogrešno prilagoditi omjer slike.
+554! Postavlja tajmer identificiran s id (broj od 1-31) za pozivanje naredbi u povratnom pozivu u kašnjenju milisekundi. Ona nastavlja "ispaljivati" svako kašnjenje milisekundi dok ne pozovete CLEARTIMER s istim id.
+555! Odabir indeksa kornjače za kontrolu. Ako kornjača prethodno nije bila aktivirana, aktiviraju se sve kornjače od nule do indeksa. Od sada, sve dok ne odaberete drugu kornjaču, sve komande kornjača odnose se na novo odabranu kornjaču.
+556! Odabir indeksa kornjače za kontrolu. Ako kornjača prethodno nije bila aktivirana, aktiviraju se sve kornjače od nule do indeksa. Od sada, sve dok ne odaberete drugu kornjaču, sve komande kornjača odnose se na novo odabranu kornjaču.
+557! Postavlja način bitmapa za trenutno odabranu kornjaču. Način bitmape kontrolira kako bitmapirane kornjače (vidi BITMAPTURTLE) lijepe svoju sliku na zaslon. Ponekad želite pozadinu izbrisati, a ponekad ne.
+558! Postavlja tok zapisa na datoteku pod nazivom naziv datoteke. Tok ispisa koristi PRINT, SHOW, itd. Datoteka mora već biti otvorena s opcijama OPENWRITE, OPENAPPEND ili OPENUPDATE. Ako je ulaz prazan popis, onda zapis za pisanje postaje zapovjednik, kao i obično.
+559! Postavlja pokazivač datoteke datoteke za tok zapisa tako da sljedeći PRINT, itd., Počne pisati u char - tom znaku u datoteci, računajući od 0. (To jest, SETWRITEPOS 0 počinje pisati s početka datoteke.) To je besmisleno ako je tok pisanja [].
+560! Pomiče kornjaču duž osi X od trenutnog položaja do nove apsolutne X koordinate. Xcor ulaz je nova X koordinata.
+561! Pomiče kornjaču do apsolutne X, Y koordinate. Dva ulaza su brojevi, X i Y koordinate za pomicanje.
+562! Pomiče kornjaču u apsolutni 3D položaj. Tri ulaza su brojevi, X, Y i Z koordinate.
+563! Pomiče kornjaču duž Y osi od trenutnog položaja do nove apsolutne Y koordinate. Ulaz ycor je nova Y koordinata.
+564! Pomiče kornjaču duž osi Z od trenutnog položaja do nove apsolutne Z koordinate. Zcor ulaz je nova Z koordinata.
+565! Pokreće ulazni niz kao naredbu ljuske. Daje TRUE ako je naredba izvršena, FALSE inače. Ako je naredba doslovni popis u redu naredbe, i ako želite da znak obrnute kose crte bude poslan u ljusku, morate koristiti skrivenu crtu obrnutom crtom kroz čitač logotipa netaknut.
+566! Pokreće ulazni niz kao naredbu ljuske. Daje TRUE ako je naredba izvršena, FALSE inače. Ako je naredba doslovni popis u redu naredbe, i ako želite da znak obrnute kose crte bude poslan u ljusku, morate koristiti skrivenu crtu obrnutom crtom kroz čitač logotipa netaknut.
+567! Ispisuje ulaz ili ulaz u trenutni tok pisanja, baš kao i PRINT, osim ako je ulaz popis, ispisuje se u uglatim zagradama.
+568! Ispisuje ulaz ili ulaz u trenutni tok pisanja, baš kao i PRINT, osim ako je ulaz popis, ispisuje se u uglatim zagradama.
+569! Daje TRUE ako je kornjača prikazana (vidljiva), FALSE ako je kornjača skrivena. Možete koristiti SHOWTURTLE i HIDETURTLE za prikaz i skrivanje kornjače.
+570! Daje TRUE ako je kornjača prikazana (vidljiva), FALSE ako je kornjača skrivena. Možete koristiti SHOWTURTLE i HIDETURTLE za prikaz i skrivanje kornjače.
+571! Čini kornjaču vidljivom. Ovo je suprotno od HIDETURTLE.
+572! Daje znak (-1 ako je negativan, 0 ako je nula, 1 je pozitivan) ulaza. Ovo je zgodno kada želite primijeniti znak jednog broja na drugi.
+573! Daje sinusni kut, koji se uzima u stupnjevima.
+574! Redefinira FORWARD, BACK, FD i BK da traje duže, tako da možete vidjeti kornjaču kako se kreće (inače, kornjača se kreće što je brže moguće). Ulaz za sporost kontrolira koliko je potrebno da kornjača završi svaku naredbu kretanja.
+575! Sortira niz (popis, polje ili riječ) uzlaznim redoslijedom ili prema zadanom predikatu. Izlaz je novi slijed istog tipa kao i slijed koji sadrži iste naručene stavke tako da nema dvije uzastopne stavke, a i b, gdje je (predikat a b) FALSE i (predikat b a) TRUE.
+576! Sortira niz (popis, polje ili riječ) uzlaznim redoslijedom ili prema zadanom predikatu. Izlaz je novi slijed istog tipa kao i slijed koji sadrži iste naručene stavke tako da nema dvije uzastopne stavke, a i b, gdje je (predikat a b) FALSE i (predikat b a) TRUE.
+577! Reproducira niz tonova na PC zvučniku.
+578! Isključite zvuk koji je uključio SOUNDON.
+579! Početak reprodukcije zvuka na PC zvučniku. Zvuk se nastavlja reproducirati dok ne nazovete SOUNDOFF.
+580! Pričvrstite prozor zapovjednika i prozor prozora unutar istog okvira i odvaja dva s pokretnom razdjelnom trakom. To ostavlja prostor za tekstualnu interakciju dok istovremeno zadržava većinu grafičkog prozora vidljivim.
+581! Daje kvadratni korijen ulaza, koji mora biti negativan.
+582! Pričvrstite prozor zapovjednika i prozor prozora unutar istog okvira i odvaja dva s pokretnom razdjelnom trakom. To ostavlja prostor za tekstualnu interakciju dok istovremeno zadržava većinu grafičkog prozora vidljivim.
+583! Čini kornjaču vidljivom. Ovo je suprotno od HIDETURTLE.
+584! STANDOUT još nije podržan u FMSLogo.
+585! Ako je dodijeljena vrijednost popisa u datoteci koju učita LOAD, ta se vrijednost nakon učitavanja izvodi kao popis naredbi.
+586! Stvara statičku kontrolu teksta. Statička kontrola se koristi za jednostavno prikazivanje teksta. Pojam "statička kontrola" donekle je zabludu, jer se tekst koji prikazuje statička kontrola može dinamički ažurirati pomoću STATICUPDATE.
+587! Briše (zatvara) statičku kontrolu koja je identificirana imenom.
+588! Zamjenjuje tekst statičke kontrole identificirane imenom s tekstom. Ako postoji više teksta nego što se može smjestiti unutar širine statičke kontrole na jednom retku, tada je tekst omotan riječima.
+589! Prikazuje prozor skočnog statusa. Ova naredba ima isti učinak kao i pritiskom na gumb stanja.
+590! Označava stavke na popisu sadržaja za koračanje.
+591! Ispisuje popis sadržaja koji se sastoji od popisa stepenastih procedura nakon čega slijede dva prazna popisa.
+592! Završava pokretanje postupka u kojem se pojavljuje. Kontrola se vraća u kontekst u kojem je taj postupak pozvan. Postupak zaustavljanja ne daje vrijednost.
+593! Ako je thing2 riječ, SUBSTRINGP daje TRUE ako je thing1 EQUALP na podniz u stvarima 2, FALSE inače.
+594! Ako je thing2 riječ, SUBSTRINGP daje TRUE ako je thing1 EQUALP na podniz u stvarima 2, FALSE inače.
+595! Daje zbroj ulaza. Ako nema ulaza, SUM daje 0.
+596! Daje zbroj ulaza. Ako nema ulaza, SUM daje 0.
+597! TAG označava točku u proceduri kojoj GOTO instrukcija s istim unosom oznake može skočiti. TAG se može koristiti samo unutar postupka. Ulaz oznake mora biti riječ.
+598! Daje tangens kuta, koji se uzima u stupnjevima.
+599! TEST pamti svoj ulazni uvjet, koji mora biti TRUE ili FALSE, tako da ga kasnije mogu koristiti IFTRUE ili IFFALSE upute. Učinak TEST-a je lokalan na postupak u kojem se koristi; svaki odgovarajući IFTRUE ili IFFALSE mora biti u istom postupku ili potprocesu.
+600! Ispisuje tekst postupka pod nazivom procname u obliku koji očekuje DEFINE: popis popisa, od kojih prvi opisuje ulaze u postupak, a ostatak su linije tijela.
+601! Odvojite prozor zapovjednika iz prozora zaslona kako biste mogli promijeniti veličinu kako biste povećali prostor za interakciju teksta.
+602! Daje vrijednost varijable čije je ime ulazna riječ. Ako postoji više od jedne takve varijable, odabrana je unutarnja lokalna varijabla tog imena.
+603! Završava izvođenje ulaza s popisom s uputama za CATCH naredbe. THROW se mora koristiti unutar opsega CATCH naredbe koja ima oznaku jednaku oznaci. Ako je THROW dobio ulaznu vrijednost, tada CATCH daje vrijednost.
+604! Završava izvođenje ulaza s popisom s uputama za CATCH naredbe. THROW se mora koristiti unutar opsega CATCH naredbe koja ima oznaku jednaku oznaci. Ako je THROW dobio ulaznu vrijednost, tada CATCH daje vrijednost.
+605! Završava izvođenje ulaza s popisom s uputama za CATCH naredbe. THROW se mora koristiti unutar opsega CATCH naredbe koja ima oznaku jednaku oznaci. Ako je THROW dobio ulaznu vrijednost, tada CATCH daje vrijednost.
+606! Završava izvođenje ulaza s popisom s uputama za CATCH naredbe. THROW se mora koristiti unutar opsega CATCH naredbe koja ima oznaku jednaku oznaci. Ako je THROW dobio ulaznu vrijednost, tada CATCH daje vrijednost.
+607! Izvodi trenutno vrijeme na sustavu kao popis riječi.
+608! Daje vrijeme od početka sustava Windows, mjereno u milisekundama. Koristite ovo za precizno mjerenje vremena. Izlaz je također poznat kao "kvačica".
+609! Naredba koja priprema logotip za prihvaćanje definicije postupka. Postupak se naziva procname i ne smije već postojati postupak po tom imenu. Ulazi se nazivaju input1, input2, itd.
+610! Reproducira ton na PC zvučniku.
+611! Daje naslov u stupnjevima, na kojem kornjača treba biti usmjerena tako da pokazuje od svog trenutnog položaja prema ulazu položaja. Ulaz položaja mora se dati kao popis s dvije stavke koji sadrži X i Y koordinate položaja u lice.
+612! Daje popis s naslovom [roll pitch] u kojem kornjača treba biti orijentirana tako da pokazuje od svog trenutnog položaja do danog položaja. Položaj se mora dati kao popis s tri stavke koji sadrži X, Y i Z koordinate pozicije u lice.
+613! Označava imenovane stavke za praćenje. Poruka se ispisuje svaki put kad se pozove prateći postupak, dajući stvarne ulazne vrijednosti, i kad god postupak praćenja pokreće STOP ili OUTPUT.
+614! Ispisuje popis sadržaja koji se sastoji od popisa praćenih stavki.
+615! Daje rezultat ponovljene procjene ulaza predloška. Predložak se jednom procjenjuje za svakog člana popisa u košarici. TRANSFER održava "vanjsku košaru" koja je u početku prazna lista.
+616! Ovo je posebna riječ koja označava pozitivno stanje. TRUE je rezervirana vrijednost, a ne postupak ili varijabla.
+617! Odvojite prozor zapovjednika iz prozora zaslona kako biste mogli promijeniti veličinu kako biste povećali prostor za interakciju teksta.
+618! Daje broj koji odgovara trenutno odabranoj kornjači (koja služi svim naredbama kornjača). Koristite SETTURTLE za odabir kornjače.
+619! Daje odabrani način kornjače. Pogledajte SETTURTLEMODE za objašnjenje načina kornjača.
+620! Daje maksimalnu kornjaču koja je odabrana od zadnjeg izvršavanja CLEARSCREEN-a.
+621! Ispisuje ulaz ili ulaz kao što je PRINT, osim što se na kraju ne ispisuje znak novog znaka, a višestruki ulazi nisu odvojeni razmacima.
+622! Ispisuje ulaz ili ulaz kao što je PRINT, osim što se na kraju ne ispisuje znak novog znaka, a višestruki ulazi nisu odvojeni razmacima.
+623! Poništava procedure, varijable i popise svojstava imenovanih u ulazu. To jest, imenovane stavke se vraćaju na pregled u SADRŽAJU i sličnim postupcima.
+624! Uklanja sve procedure, varijable i popise svojstava u radnom prostoru. UNBURYALL skraćuje UNBURY SADRŽAJ.
+625! Otkaže varijable navedene u ulazu. UNBURYNAME skraćuje UNBURY NAMELIST.
+626! Otkaže varijable navedene u ulazu. UNBURYNAME skraćuje UNBURY NAMELIST.
+627! Unminimizira (vraća) prozor čiji se naslov podudara s opisom. Pojam "ICON" dolazi iz starih vremena kada su Windows aplikacije minimizirane u male ikone.
+628! Isključuje koračanje za stavke na popisu sadržaja.
+629! Ponavljano vrednuje popis instrukcija sve dok se procijenjeni conditionlist i dalje prikazuje FALSE. UNTIL procjenjuje popis uvjeta prije popisa uputa, tako da se popis instrukcija uopće ne može pokrenuti.
+630! Isključuje praćenje za imenovane stavke.
+631! Usmjerite nos kornjače prema gore navedenom kutu, mjereno u stupnjevima (1/360 kruga).
+632! Daje riječ koja je kopija riječi, ali sa svim malim slovima promijenjenim u odgovarajuće veliko slovo.
+633! Usmjerite nos kornjače prema gore navedenom kutu, mjereno u stupnjevima (1/360 kruga).
+634! Odgađa daljnje izvršenje za oko 60 sekundi. To također doprinosi drugim procesima koji se izvode na vašem sustavu.
+635! Ponavljano vrednuje popis instrukcija sve dok se procijenjeni conditionlist zadrži TRUE. WHILE procjenjuje listu uvjeta prije popisa uputa, tako da se popis instrukcija uopće ne može pokrenuti.
+636! Navodi kornjači da uđe u "prozorski" način. Od sada, kada se od kornjače traži da prijeđe granicu grafičkog prozora, pomiče se s ekrana. Vidljivi grafički prozor smatra se samo dijelom beskonačne grafičke ravnine; kornjača može biti bilo gdje u zrakoplovu.
+637! Stvara prozor. Prozor se koristi kao okvir u koji dodajete druge prozore ili kontrole (ponekad se nazivaju widgeti). Možete dodati stvari kao što su gumbi, trake za pomicanje, popisi za pretraživanje, itd.
+638! Briše (zatvara) prozor čije je ime ime. Svi dječji prozori i kontrole su također izbrisani. Ako ne postoji prozor s navedenim nazivom, izbrisat će se svi prozori i sve kontrole koje je stvorio FMSLogo.
+639! Omogućuje ili onemogućuje prozor s nazivom. Ako je stanje jednako TRUE, tada je prozor omogućen. Ako je stanje jednako FALSE, prozor je onemogućen.
+640! Otvara uređivač u datoteci s danim nazivom datoteke. Kada je sadržaj datoteke spremljen, on se sprema u datoteku, a ne u radni prostor. Popis instrukcija povratnog poziva pokreće se kada korisnik zatvori editor.
+641! Postavlja "način" (na primjer, skriven, vidljiv, itd.) Za prozor čiji naslov odgovara upisu. Ova naredba je dizajnirana za stručnjake, možete izgubiti kontrolu nad FMSLogom ako niste oprezni, stoga često čuvajte svoj rad.
+642! WINHELP ima dva oblika: sa i bez ulaza ključne riječi. Kada nema ključne riječi, FMSLogo otvara Windows pomoć za naziv datoteke u tablici sadržaja. Kada je ključna riječ dana, FMSLogo pretražuje pomoć za Windows u odjeljku o ključnoj riječi u datoj datoteci pomoći.
+643! WINHELP ima dva oblika: sa i bez ulaza ključne riječi. Kada nema ključne riječi, FMSLogo otvara Windows pomoć za naziv datoteke u tablici sadržaja. Kada je ključna riječ dana, FMSLogo pretražuje pomoć za Windows u odjeljku o ključnoj riječi u datoj datoteci pomoći.
+644! Izvodi riječ formiranu ulančavanjem ulaza.
+645! Izvodi riječ formiranu ulančavanjem ulaza.
+646! Izlaz TRUE ako je ulaz riječ, FALSE inače.
+647! Izlaz TRUE ako je ulaz riječ, FALSE inače.
+648! Govori kornjači za ulazak u "wrap" način. Od sada, kada se od kornjače traži da prijeđe granicu prozora FMSLogo zaslona, ​​ona se "preokreće" i ponovno se pojavljuje na suprotnom rubu prozora.
+649! Ispisuje poziciju datoteke trenutne datoteke struje za pisanje kao broj. Izlazna vrijednost 0 znači da je položaj za pisanje na početku toka.
+650! Ispisuje naziv trenutne datoteke struje pisanja ili praznog popisa ako je zapis za pisanje zapovjednik.
+651! Daje X koordinatu kornjače.
+652! Ispisuje Y koordinatu kornjače.
+653! Prikazuje dijaloški okvir s naslovom u naslovnoj traci i pitanje kao poruku. Dijalog također ima gumbe "Da", "Ne" i "Odustani". FMSLogo ne procjenjuje daljnje upute dok korisnik ne klikne na jedan od ovih gumba.
+654! YIELD kaže FMSLogu da je u redu prekinuti pokretanje koda logotipa kako bi se procesirale poruke prozora, kao što su ulaz tipkovnice, klikovi mišem ili obavijesti da bi se preoblikovao zaslon.
+655! Daje Z koordinatu kornjače.
+656! Postavljanje razmjera prozora "Zaslon". Ulazna skala je iznos za zumiranje (skala). Broj veći od 1.0 čini stvari većim (na primjer, 2.0 čini ih dvostruko većim), broj manji od 1.0 čini stvari manjim (0.5 čini polovicu većom).

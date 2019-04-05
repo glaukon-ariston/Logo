@@ -1,0 +1,657 @@
+0! Outputs the product of its inputs. If no inputs are given, then PRODUCT outputs 1.
+1! Outputs the sum of its inputs. If no inputs are given, then SUM outputs 0.
+2! Outputs the difference of its inputs.
+3! Outputs the negative of its input.
+4! .DEFMACRO is like DEFINE with the same exceptions as .MACRO .
+5! Outputs TRUE if thing1 and thing2 are the same object, so that applying a mutator to one will change the other as well. Outputs FALSE otherwise, even if the inputs are equal in value.
+6! A macro is a special kind of procedure whose output is evaluated as instructions in the context of the macro's caller. .MACRO is like TO except that the new procedure becomes a macro.
+7! Works like OUTPUT except that the expression that provides the input value might not output a value, in which case the effect is like STOP. This is intended for use in control structure definitions, for cases in which you don't know whether some expression produces a value.
+8! Changes the BUTFIRST of the list input to a given value.
+9! Changes the first member of list to be value .
+10! Change the index th item of array to be value . This similar to SETITEM, except that it does not check for circularity.
+11! Outputs the quotient of its inputs. That is, it outputs dividend divided by divisor . QUOTIENT outputs an integer if and only if dividend is a multiple of divisor . For example, QUOTIENT 5 2 is 2.5, not 2, but QUOTIENT 4 2 is 2, not 2.0 .
+12! Outputs TRUE if num1 is strictly less than num2 . Outputs FALSE, otherwise.
+13! Outputs TRUE if num1 is less than or equal to num2 . Outputs FALSE, otherwise.
+14! Outputs FALSE if both inputs are equal, TRUE otherwise.
+15! Outputs TRUE if both inputs are equal, FALSE otherwise.
+16! Outputs TRUE if num1 is strictly greater than num2 . Outputs FALSE, otherwise.
+17! Outputs TRUE if num1 is greater than or equal to num2 . Outputs FALSE, otherwise.
+18! Outputs a list equal to its input but with certain substitutions.
+19! Outputs the absolute value (magnitude) of its input.
+20! Outputs the current active area, as set by SETACTIVEAREA .
+21! Outputs a list whose members are the names of all files currently open. This list does not include the DRIBBLE file.
+22! Outputs TRUE if all inputs are TRUE, otherwise FALSE. All inputs must be TRUE or FALSE.
+23! Outputs TRUE if all inputs are TRUE, otherwise FALSE. All inputs must be TRUE or FALSE.
+24! Command or operation that runs the template, filling its slots with the members of inputlist . The number of members in inputlist must be an acceptable number of slots for template. 
+25! Draws an arc (part of a circle) based on the turtle heading, turtle position, and inputs. The center-point of the arc is the turtle's current position. ARC does not move the turtle. 
+26! Moves the turtle along an arc (part of a circle). The arc sweeps an amount given by the angle input. The size (curvature) of the arc is based on the radius input.
+27! Outputs the inverse cosine of its input. The output is given in degrees in the range [0, 180]. num must be in the range [-1, 1].
+28! Outputs the inverse sine of its input. The output is given in degrees in the range [-90, 90]. num must be in the range [-1, 1].
+29! With one input, outputs the inverse tangent angle of num . The output is given in degrees in the range [-90,90].
+30! With one input, outputs the inverse tangent angle of num . The output is given in degrees in the range [-90,90].
+31! Outputs a list of three numbers: the minimum, default, and maximum number of inputs for the procedure whose name is the input. It is an error if there is no such procedure. 
+32! Outputs an array of size items, each of which initially is an empty list. The size input must be a non-negative integer.
+33! Outputs an array of size items, each of which initially is an empty list. The size input must be a non-negative integer.
+34! Outputs TRUE if the input is an array, FALSE otherwise.
+35! Outputs TRUE if the input is an array, FALSE otherwise.
+36! Outputs a list whose members are the elements of the input array. The first item of the output is the first element of the array, regardless of the array's origin.
+37! Outputs the number from 0-255 that represents character in your current code page.
+38! Outputs int arithmetic-shifted to the left by amount bits. If amount is negative, the shift is to the right with sign extension. The inputs must be integers.
+39! Instructs a specific turtle to run a given set of instructions (which are usually turtle instructions).
+40! Moves the turtle backward, exactly opposite to the direction that it's headed, by the specified distance, measured in turtle steps. The heading of the turtle does not change.
+41! Outputs TRUE if character was originally entered with a backslash ( \ ) before it or between vertical bars ( | ) to prevent its usual semantic meaning. Outputs FALSE, otherwise.
+42! Outputs TRUE if character was originally entered with a backslash ( \ ) before it or between vertical bars ( | ) to prevent its usual semantic meaning. Outputs FALSE, otherwise.
+43! Outputs TRUE if word1 comes before word2 in ASCII collating sequence (for words of letters, in alphabetical order). Case-sensitivity is determined by the value of CASEIGNOREDP . 
+44! Outputs TRUE if word1 comes before word2 in ASCII collating sequence (for words of letters, in alphabetical order). Case-sensitivity is determined by the value of CASEIGNOREDP . 
+45! If thing is a word, outputs a word containing all but the first character of the input. If thing is a list, outputs a list containing all but the first member of the input.
+46! Outputs a list containing the BUTFIRST of each member of the input list. It is an error if any member of the input list is empty. The input itself may be empty, in which case the output is also empty.
+47! Outputs the bitwise AND of its inputs, which must be integers. If no inputs are given, then BITAND outputs a value with all bits set.
+48! Outputs the bitwise AND of its inputs, which must be integers. If no inputs are given, then BITAND outputs a value with all bits set.
+49! Draws an opaque block (rectangle) of the given dimensions such that the turtle's current position is at the lower-lefthand corner of the block. The color of the block is the value of FLOODCOLOR . 
+50! Copies part of the image and stores it in memory (or the clipboard, if BITINDEX is 0). Anytime later, you can use BITPASTE to "paste" it into the image. FMSLogo copies a rectangle starting at the turtle's position with a width of width pixels and a height of height pixels.
+51! Cuts out part of the image and stores it in memory (or the clipboard, if BITINDEX is 0). Anytime later, you can use BITPASTE to "paste" it back into the image. FMSLogo cuts a rectangle starting at the turtle's position with a width of width pixels and a height of height pixels.
+52! Resizes (or "fits") the currently "cut" ( BITCUT or BITCOPY) image into the specified dimensions. Anytime later, you can "paste" ( BITPASTE) it back into the image. FMSLogo fits the "cut" image to a width of the width pixels and a height of the height pixels. 
+53! Outputs current bitmap index, as set by SETBITINDEX . The default index is 0.
+54! Loads the bitmap specified by the filename input. The filename input must be a word that is the name of valid bitmap file.
+55! Output the width and height of the bitmap that is specified by the filename input. The filename input must be a word that is the name of valid bitmap file.
+56! Maps the current turtle (see SETTURTLE) to the corresponding bitmap buffer (see BITCUT). BITMAPTURTLE can map turtle 0 to bitmap 0, turtle 1 to bitmap 1, turtle 2 to bitmap 2, etc., on a per-turtle basis. 
+57! Maps the current turtle (see SETTURTLE) to the corresponding bitmap buffer (see BITCUT). BITMAPTURTLE can map turtle 0 to bitmap 0, turtle 1 to bitmap 1, turtle 2 to bitmap 2, etc., on a per-turtle basis. 
+58! Outputs the current bitmap mode set by SETBITMODE .
+59! Outputs the bitwise negation of its input, which must be an integer.
+60! Outputs the bitwise OR of its inputs, which must be integers. If no inputs are given, then BITOR outputs a value with no bits set.
+61! Outputs the bitwise OR of its inputs, which must be integers. If no inputs are given, then BITOR outputs a value with no bits set.
+62! Pastes the image that was BITCUT into the bitmap index specified by BITINDEX . If BITINDEX is 0, then BITPASTE pastes the contents of the clipboard. The bitmap is pasted to the location of the turtle, with the turtle being the lower-left corner.
+63! Pastes the entire image that was "cut" with BITCUT to the x, y coordinate of the bitmap at the index input. Don't confuse the indices here; the index input specifies the index to paste to, whereas SETBITINDEX specifies the index to copy from.
+64! Saves a picture (bitmap image) of your work on the computer's disk. It also allows you to add more work to an existing piece of work. The dimensions of the picture are determined by ACTIVEAREA.
+65! Saves a picture (bitmap image) of your work on the computer's disk. It also allows you to add more work to an existing piece of work. The dimensions of the picture are determined by ACTIVEAREA.
+66! Output the width and height of the bitmap specified by the current BITINDEX . The output is a two-member list of the form [width height]. BITSIZE outputs [0 0] if no bitmap is loaded.
+67! Outputs the bitwise exclusive OR of its inputs, which must be integers. If no inputs are given, then BITXOR outputs a value with no bits set.
+68! Outputs the bitwise exclusive OR of its inputs, which must be integers. If no inputs are given, then BITXOR outputs a value with no bits set.
+69! Moves the turtle backward, exactly opposite to the direction that it's headed, by the specified distance, measured in turtle steps. The heading of the turtle does not change.
+70! If the input is a word, BUTLAST outputs a word containing all but the last character of the input. If the input is a list, BUTLAST outputs a list containing all but the last member of the input.
+71! Outputs a contents list consisting of three lists, respectively containing the names of all buried procedures, variables, and property lists in the workspace.
+72! Buries the procedures, variables, and property lists named in the contentslist input. A "thing" that is buried is not included in the lists output by CONTENTS, PROCEDURES, NAMES, or PLISTS, but is included in the list output by BURIED . 
+73! Buries all procedures, variables, and property lists in the workspace. BURYALL abbreviates BURY CONTENTS .
+74! Buries the variable(s) named in the input. BURYNAME abbreviates BURY NAMELIST .
+75! Buries the variable(s) named in the input. BURYNAME abbreviates BURY NAMELIST .
+76! If thing is a word, outputs a word containing all but the first character of the input. If thing is a list, outputs a list containing all but the first member of the input.
+77! Outputs a list containing the BUTFIRST of each member of the input list. It is an error if any member of the input list is empty. The input itself may be empty, in which case the output is also empty.
+78! If the input is a word, BUTLAST outputs a word containing all but the last character of the input. If the input is a list, BUTLAST outputs a list containing all but the last member of the input.
+79! Creates a button control. A button control lets the user trigger events. The only function of the button control is to run the callback instruction list when it is pressed.
+80! Deletes (closes) the button that is identified by name .
+81! Enables or disables the button identified by name . If state equals TRUE, then the button is enabled. If state equals FALSE, then the button is disabled.
+82! Replaces the text on the button identified by name with text .
+83! BYE exits FMSLogo.
+84! Outputs the result of applying a template (or several templates, see the section entitled Template-Based Iteration ) repeatedly, with a given value filling the slot the first time, and the result of each application filling the slot for the following application.
+85! Outputs the result of applying a template (or several templates, see the section entitled Template-Based Iteration ) repeatedly, with a given value filling the slot the first time, and the result of each application filling the slot for the following application.
+86! Outputs the result of applying a template (or several templates, see the section entitled Template-Based Iteration ) repeatedly, with a given value filling the slot the first time, and the result of each application filling the slot for the following application.
+87! Outputs the result of invoking CASCADE with the same inputs. The only difference is that the default number of inputs is five instead of three.
+88! Normally, lower-case and upper-case letters are considered equal by EQUALP, BEFOREP, MEMBERP, etc. However, if a variable named CASEIGNOREDP exists and its value is not TRUE, then those predicates consider lower-case and upper-case letters to be distinct (that is, not equal).
+89! Command or operation that runs its instructionlist input and outputs whatever instructionlist outputs. If instructionlist runs a THROW instruction with a tag equal to the tag input (case-insensitive comparison), then the running of instructionlist is immediately terminated. 
+90! Outputs the character represented by the numeric code number, which must be an integer between 0 and 255.
+91! Changes the current working directory to directoryname, just like the DOS command CHDIR (cd). The directoryname input must be a word. You can use DIR to list both files and directories.
+92! Creates a checkbox control. A checkbox control is used to give the user a selection between True and False. A checkbox must be associated with a groupbox control (see GROUPBOXCREATE).
+93! Deletes (closes) the checkbox that is identified by name .
+94! Enables or disables the checkbox identified by name . If state equals TRUE, then the checkbox is enabled. If state equals FALSE, then the checkbox is disabled.
+95! Outputs the state (True or False) of the checkbox that is identified by name .
+96! Sets the state of the checkbox that is identified by name to state . state must be either True (checked) or False (unchecked).
+97! Draws a circle based on the turtle's position and the radius input. The center-point of the circle is the turtle's current position. CIRCLE does not move the turtle.
+98! Moves the turtle clockwise along a circle of the given radius. The turtle ends in the same position in which it starts.
+99! Erases all lines that the turtle has drawn on the graphics window. The turtle's state (position, heading, pen mode, etc.) is not changed.
+100! CLEARPALETTE does nothing. It has been kept for compatibility with old programs, but its function is no longer needed.
+101! Fills the screen window with SCREENCOLOR and sends the turtle to its initial position and heading.
+102! Clears all text within the command recall box in the commander window.
+103! Clears a timer that was scheduled by SETTIMER and identified by id (1-31).
+104! Closes the file named filename . All subsequent attempts to read from or write to the file will fail.
+105! Closes all open files.
+106! Ends the current interactive pause, returning to the context of the PAUSE invocation that began it. If CONTINUE is given an input, that value is used as the output from the PAUSE. 
+107! Ends the current interactive pause, returning to the context of the PAUSE invocation that began it. If CONTINUE is given an input, that value is used as the output from the PAUSE. 
+108! Combines both of its inputs into a single value. If the second input is a word, this acts like WORD . If the second input is a list, this acts like FPUT .
+109! Appends item to the listbox portion of the combobox that is identified by name .
+110! Creates a combobox control. A combobox control gives the user a selection of items and allows them to enter a selection not listed. A combobox is two controls in one: a listbox control and an edit control.
+111! Deletes (closes) the combobox that is identified by name .
+112! Deletes the item at index from the listbox portion of a combobox that is identified by name .
+113! Enables or disables the combobox identified by name . If state equals TRUE, then the combobox is enabled. If state equals FALSE, then the combobox is disabled.
+114! Outputs the text within the edit control portion of the combobox that is identified by name . This may be a selected item within the listbox portion, or it may be something the user typed into the edit portion.
+115! Sets the contents of the edit control portion of the combobox that is identified by name .
+116! Outputs a contents list consisting of three lists containing names of defined procedures, variables, and property lists, respectively. This list includes all unburied named items in the workspace.
+117! Ends the current interactive pause, returning to the context of the PAUSE invocation that began it. If CONTINUE is given an input, that value is used as the output from the PAUSE. 
+118! Ends the current interactive pause, returning to the context of the PAUSE invocation that began it. If CONTINUE is given an input, that value is used as the output from the PAUSE. 
+119! Makes a new procedure called newname that is identical to procedure oldname, which may be a primitive. If newname is already defined, its previous definition is lost. If newname is a primitive, the redefinition is not permitted unless the variable REDEFP has the value TRUE. 
+120! Outputs the cosine of angle, which is taken in degrees.
+121! Outputs the number of characters in thing, if thing is a word; outputs the number of items in thing, if it is a list or an array. (For an array, this may or may not be the index of the last item, depending on the array's origin.)
+122! Outputs a list containing the results of template evaluations. Each data list contributes to a slot in the template ; the number of slots is equal to the number of data list inputs. 
+123! Outputs a list containing the results of template evaluations. Each data list contributes to a slot in the template ; the number of slots is equal to the number of data list inputs. 
+124! Fills the screen window with SCREENCOLOR and sends the turtle to its initial position and heading.
+125! Clears all text within the command recall box in the commander window.
+126! CURSOR is not supported in FMSLogo.
+127! Prints the tree (hierarchy of parent-child relationships) of a window. For each window that is printed, both the window type and name are printed.
+128! Prints the tree (hierarchy of parent-child relationships) of a window. For each window that is printed, both the window type and name are printed.
+129! Defines a procedure with name procname and definition text . If there is already a procedure with the same name, the new definition replaces the old one. The text input must be a list whose members are lists. 
+130! Outputs TRUE if the input is the name of a user-defined procedure or a library procedure.
+131! Outputs TRUE if the input is the name of a user-defined procedure or a library procedure.
+132! Outputs the least recent (oldest) thing that was enqueued onto a queue with QUEUE . This value is removed from the queue.
+133! Creates a window that is suitable for use as a dialog box. A dialog window is used as the framework to which you add other window objects or controls (sometimes called widgets). 
+134! Deletes (closes) the dialog whose name is name . All child window and controls are also deleted.
+135! Enables or disables the dialog identified by name . If state equals TRUE, then the window is enabled. If state equals FALSE, then the window is disabled.
+136! Displays a standard "Open" windows dialog box. It does NOT open a file; it just allows the user to select the desired file using a Graphical User Interface. The filename input is used to set the defaults of name, directory and/or extension. 
+137! Displays a standard "Save As" windows dialog box. It does NOT save a file; it just allows the user to select the desired file using a Graphical User Interface. The filename input is used to set the defaults of name, directory and/or extension. 
+138! Outputs the difference of its inputs.
+139! Prints out files and directories in the current directory. It prints out the FILES list and DIRECTORIES list.
+140! Outputs a list of the names of each directory in the current working directory.
+141! Outputs the distance the turtle must travel along a straight line to reach the position given as the position input. The position input must be a list containing two items, the X and Y coordinates.
+142! Outputs a number, the distance the turtle must travel along a straight line to reach a 3D coordinate. The position input must be a three item list containing the position's X, Y, and Z coordinates.
+143! Calls a native Windows function with the given arguments and outputs the function's return value. The function must be exported by a DLL which was loaded with DLLLOAD.
+144! Calls a native Windows function with the given arguments and outputs the function's return value. The function must be exported by a DLL which was loaded with DLLLOAD.
+145! Unloads a DLL that was loaded with DLLLOAD . If a dllname input is given, then the DLL by that name is unloaded. Otherwise, the most recently loaded DLL is unloaded.
+146! Unloads a DLL that was loaded with DLLLOAD . If a dllname input is given, then the DLL by that name is unloaded. Otherwise, the most recently loaded DLL is unloaded.
+147! Loads the DLL (Dynamic Linked Library) called dllfilename into FMSLogo. Once loaded you can call functions with DLLCALL. When you have finished, you can unload the DLL with DLLFREE.
+148! Repeatedly evaluates the instructionlist as long as the evaluated conditionlist remains FALSE. DO.UNTIL evaluates instructionlist before evaluating conditionlist, so instructionlist is always run at least once. 
+149! Repeatedly evaluates the instructionlist as long as the evaluated conditionlist remains TRUE. DO.WHILE evaluates instructionlist before evaluating conditionlist, so instructionlist is always run at least once. 
+150! Pitches the turtle's nose downward by the specified angle, measured in degrees (1/360 of a circle).
+151! Pitches the turtle's nose downward by the specified angle, measured in degrees (1/360 of a circle).
+152! Creates a new file whose name is the filename input, like OPENWRITE, and begins recording in that file everything that is read from the keyboard. This writing is in addition to the writing to WRITER. 
+153! Opens the definitions of the named item(s) in the editor .
+154! Opens all definitions in the workspace in the editor .
+155! Opens the definitions of the named item(s) in the editor .
+156! Opens all named variables in the editor .
+157! Opens all named variables in the editor .
+158! Opens all unburied variables in the editor .
+159! Opens all named property lists in the Editor .
+160! Opens all named property lists in the Editor .
+161! Opens all unburied property lists in the Editor .
+162! Opens all unburied procedures in the editor .
+163! Draws an ellipse based on the turtle heading, turtle position, and given inputs. The center-point of the ellipse is the turtle's current position. ELLIPSE does not move the turtle. 
+164! Draws an ellipse as if the turtle moved clockwise in an ellipse. The size and shape of the ellipse are determined by the inline.semiaxis and crosswise.semiaxis inputs. The inline.semiaxis input is the distance from the center-point of the ellipse to the ellipse's edge in the direction which the turtle is currently heading. 
+165! Draws part of (or all of) an ellipse based on the turtle heading, turtle position and given inputs. ELLIPSEARC does not move the turtle. The center-point of the elliptic arc is the turtle's current position. 
+166! Moves the turtle clockwise over an elliptic arc. The arc spans arc.angle degrees of the ellipse, starting at the point described by start.angle degrees and ending at the point described by ( start.angle + arc.angle ).
+167! Outputs TRUE if thing is either the empty string or the empty list, FALSE otherwise.
+168! Outputs TRUE if thing is either the empty string or the empty list, FALSE otherwise.
+169! END delimits the end of a procedure that is defined with TO .
+170! Outputs TRUE if there are no more characters to be read in the read stream file, FALSE otherwise.
+171! Outputs TRUE if there are no more characters to be read in the read stream file, FALSE otherwise.
+172! Outputs TRUE if both inputs are equal, FALSE otherwise.
+173! Outputs TRUE if both inputs are equal, FALSE otherwise.
+174! Erases the procedures, variables, and property lists named in contentslist . Once erased, the named things cannot be called or referenced. Primitive procedures are not erased unless the variable REDEFP has the value TRUE.
+175! Erases all unburied procedures, variables, and property lists from the workspace.
+176! Erases all unburied procedures, variables, and property lists from the workspace.
+177! Erases the procedures, variables, and property lists named in contentslist . Once erased, the named things cannot be called or referenced. Primitive procedures are not erased unless the variable REDEFP has the value TRUE.
+178! Erases (deletes, removes) the file named filename . The file must not be currently be open.
+179! Erases (deletes, removes) the file named filename . The file must not be currently be open.
+180! Erases the variable(s) named in the input from the workspace. ERN abbreviates ERASE NAMELIST .
+181! Erases the variable(s) named in the input from the workspace. ERN abbreviates ERASE NAMELIST .
+182! Erases all unburied variables from the workspace. ERNS abbreviates ERASE NAMES .
+183! Erases the property lists named in the input from the workspace. ERPL abbreviates ERASE PLLIST .
+184! Erases the property lists named in the input from the workspace. ERPL abbreviates ERASE PLLIST .
+185! Erases all unburied property lists from the workspace. ERPLS abbreviates ERASE PLISTS .
+186! Erases all unburied procedures from the workspace. ERPS abbreviates ERASE PROCEDURES .
+187! ERRACT is an instructionlist that is run whenever an error is thrown and there is no CATCH tag for "ERROR. ERRACT typically has the value [PAUSE] to allow interactive debugging.
+188! Outputs a list describing the error just caught, if any. If no error was caught since the last use of ERROR, then ERROR outputs the empty list. The error list contains four members: an integer code corresponding to the type of error, the text of the error message, the name of the procedure in which the error occurred, and the instruction line on which the error occurred.
+189! The EVENTCHECK command is like calling YIELD immediately followed by NOYIELD. It checks to see if any events are waiting to be processed. Some commands that input "callbacks" run them in a no-yield state. 
+190! Outputs e (2.718281828...) to the power of exponent .
+191! This is a special word to indicate a negative condition. FALSE is a reserved value, not a procedure nor a variable.
+192! Moves the turtle forward in the direction that it's headed by the specified distance, measured in turtle steps. The heading of the turtle does not change.
+193! Tells the turtle to enter "fence" mode. In fence mode, when the turtle is asked to move past the boundary of the graphics window, it moves as far as it can and then stops at the edge with an "out of bounds" error message.
+194! Outputs a list of the names of each file in the current working directory. The file names are sorted alphabetically.
+195! Fills in a region of the graphics window containing the turtle and bounded by lines that have been drawn earlier. It fills using the current value of FLOODCOLOR .
+196! Fills in a region of the graphics window containing the turtle and bounded by lines that have been drawn earlier. It fills using the current value of FLOODCOLOR .
+197! Outputs a word or list, depending on the type of the data input, containing a subset of the members (for a list) or characters (for a word) of the input. The conditiontemplate input is evaluated once for each member of the data, and it must produce a TRUE or FALSE value. 
+198! Outputs the first item of the data input for which the value produced by evaluating conditiontemplate with that item in its slot is TRUE. If there is no such item, then FIND outputs the empty list.
+199! If thing is a word, outputs the first character of the word. If thing is a list, outputs the first member of the list. If thing is an array, outputs the origin of the array (that is, the index of the first element of the array).
+200! Outputs a list containing the FIRST of each member of the input list. It is an error if any member of the input list is empty. The input itself may be empty, in which case the output is also empty.
+201! Outputs flood color information. This is either a color index (a number from 0 - 15), or a list containing [red green blue] intensities, depending on how the flood color was set.
+202! Outputs flood color information. This is either a color index (a number from 0 - 15), or a list containing [red green blue] intensities, depending on how the flood color was set.
+203! Outputs a list of the names of every font typeface that is supported by the operating system. The order of this list is not defined.
+204! FOR is a flexible tool for iteration.
+205! Command that evaluates the templatelist repeatedly, once for each item in datalist . If more than one data list is given, each of them must be the same length. If the data inputs are words, then the template is evaluated once for each character.
+206! Command that evaluates the templatelist repeatedly, once for each item in datalist . If more than one data list is given, each of them must be the same length. If the data inputs are words, then the template is evaluated once for each character.
+207! Runs instructionlist repeatedly, forever.
+208! Outputs a word containing a printable representation of num, possibly preceded by spaces (and therefore not a number for purposes of performing arithmetic operations). The output has at least width characters, including exactly precision digits after the decimal point. 
+209! Moves the turtle forward in the direction that it's headed by the specified distance, measured in turtle steps. The heading of the turtle does not change.
+210! Outputs a list equal to list with thing put on the front.
+211! Undocks the commander window from the screen window so that you can resize it to maximize the space available for graphics. The commander window is always on top of the screen window, so you may find it useful to minimize the commander window after undocking it.
+212! Undocks the commander window from the screen window so that you can resize it to maximize the space available for graphics. The commander window is always on top of the screen window, so you may find it useful to minimize the commander window after undocking it.
+213! Outputs a representation of the procedure procname in which formatting information is preserved. If the procedure was defined with TO, EDIT, or LOAD, then the output is a list of words. 
+214! Outputs a unique word each time it is invoked. The words are of the form G1, G2, etc. This is typically used to dynamically generate variable names.
+215! Outputs the caption (title) of the window in focus.
+216! Loads the GIF picture (compressed bitmap image) specified by the filename input. The filename input must be a word that is the name of valid GIF file.
+217! Save a picture of your work as a GIF (pronounced "jif") image so that it can be used on Web pages or Email. The dimensions of the picture are determined by ACTIVEAREA .
+218! Save a picture of your work as a GIF (pronounced "jif") image so that it can be used on Web pages or Email. The dimensions of the picture are determined by ACTIVEAREA .
+219! Save a picture of your work as a GIF (pronounced "jif") image so that it can be used on Web pages or Email. The dimensions of the picture are determined by ACTIVEAREA .
+220! Save a picture of your work as a GIF (pronounced "jif") image so that it can be used on Web pages or Email. The dimensions of the picture are determined by ACTIVEAREA .
+221! Output the width and height of the GIF file that is specified by the filename input. The filename input must be a word that is the name of valid GIF file.
+222! Outputs a close approximation to the golden ratio, which is (1 + SQRT 5)/2 .
+223! Changes the point of execution within a procedure to a given tag.
+224! Outputs the value of the property named propertyname in the property list named plistname, or the empty list if there is no such property or property list.
+225! Outputs TRUE if num1 is strictly greater than num2 . Outputs FALSE, otherwise.
+226! Outputs TRUE if num1 is greater than or equal to num2 . Outputs FALSE, otherwise.
+227! Outputs TRUE if num1 is greater than or equal to num2 . Outputs FALSE, otherwise.
+228! Outputs TRUE if num1 is strictly greater than num2 . Outputs FALSE, otherwise.
+229! Create a group box control. A group box control is a unique control compared with the other controls because all it does is group radio buttons (see RADIOBUTTONCREATE) and checkboxes (see CHECKBOXCREATE) both graphically and logically. 
+230! Deletes (closes) the group box control that is identified by name .
+231! The HALT command immediately stops FMSLogo from processing any further commands and returns control to the commander. It is the same as pressing the Halt Button.
+232! Outputs TRUE if the currently selected turtle has its own setting for PENMODE, PENSIZE, and PENCOLOR . Outputs FALSE if the currently selected turtle shares its pen settings with other turtles.
+233! Outputs TRUE if the currently selected turtle has its own setting for PENMODE, PENSIZE, and PENCOLOR . Outputs FALSE if the currently selected turtle shares its pen settings with other turtles.
+234! Outputs the turtle's heading measured in degrees clockwise from the positive Y-axis.
+235! Opens the FMSLogo manual. HELP has two forms: with and without a keyword input. When no keyword is given, FMSLogo opens the FMSLogo manual to the table of contents. 
+236! Opens the FMSLogo manual. HELP has two forms: with and without a keyword input. When no keyword is given, FMSLogo opens the FMSLogo manual to the table of contents. 
+237! Makes the turtle invisible. To make the turtle visible again, call SHOWTURTLE .
+238! Moves the turtle to the center of the screen and sets the turtle's heading, pitch, and roll to 0.
+239! Makes the turtle invisible. To make the turtle visible again, call SHOWTURTLE .
+240! Minimizes the window whose title matches caption . The term "ICON" comes from the old days when Windows applications were minimized into small icons.
+241! Command or operation where: If condition evaluates to TRUE, then IF runs true.instructionlist . If condition evalutes to FALSE, then IF does nothing. If given a false.instructionlist input, IF acts like IFELSE. 
+242! Command or operation where: If condition evaluates to TRUE, then IF runs true.instructionlist . If condition evalutes to FALSE, then IF does nothing. If given a false.instructionlist input, IF acts like IFELSE. 
+243! Command or operation where: If condition evaluates to TRUE, then IFELSE runs true.instructionlist . If condition evalutes to FALSE, then IFELSE runs false.instructionlist . 
+244! Runs instructionlist if the most recent TEST instruction had a FALSE input. Does nothing, otherwise. The TEST must have been in the same procedure or a superprocedure.
+245! Runs instructionlist if the most recent TEST instruction had a FALSE input. Does nothing, otherwise. The TEST must have been in the same procedure or a superprocedure.
+246! Runs instructionlist if the most recent TEST instruction had a TRUE input. Does nothing, otherwise. The TEST must have been in the same procedure or a superprocedure.
+247! Runs instructionlist if the most recent TEST instruction had a TRUE input. Does nothing, otherwise. The TEST must have been in the same procedure or a superprocedure.
+248! IGNORE does nothing. This is useful when an expression is evaluated for a side effect and its actual output is unimportant.
+249! Reads the value (or resistance across) the game port channel specified by mask . The mask input must be either 1, 2, 4, or 8. If mask is 1, then INGAMEPORT reads the x-axis. 
+250! Reads 2 bytes (16 bits) from the port specified by portid and output the data as an integer. The portid input specifies a "Hardware" port.
+251! Reads one byte from the port specified by portid and output the data as an integer. The portid input specifies a "Hardware" port.
+252! Outputs its input with fractional part removed. That is, INT outputs an integer with the same sign as the input, whose absolute value is the largest integer less than or equal to the absolute value of the input.
+253! Procedure that runs the template, filling its slots with the remaining input(s). The number of inputs must be an acceptable number of slots for template . It is illegal to use the primitive TO as a template, but anything else is okay. 
+254! Procedure that runs the template, filling its slots with the remaining input(s). The number of inputs must be an acceptable number of slots for template . It is illegal to use the primitive TO as a template, but anything else is okay. 
+255! Outputs a consecutive ordered list of integers starting with from and ending with to . If from is greater than to, then ISEQ outputs a sequence that counts backwards.
+256! If thing is a word, ITEM outputs the index -th character of the word.
+257! A predicate that outputs TRUE if there are more characters to read from the read stream. If the read stream is a file, then KEYP is equivalent to NOT EOFP . If the read stream is set to the Commander, then KEYP always outputs TRUE.
+258! Disables trapping of keyboard events.
+259! Starts trapping keyboard events and sending them to keydown and keyup . When a key is pressed down, keydown is called. When a key is released, keyup is called. You can determine the key that was pressed or released by calling KEYBOARDVALUE in your keydown or keyup procedure.
+260! Starts trapping keyboard events and sending them to keydown and keyup . When a key is pressed down, keydown is called. When a key is released, keyup is called. You can determine the key that was pressed or released by calling KEYBOARDVALUE in your keydown or keyup procedure.
+261! Outputs a number that corresponds to last key that was either pushed or released. The number which it outputs depends on both the key that was pressed and whether KEYBOARDON was given one or two inputs.
+262! A predicate that outputs TRUE if there are more characters to read from the read stream. If the read stream is a file, then KEYP is equivalent to NOT EOFP . If the read stream is set to the Commander, then KEYP always outputs TRUE.
+263! Prints text to the screen at the turtle's current position and heading.
+264! Outputs a list describing the current font that is used by the LABEL command.
+265! Outputs the size (width and height) of the given text if it were rendered with the LABEL command. The input may be a word or a list. The output is a two item list [width height].
+266! If thing is a word, outputs the last character of the word. If thing is a list, outputs the last member of the list.
+267! Turns the turtle counterclockwise by the specified angle, measured in degrees (1/360 of a circle).
+268! Rolls the turtle toward his left side by the specified angle, measured in degrees (1/360 of a circle).
+269! Outputs TRUE if num1 is strictly less than num2 . Outputs FALSE, otherwise.
+270! Outputs TRUE if num1 is less than or equal to num2 . Outputs FALSE, otherwise.
+271! Outputs TRUE if num1 is less than or equal to num2 . Outputs FALSE, otherwise.
+272! Outputs TRUE if num1 is strictly less than num2 . Outputs FALSE, otherwise.
+273! Outputs the lighting attributes as a list of two numbers, the Ambient and Diffuse values.
+274! Outputs a list whose members are its inputs, which can be any Logo thing (word, list, or array).
+275! Outputs a list whose members are its inputs, which can be any Logo thing (word, list, or array).
+276! Outputs TRUE if the input is a list, FALSE otherwise.
+277! Adds item to the listbox that is identified by name .
+278! Creates a listbox control. A listbox control shows the user a set of items and lets them select one of them.
+279! Deletes (closes) the listbox whose name is name .
+280! Deletes the item at index from the listbox that is identified by name .
+281! Enables or disables the listbox identified by name . If state equals TRUE, then the listbox is enabled. If state equals FALSE, then the listbox is disabled.
+282! Outputs the selected item within the listbox that is identified by name . The output takes the form of a list that encloses the text of the currently selected row. If nothing is selected, then LISTBOXGETSELECT outputs the empty list.
+283! Outputs TRUE if the input is a list, FALSE otherwise.
+284! Outputs an array with the same elements as the input list .
+285! Outputs an array with the same elements as the input list .
+286! Outputs the natural logarithm of the num . That is, e (2.718281828...) raised to the output = num .
+287! Reads instructions from the file named filename and runs them. The file can include procedure definitions with TO, and these are accepted even if a procedure by the same name already exists. 
+288! Creates variables that are local to the currently running procedure. LOCAL accepts as input one or more words, or a list of words. A local variable is created for each of these words, with that word as its name. 
+289! Creates variables that are local to the currently running procedure. LOCAL accepts as input one or more words, or a list of words. A local variable is created for each of these words, with that word as its name. 
+290! Creates variables that are local to the currently running procedure. LOCAL accepts as input one or more words, or a list of words. A local variable is created for each of these words, with that word as its name. 
+291! LOCALMAKE declares a local variable and assigns it a variable. It is convenient shorthand for the following code: LOCAL varname MAKE varname value
+292! Outputs the common logarithm of num . That is, 10 raised to the output is num .
+293! Outputs a four item list that describes the version of Logo which you are using. The first item is the name of the application (FMSLogo). The second item is the version of FMSLogo. 
+294! Outputs a word which is a copy of word, but with all uppercase letters changed to the corresponding lowercase letter.
+295! Outputs a list equal to list with thing added as the last item.
+296! Rolls the turtle toward his left side by the specified angle, measured in degrees (1/360 of a circle).
+297! Outputs int shifted logically to the left by amount bits. If amount is negative, the shift is to the right with zero fill. The inputs must be integers.
+298! Turns the turtle counterclockwise by the specified angle, measured in degrees (1/360 of a circle).
+299! Outputs a list that describes the characteristics of the machine. The list has the following format: [IsWindows Wordsize BitmapWidth BitmapHeight IsPaletteEnable WindowsVersionMajor WindowsVersionMinor WorkingAreaWidth WorkingAreaHeight DesktopWidth DesktopHeight OuterWindowWidth OuterWindowHeight InnerWindowWidth InnerWindowHeight] Where the meaning of each member is given by the table below. 
+300! Outputs TRUE if the input is the name of a user-defined macro or a library macro. Outputs FALSE, otherwise.
+301! Operation that inputs Logo expression ( macrocall ) that invokes a macro and outputs the Logo expression into which the macro would translate the input expression.
+302! Outputs TRUE if the input is the name of a user-defined macro or a library macro. Outputs FALSE, otherwise.
+303! Command that assigns the value value to the variable named varname, which must be a word. Variable names are case-insensitive. If a variable with the same name already exists, the value of that variable is changed. 
+304! Outputs a word or list, depending on the type of the data input, of the same length as that data input. (If more than one data input are given, the output is of the same type as data1 .) Each item of the output is the result of evaluating the templatelist, filling the slots with the corresponding item(s) of the data input(s). 
+305! Outputs a word or list, depending on the type of the data input, of the same length as that data input. (If more than one data input are given, the output is of the same type as data1 .) Each item of the output is the result of evaluating the templatelist, filling the slots with the corresponding item(s) of the data input(s). 
+306! Outputs a list formed by evaluating templatelist repeatedly and concatenating the results using SENTENCE . That is, the members of the output are the members of the results of the evaluations. 
+307! Outputs a list formed by evaluating templatelist repeatedly and concatenating the results using SENTENCE . That is, the members of the output are the members of the results of the evaluations. 
+308! Maximizes the window whose title matches caption .
+309! MCI lets you write Logo procedures to manipulate multimedia devices. With it, you can link sounds to the steps of drawing a picture. You can narrate your own slide show. 
+310! MCI lets you write Logo procedures to manipulate multimedia devices. With it, you can link sounds to the steps of drawing a picture. You can narrate your own slide show. 
+311! Outputs a multi-dimensional array.
+312! Outputs a multi-dimensional array.
+313! Outputs an item of the multi-dimensional array (or multi-dimensional list) selected by the list of numbers (an index list).
+314! Replaces an item in a multi-dimensional array with a new value. The item to replace is selected by a list of indices.
+315! If thing2 is a word or list and if MEMBERP with these inputs would output TRUE, then MEMBER outputs the portion of thing2 from the first instance of thing1 to the end. If MEMBERP would output FALSE, then MEMBER outputs the empty word or list according to the type of thing2 . 
+316! Outputs TRUE if thing1 is a member of thing2 . Outputs FALSE, otherwise.
+317! Outputs TRUE if thing1 is a member of thing2 . Outputs FALSE, otherwise.
+318! Displays a dialog box with title in the title bar and message as the message. The dialog has an "OK" and a "Cancel" button. Processing does not continue until the user clicks one of these buttons. 
+319! Closes the MIDI device that was opened with MIDIOPEN .
+320! Sends a MIDI message to the MIDI sequencer. You must call MIDIOPEN before using this command.
+321! Opens the MIDI device and accesses it through a MIDI device driver. The device driver chosen depends on several things. When no inputs are given, MIDIOPEN attempts to use the MIDI-MAPPER. 
+322! Opens the MIDI device and accesses it through a MIDI device driver. The device driver chosen depends on several things. When no inputs are given, MIDIOPEN attempts to use the MIDI-MAPPER. 
+323! Minimizes the window whose title matches caption .
+324! Outputs the negative of its input.
+325! Makes (creates) a directory and then changes ( CHDIR) into it. The directoryname input must be a word (the name of the directory you want to make). You can use the DIR command to list the files and directories in the current directory. 
+326! Outputs the remainder of dividing dividend divided by divisor . Both dividend and divisor must be numbers and divisor must not be 0.
+327! Disables trapping of mouse events.
+328! Starts trapping mouse events that are sent to the "FMSLogo" window and passes them to leftbuttondown, leftbuttonup, rightbuttondown, rightbuttonup, or move, depending on the type of event. 
+329! Output the position of the mouse at the time the last mouse event was generated. The position is given as a list with two items: [X, Y]. The mouse must first be turned on by calling MOUSEON .
+330! Command that assigns the value value to the variable named varname, which must be a word. Variable names are case-insensitive. If a variable with the same name already exists, the value of that variable is changed. 
+331! Outputs TRUE if the input is the name of a variable. Outputs FALSE, otherwise.
+332! Outputs a contents list consisting of an empty list followed by a list of the name or names given as input. This is useful in conjunction with workspace control procedures that require a contents list as input. 
+333! Outputs a contents list consisting of an empty list followed by a list of the name or names given as input. This is useful in conjunction with workspace control procedures that require a contents list as input. 
+334! Outputs TRUE if the input is the name of a variable. Outputs FALSE, otherwise.
+335! Outputs a contents list consisting of an empty procedure list (indicating no procedure names) followed by a list of all unburied variable names in the workspace.
+336! Stops accepting incoming connections.
+337! Enables you to accept a connection over the network on the localport . When data are available, FMSLogo runs the receiveready instruction list. To obtain the data received, run NETACCEPTRECEIVEVALUE in your receiveready instruction list. 
+338! Outputs the value of the last network data received on the accept socket. It is best to call this procedure in your receiveready callback code of your NETACCEPTON instruction. 
+339! Sends data out the accept socket.
+340! Shuts down a connection that was created with NETCONNECTON . After running this command, NETCONNECTSENDVALUE and NETCONNECTRECEIVEVALUE no longer work.
+341! Initiates a connection over the network to the TCP port remoteport on remotemachinename . To turn off the connection call NETCONNECTOFF. To obtain the data received call NETCONNECTRECEIVEVALUE in your receiveready instruction list. 
+342! Outputs the value of the last network data received on the connection that was created with NETCONNECTON . It is best to call this procedure in your receiveready callback code of your NETCONNECTON command. 
+343! Sends data out the connection that was created with NETCONNECTON .
+344! Turns off networking in FMSLogo. No network procedure in FMSLogo will work until you call NETSTARTUP again.
+345! Turns on networking in FMSLogo. This must be called before any other network commands will work.
+346! Turns on networking in FMSLogo. This must be called before any other network commands will work.
+347! Restores the turtle to its original triangle shape. It is the opposite of BITMAPTURTLE .
+348! Outputs a list of two numbers. The first is the number of nodes of memory currently in use. The second is the maximum number of nodes that have been in use at any time since the last invocation of NODES.
+349! Stops copying information to the dribble file and closes the file.
+350! Tells Logo not to remember the turtle's motions. This makes drawing faster, but prevents recovery if the window is obscured by another window.
+351! Closes the popup status window, if it is open. This command has the same effect as pressing the Status Button when it is depressed.
+352! Outputs TRUE if the input is FALSE, and vice versa. The input must be a boolean value.
+353! Outputs FALSE if both inputs are equal, TRUE otherwise.
+354! Outputs FALSE if both inputs are equal, TRUE otherwise.
+355! NOYIELD tells FMSLogo not to interrupt running Logo instructions to process windows messages, such as keyboard input, mouse clicks, or notifications to repaint the screen. 
+356! Outputs TRUE if thing is a number, FALSE otherwise.
+357! Outputs TRUE if thing is a number, FALSE otherwise.
+358! Ends the running of the procedure in which it appears. That procedure outputs value to the context in which it was invoked. Don't be confused: OUTPUT itself is a command, but the procedure that invokes OUTPUT is an operation.
+359! Opens the file named filename for writing. If the file by the given filename already exists, the write position is initially set to the end of the old file, so that newly written data is appended to it.
+360! Opens the file named filename for writing. If the file by the given filename already exists, the write position is initially set to the end of the old file, so that newly written data is appended to it.
+361! Opens the file named filename for reading. The read position is initially at the beginning of the file.
+362! Opens the file named filename for reading. The read position is initially at the beginning of the file.
+363! Opens the file named filename named for reading and writing. The read and write position is initially set to the end of the old file, if any. Each open file has only one position, for both reading and writing. 
+364! Opens the file named filename named for reading and writing. The read and write position is initially set to the end of the old file, if any. Each open file has only one position, for both reading and writing. 
+365! Opens the file named filename for writing. If the file by the given filename already exists, the old version is deleted and a new, empty file is created.
+366! Opens the file named filename for writing. If the file by the given filename already exists, the old version is deleted and a new, empty file is created.
+367! Outputs TRUE if at least one input is TRUE. Outputs FALSE, otherwise. All inputs must be TRUE or FALSE.
+368! Outputs TRUE if at least one input is TRUE. Outputs FALSE, otherwise. All inputs must be TRUE or FALSE.
+369! Outputs a list, the turtle's [roll pitch heading] each in degrees. It is important to understand your orientation in 3D .
+370! Writes data to the "hardware" port specified by portid . The data input must be a 2 byte integer (a number from 0 to 65525).
+371! Writes data to the "hardware" port specified by portid . The data input must be a one byte integer (a number from 0 to 255).
+372! Ends the running of the procedure in which it appears. That procedure outputs value to the context in which it was invoked. Don't be confused: OUTPUT itself is a command, but the procedure that invokes OUTPUT is an operation.
+373! Outputs the list that would result if word were entered in response to a READLIST operation. That is, PARSE READWORD outputs the same value as READLIST for the same characters read.
+374! Command or operation that enters an interactive pause. The user is prompted for instructions with a dialog box that includes the name of the procedure in which PAUSE was invoked. 
+375! Outputs pen color information. This is either a color index (a number from 0 - 15), or a list containing [red green blue] intensities, depending on how the pen color was set.
+376! Sets the pen's position to "down", without changing its mode.
+377! Sets the pen's position to "down" and the pen's mode to "erase". In erase mode, the pen draws in the color described by SCREENCOLOR . Use PENPAINT to restore the pen to normal use.
+378! Outputs a list containing the pen's position, mode, and hardware-specific characteristics, for use by SETPEN. The output is a list with the following members: [PENDOWNP PENMODE PENSIZE PENCOLOR PENPAINT].
+379! Outputs pen color information. This is either a color index (a number from 0 - 15), or a list containing [red green blue] intensities, depending on how the pen color was set.
+380! Outputs pen color information. This is either a color index (a number from 0 - 15), or a list containing [red green blue] intensities, depending on how the pen color was set.
+381! Sets the pen's position to "down", without changing its mode.
+382! Outputs TRUE if the pen is down, FALSE if it's up.
+383! Outputs TRUE if the pen is down, FALSE if it's up.
+384! Sets the pen's position to "down" and the pen's mode to "erase". In erase mode, the pen draws in the color described by SCREENCOLOR . Use PENPAINT to restore the pen to normal use.
+385! Outputs one of the words "paint", "erase", or "reverse" according to the current pen mode.
+386! Sets the pen's state to the startup default of down and paint.
+387! Sets the pen's position to "down" and the pen's mode to "paint". In paint mode, the pen draws in the color described by PENCOLOR . This is the default mode.
+388! PENPATTERN is not supported in FMSLogo.
+389! Sets the pen's position to "down" and the pen's mode to "reverse". In reverse mode, the pen draws in a color that is the bitwise negation of whatever pixel is under the pen. 
+390! Outputs the size of the pen as a list with two items: [Width Height]. The width item is ignored by FMSLogo.
+391! Sets the pen's position to "up", without changing its mode.
+392! Tells the turtle to enter "perspective" mode. Perspective mode adds a third dimension (Z axis) for the turtle to live in. Perspective is a term to describe how we view a three-dimensional world on a two-dimensional surface. 
+393! Outputs the value pi (3.14159265358979...).
+394! Outputs a randomly chosen item from thing .
+395! Outputs the angle of the turtle's pitch in degrees. It is important to understand your orientation in 3D .
+396! Outputs the color of the pixel that is currently under the turtle. Depending on how the color was last set, the output is either a three item list of numbers that represents the red, green, and blue intensities of the pixel, or an integer index of the pixel's color. 
+397! Plays a wave file.
+398! Outputs a list of the properties in the property list named plistname . The odd-numbered items in the list are the property names and the even-numbered items are the property values. 
+399! Outputs a contents list, which is a list of three lists. The first two lists are empty, indicating that no procedure names or variable names are returned. The third list is a list of the names of all unburied property lists in the workspace.
+400! Outputs a contents list consisting of two empty lists followed by a list of the name or names given as input. The third sublist is taken to mean the names of property lists. 
+401! Outputs a contents list consisting of two empty lists followed by a list of the name or names given as input. The third sublist is taken to mean the names of property lists. 
+402! Prints the definitions of all procedures, variables, and property lists named in contentslist to the current write stream. See the Workspace Queries section for an explaination of the formats of contentslist .
+403! Prints all unburied definitions in the workspace to the current write stream. POALL abbreviates PO CONTENTS .
+404! Completes the definition of a polygon that was started with the most recent POLYSTART call.
+405! Starts the definition of a new polygon. Each subsequent move while the turtle's pen is down adds the destination coordinate as a vertex to the polygon. The polygon's definition is completed by running the POLYEND command.
+406! POLYVIEW erases the screen and renders all polygons defined with POLYSTART and POLYEND as shaded polygons. Only shaded polygons are shown. Polygons are illuminated according to the position of the light source using SETTURTLE -3 and lighting configuration that was set with SETLIGHT . 
+407! Prints the definitions of the named variable(s) to the current write stream. PON abbreviates PO NAMELIST .
+408! Prints the definitions of the named variable(s) to the current write stream. PON abbreviates PO NAMELIST .
+409! Prints the definitions of all unburied variables in the workspace to the current write stream. PONS abbreviates PO NAMES .
+410! Outputs the most recent thing that was pushed on the stack named stackname (using PUSH ) and removes that member from the stack.
+411! Pops you up (1 level) out of a directory. It is equivalent to: CHDIR "..
+412! Prints the contents of the named property lists(s) to the current write stream. POPL abbreviates PO PLLIST .
+413! Prints the contents of the named property lists(s) to the current write stream. POPL abbreviates PO PLLIST .
+414! Prints the contents of all unburied property lists in the workspace to the current write stream. POPLS abbreviates PO PLISTS .
+415! Prints the definitions of all unburied procedures in the workspace to the current write stream. POPS abbreviates PO PROCEDURES .
+416! Closes a port that was opened by PORTOPEN .
+417! Flushes all buffered output to the open port.
+418! Sets the mode (speed, parity, data bits, and stop bits) of the open COM port. The flow control characteristic cannot be set through FMSLogo.
+419! Gives you access to the serial and parallel ports of your computer. The port input is a string that is the name of the port you wish to open (for example, COM1-COM4 and LPT1-LPT3).
+420! Reads data from the currently open port into the given buffer array. PORTREADARRAY attempts to read count bytes from the port, if they are available. When bytes are written to buffer, they are written as small integers (between -128 and 127). 
+421! Reads one byte from the currently open port and outputs it as an integer from -128 to 127. It also outputs "-1" if no character is available. Therefore, if PORTREADCHAR outputs -1, it could be there was no character available or that it successfuly read the -1 byte. 
+422! PORTWRITEARRAY writes to the currently open port with the data in buffer, which must be an array of byte-sized integers. It attempts to write count bytes to the port, if possible. 
+423! Writes one byte to the currently open port. PORTWRITECHAR outputs 1 if the byte was written succesfully and outputs -1 otherwise. The data input must be an integer from 0 to 255.
+424! Outputs the turtle's current position, as a list of two numbers, the X and Y coordinates.
+425! Outputs the turtle's current position, as a list of three numbers, the X, Y, and Z coordinates.
+426! Prints the title lines of the named procedures, the definitions of the named variables, and the contents of the named property lists to the current write stream. For property lists, the entire list is shown on one line instead of as a series of PPROP instructions as in PO .
+427! Prints the title lines of all unburied procedures in the workspace to the current write stream. POTS abbreviates POT PROCEDURES .
+428! Outputs base raised to the power of exponent . If base is negative, then exponent must be an integer.
+429! Adds a property to the property list named plistname . The property is named propertyname and has the value value . If no property list named plistname exists, then it is created. 
+430! Sets the pen's position to "down" and the pen's mode to "paint". In paint mode, the pen draws in the color described by PENCOLOR . This is the default mode.
+431! Prints the input or inputs to the current write stream (initially the command-recall window ). All the inputs are printed on a single line, separated by spaces, ending with a newline. 
+432! Prints the input or inputs to the current write stream (initially the command-recall window ). All the inputs are printed on a single line, separated by spaces, ending with a newline. 
+433! Outputs TRUE if the input is the name of a primitive (one that is built into FMSLogo), outputs FALSE otherwise. Note that many of FMSLogo's procedures are library procedures, not primitives.
+434! Outputs TRUE if the input is the name of a primitive (one that is built into FMSLogo), outputs FALSE otherwise. Note that many of FMSLogo's procedures are library procedures, not primitives.
+435! Prints the input or inputs to the current write stream (initially the command-recall window ). All the inputs are printed on a single line, separated by spaces, ending with a newline. 
+436! Prints the input or inputs to the current write stream (initially the command-recall window ). All the inputs are printed on a single line, separated by spaces, ending with a newline. 
+437! PRINTDEPTHLIMIT is a special variable. If its value is a nonnegative integer, then FMSLogo treats its value as maximum depth of a sublist (or subarray) structure that is printed by PRINT, etc.
+438! PRINTWIDTHLIMIT is a special variable. If its value is a nonnegative integer, then FMSLogo treats its value as the maximum number of items in any one list (or array) that is printed by PRINT, etc. 
+439! Outputs TRUE if the input is the name of a procedure, outputs FALSE otherwise.
+440! Outputs TRUE if the input is the name of a procedure, outputs FALSE otherwise.
+441! Outputs a contents list consisting of all unburied user-defined procedures in the workspace.
+442! Outputs the product of its inputs. If no inputs are given, then PRODUCT outputs 1.
+443! Outputs the product of its inputs. If no inputs are given, then PRODUCT outputs 1.
+444! Outputs TRUE if the input is the name of a property list, outputs FALSE otherwise.
+445! Outputs TRUE if the input is the name of a property list, outputs FALSE otherwise.
+446! Sets the pen's position to "up", without changing its mode.
+447! Adds a thing to the front of a stack whose name is stackname .
+448! Sets the pen's position to "down" and the pen's mode to "reverse". In reverse mode, the pen draws in a color that is the bitwise negation of whatever pixel is under the pen. 
+449! Displays a dialog box with title in the title bar, question as the message, and an edit control for text input. The dialog box also has "OK" and "Cancel" buttons. Processing does not continue until the user clicks one of these buttons. 
+450! Adds a thing to the back of a queue whose name is queuename .
+451! If the input is a word, QUOTED outputs the word with a double-quote character ( " ) appended to the front. Otherwise, QUOTED outputs whatever the input is.
+452! Outputs the quotient of its inputs. That is, it outputs dividend divided by divisor . QUOTIENT outputs an integer if and only if dividend is a multiple of divisor . For example, QUOTIENT 5 2 is 2.5, not 2, but QUOTIENT 4 2 is 2, not 2.0 .
+453! Outputs the quotient of its inputs. That is, it outputs dividend divided by divisor . QUOTIENT outputs an integer if and only if dividend is a multiple of divisor . For example, QUOTIENT 5 2 is 2.5, not 2, but QUOTIENT 4 2 is 2, not 2.0 .
+454! Outputs the inverse cosine of its input. The output is given in radians in the range [0, PI]. num must be in the range [-1, 1].
+455! Outputs the inverse sine of its input. The output is given in radians in the range [-PI/2, PI/2]. num must be in the range [-1, 1].
+456! With one input, outputs the inverse tangent angle of num . The output is given in radians in the range [-PI/2,PI/2].
+457! With one input, outputs the inverse tangent angle of num . The output is given in radians in the range [-PI/2,PI/2].
+458! Outputs the cosine of angle, which is taken in radians.
+459! Creates a radio button control. A radio button control is used to give the user a selection of a two state (TRUE or FALSE) item. But along with this is a restriction that only one radio button within a group box can be set to TRUE at any given time. 
+460! Deletes (closes) the radio button that is identified by name .
+461! Enables or disables the radio button identified by name . If state equals TRUE, then the radio button is enabled. If state equals FALSE, then the radio button is disabled.
+462! Outputs the state (TRUE or FALSE) of the radio button that is identified by name .
+463! Sets the state of the radio button that is identified by name to state . state must be either TRUE (pressed) or FALSE (unpressed).
+464! Outputs the sine of angle, which is taken in radians.
+465! Outputs the tangent of angle, which is taken in radians.
+466! Outputs a uniform random integer from 0 to the range input (not including the range input). The range input must be a nonnegative integer.
+467! Outputs the number that represents character in your current code page.
+468! Reads a single character from the read stream and outputs it. If the read stream was opened for text reading, then the character is output as a word. If the read stream was opened for binary reading, then the character is output as a number.
+469! Reads number characters from the read stream and outputs those characters as a word. If number is larger than the number of characters remaining in the read stream, then READCHARS outputs the rest of the read stream. 
+470! Reads a single character from the read stream and outputs it. If the read stream was opened for text reading, then the character is output as a word. If the read stream was opened for binary reading, then the character is output as a number.
+471! Reads number characters from the read stream and outputs those characters as a word. If number is larger than the number of characters remaining in the read stream, then READCHARS outputs the rest of the read stream. 
+472! Outputs the name of the current read stream file, or the empty list if the read stream is the Commander.
+473! Reads a line from the read stream (initially the popup dialog) and outputs that line as a list. The line is separated into items as though it were typed in square brackets in an instruction. 
+474! Outputs the file character position of the current read stream file as a number. An output value of 0 means that the read position is at the beginning of the stream.
+475! Reads a line from the read stream and outputs that line as a word. READRAWLINE outputs the exact string of characters as they appear in the line, with no special meaning for backslash, vertical bar, tilde, or any other formatting characters. 
+476! Reads a line from the read stream and outputs that line as a word (without the end-of-line sequence). The output is a single word even if the line contains spaces, brackets, etc. 
+477! If TRUE, allows primitives to be erased (see ERASE ) or redefined (see COPYDEF ).
+478! Outputs the result of applying the template to accumulate the items of the data input, two items at a time.
+479! Tells Logo to remember the turtle's motions so that they can be reconstructed in case the graphics window is obscured by another window.
+480! Outputs the remainder of dividing dividend by divisor . Both dividend and divisor must be numbers and divisor must not be 0.
+481! Outputs a copy of its input with duplicate members removed. If two or more members of the input are equal, the rightmost of those members is the one that remains in the output.
+482! Outputs a new thing that is equal to things with all members equal to thingtoremove removed.
+483! Removes the property named propertyname from the property list named plistname, if it exists. If REMPROP removes the final property from a property list, then the property list may be erased.
+484! Outputs the number of the current repetition of a REPEAT command's instruction list. That is, it outputs 1 the first time the instruction list is run, outputs 2 the second time, and so on. 
+485! Runs the instructions in instructionlist repeatedly, count times.
+486! Makes the output of RANDOM reproducible. Ordinarily the sequence of random numbers is different each time Logo is used. If you need the same sequence of pseudo-random numbers repeatedly, for example, to debug a program, run RERANDOM before the first invocation of RANDOM or PICK. 
+487! Makes the output of RANDOM reproducible. Ordinarily the sequence of random numbers is different each time Logo is used. If you need the same sequence of pseudo-random numbers repeatedly, for example, to debug a program, run RERANDOM before the first invocation of RANDOM or PICK. 
+488! Restores (unminimizes or unmaximizes) the window whose title matches caption to the size and position it had before it was minimized or maximized.
+489! Outputs the reverse of its input.
+490! Turns the turtle clockwise by the specified angle, measured in degrees (1/360 of a circle).
+491! Rolls the turtle toward his right side by the specified angle, measured in degrees (1/360 of a circle).
+492! Reads a line from the read stream (initially the popup dialog) and outputs that line as a list. The line is separated into items as though it were typed in square brackets in an instruction. 
+493! Removes (deletes) a directory named directoryname . The directoryname input must be a word (a name of an existing directory). You cannot remove a directory if it is your working directory. 
+494! Outputs the angle of the turtle's roll in degrees. It is important to understand your orientation in 3D .
+495! Outputs the nearest integer to the input.
+496! Rolls the turtle toward his right side by the specified angle, measured in degrees (1/360 of a circle).
+497! Outputs an ordered list of count equally spaced rational numbers starting with from and ending with to . If from is greater than to, then RSEQ outputs a sequence that counts backwards.
+498! Turns the turtle clockwise by the specified angle, measured in degrees (1/360 of a circle).
+499! Runs the instructions in instructionlist ; outputs if the list contains an expression that outputs.
+500! Outputs the list that would result if thing (word or list) were entered as an instruction line; characters such as infix operators and parentheses are separate members of the output. 
+501! Runs the instructions in instructionlist . RUNRESULT outputs an empty list if those instructions produce no output. Otherwise, it outputs a list whose only member is the output from running the input instructionlist. 
+502! Reads a line from the read stream and outputs that line as a word (without the end-of-line sequence). The output is a single word even if the line contains spaces, brackets, etc. 
+503! Saves the definitions of all unburied procedures, variables, and property lists in a file named filename .
+504! Saves the definitions of the procedures, variables, and property lists specified by contentslist to a file named filename .
+505! Outputs screen color information. This is either a color index (a number from 0 - 15), or a list containing [red green blue] intensities, depending on how the screen color was set.
+506! Outputs screen color information. This is either a color index (a number from 0 - 15), or a list containing [red green blue] intensities, depending on how the screen color was set.
+507! Creates a scrollbar control. Scrollbar controls let the user select a value by sliding a "scroller" along a bar that represents a range of possible values. The position of the scrollbar is often linked to a static control that displays the scrollbar's current position, but this is not required.
+508! Deletes (closes) the scrollbar that is identified by name .
+509! Enables or disables the scrollbar identified by name . If state equals TRUE, then the scrollbar is enabled. If state equals FALSE, then the scrollbar is disabled.
+510! Output the current position of the scrollbar control that is identified by name . The output is within the range specified by SCROLLBARSET .
+511! Set the range and current position of the scrollbar control that is identified by name . You can invoke SCROLLBARSET multiple times on the same scrollbar.
+512! Scrolls the horizontal scrollbar of the "Screen" window. The deltax input is the amount to move the scroll position by. A positive number scrolls to the right and negative number scrolls to the left. 
+513! Scrolls the vertical scrollbar of the "Screen" window. The deltay is the amount to move the scroll position by. A positive number scrolls down and negative number scrolls up. 
+514! Outputs a list containing two numbers, the X and Y scrunch factors, as used by SETSCRUNCH . Note that SETSCRUNCH takes two numbers as inputs, not one list of numbers.
+515! Outputs a list whose members are its inputs, if those inputs are not lists. Outputs the members of its inputs, if those inputs are lists.
+516! Outputs a list whose members are its inputs, if those inputs are not lists. Outputs the members of its inputs, if those inputs are lists.
+517! Displays a dialog box with title as the title bar and choicelist as a list of choices. The dialog also has an "OK" and a "Cancel" button. FMSLogo does not evaluate any further instructions until the user clicks one of these buttons. 
+518! Outputs a list whose members are its inputs, if those inputs are not lists. Outputs the members of its inputs, if those inputs are lists.
+519! Outputs a list whose members are its inputs, if those inputs are not lists. Outputs the members of its inputs, if those inputs are lists.
+520! Sets the active area for printing and saving pictures. The area input must be a list of the form: [XLow YLow XHigh YHigh]. All members must be integers.
+521! Sets the current bitmap cut buffer according to index . The index input must be a number from 0 to 1023. Its purpose is to allow multiple images to be stored in memory ready for quick pasting when doing animation.
+522! Sets the current bitmap mode according to mode . The mode input must be a number from 1 to 9. The meaning of each value is given by the following table: Mode Meaning 1 Take copy of memory then copy to screen 2 Take copy of memory OR with copy of screen then copy to screen 3 Take copy of memory AND with copy of screen then copy to screen 4 Take copy of memory XOR with copy of screen then copy to screen 5 Take copy of memory AND with invert of screen then copy to screen 6 Take invert of memory then copy to screen 7 Take copy of memory OR with copy of screen then invert to screen 8 Take invert of memory OR with copy of screen then copy to screen 9 Take invert of screen then copy to screen
+523! SETCURSOR is not supported in FMSLogo.
+524! SETCURSORNOWAIT changes the cursor to the familiar arrow shape. This should be just before a call to YIELD.
+525! SETCURSORWAIT sets the cursor to the familiar hourglass shape. Its purpose is to indicate two things. First, it indicates that the current operation may take some time. Second, it indicates the user does not have control until the operation completes. 
+526! Sets the flood color to color, which can either be a color index or a color vector. A color index is a number from 0 - 15. A color vector is a list of [red green blue] intensities, each in the range of 0 - 255. 
+527! Sets the flood color to color, which can either be a color index or a color vector. A color index is a number from 0 - 15. A color vector is a list of [red green blue] intensities, each in the range of 0 - 255. 
+528! Sets the flood color to color, which can either be a color index or a color vector. A color index is a number from 0 - 15. A color vector is a list of [red green blue] intensities, each in the range of 0 - 255. 
+529! Selects a window whose caption (or title) is caption . When a window has focus, it is selected and all keyboard input is directed to it.
+530! Turns the turtle to a new absolute heading. The angle input is the heading in degrees clockwise from the positive Y-axis. In PERSPECTIVE mode, the angle input is the heading in degrees from the positive X-Axis toward the positive Y-Axis rotating about the Z-Axis.
+531! Turns the turtle to a new absolute heading. The angle input is the heading in degrees clockwise from the positive Y-axis. In PERSPECTIVE mode, the angle input is the heading in degrees from the positive X-Axis toward the positive Y-Axis rotating about the Z-Axis.
+532! Replaces the index -th item of an input array with a new value.
+533! Sets the font to be used by the LABEL command.
+534! Sets how POLYVIEW illuminates polygons. The properties input is a list of two numbers ranging from 0.0 to 1.0, the amount of ambient and diffuse light. The ambient component defines how much background light there is; the larger the number the brighter the light. 
+535! SETMARGINS is not supported (or needed) in FMSLogo.
+536! Orients the turtle to a new absolute orientation. The orientation input is a list, the [roll pitch heading] in degrees. It is important to understand your orientation in 3D .
+537! Sets the pen color to color, which can either be a color index or a color vector. A color index is a number from 0 - 15. A color vector is a list of [red green blue] intensities, each in the range of 0 - 255. 
+538! Sets the pen's position, mode, and hardware-dependent characteristics according to the information in the characteristics input. The characteristics input is a list with the following members: [PENDOWNP PENMODE PENSIZE PENCOLOR PENPAINT]. 
+539! Sets the pen color to color, which can either be a color index or a color vector. A color index is a number from 0 - 15. A color vector is a list of [red green blue] intensities, each in the range of 0 - 255. 
+540! Sets the pen color to color, which can either be a color index or a color vector. A color index is a number from 0 - 15. A color vector is a list of [red green blue] intensities, each in the range of 0 - 255. 
+541! SETPENPATTERN is not supported in FMSLogo.
+542! Set the pen's thickness. The size input must be either a positive integer that denotes the pen's width or a list of the form [width height]. When the size input is a list, SETPENSIZE ignores the height component, but this may change in a future release. 
+543! Pitches the turtle to a new absolute pitch. The angle input is the pitch in degrees which is positive from the negative Z-Axis to the positive Y-Axis rotating about the X-Axis.
+544! Sets the pixel under the turtle to the color described by colorvector . The colorvector input must be a three item list of [red green blue] intensities, each of which must be an integer from 0 to 255. 
+545! Moves the turtle to an absolute X,Y coordinate. The position input is a list of two numbers, the X and Y coordinates.
+546! Moves the turtle to an absolute X,Y,Z coordinate. The position input is a list of three numbers, the X, Y and Z coordinates.
+547! Sets the read stream to the file named filename . The read stream is used by READLIST, READWORD, etc. The file must already be open with OPENREAD or OPENUPDATE . If the input is the empty list, then the read stream becomes the Commander, as usual. 
+548! Sets the file pointer of the read stream file so that the next READLIST, etc., begins reading at the charpos -th character in the file, counting from 0. (That is, SETREADPOS 0 starts reading from the beginning of the file.) This is meaningless if the read stream is [].
+549! Rolls the turtle to a new absolute roll. The angle input is the roll in degrees which is positive from the positive X-Axis to the negative Z-Axis rotating about the Y-Axis. 
+550! Sets the screen background color to color and changes the entire screen to that color. The color input may either be a color index or a color vector. A color index is a number from 0 - 15. 
+551! Sets the screen background color to color and changes the entire screen to that color. The color input may either be a color index or a color vector. A color index is a number from 0 - 15. 
+552! Sets the screen background color to color and changes the entire screen to that color. The color input may either be a color index or a color vector. A color index is a number from 0 - 15. 
+553! SETSCRUNCH is not needed to correct display problems, but is available for folks who like to deliberately misadjust the aspect ratio.
+554! Sets up a timer identified by id (a number from 1-31) to call the instructions in callback in delay milliseconds. It continues to "fire" every delay milliseconds until you invoke CLEARTIMER with the same id .
+555! Selects turtle index for control. If the turtle was not previously activated, then all turtles from zero to index are activated. From now until you select a different turtle, all turtle commands refers to the newly selected turtle.
+556! Selects turtle index for control. If the turtle was not previously activated, then all turtles from zero to index are activated. From now until you select a different turtle, all turtle commands refers to the newly selected turtle.
+557! Sets the bitmap mode for the currently selected turtle. The bitmap mode controls how bitmapped turtles (see BITMAPTURTLE ) paste their image onto the screen. Sometimes you want the background erased and sometimes not. 
+558! Sets the write stream to the file named filename . The write stream is used by PRINT, SHOW, etc. The file must already be open with OPENWRITE, OPENAPPEND, or OPENUPDATE . If the input is the empty list, then the write stream becomes the Commander, as usual. 
+559! Sets the file pointer of the write stream file so that the next PRINT, etc., begins writing at the charpos -th character in the file, counting from 0. (That is, SETWRITEPOS 0 starts writing from the beginning of the file.) This is meaningless if the write stream is [].
+560! Moves the turtle along the X axis from its current position to a new absolute X coordinate. The xcor input is the new X coordinate.
+561! Moves the turtle to an absolute X,Y coordinate. The two inputs are numbers, the X and Y coordinates to move to.
+562! Moves the turtle to an absolute 3D position. The three inputs are numbers, the X, Y, and Z coordinates to move to.
+563! Moves the turtle along the Y axis from its current position to a new absolute Y coordinate. The ycor input is the new Y coordinate.
+564! Moves the turtle along the Z axis from its current position to a new absolute Z coordinate. The zcor input is the new Z coordinate.
+565! Runs an input string as a shell command. Outputs TRUE if the command was executed, FALSE otherwise. If the command is a literal list in the instruction line, and if you want a backslash character sent to the shell, you must use \\ to get the backslash through Logo's reader intact.
+566! Runs an input string as a shell command. Outputs TRUE if the command was executed, FALSE otherwise. If the command is a literal list in the instruction line, and if you want a backslash character sent to the shell, you must use \\ to get the backslash through Logo's reader intact.
+567! Prints the input or inputs to the current write stream, just like PRINT, except that if an input is a list it is printed inside square brackets.
+568! Prints the input or inputs to the current write stream, just like PRINT, except that if an input is a list it is printed inside square brackets.
+569! Outputs TRUE if the turtle is shown (visible), FALSE if the turtle is hidden. You can use SHOWTURTLE and HIDETURTLE to show and hide the turtle.
+570! Outputs TRUE if the turtle is shown (visible), FALSE if the turtle is hidden. You can use SHOWTURTLE and HIDETURTLE to show and hide the turtle.
+571! Makes the turtle visible. This is the opposite of HIDETURTLE .
+572! Outputs the sign (-1 if negative, 0 if zero, 1 is positive) of its input. This is handy for when you want to apply the sign of one number to another.
+573! Outputs the sine of angle, which is taken in degrees.
+574! Redefines FORWARD, BACK, FD, and BK to take longer so that you can see the turtle as it moves (otherwise, the turtle moves as fast as it can). The slowness input controls how long it takes for turtle to complete each movement instruction. 
+575! Sorts a sequence (list, array, or word) in ascending order, or according to a given predicate. The output is a new sequence of the same type as sequence that contains the same items ordered such that there are no two successive items, a and b, where ( predicate a b) is FALSE and ( predicate b a) is TRUE.
+576! Sorts a sequence (list, array, or word) in ascending order, or according to a given predicate. The output is a new sequence of the same type as sequence that contains the same items ordered such that there are no two successive items, a and b, where ( predicate a b) is FALSE and ( predicate b a) is TRUE.
+577! Plays a sequence of tones on the PC speaker.
+578! Shutoff a sound turned on by SOUNDON .
+579! Starts playing a sound on the PC speaker. The sound remains playing until you call SOUNDOFF .
+580! Docks the commander window and the screen window inside the same frame and separates the two with a movable splitter bar. This leaves some room for text interaction while also keeping most of the graphics window visible.
+581! Outputs the square root of the input, which must be nonnegative.
+582! Docks the commander window and the screen window inside the same frame and separates the two with a movable splitter bar. This leaves some room for text interaction while also keeping most of the graphics window visible.
+583! Makes the turtle visible. This is the opposite of HIDETURTLE .
+584! STANDOUT is not yet supported in FMSLogo.
+585! If assigned a list value in a file that is loaded by LOAD, that value is run as an instruction list after the loading.
+586! Creates a static text control. A static control is used to simply display text. The term "static control" is somewhat misleading because the text displayed by a static control can be dynamically updated by STATICUPDATE.
+587! Deletes (closes) the static control that is identified by name .
+588! Replaces the text of the static control identified by name with text . If there is more text than can fit within the width of the static control on a single line, then the text is word-wrapped.
+589! Displays the popup status window. This command has the same effect as pressing the Status Button .
+590! Marks the items in the contents list for stepping.
+591! Outputs a contents list consisting of the list of stepped procedures followed by two empty lists.
+592! Ends the running of the procedure in which it appears. Control is returned to the context in which that procedure was invoked. The stopped procedure does not output a value.
+593! If thing2 is a word, SUBSTRINGP outputs TRUE if thing1 is EQUALP to a substring of thing2, FALSE otherwise.
+594! If thing2 is a word, SUBSTRINGP outputs TRUE if thing1 is EQUALP to a substring of thing2, FALSE otherwise.
+595! Outputs the sum of its inputs. If no inputs are given, then SUM outputs 0.
+596! Outputs the sum of its inputs. If no inputs are given, then SUM outputs 0.
+597! TAG marks a point in a procedure to which a GOTO instruction with the same tag input can jump. TAG may only be used only inside a procedure. The tag input must be a word.
+598! Outputs the tangent of angle, which is taken in degrees.
+599! TEST remembers its input condition, which must be TRUE or FALSE, so that it be used later by IFTRUE or IFFALSE instructions. The effect of TEST is local to the procedure in which it is used; any corresponding IFTRUE or IFFALSE must be in the same procedure or a subprocedure.
+600! Outputs the text of the procedure named procname in the form expected by DEFINE : a list of lists, the first of which describes the inputs to the procedure and the rest of which are the lines of its body. 
+601! Undocks the commander window from the screen window so that you can resize it to maximize the space available for text interaction.
+602! Outputs the value of the variable whose name is the input word. If there is more than one such variable, the innermost local variable of that name is chosen.
+603! Ends the running of a CATCH instruction's instructionlist input. THROW must be used within the scope of a CATCH instruction that has a tag equal to tag . If THROW is given a value input, then CATCH outputs value . 
+604! Ends the running of a CATCH instruction's instructionlist input. THROW must be used within the scope of a CATCH instruction that has a tag equal to tag . If THROW is given a value input, then CATCH outputs value . 
+605! Ends the running of a CATCH instruction's instructionlist input. THROW must be used within the scope of a CATCH instruction that has a tag equal to tag . If THROW is given a value input, then CATCH outputs value . 
+606! Ends the running of a CATCH instruction's instructionlist input. THROW must be used within the scope of a CATCH instruction that has a tag equal to tag . If THROW is given a value input, then CATCH outputs value . 
+607! Outputs the current time on the system as a list of words.
+608! Outputs the time since Windows started, measured in milliseconds. Use this for precision timing. The output is also known as the "tick count".
+609! Command that prepares Logo to accept a procedure definition. The procedure is named procname and there must not already be a procedure by that name. The inputs are named input1, input2, etc. 
+610! Plays a tone on the PC speaker.
+611! Outputs the heading in degrees, at which the turtle should be headed so that it would point from its current position towards the position input. The position input must be given as a two item list containing the X and Y coordinates of the position to face.
+612! Outputs a list, containing [roll pitch heading] at which the turtle should be oriented so that it would point from its current position to the position given. The position must be given as a three item list containing the X, Y, and Z coordinates of the position to face. 
+613! Marks the named items for tracing. A message is printed whenever a traced procedure is invoked, giving the actual input values, and whenever a traced procedure runs STOP or OUTPUT . 
+614! Outputs a contents list consisting of the list of traced items.
+615! Outputs the result of repeated evaluation of the template input. The template is evaluated once for each member of the list inbasket . TRANSFER maintains an "out basket" that is initially the empty list. 
+616! This is a special word to indicate a positive condition. TRUE is a reserved value, not a procedure nor a variable.
+617! Undocks the commander window from the screen window so that you can resize it to maximize the space available for text interaction.
+618! Outputs the number which corresponds to the currently selected turtle (the one that is obeying all turtle commands). Use SETTURTLE to select a turtle.
+619! Outputs the selected turtle's mode. See SETTURTLEMODE for an explaination of turtle modes.
+620! Outputs the maximum turtle that has been selected since the last time you executed a CLEARSCREEN .
+621! Prints the input or inputs like PRINT, except that no newline character is printed at the end and multiple inputs are not separated by spaces.
+622! Prints the input or inputs like PRINT, except that no newline character is printed at the end and multiple inputs are not separated by spaces.
+623! Unburies the procedures, variables, and property lists named in the input. That is, the named items are returned to view in CONTENTS and similar procedures.
+624! Unburies all procedures, variables, and property lists in the workspace. UNBURYALL abbreviates UNBURY CONTENTS .
+625! Unburies the variable(s) named in the input. UNBURYNAME abbreviates UNBURY NAMELIST .
+626! Unburies the variable(s) named in the input. UNBURYNAME abbreviates UNBURY NAMELIST .
+627! Unminimizes (restores) the window whose title matches caption . The term "ICON" comes from the old days when Windows applications were minimized into small icons.
+628! Turns off stepping for the items in a contents list.
+629! Repeatedly evaluates the instructionlist as long as the evaluated conditionlist remains FALSE. UNTIL evaluates conditionlist before instructionlist, so instructionlist may not be run at all. 
+630! Turns off tracing for the named items.
+631! Pitches the turtle's nose upward by the specified angle, measured in degrees (1/360 of a circle).
+632! Outputs a word which is a copy of word, but with all lowercase letters changed to the corresponding uppercase letter.
+633! Pitches the turtle's nose upward by the specified angle, measured in degrees (1/360 of a circle).
+634! Delays further execution for about delay 1/60ths of a second. This also yields to other processes running on your system.
+635! Repeatedly evaluates the instructionlist as long as the evaluated conditionlist remains TRUE. WHILE evaluates conditionlist before instructionlist, so instructionlist may not be run at all. 
+636! Tells the turtle to enter "window" mode. From now on, when the turtle is asked to move past the boundary of the graphics window, it moves off screen. The visible graphics window is considered as just part of an infinite graphics plane; the turtle can be anywhere on the plane. 
+637! Creates a window. A window is used as the framework to which you add other window objects or controls (sometimes called widgets). You can add things such as buttons, scrollbars, listboxes, etc. 
+638! Deletes (closes) the window whose name is name . All child window and controls are also deleted. If no window with the given name exists, then all windows and all controls which were created by FMSLogo are deleted.
+639! Enables or disables the window identified by name . If state equals TRUE, then the window is enabled. If state equals FALSE, then the window is disabled.
+640! Opens the editor on the file with the given filename . When the contents of the file is saved, it is saved to the file, not the workspace. The callback instruction list is run when the user closes the editor.
+641! Sets the "mode" (for example, hidden, visible, etc.) for a window whose title matches caption . This command is designed for experts, you may lose control of FMSLogo if you are not careful, so save your work frequently.
+642! WINHELP has two forms: with and without a keyword input. When no keyword is given, FMSLogo opens the Windows help on filename to the table of contents. When a keyword is given, FMSLogo searches the Windows help for the section on keyword within the given help file. 
+643! WINHELP has two forms: with and without a keyword input. When no keyword is given, FMSLogo opens the Windows help on filename to the table of contents. When a keyword is given, FMSLogo searches the Windows help for the section on keyword within the given help file. 
+644! Outputs a word formed by concatenating its inputs.
+645! Outputs a word formed by concatenating its inputs.
+646! Outputs TRUE if the input is a word, FALSE otherwise.
+647! Outputs TRUE if the input is a word, FALSE otherwise.
+648! Tells the turtle to enter "wrap" mode. From now on, when the turtle is asked to move past the boundary of the FMSLogo screen window, it "wraps around" and reappears at the opposite edge of the window. 
+649! Outputs the file position of the current write stream file as a number. An output value of 0 means that the write position is at the beginning of the stream.
+650! Outputs the name of the current write stream file, or the empty list if the write stream is the Commander.
+651! Outputs the turtle's X coordinate.
+652! Outputs the turtle's Y coordinate.
+653! Displays a dialog box with title in the title bar and question as the message. The dialog also has "Yes", "No", and "Cancel" buttons. FMSLogo does not evaluate any further instructions until the user clicks one of these buttons. 
+654! YIELD tells FMSLogo that it's okay to interrupt running Logo code in order to process windows messages, such as keyboard input, mouse clicks, or notifications to repaint the screen. 
+655! Outputs the turtle's Z coordinate.
+656! Sets the scale of the "Screen" window. The scale input is the amount to zoom (scale) by. A number greater than 1.0 makes things bigger (for example, 2.0 makes it twice as big), a number smaller than 1.0 makes things smaller (0.5 makes it half as big). 

@@ -1,0 +1,2634 @@
+{
+  "scope": "source.logo",
+  "completions": [
+    "logo",
+    {
+      "trigger": "*\tDaje umno\u017eak ulaza. Ako nema ulaza, tada PRODUCT daje 1.\r",
+      "contents": "* ${1:factor2}"
+    },
+    {
+      "trigger": "+\tDaje zbroj ulaza. Ako nema ulaza, SUM daje 0.\r",
+      "contents": "+ ${1:addend2}"
+    },
+    {
+      "trigger": "-\tDaje negativno na ulaz.\r",
+      "contents": "- ${1:number2}"
+    },
+    {
+      "trigger": "-\tDaje negativno na ulaz.\r",
+      "contents": "- ${1:number}"
+    },
+    {
+      "trigger": ".defmacro\t. DEFMACRO je kao DEFINE s istim iznimkama kao i .MACRO.\r",
+      "contents": ".defmacro ${1:procname} ${2:text}"
+    },
+    {
+      "trigger": ".eq\tDaje TRUE ako su thing1 i thing2 isti objekt, tako da \u0107e primjena mutatora na jedan promijeniti i drugi. Ina\u010de daje FALSE, \u010dak i ako su ulazi jednaki u vrijednosti.\r",
+      "contents": ".eq ${1:thing1} ${2:thing2}"
+    },
+    {
+      "trigger": ".macro\tMakro je posebna vrsta postupka \u010diji se izlaz ocjenjuje kao upute u kontekstu pozivatelja makronaredbe. .MACRO je poput TO-a osim \u0161to novi postupak postaje makro.\r",
+      "contents": ".macro ${1:procname} ${2::input1} ${3::input2} ${4:...}"
+    },
+    {
+      "trigger": ".maybeoutput\tRadi kao OUTPUT, osim \u0161to izraz koji daje ulaznu vrijednost mo\u017eda ne\u0107e dati vrijednost, u kojem slu\u010daju je u\u010dinak jednak STOP-u. Ovo je namijenjeno za uporabu u definicij",
+      "contents": ".maybeoutput ${1:value}"
+    },
+    {
+      "trigger": ".setbf\tMijenja BUTFIRST ulaza popisa na zadanu vrijednost.\r",
+      "contents": ".setbf ${1:list} ${2:value}"
+    },
+    {
+      "trigger": ".setfirst\tPromijeni prvi \u010dlan popisa kao vrijednost.\r",
+      "contents": ".setfirst ${1:list} ${2:value}"
+    },
+    {
+      "trigger": ".setitem\tPromijenite indeks th stavku polja kao vrijednost. Ovo je sli\u010dno SETITEM-u, osim \u0161to ne provjerava cirkularnost.\r",
+      "contents": ".setitem ${1:index} ${2:array} ${3:value}"
+    },
+    {
+      "trigger": "/\tPrikazuje koli\u010dnik ulaza. To jest, ispisuje dividendu podijeljenu s djeliteljem. QUOTIENT daje cijeli broj ako i samo ako je dividenda vi\u0161estruka od djelitelja. Na primje",
+      "contents": "/ ${1:divisor}"
+    },
+    {
+      "trigger": "<\tDaje TRUE ako je num1 strogo manji od num2. Daje FALSE u suprotnom.\r",
+      "contents": "< ${1:num2}"
+    },
+    {
+      "trigger": "<=\tDaje TRUE ako je num1 manji ili jednak num2. Daje FALSE u suprotnom.\r",
+      "contents": "<= ${1:num2}"
+    },
+    {
+      "trigger": "<>\tDaje FALSE ako su oba ulaza jednaka, TRUE ina\u010de.\r",
+      "contents": "<> ${1:thing2}"
+    },
+    {
+      "trigger": "=\tDaje TRUE ako su oba ulaza jednaka u suprotnom FALSE.\r",
+      "contents": "= ${1:thing2}"
+    },
+    {
+      "trigger": ">\tDaje TRUE ako je num1 strogo ve\u0107i od num2. Daje FALSE u suprotnom.\r",
+      "contents": "> ${1:num2}"
+    },
+    {
+      "trigger": ">=\tDaje TRUE ako je num1 ve\u0107i ili jednak num2. Daje FALSE u suprotnom.\r",
+      "contents": ">= ${1:num2}"
+    },
+    {
+      "trigger": "`\tIzvodi popis jednak njegovom ulazu, ali s odre\u0111enim zamjenama.\r",
+      "contents": "` ${1:list}"
+    },
+    {
+      "trigger": "abs\tDaje apsolutnu vrijednost (veli\u010dinu) ulaza.\r",
+      "contents": "abs ${1:num}"
+    },
+    {
+      "trigger": "activeArea\tDaje trenutno aktivno podru\u010dje, kao \u0161to je postavljeno u SETACTIVEAREA.\r",
+      "contents": "activeArea "
+    },
+    {
+      "trigger": "allopen\tIspisuje popis \u010diji su \u010dlanovi imena svih datoteka koje su trenutno otvorene. Ovaj popis ne sadr\u017ei datoteku DRIBBLE.\r",
+      "contents": "allopen "
+    },
+    {
+      "trigger": "and\tDaje TRUE ako su svi ulazi TRUE u suprotnom FALSE. Svi ulazi moraju biti TRUE ili FALSE.\r",
+      "contents": "and ${1:boolean1} ${2:boolean2}"
+    },
+    {
+      "trigger": "and\tDaje TRUE ako su svi ulazi TRUE u suprotnom FALSE. Svi ulazi moraju biti TRUE ili FALSE.\r",
+      "contents": "and ${1:boolean1} ${2:boolean2} ${3:boolean3} ${4:...}"
+    },
+    {
+      "trigger": "apply\tNaredba ili operacija koja pokre\u0107e predlo\u017eak, ispunjavaju\u0107i svoje slotove \u010dlanovima inputlist-a. Broj \u010dlanova u unosu ulaza mora biti prihvatljiv broj mjesta za predlo\u017eak",
+      "contents": "apply ${1:template} ${2:inputlist}"
+    },
+    {
+      "trigger": "arc\tCrtanje luka (dijela kruga) na temelju smjera kornja\u010de, polo\u017eaja kornja\u010de i ulaza. Sredi\u0161nja to\u010dka luka je trenutni polo\u017eaj kornja\u010de. ARC ne pomi\u010de kornja\u010du.\r",
+      "contents": "arc ${1:angle} ${2:radius}"
+    },
+    {
+      "trigger": "arc2\tPomi\u010de kornja\u010du du\u017e luka (dio kruga). Luk izmjenjuje koli\u010dinu koju daje kut za ulaz. Veli\u010dina (zakrivljenost) luka se temelji na ulazu u radijus.\r",
+      "contents": "arc2 ${1:angle} ${2:radius}"
+    },
+    {
+      "trigger": "arccos\tIzvodi inverzni kosinus ulaza. Izlaz je dan u stupnjevima u rasponu [0, 180]. num mora biti u rasponu [-1, 1].\r",
+      "contents": "arccos ${1:num}"
+    },
+    {
+      "trigger": "arcsin\tDaje inverzni sinus ulaza. Izlaz je dan u stupnjevima u rasponu [-90, 90]. num mora biti u rasponu [-1, 1].\r",
+      "contents": "arcsin ${1:num}"
+    },
+    {
+      "trigger": "arctan\tS jednim ulazom daje inverzni tangentni kut od num. Izlaz je prikazan u stupnjevima u rasponu [-90,90].\r",
+      "contents": "arctan ${1:num}"
+    },
+    {
+      "trigger": "arctan\tS jednim ulazom daje inverzni tangentni kut od num. Izlaz je prikazan u stupnjevima u rasponu [-90,90].\r",
+      "contents": "arctan ${1:x} ${2:y}"
+    },
+    {
+      "trigger": "arity\tDaje popis od tri broja: minimalni, zadani i maksimalni broj ulaza za postupak \u010dije je ime ulaz. Gre\u0161ka je ako ne postoji takav postupak.\r",
+      "contents": "arity ${1:procedurename}"
+    },
+    {
+      "trigger": "array\tDaje niz stavki veli\u010dine, od kojih je svaki na po\u010detku prazan popis. Ulaz veli\u010dine mora biti ne-negativni cijeli broj.\r",
+      "contents": "array ${1:size}"
+    },
+    {
+      "trigger": "array\tDaje niz stavki veli\u010dine, od kojih je svaki na po\u010detku prazan popis. Ulaz veli\u010dine mora biti ne-negativni cijeli broj.\r",
+      "contents": "array ${1:size}"
+    },
+    {
+      "trigger": "array?\tDaje TRUE ako je ulaz niz, FALSE ina\u010de.\r",
+      "contents": "array? ${1:thing}"
+    },
+    {
+      "trigger": "arrayp\tDaje TRUE ako je ulaz niz, FALSE ina\u010de.\r",
+      "contents": "arrayp ${1:thing}"
+    },
+    {
+      "trigger": "arrayToList\tDaje popis \u010diji su \u010dlanovi elementi ulaznog niza. Prva stavka izlaza je prvi element niza, bez obzira na podrijetlo polja.\r",
+      "contents": "arrayToList ${1:array}"
+    },
+    {
+      "trigger": "ascii\tIzvodi broj od 0-255 koji predstavlja znak u trenutnoj kodnoj stranici.\r",
+      "contents": "ascii ${1:character}"
+    },
+    {
+      "trigger": "ashift\tDaje int aritmeti\u010dki-pomaknute ulijevo po koli\u010dini bitova. Ako je iznos negativan, pomak je desno s produ\u017eetkom znaka. Ulazi moraju biti cijeli brojevi.\r",
+      "contents": "ashift ${1:int} ${2:amount}"
+    },
+    {
+      "trigger": "ask\tOdre\u0111uje odre\u0111enoj kornja\u010di da pokrene odre\u0111eni skup uputa (koje su obi\u010dno upute za kornja\u010de).\r",
+      "contents": "ask ${1:turtle} ${2:instructionlist}"
+    },
+    {
+      "trigger": "back\tPomi\u010de kornja\u010du unatrag, to\u010dno nasuprot smjeru kojim se kre\u0107e, do odre\u0111ene udaljenosti, mjereno koracima kornja\u010da. Smjer kornja\u010de se ne mijenja.\r",
+      "contents": "back ${1:distance}"
+    },
+    {
+      "trigger": "backslashed?\tDaje TRUE ako je znak izvorno unesen s obrnutom crtom (prije njega ili izme\u0111u okomitih crta (|) kako bi se sprije\u010dilo njegovo uobi\u010dajeno zna\u010denjsko zna\u010denje). Daje FALSE ",
+      "contents": "backslashed? ${1:character}"
+    },
+    {
+      "trigger": "backslashedp\tDaje TRUE ako je znak izvorno unesen s obrnutom crtom (prije njega ili izme\u0111u okomitih crta (|) kako bi se sprije\u010dilo njegovo uobi\u010dajeno zna\u010denjsko zna\u010denje). Daje FALSE ",
+      "contents": "backslashedp ${1:character}"
+    },
+    {
+      "trigger": "before?\tDaje TRUE ako je rije\u010d 1 dolazi prije rije\u010di 2 u ASCII slijedu redoslijeda (za rije\u010di slova, abecednim redom). Osjetljivost slu\u010daja odre\u0111ena je vrijedno\u0161\u0107u CASEIGNOREDP-a",
+      "contents": "before? ${1:word1} ${2:word2}"
+    },
+    {
+      "trigger": "beforeP\tDaje TRUE ako je rije\u010d 1 dolazi prije rije\u010di 2 u ASCII slijedu redoslijeda (za rije\u010di slova, abecednim redom). Osjetljivost slu\u010daja odre\u0111ena je vrijedno\u0161\u0107u CASEIGNOREDP-a",
+      "contents": "beforeP ${1:word1} ${2:word2}"
+    },
+    {
+      "trigger": "bf\tAko je rije\u010d rije\u010d, ispisuje rije\u010d koja sadr\u017ei sve osim prvog znaka ulaza. Ako je stvar popis, daje popis koji sadr\u017ei sve osim prvog \u010dlana ulaza.\r",
+      "contents": "bf ${1:thing}"
+    },
+    {
+      "trigger": "bfs\tIspisuje popis koji sadr\u017ei BUTFIRST svakog \u010dlana popisa ulaza. Gre\u0161ka je ako je bilo koji \u010dlan popisa ulaza prazan. Sam ulaz mo\u017ee biti prazan, iu tom slu\u010daju izlaz je tak",
+      "contents": "bfs ${1:list}"
+    },
+    {
+      "trigger": "bitAnd\tDaje bitni AND svojih ulaza, koji moraju biti cijeli brojevi. Ako nema ulaza, BITAND daje vrijednost sa svim postavljenim bitovima.\r",
+      "contents": "bitAnd ${1:int1} ${2:int2}"
+    },
+    {
+      "trigger": "bitAnd\tDaje bitni AND svojih ulaza, koji moraju biti cijeli brojevi. Ako nema ulaza, BITAND daje vrijednost sa svim postavljenim bitovima.\r",
+      "contents": "bitAnd ${1:int1} ${2:int2} ${3:int3} ${4:...}"
+    },
+    {
+      "trigger": "bitBlock\tCrtanje neprozirnog bloka (pravokutnika) zadanih dimenzija tako da je trenutni polo\u017eaj kornja\u010de u donjem lijevom kutu bloka. Boja bloka je vrijednost FLOODCOLOR-a.\r",
+      "contents": "bitBlock ${1:width} ${2:height}"
+    },
+    {
+      "trigger": "bitCopy\tKopira dio slike i pohranjuje je u memoriju (ili u me\u0111uspremnik, ako je BITINDEX 0). Bilo kada kasnije, BITPASTE mo\u017eete koristiti za \"lijepljenje\" na sliku. FMSLogo kopir",
+      "contents": "bitCopy ${1:width} ${2:height}"
+    },
+    {
+      "trigger": "bitCut\tIzrezuje dio slike i pohranjuje je u memoriju (ili u me\u0111uspremnik, ako je BITINDEX 0). Bilo kada kasnije, BITPASTE mo\u017eete \"zalijepiti\" natrag u sliku. FMSLogo re\u017ee pravok",
+      "contents": "bitCut ${1:width} ${2:height}"
+    },
+    {
+      "trigger": "bitFit\tPromijeni veli\u010dinu (ili \"uklapa\") trenutno \"izrezanu\" (BITCUT ili BITCOPY) sliku u odre\u0111ene dimenzije. Bilo kada kasnije, mo\u017eete \"zalijepiti\" (BITPASTE) natrag u sliku. F",
+      "contents": "bitFit ${1:width} ${2:height}"
+    },
+    {
+      "trigger": "bitIndex\tDaje trenutni indeks bitmapa, kako ga postavlja SETBITINDEX. Zadani indeks je 0.\r",
+      "contents": "bitIndex "
+    },
+    {
+      "trigger": "bitLoad\tU\u010ditava bitmapu odre\u0111enu ulaznim imenom datoteke. Ulaz naziva datoteke mora biti rije\u010d koja je naziv valjane bitmap datoteke.\r",
+      "contents": "bitLoad ${1:filename}"
+    },
+    {
+      "trigger": "bitLoadSize\tIspi\u0161ite \u0161irinu i visinu bitmape koja je odre\u0111ena unosom naziva datoteke. Ulaz naziva datoteke mora biti rije\u010d koja je naziv valjane bitmap datoteke.\r",
+      "contents": "bitLoadSize ${1:filename}"
+    },
+    {
+      "trigger": "bitmapTurtle\tPrikazuje trenutnu kornja\u010du (vidi SETTURTLE) u odgovaraju\u0107i bafer (vidi BITCUT). BITMAPTURTLE mo\u017ee mapirati kornja\u010du 0 na bitmapu 0, kornja\u010du 1 na bitmapu 1, kornja\u010du 2 n",
+      "contents": "bitmapTurtle "
+    },
+    {
+      "trigger": "bitmapTurtle\tPrikazuje trenutnu kornja\u010du (vidi SETTURTLE) u odgovaraju\u0107i bafer (vidi BITCUT). BITMAPTURTLE mo\u017ee mapirati kornja\u010du 0 na bitmapu 0, kornja\u010du 1 na bitmapu 1, kornja\u010du 2 n",
+      "contents": "bitmapTurtle ${1:rotatebitmap}"
+    },
+    {
+      "trigger": "bitMode\tDaje trenutni na\u010din bitmapa koji je postavio SETBITMODE.\r",
+      "contents": "bitMode "
+    },
+    {
+      "trigger": "bitNot\tIzvodi bitnu negaciju ulaza, koji mora biti cijeli broj.\r",
+      "contents": "bitNot ${1:int}"
+    },
+    {
+      "trigger": "bitOr\tDaje bitni OR svojih ulaza, koji moraju biti cijeli brojevi. Ako nema ulaza, BITOR daje vrijednost bez postavljenih bitova.\r",
+      "contents": "bitOr ${1:int1} ${2:int2}"
+    },
+    {
+      "trigger": "bitOr\tDaje bitni OR svojih ulaza, koji moraju biti cijeli brojevi. Ako nema ulaza, BITOR daje vrijednost bez postavljenih bitova.\r",
+      "contents": "bitOr ${1:int1} ${2:int2} ${3:int3} ${4:...}"
+    },
+    {
+      "trigger": "bitPaste\tLijepi sliku BITCUT u bitmap indeks koji je odredio BITINDEX. Ako je BITINDEX 0, BITPASTE zalijepi sadr\u017eaj me\u0111uspremnika. Bitmapa se lijepi na mjesto kornja\u010de, a kornja\u010da",
+      "contents": "bitPaste "
+    },
+    {
+      "trigger": "bitPasteToIndex\tLijepi cijelu sliku koja je \"izrezana\" s BITCUT na x, y koordinatu bitmapa na ulazu indeksa. Nemojte brkati pokazatelje ovdje;",
+      "contents": "bitPasteToIndex ${1:index} ${2:x} ${3:y}"
+    },
+    {
+      "trigger": "bitSave\tSprema sliku (bitmapnu sliku) va\u0161eg rada na disk ra\u010dunala. Tako\u0111er vam omogu\u0107uje da dodate vi\u0161e posla postoje\u0107em djelu. Dimenzije slike odre\u0111uje ACTIVEAREA.\r",
+      "contents": "bitSave ${1:filename}"
+    },
+    {
+      "trigger": "bitSave\tSprema sliku (bitmapnu sliku) va\u0161eg rada na disk ra\u010dunala. Tako\u0111er vam omogu\u0107uje da dodate vi\u0161e posla postoje\u0107em djelu. Dimenzije slike odre\u0111uje ACTIVEAREA.\r",
+      "contents": "bitSave ${1:filename} ${2:maxcolordepth}"
+    },
+    {
+      "trigger": "bitSize\tIspi\u0161ite \u0161irinu i visinu bitmape koju odre\u0111uje trenutni BITINDEX. Izlaz je dvodijelni popis oblika [\u0161irina visine]. BITSIZE daje [0 0] ako nije u\u010ditana bitmapa.\r",
+      "contents": "bitSize "
+    },
+    {
+      "trigger": "bitXor\tDaje bitni ekskluzivni OR svojih ulaza, koji moraju biti cijeli brojevi. Ako nema ulaza, BITXOR daje vrijednost bez postavljenih bitova.\r",
+      "contents": "bitXor ${1:int1} ${2:int2}"
+    },
+    {
+      "trigger": "bitXor\tDaje bitni ekskluzivni OR svojih ulaza, koji moraju biti cijeli brojevi. Ako nema ulaza, BITXOR daje vrijednost bez postavljenih bitova.\r",
+      "contents": "bitXor ${1:int1} ${2:int2} ${3:int3} ${4:...}"
+    },
+    {
+      "trigger": "bk\tPomi\u010de kornja\u010du unatrag, to\u010dno nasuprot smjeru kojim se kre\u0107e, do odre\u0111ene udaljenosti, mjereno koracima kornja\u010da. Smjer kornja\u010de se ne mijenja.\r",
+      "contents": "bk ${1:distance}"
+    },
+    {
+      "trigger": "bl\tAko je ulaz rije\u010d, BUTLAST ispisuje rije\u010d koja sadr\u017ei sve osim zadnjeg znaka ulaza. Ako je ulaz popis, BUTLAST daje popis koji sadr\u017ei sve osim zadnjeg \u010dlana ulaza.\r",
+      "contents": "bl ${1:thing}"
+    },
+    {
+      "trigger": "buried\tIspisuje popis sadr\u017eaja koji se sastoji od tri popisa, odnosno s imenima svih zakopanih postupaka, varijabli i popisa svojstava u radnom prostoru.\r",
+      "contents": "buried "
+    },
+    {
+      "trigger": "bury\tBuries procedure, varijable i popise svojstava imenovanih u inputlistu sadr\u017eaja. \"Stvar\" koja je pokopana nije uklju\u010dena u popise izlaza prema SADR\u017dAJU, PROCEDURAMA, IMEN",
+      "contents": "bury ${1:contentslist}"
+    },
+    {
+      "trigger": "buryall\tBuries sve postupke, varijable i popise svojstava u radnom prostoru. BURYALL skra\u0107uje BURY SADR\u017dAJ.\r",
+      "contents": "buryall "
+    },
+    {
+      "trigger": "buryname\tBuries varijablu (e) imenovane u ulazu. BURYNAME skra\u0107uje BURY NAMELIST.\r",
+      "contents": "buryname ${1:varname}"
+    },
+    {
+      "trigger": "buryname\tBuries varijablu (e) imenovane u ulazu. BURYNAME skra\u0107uje BURY NAMELIST.\r",
+      "contents": "buryname ${1:varnamelist}"
+    },
+    {
+      "trigger": "butFirst\tAko je rije\u010d rije\u010d, ispisuje rije\u010d koja sadr\u017ei sve osim prvog znaka ulaza. Ako je stvar popis, daje popis koji sadr\u017ei sve osim prvog \u010dlana ulaza.\r",
+      "contents": "butFirst ${1:thing}"
+    },
+    {
+      "trigger": "butFirsts\tIspisuje popis koji sadr\u017ei BUTFIRST svakog \u010dlana popisa ulaza. Gre\u0161ka je ako je bilo koji \u010dlan popisa ulaza prazan. Sam ulaz mo\u017ee biti prazan, iu tom slu\u010daju izlaz je tak",
+      "contents": "butFirsts ${1:list}"
+    },
+    {
+      "trigger": "butLast\tAko je ulaz rije\u010d, BUTLAST ispisuje rije\u010d koja sadr\u017ei sve osim zadnjeg znaka ulaza. Ako je ulaz popis, BUTLAST daje popis koji sadr\u017ei sve osim zadnjeg \u010dlana ulaza.\r",
+      "contents": "butLast ${1:thing}"
+    },
+    {
+      "trigger": "buttOnCreate\tStvara kontrolu gumba. Kontrola gumba omogu\u0107uje korisniku pokretanje doga\u0111aja. Jedina funkcija kontrole gumba je pokretanje popisa instrukcija povratnog poziva kada se pr",
+      "contents": "buttOnCreate ${1:parent} ${2:name} ${3:label} ${4:xpos} ${5:ypos} ${6:width} ${7:height} ${8:callback}"
+    },
+    {
+      "trigger": "buttOnDelete\tBri\u0161e (zatvara) gumb koji je ozna\u010den imenom.\r",
+      "contents": "buttOnDelete ${1:name}"
+    },
+    {
+      "trigger": "buttOnEnable\tOmogu\u0107uje ili onemogu\u0107uje gumb identificiran po imenu. Ako je stanje jednako TRUE, tada je gumb omogu\u0107en. Ako je stanje jednako FALSE, gumb je onemogu\u0107en.\r",
+      "contents": "buttOnEnable ${1:name} ${2:state}"
+    },
+    {
+      "trigger": "buttOnUpdate\tZamjenjuje tekst na gumb koji je ozna\u010den nazivom s tekstom.\r",
+      "contents": "buttOnUpdate ${1:name} ${2:text}"
+    },
+    {
+      "trigger": "bye\tBYE izlazi iz FMSLogo.\r",
+      "contents": "bye "
+    },
+    {
+      "trigger": "cascade\tIspisuje rezultat primjene predlo\u0161ka (ili nekoliko predlo\u017eaka, pogledajte odjeljak pod nazivom Ponovljeno na temelju predlo\u0161ka) uz zadanu vrijednost koja prvi put popunja",
+      "contents": "cascade ${1:endtest} ${2:template} ${3:startvalue}"
+    },
+    {
+      "trigger": "cascade\tIspisuje rezultat primjene predlo\u0161ka (ili nekoliko predlo\u017eaka, pogledajte odjeljak pod nazivom Ponovljeno na temelju predlo\u0161ka) uz zadanu vrijednost koja prvi put popunja",
+      "contents": "cascade ${1:endtest} ${2:template1} ${3:startvalue1} ${4:template2} ${5:startvalue2} ${6:...}"
+    },
+    {
+      "trigger": "cascade\tIspisuje rezultat primjene predlo\u0161ka (ili nekoliko predlo\u017eaka, pogledajte odjeljak pod nazivom Ponovljeno na temelju predlo\u0161ka) uz zadanu vrijednost koja prvi put popunja",
+      "contents": "cascade ${1:endtest} ${2:template1} ${3:startvalue1} ${4:template2} ${5:startvalue2} ${6:...} ${7:finaltemplate}"
+    },
+    {
+      "trigger": "cascade.2\tDaje rezultat pozivanja CASCADE-a s istim ulazima. Jedina razlika je u tome \u0161to je zadani broj ulaza pet umjesto tri.\r",
+      "contents": "cascade.2 ${1:endtest} ${2:template1} ${3:startvalue1} ${4:template2} ${5:startvalue2}"
+    },
+    {
+      "trigger": "caseignoredp\tObi\u010dno se mala slova i velika slova smatraju jednakima prema EQUALP, BEFOREP, MEMBERP, itd. Me\u0111utim, ako postoji varijabla pod nazivom CASEIGNOREDP i njezina vrijednost n",
+      "contents": "caseignoredp "
+    },
+    {
+      "trigger": "catch\tNaredba ili operacija koja pokre\u0107e ulaz i izlaze sa instrukcijskim popisom bez obzira na izlaze s uputama. Ako lista instrukcija pokre\u0107e THROW instrukciju s oznakom koja ",
+      "contents": "catch ${1:tag} ${2:instructionlist}"
+    },
+    {
+      "trigger": "char\tDaje znak predstavljen brojem broj\u010danog koda, koji mora biti cijeli broj izme\u0111u 0 i 255.\r",
+      "contents": "char ${1:number}"
+    },
+    {
+      "trigger": "chdir\tMijenja trenutni radni direktorij u naziv direktorija, ba\u0161 kao i DOS naredbu CHDIR (cd). Ulaz imenika direktorija mora biti rije\u010d. Mo\u017eete koristiti DIR za popis datoteka ",
+      "contents": "chdir ${1:directoryname}"
+    },
+    {
+      "trigger": "checkboxCreate\tStvara kontrolnu ku\u0107icu. Kontrolni okvir se koristi kako bi se korisniku dala mogu\u0107nost odabira izme\u0111u True i False. Potvrdni okvir mora biti povezan s kontrolom grupnog ",
+      "contents": "checkboxCreate ${1:parent} ${2:group} ${3:name} ${4:label} ${5:xpos} ${6:ypos} ${7:width} ${8:height}"
+    },
+    {
+      "trigger": "checkboxDelete\tBri\u0161e (zatvara) potvrdni okvir koji je ozna\u010den imenom.\r",
+      "contents": "checkboxDelete ${1:name}"
+    },
+    {
+      "trigger": "checkboxEnable\tOmogu\u0107uje ili onemogu\u0107uje potvrdni okvir po imenu. Ako je stanje jednako TRUE, potvrdni okvir je omogu\u0107en. Ako je stanje jednako FALSE, potvrdni je okvir onemogu\u0107en.\r",
+      "contents": "checkboxEnable ${1:name} ${2:state}"
+    },
+    {
+      "trigger": "checkboxGet\tIspisuje stanje (To\u010dno ili Neto\u010dno) potvrdnog okvira koji je ozna\u010den imenom.\r",
+      "contents": "checkboxGet ${1:name}"
+    },
+    {
+      "trigger": "checkboxSet\tPostavlja stanje potvrdnog okvira koji je ozna\u010den nazivom. stanje mora biti True (ozna\u010deno) ili False (neprovjereno).\r",
+      "contents": "checkboxSet ${1:name} ${2:state}"
+    },
+    {
+      "trigger": "circle\tCrtanje kruga na temelju polo\u017eaja kornja\u010de i ulaza radijusa. Sredi\u0161nja to\u010dka kruga je trenutni polo\u017eaj kornja\u010de. KRUG ne pomi\u010de kornja\u010du.\r",
+      "contents": "circle ${1:radius}"
+    },
+    {
+      "trigger": "circle2\tPomi\u010de kornja\u010du u smjeru kazaljke na satu du\u017e kruga zadanog radijusa. Kornja\u010da zavr\u0161ava u istom polo\u017eaju u kojem po\u010dinje.\r",
+      "contents": "circle2 ${1:radius}"
+    },
+    {
+      "trigger": "clean\tBri\u0161e sve crte koje je kornja\u010da nacrtala na grafi\u010dkom prozoru. Stanje kornja\u010de (polo\u017eaj, smjer, na\u010din olovke, itd.) Se ne mijenja.\r",
+      "contents": "clean "
+    },
+    {
+      "trigger": "clearPalette\tCLEARPALETTE ne radi ni\u0161ta. \u010cuva se radi kompatibilnosti sa starim programima, ali njegova funkcija vi\u0161e nije potrebna.\r",
+      "contents": "clearPalette "
+    },
+    {
+      "trigger": "clearScreen\tIspunjava prozor sa SCREENCOLOR-om i \u0161alje kornja\u010du u po\u010detni polo\u017eaj i smjer.\r",
+      "contents": "clearScreen "
+    },
+    {
+      "trigger": "clearText\tBri\u0161e sav tekst unutar okvira za opoziv naredbi u prozoru zapovjednika.\r",
+      "contents": "clearText "
+    },
+    {
+      "trigger": "clearTimer\tBri\u0161e tajmer koji je zakazao SETTIMER i identificira se pomo\u0107u ID-a (1-31).\r",
+      "contents": "clearTimer ${1:id}"
+    },
+    {
+      "trigger": "close\tZatvara datoteku s nazivom datoteke. Svi sljede\u0107i poku\u0161aji \u010ditanja ili zapisivanja u datoteku ne\u0107e uspjeti.\r",
+      "contents": "close ${1:filename}"
+    },
+    {
+      "trigger": "closeall\tZatvara sve otvorene datoteke.\r",
+      "contents": "closeall "
+    },
+    {
+      "trigger": "co\tZavr\u0161ava trenutnu interaktivnu stanku i vra\u0107a se u kontekst PAUSE poziva koji ga je pokrenuo. Ako je CONTINUE dan ulaz, ta se vrijednost koristi kao izlaz iz PAUSE.\r",
+      "contents": "co ${1:value}"
+    },
+    {
+      "trigger": "co\tZavr\u0161ava trenutnu interaktivnu stanku i vra\u0107a se u kontekst PAUSE poziva koji ga je pokrenuo. Ako je CONTINUE dan ulaz, ta se vrijednost koristi kao izlaz iz PAUSE.\r",
+      "contents": "co "
+    },
+    {
+      "trigger": "combine\tKombinira oba njegova ulaza u jednu vrijednost. Ako je drugi ulaz rije\u010d, to se pona\u0161a kao WORD. Ako je drugi ulaz popis, to se pona\u0161a kao FPUT.\r",
+      "contents": "combine ${1:thing1} ${2:thing2}"
+    },
+    {
+      "trigger": "comboboxAddString\tDodaje stavku u dio popisa iz izbornika koji je identificiran imenom.\r",
+      "contents": "comboboxAddString ${1:name} ${2:item}"
+    },
+    {
+      "trigger": "comboboxCreate\tStvara kontrolu kombiniranog izbornika. Kontrola kombiniranog izbornika daje korisniku izbor stavki i omogu\u0107uje im da unesu izbor koji nije naveden. Combobox je dvije kon",
+      "contents": "comboboxCreate ${1:parent} ${2:name} ${3:xpos} ${4:ypos} ${5:width} ${6:height}"
+    },
+    {
+      "trigger": "comboboxDelete\tBri\u0161e (zatvara) kombinirani okvir koji je identificiran imenom.\r",
+      "contents": "comboboxDelete ${1:name}"
+    },
+    {
+      "trigger": "comboboxDeleteString\tBri\u0161e stavku na indeksu iz dijela listne liste kombinacijskog okvira koji je identificiran imenom.\r",
+      "contents": "comboboxDeleteString ${1:name} ${2:index}"
+    },
+    {
+      "trigger": "comboboxEnable\tOmogu\u0107uje ili onemogu\u0107uje kombinirani okvir ozna\u010den imenom. Ako je stanje jednako TRUE, onda je kombinirani okvir omogu\u0107en. Ako je stanje jednako FALSE, onda je kombinira",
+      "contents": "comboboxEnable ${1:name} ${2:state}"
+    },
+    {
+      "trigger": "comboboxGetText\tIspisuje tekst unutar kontrolnog dijela za ure\u0111ivanje kombinacijskog okvira koji je identificiran imenom. To mo\u017ee biti odabrana stavka unutar dijela popisa ili mo\u017ee biti ",
+      "contents": "comboboxGetText ${1:name}"
+    },
+    {
+      "trigger": "comboboxSetText\tPostavlja sadr\u017eaj kontrolnog dijela za ure\u0111ivanje kombinacijskog okvira koji je identificiran imenom.\r",
+      "contents": "comboboxSetText ${1:name} ${2:text}"
+    },
+    {
+      "trigger": "contents\tIspisuje popis sadr\u017eaja koji se sastoji od tri popisa koji sadr\u017ee nazive definiranih postupaka, varijabli i popisa svojstava. Ovaj popis uklju\u010duje sve nepokarene imenovan",
+      "contents": "contents "
+    },
+    {
+      "trigger": "continue\tZavr\u0161ava trenutnu interaktivnu stanku i vra\u0107a se u kontekst PAUSE poziva koji ga je pokrenuo. Ako je CONTINUE dan ulaz, ta se vrijednost koristi kao izlaz iz PAUSE.\r",
+      "contents": "continue ${1:value}"
+    },
+    {
+      "trigger": "continue\tZavr\u0161ava trenutnu interaktivnu stanku i vra\u0107a se u kontekst PAUSE poziva koji ga je pokrenuo. Ako je CONTINUE dan ulaz, ta se vrijednost koristi kao izlaz iz PAUSE.\r",
+      "contents": "continue "
+    },
+    {
+      "trigger": "copydef\tStvara novu proceduru nazvanu newname koja je identi\u010dna proceduri oldname, koja mo\u017ee biti primitivna. Ako je newname ve\u0107 definirano, izgubi se njegova prethodna definicij",
+      "contents": "copydef ${1:newname} ${2:oldname}"
+    },
+    {
+      "trigger": "cos\tDaje kosinus kuta, koji se uzima u stupnjevima.\r",
+      "contents": "cos ${1:angle}"
+    },
+    {
+      "trigger": "count\tIspisuje broj znakova u stvarima, ako je rije\u010d rije\u010d;",
+      "contents": "count ${1:thing}"
+    },
+    {
+      "trigger": "crossmap\tIspisuje popis s rezultatima procjene predlo\u0161ka. Svaki popis podataka pridonosi mjestu u predlo\u0161ku; broj mjesta jednak je broju ulaza popisa podataka.\r",
+      "contents": "crossmap ${1:template} ${2:data}"
+    },
+    {
+      "trigger": "crossmap\tIspisuje popis s rezultatima procjene predlo\u0161ka. Svaki popis podataka pridonosi mjestu u predlo\u0161ku; broj mjesta jednak je broju ulaza popisa podataka.\r",
+      "contents": "crossmap ${1:template} ${2:data1} ${3:data2} ${4:...}"
+    },
+    {
+      "trigger": "cs\tIspunjava prozor sa SCREENCOLOR-om i \u0161alje kornja\u010du u po\u010detni polo\u017eaj i smjer.\r",
+      "contents": "cs "
+    },
+    {
+      "trigger": "ct\tBri\u0161e sav tekst unutar okvira za opoziv naredbi u prozoru zapovjednika.\r",
+      "contents": "ct "
+    },
+    {
+      "trigger": "cursor\tCURSOR nije podr\u017ean u FMSLogo.\r",
+      "contents": "cursor "
+    },
+    {
+      "trigger": "debugWindows\tIspisuje stablo (hijerarhiju odnosa roditelj-dijete) prozora. Za svaki ispisani prozor ispisuju se i tip i naziv prozora.\r",
+      "contents": "debugWindows "
+    },
+    {
+      "trigger": "debugWindows\tIspisuje stablo (hijerarhiju odnosa roditelj-dijete) prozora. Za svaki ispisani prozor ispisuju se i tip i naziv prozora.\r",
+      "contents": "debugWindows ${1:name}"
+    },
+    {
+      "trigger": "define\tDefinira postupak s imenom procname i tekstom definicije. Ako ve\u0107 postoji postupak s istim imenom, nova definicija zamjenjuje staru. Ulaz teksta mora biti popis \u010diji su \u010d",
+      "contents": "define ${1:procname} ${2:text}"
+    },
+    {
+      "trigger": "defined?\tDaje TRUE ako je ulaz ime korisni\u010dke procedure ili knji\u017eni\u010dne procedure.\r",
+      "contents": "defined? ${1:name}"
+    },
+    {
+      "trigger": "definedp\tDaje TRUE ako je ulaz ime korisni\u010dke procedure ili knji\u017eni\u010dne procedure.\r",
+      "contents": "definedp ${1:name}"
+    },
+    {
+      "trigger": "dequeue\tIspisuje najnoviju (najstariju) stvar koja je uvr\u0161tena u red s QUEUE. Ova se vrijednost uklanja iz reda \u010dekanja.\r",
+      "contents": "dequeue ${1:queuename}"
+    },
+    {
+      "trigger": "dialogCreate\tStvara prozor koji je pogodan za kori\u0161tenje kao dijalo\u0161ki okvir. Prozor dijaloga koristi se kao okvir u koji dodajete druge objekte ili kontrole prozora (ponekad se naziv",
+      "contents": "dialogCreate ${1:parent} ${2:name} ${3:title} ${4:xpos} ${5:ypos} ${6:width} ${7:height} ${8:setup}"
+    },
+    {
+      "trigger": "dialogDelete\tBri\u0161e (zatvara) dijalog \u010dije je ime ime. Svi dje\u010dji prozori i kontrole su tako\u0111er izbrisani.\r",
+      "contents": "dialogDelete ${1:name}"
+    },
+    {
+      "trigger": "dialogEnable\tOmogu\u0107uje ili onemogu\u0107uje dijalog identificiran po imenu. Ako je stanje jednako TRUE, tada je prozor omogu\u0107en. Ako je stanje jednako FALSE, prozor je onemogu\u0107en.\r",
+      "contents": "dialogEnable ${1:name} ${2:state}"
+    },
+    {
+      "trigger": "dialogFileOpen\tPrikazuje standardni prozor \"Otvori\" prozora. Ne otvara datoteku;",
+      "contents": "dialogFileOpen ${1:filename}"
+    },
+    {
+      "trigger": "dialogFileSave\tPrikazuje standardni dijalo\u0161ki okvir prozora \"Spremi kao\". Ne sprema datoteku;",
+      "contents": "dialogFileSave ${1:filename}"
+    },
+    {
+      "trigger": "difference\tDaje razliku izme\u0111u ulaza.\r",
+      "contents": "difference ${1:number1} ${2:number2} ${3:number1}"
+    },
+    {
+      "trigger": "dir\tIspisuje datoteke i direktorije u trenutnom direktoriju. Ispisuje popis FILES i popis DIREKTORIJA.\r",
+      "contents": "dir "
+    },
+    {
+      "trigger": "directories\tIspisuje popis imena svakog direktorija u trenutnom radnom direktoriju.\r",
+      "contents": "directories "
+    },
+    {
+      "trigger": "distance\tDaje udaljenost koju kornja\u010da mora voziti du\u017e ravne linije kako bi do\u0161la do polo\u017eaja danog kao ulaz za polo\u017eaj. Ulaz polo\u017eaja mora biti popis koji sadr\u017ei dvije stavke, X ",
+      "contents": "distance ${1:position}"
+    },
+    {
+      "trigger": "distancexyz\tDaje broj, udaljenost koju kornja\u010da mora pro\u0107i ravnom linijom kako bi dosegla 3D koordinatu. Ulaz polo\u017eaja mora biti popis s tri stavke koji sadr\u017ei X, Y i Z koordinate po",
+      "contents": "distancexyz ${1:position}"
+    },
+    {
+      "trigger": "dllCall\tPoziva izvornu funkciju sustava Windows s danim argumentima i daje povratnu vrijednost funkcije. Funkciju mora izvesti DLL koji je u\u010ditan s DLLLOAD.\r",
+      "contents": "dllCall ${1:function_parameter_list}"
+    },
+    {
+      "trigger": "dllCall\tPoziva izvornu funkciju sustava Windows s danim argumentima i daje povratnu vrijednost funkcije. Funkciju mora izvesti DLL koji je u\u010ditan s DLLLOAD.\r",
+      "contents": "dllCall ${1:function_parameter_list} ${2:dllname}"
+    },
+    {
+      "trigger": "dllFree\tUklanja DLL koji je u\u010ditan s DLLLOAD. Ako je dllname unesen, tada se DLL s tim imenom iskrcava. U suprotnom, najnoviji u\u010ditani DLL se iskrcava.\r",
+      "contents": "dllFree "
+    },
+    {
+      "trigger": "dllFree\tUklanja DLL koji je u\u010ditan s DLLLOAD. Ako je dllname unesen, tada se DLL s tim imenom iskrcava. U suprotnom, najnoviji u\u010ditani DLL se iskrcava.\r",
+      "contents": "dllFree ${1:dllname}"
+    },
+    {
+      "trigger": "dllLoad\tU\u010ditava DLL (Dynamic Linked Library) nazvan dllfilename u FMSLogo. Nakon u\u010ditavanja mo\u017eete pozvati funkcije pomo\u0107u DLLCALL-a. Kada zavr\u0161ite, DLL mo\u017eete isprazniti pomo\u0107u ",
+      "contents": "dllLoad ${1:dllfilename}"
+    },
+    {
+      "trigger": "do.until\tPonavljano vrednuje popis instrukcija sve dok se procijenjeni conditionlist i dalje prikazuje FALSE. DO.UNTIL procjenjuje instrukcijski popis prije procjene uvjeta, tako ",
+      "contents": "do.until ${1:instructionlist} ${2:conditionlist}"
+    },
+    {
+      "trigger": "do.while\tPonavljano vrednuje popis instrukcija sve dok se procijenjeni conditionlist zadr\u017ei TRUE. DO.WHILE procjenjuje popis instrukcija prije ocjenjivanja uvjeta, tako da se popi",
+      "contents": "do.while ${1:instructionlist} ${2:conditionlist}"
+    },
+    {
+      "trigger": "down\tUsmjerite nos kornja\u010de prema dolje prema navedenom kutu, mjereno u stupnjevima (1/360 kruga).\r",
+      "contents": "down ${1:angle}"
+    },
+    {
+      "trigger": "downpitch\tUsmjerite nos kornja\u010de prema dolje prema navedenom kutu, mjereno u stupnjevima (1/360 kruga).\r",
+      "contents": "downpitch ${1:angle}"
+    },
+    {
+      "trigger": "dribble\tStvara novu datoteku \u010dije je ime ulazni naziv datoteke, kao \u0161to je OPENWRITE, i zapo\u010dinje snimanje u toj datoteci sve \u0161to se \u010dita s tipkovnice. Ovo pisanje je dodatak pis",
+      "contents": "dribble ${1:filename}"
+    },
+    {
+      "trigger": "ed\tOtvara definicije imenovanih stavki u ure\u0111iva\u010du.\r",
+      "contents": "ed ${1:contentslist}"
+    },
+    {
+      "trigger": "edall\tOtvara sve definicije u radnom prostoru u ure\u0111iva\u010du.\r",
+      "contents": "edall "
+    },
+    {
+      "trigger": "edit\tOtvara definicije imenovanih stavki u ure\u0111iva\u010du.\r",
+      "contents": "edit ${1:contentslist}"
+    },
+    {
+      "trigger": "edn\tOtvara sve imenovane varijable u ure\u0111iva\u010du.\r",
+      "contents": "edn ${1:varname}"
+    },
+    {
+      "trigger": "edn\tOtvara sve imenovane varijable u ure\u0111iva\u010du.\r",
+      "contents": "edn ${1:varnamelist}"
+    },
+    {
+      "trigger": "edns\tOtvara sve nepokidane varijable u ure\u0111iva\u010du.\r",
+      "contents": "edns "
+    },
+    {
+      "trigger": "edpl\tOtvara sve imenovane popise svojstava u ure\u0111iva\u010du.\r",
+      "contents": "edpl ${1:varname}"
+    },
+    {
+      "trigger": "edpl\tOtvara sve imenovane popise svojstava u ure\u0111iva\u010du.\r",
+      "contents": "edpl ${1:varnamelist}"
+    },
+    {
+      "trigger": "edpls\tOtvara sve nepovu\u010dene popise svojstava u ure\u0111iva\u010du.\r",
+      "contents": "edpls "
+    },
+    {
+      "trigger": "edps\tOtvara sve nepokorene postupke u ure\u0111iva\u010du.\r",
+      "contents": "edps "
+    },
+    {
+      "trigger": "ellipse\tCrtanje elipse na temelju smjera kornja\u010de, polo\u017eaja kornja\u010de i zadanih ulaza. Sredi\u0161nja to\u010dka elipse je trenutni polo\u017eaj kornja\u010de. ELLIPSE ne pomi\u010de kornja\u010du.\r",
+      "contents": "ellipse ${1:crosswise.semiaxis} ${2:inline.semiaxis}"
+    },
+    {
+      "trigger": "ellipse2\tCrtanje elipse kao da se kornja\u010da pomi\u010de u smjeru kazaljke na satu u elipsi. Veli\u010dina i oblik elipse odre\u0111eni su inline.semiaxis i crosswise.semiaxis ulaza. Inline.semiax",
+      "contents": "ellipse2 ${1:inline.semiaxis} ${2:crosswise.semiaxis}"
+    },
+    {
+      "trigger": "ellipsearc\tPovla\u010di dio (ili sve) elipse na temelju smjera kornja\u010de, polo\u017eaja kornja\u010de i danih ulaza. ELLIPSEARC ne pomi\u010de kornja\u010du. Sredi\u0161nja to\u010dka elipti\u010dnog luka je trenutni polo\u017e",
+      "contents": "ellipsearc ${1:angle} ${2:crosswise.semiaxis} ${3:inline.semiaxis} ${4:startangle}"
+    },
+    {
+      "trigger": "ellipsearc2\tPomi\u010de kornja\u010du u smjeru kazaljke na satu preko elipti\u010dnog luka. Luk obuhva\u0107a stupnjeve elipse arc.angle, po\u010dev\u0161i od to\u010dke opisane stupnjevima start.angle i zavr\u0161avaju\u0107i ",
+      "contents": "ellipsearc2 ${1:arc.angle} ${2:y.semiaxis} ${3:x.semiaxis} ${4:start.angle}"
+    },
+    {
+      "trigger": "empty?\tDaje TRUE ako je stvar ili prazan niz ili prazna lista, FALSE ina\u010de.\r",
+      "contents": "empty? ${1:thing}"
+    },
+    {
+      "trigger": "emptyp\tDaje TRUE ako je stvar ili prazan niz ili prazna lista, FALSE ina\u010de.\r",
+      "contents": "emptyp ${1:thing}"
+    },
+    {
+      "trigger": "end\tEND ograni\u010dava kraj postupka koji je definiran s TO.\r",
+      "contents": "end "
+    },
+    {
+      "trigger": "eof?\tDaje TRUE ako nema vi\u0161e znakova za \u010ditanje u datoteci za \u010ditanje, FALSE ina\u010de.\r",
+      "contents": "eof? "
+    },
+    {
+      "trigger": "eofp\tDaje TRUE ako nema vi\u0161e znakova za \u010ditanje u datoteci za \u010ditanje, FALSE ina\u010de.\r",
+      "contents": "eofp "
+    },
+    {
+      "trigger": "equal?\tDaje TRUE ako su oba ulaza jednaka u suprotnom FALSE.\r",
+      "contents": "equal? ${1:thing1} ${2:thing2} ${3:thing1}"
+    },
+    {
+      "trigger": "equalp\tDaje TRUE ako su oba ulaza jednaka u suprotnom FALSE.\r",
+      "contents": "equalp ${1:thing1} ${2:thing2}"
+    },
+    {
+      "trigger": "er\tBri\u0161e procedure, varijable i popise svojstava imenovanih u listi sadr\u017eaja. Nakon brisanja, imenovane stvari se ne mogu pozivati \u200b\u200bili upu\u0107ivati. Primitivne procedure se n",
+      "contents": "er ${1:contentslist}"
+    },
+    {
+      "trigger": "erall\tBri\u0161e sve nepokorene procedure, varijable i popise svojstava iz radnog prostora.\r",
+      "contents": "erall "
+    },
+    {
+      "trigger": "erall\tBri\u0161e sve nepokorene procedure, varijable i popise svojstava iz radnog prostora.\r",
+      "contents": "erall ${1:showwarning}"
+    },
+    {
+      "trigger": "erase\tBri\u0161e procedure, varijable i popise svojstava imenovanih u listi sadr\u017eaja. Nakon brisanja, imenovane stvari se ne mogu pozivati \u200b\u200bili upu\u0107ivati. Primitivne procedure se n",
+      "contents": "erase ${1:contentslist}"
+    },
+    {
+      "trigger": "eraseFile\tBri\u0161e (bri\u0161e, uklanja) datoteku pod nazivom naziv datoteke. Datoteka trenutno ne smije biti otvorena.\r",
+      "contents": "eraseFile ${1:filename}"
+    },
+    {
+      "trigger": "erf\tBri\u0161e (bri\u0161e, uklanja) datoteku pod nazivom naziv datoteke. Datoteka trenutno ne smije biti otvorena.\r",
+      "contents": "erf ${1:filename}"
+    },
+    {
+      "trigger": "ern\tBri\u0161e varijable koje su navedene u ulazu iz radnog prostora. ERN skra\u0107uje ERASE NAMELIST.\r",
+      "contents": "ern ${1:varname}"
+    },
+    {
+      "trigger": "ern\tBri\u0161e varijable koje su navedene u ulazu iz radnog prostora. ERN skra\u0107uje ERASE NAMELIST.\r",
+      "contents": "ern ${1:varnamelist}"
+    },
+    {
+      "trigger": "erns\tBri\u0161e sve nepokretne varijable iz radnog prostora. ERNS skra\u0107uje ERASE NAMES.\r",
+      "contents": "erns "
+    },
+    {
+      "trigger": "erpl\tBri\u0161e popise svojstava imenovanih na ulazu iz radnog prostora. ERPL skra\u0107uje ERASE PLLIST.\r",
+      "contents": "erpl ${1:plname}"
+    },
+    {
+      "trigger": "erpl\tBri\u0161e popise svojstava imenovanih na ulazu iz radnog prostora. ERPL skra\u0107uje ERASE PLLIST.\r",
+      "contents": "erpl ${1:plnamelist}"
+    },
+    {
+      "trigger": "erpls\tBri\u0161e sve unburied popise imovine iz radnog prostora. ERPLS skra\u0107uje OBELE\u017dAVANJE PLISTA.\r",
+      "contents": "erpls "
+    },
+    {
+      "trigger": "erps\tBri\u0161e sve nepokorene postupke iz radnog prostora. ERPS skra\u0107uje postupak brisanja.\r",
+      "contents": "erps "
+    },
+    {
+      "trigger": "erract\tERRACT je instrukcijski popis koji se pokre\u0107e kad god se pogre\u0161ka izbaci i ne postoji CATCH oznaka za \"ERROR. ERRACT obi\u010dno ima vrijednost [PAUSE] kako bi se omogu\u0107ilo in",
+      "contents": "erract "
+    },
+    {
+      "trigger": "error\tIspisuje popis koji opisuje upravo uhva\u0107enu pogre\u0161ku, ako postoji. Ako nije otkrivena pogre\u0161ka od posljednje uporabe ERROR-a, tada ERROR ispisuje prazan popis. Popis pogr",
+      "contents": "error "
+    },
+    {
+      "trigger": "eventCheck\tEVENTCHECK naredba je poput pozivanja YIELD odmah nakon \u010dega slijedi NOYIELD. Provjerava da li neki doga\u0111aji \u010dekaju na obradu. Neke naredbe koje unose \"povratne pozive\" p",
+      "contents": "eventCheck "
+    },
+    {
+      "trigger": "exp\tDaje e (2.718281828 ...) na snagu eksponenta.\r",
+      "contents": "exp ${1:exponent}"
+    },
+    {
+      "trigger": "false\tOvo je posebna rije\u010d koja ozna\u010dava negativno stanje. FALSE je rezervirana vrijednost, a ne postupak ili varijabla.\r",
+      "contents": "false "
+    },
+    {
+      "trigger": "fd\tPomi\u010de kornja\u010du naprijed u smjeru kojim se kre\u0107e prema odre\u0111enoj udaljenosti, mjerenoj koracima kornja\u010da. Smjer kornja\u010de se ne mijenja.\r",
+      "contents": "fd ${1:distance}"
+    },
+    {
+      "trigger": "fence\tNavodi kornja\u010di da u\u0111e u na\u010din \"ograda\". U ogradnom modu, kada se od kornja\u010de tra\u017ei da se pomakne iza granice grafi\u010dkog prozora, pomi\u010de se \u0161to je dalje mogu\u0107e, a zatim se",
+      "contents": "fence "
+    },
+    {
+      "trigger": "files\tIspisuje popis imena svake datoteke u trenutnom radnom direktoriju. Imena datoteka sortirana su abecednim redom.\r",
+      "contents": "files "
+    },
+    {
+      "trigger": "fill\tIspunjava podru\u010dje grafi\u010dkog prozora koji sadr\u017ei kornja\u010du i ograni\u010deno je crtama koje su ranije izvu\u010dene. Ispunjava trenutnu vrijednost FLOODCOLOR-a.\r",
+      "contents": "fill "
+    },
+    {
+      "trigger": "fill\tIspunjava podru\u010dje grafi\u010dkog prozora koji sadr\u017ei kornja\u010du i ograni\u010deno je crtama koje su ranije izvu\u010dene. Ispunjava trenutnu vrijednost FLOODCOLOR-a.\r",
+      "contents": "fill ${1:fillmode}"
+    },
+    {
+      "trigger": "filter\tDaje rije\u010d ili popis, ovisno o vrsti ulaza podataka, koji sadr\u017ei podskup \u010dlanova (za popis) ili znakove (za rije\u010d) ulaza. Ulaz uvjeta predlo\u0161ka procjenjuje se jednom za s",
+      "contents": "filter ${1:conditiontemplate} ${2:data}"
+    },
+    {
+      "trigger": "find\tDaje prva stavka ulaznog podatka za koju je vrijednost dobivena vrednovanjem predlo\u0161ka uvjeta s tom stavkom u svojem utoru TRUE. Ako ne postoji takva stavka, FIND daje pr",
+      "contents": "find ${1:conditiontemplate} ${2:data}"
+    },
+    {
+      "trigger": "first\tAko je stvar rije\u010d, ispisuje prvi znak rije\u010di. Ako je stvar popis, daje prvi \u010dlan popisa. Ako je stvar niz, ispisuje podrijetlo polja (tj. Indeks prvog elementa polja).\r",
+      "contents": "first ${1:thing}"
+    },
+    {
+      "trigger": "firsts\tIspisuje popis koji sadr\u017ei PRVI od svakog \u010dlana popisa ulaza. Gre\u0161ka je ako je bilo koji \u010dlan popisa ulaza prazan. Sam ulaz mo\u017ee biti prazan, iu tom slu\u010daju izlaz je tako",
+      "contents": "firsts ${1:list}"
+    },
+    {
+      "trigger": "floodColor\tDaje informacije o boji poplave. To je ili indeks boje (broj od 0 do 15) ili popis intenziteta intenziteta, ovisno o tome kako je postavljena boja poplave.\r",
+      "contents": "floodColor "
+    },
+    {
+      "trigger": "floodColour\tDaje informacije o boji poplave. To je ili indeks boje (broj od 0 do 15) ili popis intenziteta intenziteta, ovisno o tome kako je postavljena boja poplave.\r",
+      "contents": "floodColour "
+    },
+    {
+      "trigger": "fontfaceNames\tIspisuje popis imena svih fontova fonta koje podr\u017eava operacijski sustav. Redoslijed popisa nije definiran.\r",
+      "contents": "fontfaceNames "
+    },
+    {
+      "trigger": "for\tFOR je fleksibilan alat za iteraciju.\r",
+      "contents": "for ${1:controllist} ${2:instructionlist}"
+    },
+    {
+      "trigger": "foreach\tNaredba koja procjenjuje templatelist vi\u0161e puta, jednom za svaku stavku u datalistu. Ako je dano vi\u0161e od jednog popisa podataka, svaki od njih mora biti iste duljine. Ako",
+      "contents": "foreach ${1:datalist} ${2:templatelist}"
+    },
+    {
+      "trigger": "foreach\tNaredba koja procjenjuje templatelist vi\u0161e puta, jednom za svaku stavku u datalistu. Ako je dano vi\u0161e od jednog popisa podataka, svaki od njih mora biti iste duljine. Ako",
+      "contents": "foreach ${1:datalist1} ${2:datalist2} ${3:...} ${4:templatelist}"
+    },
+    {
+      "trigger": "forever\tVi\u0161e puta izvodi popis uputa, zauvijek.\r",
+      "contents": "forever ${1:instructionlist}"
+    },
+    {
+      "trigger": "form\tDaje rije\u010d koja sadr\u017ei ispisivi broj num, po mogu\u0107nosti prije razmaka (i stoga nije broj u svrhu izvo\u0111enja aritmeti\u010dkih operacija). Izlaz ima najmanje \u0161irine znakova, ukl",
+      "contents": "form ${1:num} ${2:width} ${3:precision}"
+    },
+    {
+      "trigger": "forward\tPomi\u010de kornja\u010du naprijed u smjeru kojim se kre\u0107e prema odre\u0111enoj udaljenosti, mjerenoj koracima kornja\u010da. Smjer kornja\u010de se ne mijenja.\r",
+      "contents": "forward ${1:distance}"
+    },
+    {
+      "trigger": "fput\tIspisuje popis jednak popisu sa stvarima koje se stavljaju na prednju stranu.\r",
+      "contents": "fput ${1:thing} ${2:list}"
+    },
+    {
+      "trigger": "fs\tOdvojite prozor zapovjednika iz prozora zaslona kako biste mogli promijeniti veli\u010dinu kako biste pove\u0107ali prostor za grafiku. Prozor za zapovjednika je uvijek na vrhu pro",
+      "contents": "fs "
+    },
+    {
+      "trigger": "fullscreen\tOdvojite prozor zapovjednika iz prozora zaslona kako biste mogli promijeniti veli\u010dinu kako biste pove\u0107ali prostor za grafiku. Prozor za zapovjednika je uvijek na vrhu pro",
+      "contents": "fullscreen "
+    },
+    {
+      "trigger": "fulltext\tIspisuje prikaz postupka u kojem se \u010duvaju informacije o formatiranju. Ako je postupak definiran s TO, EDIT ili LOAD, izlaz je popis rije\u010di.\r",
+      "contents": "fulltext ${1:procname}"
+    },
+    {
+      "trigger": "gensym\tDaje jedinstvenu rije\u010d svaki put kad je pozvana. Rije\u010di su oblika G1, G2, itd. Ovo se obi\u010dno koristi za dinami\u010dko generiranje naziva varijabli.\r",
+      "contents": "gensym "
+    },
+    {
+      "trigger": "getfocus\tIspisuje naslov (naslov) prozora u fokusu.\r",
+      "contents": "getfocus "
+    },
+    {
+      "trigger": "gifLoad\tU\u010ditava GIF sliku (komprimiranu bitmapu) odre\u0111enu ulaznim imenom datoteke. Ulaz naziva datoteke mora biti rije\u010d koja je naziv valjane GIF datoteke.\r",
+      "contents": "gifLoad ${1:filename}"
+    },
+    {
+      "trigger": "gifSave\tSpremite sliku svog rada kao sliku GIF (izgovara se \"jif\") tako da se mo\u017ee koristiti na web-stranicama ili e-po\u0161ti. Dimenzije slike odre\u0111uje ACTIVEAREA.\r",
+      "contents": "gifSave ${1:filename}"
+    },
+    {
+      "trigger": "gifSave\tSpremite sliku svog rada kao sliku GIF (izgovara se \"jif\") tako da se mo\u017ee koristiti na web-stranicama ili e-po\u0161ti. Dimenzije slike odre\u0111uje ACTIVEAREA.\r",
+      "contents": "gifSave ${1:filename} ${2:delay} ${3:append} ${4:loop}"
+    },
+    {
+      "trigger": "gifSave\tSpremite sliku svog rada kao sliku GIF (izgovara se \"jif\") tako da se mo\u017ee koristiti na web-stranicama ili e-po\u0161ti. Dimenzije slike odre\u0111uje ACTIVEAREA.\r",
+      "contents": "gifSave ${1:filename} ${2:delay} ${3:append} ${4:loop} ${5:maxcolor}"
+    },
+    {
+      "trigger": "gifSave\tSpremite sliku svog rada kao sliku GIF (izgovara se \"jif\") tako da se mo\u017ee koristiti na web-stranicama ili e-po\u0161ti. Dimenzije slike odre\u0111uje ACTIVEAREA.\r",
+      "contents": "gifSave ${1:filename} ${2:delay} ${3:append} ${4:loop} ${5:maxcolor} ${6:transcolorvector}"
+    },
+    {
+      "trigger": "gifSize\tIspi\u0161ite \u0161irinu i visinu GIF datoteke koja je odre\u0111ena unosom naziva datoteke. Ulaz naziva datoteke mora biti rije\u010d koja je naziv valjane GIF datoteke.\r",
+      "contents": "gifSize ${1:filename}"
+    },
+    {
+      "trigger": "goldenratio\tDaje bliska aproksimacija zlatnog omjera, koji je (1 + SQRT 5) / 2.\r",
+      "contents": "goldenratio "
+    },
+    {
+      "trigger": "goto\tMijenja mjesto izvr\u0161enja u postupku na odre\u0111enu oznaku.\r",
+      "contents": "goto ${1:tag}"
+    },
+    {
+      "trigger": "gprop\tIspisuje vrijednost svojstva imenom ime svojstva u popisu svojstava pod nazivom plistname ili praznim popisom ako nema takve imovine ili popisa svojstava.\r",
+      "contents": "gprop ${1:plistname} ${2:propertyname}"
+    },
+    {
+      "trigger": "greater?\tDaje TRUE ako je num1 strogo ve\u0107i od num2. Daje FALSE u suprotnom.\r",
+      "contents": "greater? ${1:num1} ${2:num2} ${3:num1}"
+    },
+    {
+      "trigger": "greaterEqual?\tDaje TRUE ako je num1 ve\u0107i ili jednak num2. Daje FALSE u suprotnom.\r",
+      "contents": "greaterEqual? ${1:num1} ${2:num2} ${3:num1}"
+    },
+    {
+      "trigger": "greaterEqualp\tDaje TRUE ako je num1 ve\u0107i ili jednak num2. Daje FALSE u suprotnom.\r",
+      "contents": "greaterEqualp ${1:num1} ${2:num2}"
+    },
+    {
+      "trigger": "greaterP\tDaje TRUE ako je num1 strogo ve\u0107i od num2. Daje FALSE u suprotnom.\r",
+      "contents": "greaterP ${1:num1} ${2:num2}"
+    },
+    {
+      "trigger": "groupboxCreate\tNapravite kontrolu grupnog okvira. Kontrola grupnog okvira je jedinstvena kontrola u usporedbi s drugim kontrolama jer sve to radi grupne radio gumbe (vidi RADIOBUTTONCRE",
+      "contents": "groupboxCreate ${1:parent} ${2:name} ${3:xpos} ${4:ypos} ${5:width} ${6:height}"
+    },
+    {
+      "trigger": "groupboxDelete\tBri\u0161e (zatvara) kontrolu grupnog okvira koja je ozna\u010dena imenom.\r",
+      "contents": "groupboxDelete ${1:name}"
+    },
+    {
+      "trigger": "halt\tNaredba HALT odmah zaustavlja FMSLogo od obrade daljnjih naredbi i vra\u0107a kontrolu zapovjedniku. To je isto kao i pritiskanje tipke za zaustavljanje.\r",
+      "contents": "halt "
+    },
+    {
+      "trigger": "hasOwnpen?\tDaje TRUE ako trenutno odabrana kornja\u010da ima vlastitu postavku za PENMODE, PENSIZE i PENCOLOR. Daje FALSE ako trenutno odabrana kornja\u010da dijeli postavke olovke s drugim k",
+      "contents": "hasOwnpen? "
+    },
+    {
+      "trigger": "hasOwnpenp\tDaje TRUE ako trenutno odabrana kornja\u010da ima vlastitu postavku za PENMODE, PENSIZE i PENCOLOR. Daje FALSE ako trenutno odabrana kornja\u010da dijeli postavke olovke s drugim k",
+      "contents": "hasOwnpenp "
+    },
+    {
+      "trigger": "heading\tDaje smjer kornja\u010de mjereno u stupnjevima u smjeru kazaljke na satu od pozitivne Y-osi.\r",
+      "contents": "heading "
+    },
+    {
+      "trigger": "help\tOtvara priru\u010dnik za FMSLogo. HELP ima dva oblika: sa i bez ulaza klju\u010dne rije\u010di. Kada nijedna klju\u010dna rije\u010d nije dana, FMSLogo otvara FMSLogo priru\u010dnik na sadr\u017eaj.\r",
+      "contents": "help "
+    },
+    {
+      "trigger": "help\tOtvara priru\u010dnik za FMSLogo. HELP ima dva oblika: sa i bez ulaza klju\u010dne rije\u010di. Kada nijedna klju\u010dna rije\u010d nije dana, FMSLogo otvara FMSLogo priru\u010dnik na sadr\u017eaj.\r",
+      "contents": "help ${1:keyword}"
+    },
+    {
+      "trigger": "hideturtle\t\u010cini kornja\u010du nevidljivom. Da bi kornja\u010da ponovno bila vidljiva, nazovite SHOWTURTLE.\r",
+      "contents": "hideturtle "
+    },
+    {
+      "trigger": "home\tPomi\u010de kornja\u010du u sredi\u0161te zaslona i postavlja smjer kornja\u010de, smjer i skretanje na 0.\r",
+      "contents": "home "
+    },
+    {
+      "trigger": "ht\t\u010cini kornja\u010du nevidljivom. Da bi kornja\u010da ponovno bila vidljiva, nazovite SHOWTURTLE.\r",
+      "contents": "ht "
+    },
+    {
+      "trigger": "icon\tMinimizira prozor \u010diji se naslov podudara s opisom. Pojam \"ICON\" dolazi iz starih vremena kada su Windows aplikacije minimizirane u male ikone.\r",
+      "contents": "icon ${1:caption}"
+    },
+    {
+      "trigger": "if\tNaredba ili operacija gdje: Ako se uvjet procjenjuje na TRUE, onda IF pokre\u0107e true.instructionlist. Ako se stanje procjenjuje na FALSE, tada IF ni\u0161ta ne \u010dini. Ako je dao ",
+      "contents": "if ${1:condition} ${2:true.instructionlist}"
+    },
+    {
+      "trigger": "if\tNaredba ili operacija gdje: Ako se uvjet procjenjuje na TRUE, onda IF pokre\u0107e true.instructionlist. Ako se stanje procjenjuje na FALSE, tada IF ni\u0161ta ne \u010dini. Ako je dao ",
+      "contents": "if ${1:condition} ${2:true.instructionlist} ${3:false.instructionlist}"
+    },
+    {
+      "trigger": "ifelse\tNaredba ili operacija gdje: Ako se uvjet procjenjuje na TRUE, IFELSE pokre\u0107e true.instructionlist. Ako uvjet procijeni na FALSE, IFELSE pokre\u0107e false.instructionlist.\r",
+      "contents": "ifelse ${1:condition} ${2:true.instructionlist} ${3:false.instructionlist}"
+    },
+    {
+      "trigger": "iff\tPokre\u0107e popis instrukcija ako je najnovija TEST instrukcija imala FALSE ulaz. Ina\u010de ne radi ni\u0161ta. TEST mora biti u istom postupku ili superprocesu.\r",
+      "contents": "iff ${1:instructionlist}"
+    },
+    {
+      "trigger": "iffalse\tPokre\u0107e popis instrukcija ako je najnovija TEST instrukcija imala FALSE ulaz. Ina\u010de ne radi ni\u0161ta. TEST mora biti u istom postupku ili superprocesu.\r",
+      "contents": "iffalse ${1:instructionlist}"
+    },
+    {
+      "trigger": "ift\tPokre\u0107e popis instrukcija ako je najnovija TEST instrukcija imala TRUE ulaz. Ina\u010de ne radi ni\u0161ta. TEST mora biti u istom postupku ili superprocesu.\r",
+      "contents": "ift ${1:instructionlist}"
+    },
+    {
+      "trigger": "iftrue\tPokre\u0107e popis instrukcija ako je najnovija TEST instrukcija imala TRUE ulaz. Ina\u010de ne radi ni\u0161ta. TEST mora biti u istom postupku ili superprocesu.\r",
+      "contents": "iftrue ${1:instructionlist}"
+    },
+    {
+      "trigger": "ignore\tIGNORE ne radi ni\u0161ta. To je korisno kada se izraz procijeni na nuspojavu i njegov stvarni izlaz je neva\u017ean.\r",
+      "contents": "ignore ${1:list}"
+    },
+    {
+      "trigger": "ingameport\t\u010cita vrijednost (ili otpor preko) kanala porta igre odre\u0111enog maskom. Ulaz maske mora biti 1, 2, 4 ili 8. Ako je maska \u200b\u200b1, INGAMEPORT \u010dita os x.\r",
+      "contents": "ingameport ${1:mask}"
+    },
+    {
+      "trigger": "inport\t\u010cita 2 bajta (16 bita) iz porta odre\u0111enog portidom i ispisuje podatke kao cijeli broj. Portidni ulaz odre\u0111uje port \"Hardware\".\r",
+      "contents": "inport ${1:portid}"
+    },
+    {
+      "trigger": "inportb\t\u010cita jedan bajt iz porta navedenog s portid i ispisuje podatke kao cijeli broj. Portidni ulaz odre\u0111uje port \"Hardware\".\r",
+      "contents": "inportb ${1:portid}"
+    },
+    {
+      "trigger": "int\tDaje svoj ulaz s uklonjenim djelomi\u010dnim dijelom. To jest, INT daje cijeli broj s istim znakom kao i ulaz, \u010dija je apsolutna vrijednost najve\u0107i cijeli broj manji ili jedna",
+      "contents": "int ${1:num}"
+    },
+    {
+      "trigger": "invoke\tPostupak koji pokre\u0107e predlo\u017eak, punjenje mjesta s preostalim ulazima. Broj ulaza mora biti prihvatljiv broj mjesta za predlo\u017eak. Protuzakonito je koristiti primitivni TO",
+      "contents": "invoke ${1:template} ${2:input}"
+    },
+    {
+      "trigger": "invoke\tPostupak koji pokre\u0107e predlo\u017eak, punjenje mjesta s preostalim ulazima. Broj ulaza mora biti prihvatljiv broj mjesta za predlo\u017eak. Protuzakonito je koristiti primitivni TO",
+      "contents": "invoke ${1:template} ${2:input1} ${3:input2} ${4:...}"
+    },
+    {
+      "trigger": "iseq\tIspisuje uzastopni poredani popis brojeva koji po\u010dinju s od i zavr\u0161avaju s do. Ako je od ve\u0107i od do, tada ISEQ daje niz koji se broji unatrag.\r",
+      "contents": "iseq ${1:from} ${2:to}"
+    },
+    {
+      "trigger": "item\tAko je stvar rije\u010d, stavka ITEM ispisuje indeksni znak rije\u010di.\r",
+      "contents": "item ${1:index} ${2:thing}"
+    },
+    {
+      "trigger": "key?\tPredikat koji ispisuje TRUE ako ima vi\u0161e znakova za \u010ditanje iz \u010ditanog toka. Ako je \u010ditani tok datoteka, onda je KEYP ekvivalent NE EOFP. Ako je tok za \u010ditanje postavljen",
+      "contents": "key? "
+    },
+    {
+      "trigger": "keyboardOff\tOnemogu\u0107uje privla\u010denje doga\u0111aja tipkovnice.\r",
+      "contents": "keyboardOff "
+    },
+    {
+      "trigger": "keyboardOn\tPokre\u0107e doga\u0111aje u tipkovnici i \u0161alje ih u keydown i keyup. Kada se pritisne tipka, zove se keydown. Kada se tipka otpusti, zove se keyup. Mo\u017eete odrediti tipku koju ste ",
+      "contents": "keyboardOn ${1:keydown}"
+    },
+    {
+      "trigger": "keyboardOn\tPokre\u0107e doga\u0111aje u tipkovnici i \u0161alje ih u keydown i keyup. Kada se pritisne tipka, zove se keydown. Kada se tipka otpusti, zove se keyup. Mo\u017eete odrediti tipku koju ste ",
+      "contents": "keyboardOn ${1:keydown} ${2:keyup}"
+    },
+    {
+      "trigger": "keyboardValue\tDaje broj koji odgovara zadnjem klju\u010du koji je pritisnut ili otpu\u0161ten. Broj koji daje ovisi o pritisnutoj tipki i o tome je li KEYBOARDON dobio jedan ili dva ulaza.\r",
+      "contents": "keyboardValue "
+    },
+    {
+      "trigger": "keyp\tPredikat koji ispisuje TRUE ako ima vi\u0161e znakova za \u010ditanje iz \u010ditanog toka. Ako je \u010ditani tok datoteka, onda je KEYP ekvivalent NE EOFP. Ako je tok za \u010ditanje postavljen",
+      "contents": "keyp "
+    },
+    {
+      "trigger": "label\tIspisuje tekst na zaslon na trenuta\u010dnom polo\u017eaju i smjeru kornja\u010de.\r",
+      "contents": "label ${1:text}"
+    },
+    {
+      "trigger": "labelfont\tIspisuje popis koji opisuje trenutni font koji koristi naredba LABEL.\r",
+      "contents": "labelfont "
+    },
+    {
+      "trigger": "labelsize\tIzvodi veli\u010dinu (\u0161irinu i visinu) danog teksta ako je prikazana s naredbom LABEL. Ulaz mo\u017ee biti rije\u010d ili popis. Izlaz je popis s dvije stavke [\u0161irina visine].\r",
+      "contents": "labelsize ${1:text}"
+    },
+    {
+      "trigger": "last\tAko je stvar rije\u010d, ispisuje posljednji znak rije\u010di. Ako je stvar popis, daje zadnji \u010dlan popisa.\r",
+      "contents": "last ${1:thing}"
+    },
+    {
+      "trigger": "left\tOkre\u0107e kornja\u010du u smjeru suprotnom od kazaljke na satu za odre\u0111eni kut, mjereno u stupnjevima (1/360 kruga).\r",
+      "contents": "left ${1:angle}"
+    },
+    {
+      "trigger": "leftroll\tVrtite kornja\u010du prema lijevoj strani prema navedenom kutu, mjereno u stupnjevima (1/360 kruga).\r",
+      "contents": "leftroll ${1:angle}"
+    },
+    {
+      "trigger": "less?\tDaje TRUE ako je num1 strogo manji od num2. Daje FALSE u suprotnom.\r",
+      "contents": "less? ${1:num1} ${2:num2} ${3:num1}"
+    },
+    {
+      "trigger": "lessequal?\tDaje TRUE ako je num1 manji ili jednak num2. Daje FALSE u suprotnom.\r",
+      "contents": "lessequal? ${1:num1} ${2:num2} ${3:num1}"
+    },
+    {
+      "trigger": "lessequalp\tDaje TRUE ako je num1 manji ili jednak num2. Daje FALSE u suprotnom.\r",
+      "contents": "lessequalp ${1:num1} ${2:num2}"
+    },
+    {
+      "trigger": "lessp\tDaje TRUE ako je num1 strogo manji od num2. Daje FALSE u suprotnom.\r",
+      "contents": "lessp ${1:num1} ${2:num2}"
+    },
+    {
+      "trigger": "light\tIspu\u0161ta atribute osvjetljenja kao popis dva broja, vrijednosti ambijenta i difuzije.\r",
+      "contents": "light "
+    },
+    {
+      "trigger": "list\tIspisuje popis \u010diji su \u010dlanovi njegovi ulazi, \u0161to mo\u017ee biti bilo koja stvar iz logotipa (rije\u010d, popis ili niz).\r",
+      "contents": "list ${1:thing1} ${2:thing2}"
+    },
+    {
+      "trigger": "list\tIspisuje popis \u010diji su \u010dlanovi njegovi ulazi, \u0161to mo\u017ee biti bilo koja stvar iz logotipa (rije\u010d, popis ili niz).\r",
+      "contents": "list ${1:thing1} ${2:thing2} ${3:thing3} ${4:...}"
+    },
+    {
+      "trigger": "list?\tIzlaz TRUE ako je ulaz popis, FALSE ina\u010de.\r",
+      "contents": "list? ${1:thing}"
+    },
+    {
+      "trigger": "listboxAddstring\tDodaje stavku u popisni okvir koji je ozna\u010den imenom.\r",
+      "contents": "listboxAddstring ${1:name} ${2:item}"
+    },
+    {
+      "trigger": "listboxCreate\tStvara kontrolu popisa. Kontrolna plo\u010da popisa prikazuje korisniku skup stavki i omogu\u0107uje im da odaberu jednu od njih.\r",
+      "contents": "listboxCreate ${1:parent} ${2:name} ${3:xpos} ${4:ypos} ${5:width} ${6:height}"
+    },
+    {
+      "trigger": "listboxDelete\tBri\u0161e (zatvara) popisni popis \u010dije je ime ime.\r",
+      "contents": "listboxDelete ${1:name}"
+    },
+    {
+      "trigger": "listboxDeleteString\tBri\u0161e stavku s indeksa iz popisa koji je ozna\u010den imenom.\r",
+      "contents": "listboxDeleteString ${1:name} ${2:index}"
+    },
+    {
+      "trigger": "listboxEnable\tOmogu\u0107uje ili onemogu\u0107uje popisni okvir koji je ozna\u010den imenom. Ako je stanje jednako TRUE, tada je omogu\u0107en popisni okvir. Ako je stanje jednako FALSE, popisni je popis ",
+      "contents": "listboxEnable ${1:name} ${2:state}"
+    },
+    {
+      "trigger": "listboxGetselect\tIspisuje odabranu stavku unutar popisa koji je ozna\u010den imenom. Izlaz poprima oblik popisa koji obuhva\u0107a tekst trenutno odabranog retka. Ako ni\u0161ta nije odabrano, LISTBOXGE",
+      "contents": "listboxGetselect ${1:name}"
+    },
+    {
+      "trigger": "listp\tIzlaz TRUE ako je ulaz popis, FALSE ina\u010de.\r",
+      "contents": "listp ${1:thing}"
+    },
+    {
+      "trigger": "listToArray\tDaje niz s istim elementima kao popis ulaznih podataka.\r",
+      "contents": "listToArray ${1:list}"
+    },
+    {
+      "trigger": "listToArray\tDaje niz s istim elementima kao popis ulaznih podataka.\r",
+      "contents": "listToArray ${1:list} ${2:origin}"
+    },
+    {
+      "trigger": "ln\tDaje prirodni logaritam num. To jest, e (2.718281828 ...) podignut na izlaz = num.\r",
+      "contents": "ln ${1:num}"
+    },
+    {
+      "trigger": "load\t\u010cita upute iz datoteke s nazivom datoteke i pokre\u0107e ih. Datoteka mo\u017ee sadr\u017eavati definicije procedure s TO-om, a one se prihva\u0107aju \u010dak i ako postupak s istim imenom ve\u0107 p",
+      "contents": "load ${1:filename}"
+    },
+    {
+      "trigger": "local\tStvara varijable koje su lokalne za trenuta\u010dno pokrenutu proceduru. LOCAL prihva\u0107a kao ulaz jednu ili vi\u0161e rije\u010di ili popis rije\u010di. Lokalna varijabla je stvorena za svaku",
+      "contents": "local ${1:varname}"
+    },
+    {
+      "trigger": "local\tStvara varijable koje su lokalne za trenuta\u010dno pokrenutu proceduru. LOCAL prihva\u0107a kao ulaz jednu ili vi\u0161e rije\u010di ili popis rije\u010di. Lokalna varijabla je stvorena za svaku",
+      "contents": "local ${1:varnamelist}"
+    },
+    {
+      "trigger": "local\tStvara varijable koje su lokalne za trenuta\u010dno pokrenutu proceduru. LOCAL prihva\u0107a kao ulaz jednu ili vi\u0161e rije\u010di ili popis rije\u010di. Lokalna varijabla je stvorena za svaku",
+      "contents": "local ${1:varname1} ${2:varname2} ${3:...}"
+    },
+    {
+      "trigger": "localmake\tLOCALMAKE objavljuje lokalnu varijablu i dodjeljuje joj varijablu. To je prikladna skra\u0107enica za sljede\u0107i kod: LOCAL varname MAKE vrijednost varname\r",
+      "contents": "localmake ${1:varname} ${2:value}"
+    },
+    {
+      "trigger": "log10\tDaje zajedni\u010dki logaritam num. To jest, 10 podignuto na izlaz je num.\r",
+      "contents": "log10 ${1:num}"
+    },
+    {
+      "trigger": "logoVersion\tIspisuje popis s \u010detiri stavke koji opisuje verziju logotipa koju koristite. Prva stavka je naziv aplikacije (FMSLogo). Druga stavka je verzija FMSLogo-a.\r",
+      "contents": "logoVersion "
+    },
+    {
+      "trigger": "lowercase\tDaje rije\u010d koja je kopija rije\u010di, ali sa svim velikim slovima promijenjenim u odgovaraju\u0107e malo slovo.\r",
+      "contents": "lowercase ${1:word}"
+    },
+    {
+      "trigger": "lput\tIspisuje popis jednak popisu sa stvarima koje su dodane kao posljednja stavka.\r",
+      "contents": "lput ${1:thing} ${2:list}"
+    },
+    {
+      "trigger": "lr\tVrtite kornja\u010du prema lijevoj strani prema navedenom kutu, mjereno u stupnjevima (1/360 kruga).\r",
+      "contents": "lr ${1:angle}"
+    },
+    {
+      "trigger": "lshift\tDaje int pomaknuli su se logi\u010dki ulijevo po koli\u010dini bitova. Ako je iznos negativan, pomak je desno s nultom ispunom. Ulazi moraju biti cijeli brojevi.\r",
+      "contents": "lshift ${1:int} ${2:amount}"
+    },
+    {
+      "trigger": "lt\tOkre\u0107e kornja\u010du u smjeru suprotnom od kazaljke na satu za odre\u0111eni kut, mjereno u stupnjevima (1/360 kruga).\r",
+      "contents": "lt ${1:angle}"
+    },
+    {
+      "trigger": "machine\tIspisuje popis koji opisuje karakteristike stroja. Popis ima sljede\u0107i format: [IsWindowsWordsize BitmapWidth BitmapHeight IsPaletteEnable WindowsVersionMajor WindowsVersi",
+      "contents": "machine "
+    },
+    {
+      "trigger": "macro?\tDaje TRUE ako je ulaz ime korisni\u010dkog makroa ili makronaredbe knji\u017enice. Daje FALSE u suprotnom.\r",
+      "contents": "macro? ${1:name}"
+    },
+    {
+      "trigger": "macroexpand\tOperacija koja unosi logotip (macrocall) koji pokre\u0107e makro i ispisuje logotip u kojem \u0107e makro prevesti ulazni izraz.\r",
+      "contents": "macroexpand ${1:macrocall}"
+    },
+    {
+      "trigger": "macrop\tDaje TRUE ako je ulaz ime korisni\u010dkog makroa ili makronaredbe knji\u017enice. Daje FALSE u suprotnom.\r",
+      "contents": "macrop ${1:name}"
+    },
+    {
+      "trigger": "make\tNaredba koja dodjeljuje vrijednost vrijednosti varijabli pod nazivom varname, koja mora biti rije\u010d. Imena varijabli nisu osjetljiva na veli\u010dinu slova. Ako varijabla s ist",
+      "contents": "make ${1:varname} ${2:value}"
+    },
+    {
+      "trigger": "map\tDaje rije\u010d ili popis, ovisno o vrsti ulaza podataka, iste duljine kao i ulaz podataka. (Ako je dano vi\u0161e od jednog ulaza podataka, izlaz je istog tipa kao i podaci1.) Sva",
+      "contents": "map ${1:templatelist} ${2:data}"
+    },
+    {
+      "trigger": "map\tDaje rije\u010d ili popis, ovisno o vrsti ulaza podataka, iste duljine kao i ulaz podataka. (Ako je dano vi\u0161e od jednog ulaza podataka, izlaz je istog tipa kao i podaci1.) Sva",
+      "contents": "map ${1:templatelist} ${2:data1} ${3:data2} ${4:...}"
+    },
+    {
+      "trigger": "map.se\tIspisuje popis oblikovan ponovnim vrednovanjem templatelista i ulan\u010davanjem rezultata pomo\u0107u SENTENCE. To jest, \u010dlanovi rezultata su \u010dlanovi rezultata evaluacija.\r",
+      "contents": "map.se ${1:templatelist} ${2:data}"
+    },
+    {
+      "trigger": "map.se\tIspisuje popis oblikovan ponovnim vrednovanjem templatelista i ulan\u010davanjem rezultata pomo\u0107u SENTENCE. To jest, \u010dlanovi rezultata su \u010dlanovi rezultata evaluacija.\r",
+      "contents": "map.se ${1:templatelist} ${2:data1} ${3:data2} ${4:...}"
+    },
+    {
+      "trigger": "maximize\tMaksimizira prozor \u010diji se naslov podudara s opisom.\r",
+      "contents": "maximize ${1:caption}"
+    },
+    {
+      "trigger": "mci\tMCI vam omogu\u0107uje pisanje Logo postupaka za upravljanje multimedijskim ure\u0111ajima. Pomo\u0107u njega mo\u017eete povezati zvukove s koracima crtanja slike. Mo\u017eete pripovijedati vlas",
+      "contents": "mci ${1:mci-command-list}"
+    },
+    {
+      "trigger": "mci\tMCI vam omogu\u0107uje pisanje Logo postupaka za upravljanje multimedijskim ure\u0111ajima. Pomo\u0107u njega mo\u017eete povezati zvukove s koracima crtanja slike. Mo\u017eete pripovijedati vlas",
+      "contents": "mci ${1:mci-command-list} ${2:callback}"
+    },
+    {
+      "trigger": "mdarray\tDaje vi\u0161edimenzionalni niz.\r",
+      "contents": "mdarray ${1:sizelist}"
+    },
+    {
+      "trigger": "mdarray\tDaje vi\u0161edimenzionalni niz.\r",
+      "contents": "mdarray ${1:sizelist} ${2:origin}"
+    },
+    {
+      "trigger": "mditem\tDaje stavku vi\u0161edimenzionalnog niza (ili vi\u0161edimenzionalnu listu) odabranu po popisu brojeva (popis indeksa).\r",
+      "contents": "mditem ${1:indexlist} ${2:mdarray}"
+    },
+    {
+      "trigger": "mdsetitem\tZamjenjuje stavku u vi\u0161edimenzionalnom nizu s novom vrijedno\u0161\u0107u. Stavka koju \u017eelite zamijeniti odabire se pomo\u0107u popisa indeksa.\r",
+      "contents": "mdsetitem ${1:indexlist} ${2:mdarray} ${3:value}"
+    },
+    {
+      "trigger": "member\tAko je thing2 rije\u010d ili popis i ako bi MEMBERP s ovim ulazima izlazio TRUE, onda bi MEMBER iza\u0161ao dio od stvari2 iz prvog primjera stvari1 do kraja. Ako bi MEMBERP izlaz ",
+      "contents": "member ${1:thing1} ${2:thing2}"
+    },
+    {
+      "trigger": "member?\tIspisuje TRUE ako je thing1 \u010dlan of stvar2. Daje FALSE u suprotnom.\r",
+      "contents": "member? ${1:thing1} ${2:thing2}"
+    },
+    {
+      "trigger": "memberp\tIspisuje TRUE ako je thing1 \u010dlan of stvar2. Daje FALSE u suprotnom.\r",
+      "contents": "memberp ${1:thing1} ${2:thing2}"
+    },
+    {
+      "trigger": "messageBox\tPrikazuje dijalo\u0161ki okvir s naslovom u naslovnoj traci i porukom kao porukom. Dijalog ima gumb \"OK\" i \"Cancel\". Obrada se ne nastavlja sve dok korisnik ne klikne na jedan",
+      "contents": "messageBox ${1:title} ${2:message}"
+    },
+    {
+      "trigger": "midiClose\tZatvara MIDI ure\u0111aj koji je otvoren pomo\u0107u MIDIOPEN.\r",
+      "contents": "midiClose "
+    },
+    {
+      "trigger": "midiMessage\t\u0160alje MIDI poruku MIDI sekvenceru. Prije kori\u0161tenja ove naredbe morate pozvati MIDIOPEN.\r",
+      "contents": "midiMessage ${1:message}"
+    },
+    {
+      "trigger": "midiOpen\tOtvara MIDI ure\u0111aj i pristupa mu putem upravlja\u010dkog programa MIDI ure\u0111aja. Odabrani upravlja\u010dki program ure\u0111aja ovisi o nekoliko stvari. Ako nema ulaza, MIDIOPEN poku\u0161ava",
+      "contents": "midiOpen "
+    },
+    {
+      "trigger": "midiOpen\tOtvara MIDI ure\u0111aj i pristupa mu putem upravlja\u010dkog programa MIDI ure\u0111aja. Odabrani upravlja\u010dki program ure\u0111aja ovisi o nekoliko stvari. Ako nema ulaza, MIDIOPEN poku\u0161ava",
+      "contents": "midiOpen ${1:id}"
+    },
+    {
+      "trigger": "minimize\tMinimizira prozor \u010diji se naslov podudara s opisom.\r",
+      "contents": "minimize ${1:caption}"
+    },
+    {
+      "trigger": "minus\tDaje negativno na ulaz.\r",
+      "contents": "minus ${1:number}"
+    },
+    {
+      "trigger": "mkdir\tStvara (stvara) direktorij, a zatim u njega mijenja (CHDIR). Ulaz imenika direktorija mora biti rije\u010d (naziv direktorija koji \u017eelite napraviti). Mo\u017eete koristiti naredbu ",
+      "contents": "mkdir ${1:directoryname}"
+    },
+    {
+      "trigger": "modulo\tDaje ostatak dijeljenja dividende podijeljen s djeliteljem. I dividenda i djelitelj moraju biti brojevi, a djelitelj ne smije biti 0.\r",
+      "contents": "modulo ${1:dividend} ${2:divisor}"
+    },
+    {
+      "trigger": "mouseoff\tOnemogu\u0107uje hvatanje doga\u0111aja mi\u0161a.\r",
+      "contents": "mouseoff "
+    },
+    {
+      "trigger": "mouseon\tPo\u010dinje hvatanje doga\u0111aja mi\u0161a koji se \u0161alju u prozor \"FMSLogo\" i proslje\u0111uje ih na lijevo-desno, lijevo-bo\u010dno, desno-desno-desno-gore-desno ili premje\u0161tati, ovisno o vrs",
+      "contents": "mouseon ${1:leftbuttondown} ${2:leftbuttonup} ${3:rightbuttondown} ${4:rightbuttonup} ${5:move}"
+    },
+    {
+      "trigger": "mousepos\tIzvedite polo\u017eaj mi\u0161a u trenutku kada je posljednji doga\u0111aj mi\u0161a generiran. Polo\u017eaj se daje kao popis s dvije stavke: [X, Y]. Mi\u0161 se prvo mora uklju\u010diti pozivanjem MOUSEO",
+      "contents": "mousepos "
+    },
+    {
+      "trigger": "name\tNaredba koja dodjeljuje vrijednost vrijednosti varijabli pod nazivom varname, koja mora biti rije\u010d. Imena varijabli nisu osjetljiva na veli\u010dinu slova. Ako varijabla s ist",
+      "contents": "name ${1:value} ${2:varname}"
+    },
+    {
+      "trigger": "name?\tDaje TRUE ako je ulaz ime varijable. Daje FALSE u suprotnom.\r",
+      "contents": "name? ${1:name}"
+    },
+    {
+      "trigger": "namelist\tIspisuje popis sadr\u017eaja koji se sastoji od praznog popisa nakon kojeg slijedi popis imena ili naziva danih kao ulaz. To je korisno u kombinaciji s postupcima kontrole rad",
+      "contents": "namelist ${1:varname}"
+    },
+    {
+      "trigger": "namelist\tIspisuje popis sadr\u017eaja koji se sastoji od praznog popisa nakon kojeg slijedi popis imena ili naziva danih kao ulaz. To je korisno u kombinaciji s postupcima kontrole rad",
+      "contents": "namelist ${1:varnamelist}"
+    },
+    {
+      "trigger": "namep\tDaje TRUE ako je ulaz ime varijable. Daje FALSE u suprotnom.\r",
+      "contents": "namep ${1:name}"
+    },
+    {
+      "trigger": "names\tIspisuje popis sadr\u017eaja koji se sastoji od popisa praznih procedura (koji pokazuje da nema naziva procedure), a slijedi popis svih nepokrivenih imena varijabli u radnom p",
+      "contents": "names "
+    },
+    {
+      "trigger": "netAcceptOff\tZaustavlja prihva\u0107anje dolaznih veza.\r",
+      "contents": "netAcceptOff "
+    },
+    {
+      "trigger": "netAcceptOn\tOmogu\u0107uje prihva\u0107anje veze putem mre\u017ee na lokalnom portu. Kada su podaci dostupni, FMSLogo pokre\u0107e popis primljenih instrukcija. Da biste dobili primljene podatke, pokren",
+      "contents": "netAcceptOn ${1:localport} ${2:sendready} ${3:receiveready}"
+    },
+    {
+      "trigger": "netAcceptReceiveValue\tIspisuje vrijednost posljednjih primljenih mre\u017enih podataka u uti\u010dnici za prihva\u0107anje. Najbolje je nazvati ovu proceduru u Va\u0161em prijemnom kodu povratnog poziva va\u0161e NETA",
+      "contents": "netAcceptReceiveValue "
+    },
+    {
+      "trigger": "netAcceptSendValue\t\u0160alje podatke iz prihvatne uti\u010dnice.\r",
+      "contents": "netAcceptSendValue ${1:data}"
+    },
+    {
+      "trigger": "netConnectOff\tIsklju\u010duje vezu koja je stvorena s NETCONNECTON. Nakon pokretanja ove naredbe, NETCONNECTSENDVALUE i NETCONNECTRECEIVEVALUE vi\u0161e ne rade.\r",
+      "contents": "netConnectOff "
+    },
+    {
+      "trigger": "netConnectOn\tPokre\u0107e vezu preko mre\u017ee s udaljenim TCP portom na remotemachinename. Za isklju\u010divanje poziva za povezivanje NETCONNECTOFF. Za dobivanje primljenih podataka nazovite NETC",
+      "contents": "netConnectOn ${1:remotemachinename} ${2:remoteport} ${3:sendready} ${4:receiveready}"
+    },
+    {
+      "trigger": "netConnectReceiveValue\tIspisuje vrijednost posljednjih mre\u017enih podataka primljenih na vezu koja je stvorena s NETCONNECTON-om. Najbolje je nazvati ovu proceduru u va\u0161em prijemnom povratnom kodu",
+      "contents": "netConnectReceiveValue "
+    },
+    {
+      "trigger": "netConnectSendValue\t\u0160alje podatke iz veze koja je stvorena s NETCONNECTON-om.\r",
+      "contents": "netConnectSendValue ${1:data}"
+    },
+    {
+      "trigger": "netShutdown\tIsklju\u010duje umre\u017eavanje u FMSLogu. Nijedna mre\u017ena procedura u FMSLogu ne\u0107e raditi dok ponovno ne pozovete NETSTARTUP.\r",
+      "contents": "netShutdown "
+    },
+    {
+      "trigger": "netStartup\tUklju\u010duje umre\u017eavanje u FMSLogu. To se mora pozvati prije nego \u0161to po\u010dne raditi bilo koja druga mre\u017ena naredba.\r",
+      "contents": "netStartup "
+    },
+    {
+      "trigger": "netStartup\tUklju\u010duje umre\u017eavanje u FMSLogu. To se mora pozvati prije nego \u0161to po\u010dne raditi bilo koja druga mre\u017ena naredba.\r",
+      "contents": "netStartup ${1:synchronous_dns}"
+    },
+    {
+      "trigger": "noBitmapTurtle\tVra\u0107a kornja\u010du na prvobitni oblik trokuta. To je suprotno od BITMAPTURTLE.\r",
+      "contents": "noBitmapTurtle "
+    },
+    {
+      "trigger": "nodes\tIspisuje popis od dva broja. Prvi je broj \u010dvorova memorije koji se trenutno koriste. Drugi je maksimalni broj \u010dvorova koji su se koristili u bilo koje vrijeme od zadnjeg ",
+      "contents": "nodes "
+    },
+    {
+      "trigger": "nodribble\tZaustavlja kopiranje podataka u datoteku driblinga i zatvara datoteku.\r",
+      "contents": "nodribble "
+    },
+    {
+      "trigger": "norefresh\tGovori logotipu da se ne sje\u0107a kornja\u010devih prijedloga. To ubrzava crtanje, ali sprje\u010dava oporavak ako je prozor zaklonjen drugim prozorom.\r",
+      "contents": "norefresh "
+    },
+    {
+      "trigger": "nostatus\tZatvara prozor sko\u010dnog statusa, ako je otvoren. Ova naredba ima isti u\u010dinak kao i pritiskanje gumba statusa kada je pritisnuta.\r",
+      "contents": "nostatus "
+    },
+    {
+      "trigger": "not\tIzlaz TRUE ako je ulaz FALSE i obrnuto. Ulaz mora biti boolean vrijednost.\r",
+      "contents": "not ${1:boolean}"
+    },
+    {
+      "trigger": "notequal?\tDaje FALSE ako su oba ulaza jednaka, TRUE ina\u010de.\r",
+      "contents": "notequal? ${1:thing1} ${2:thing2} ${3:thing1}"
+    },
+    {
+      "trigger": "notequalp\tDaje FALSE ako su oba ulaza jednaka, TRUE ina\u010de.\r",
+      "contents": "notequalp ${1:thing1} ${2:thing2}"
+    },
+    {
+      "trigger": "noyield\tNOYIELD poru\u010duje FMSLogu da ne prekida pokretanje logotipa kako bi obradio Windows poruke, kao \u0161to su ulaz tipkovnice, klikovi mi\u0161em ili obavijesti kako bi preoblikovao z",
+      "contents": "noyield "
+    },
+    {
+      "trigger": "number?\tDaje TRUE ako je stvar broj u suprotnom FALSE.\r",
+      "contents": "number? ${1:thing}"
+    },
+    {
+      "trigger": "numberp\tDaje TRUE ako je stvar broj u suprotnom FALSE.\r",
+      "contents": "numberp ${1:thing}"
+    },
+    {
+      "trigger": "op\tZavr\u0161ava pokretanje postupka u kojem se pojavljuje. Taj postupak ispisuje vrijednost u kontekst u kojem je pozvan. Nemojte biti zbunjeni: OUTPUT sam je naredba, ali proce",
+      "contents": "op ${1:value}"
+    },
+    {
+      "trigger": "openAppend\tOtvara datoteku s nazivom datoteke za pisanje. Ako datoteka po datom nazivu datoteke ve\u0107 postoji, polo\u017eaj za pisanje se u po\u010detku postavlja na kraj stare datoteke, tako d",
+      "contents": "openAppend ${1:filename}"
+    },
+    {
+      "trigger": "openAppend\tOtvara datoteku s nazivom datoteke za pisanje. Ako datoteka po datom nazivu datoteke ve\u0107 postoji, polo\u017eaj za pisanje se u po\u010detku postavlja na kraj stare datoteke, tako d",
+      "contents": "openAppend ${1:filename} ${2:binarymode}"
+    },
+    {
+      "trigger": "openRead\tOtvara datoteku s nazivom datoteke za \u010ditanje. Polo\u017eaj \u010ditanja je u po\u010detku na po\u010detku datoteke.\r",
+      "contents": "openRead ${1:filename}"
+    },
+    {
+      "trigger": "openRead\tOtvara datoteku s nazivom datoteke za \u010ditanje. Polo\u017eaj \u010ditanja je u po\u010detku na po\u010detku datoteke.\r",
+      "contents": "openRead ${1:filename} ${2:binarymode}"
+    },
+    {
+      "trigger": "openUpdate\tOtvara datoteku pod nazivom naziv datoteke za \u010ditanje i pisanje. Polo\u017eaj za \u010ditanje i pisanje u po\u010detku se postavlja na kraj stare datoteke, ako postoji. Svaka otvorena d",
+      "contents": "openUpdate ${1:filename}"
+    },
+    {
+      "trigger": "openUpdate\tOtvara datoteku pod nazivom naziv datoteke za \u010ditanje i pisanje. Polo\u017eaj za \u010ditanje i pisanje u po\u010detku se postavlja na kraj stare datoteke, ako postoji. Svaka otvorena d",
+      "contents": "openUpdate ${1:filename} ${2:binarymode}"
+    },
+    {
+      "trigger": "openWrite\tOtvara datoteku s nazivom datoteke za pisanje. Ako datoteka prema datom nazivu datoteke ve\u0107 postoji, stara se verzija bri\u0161e i stvara se nova, prazna datoteka.\r",
+      "contents": "openWrite ${1:filename}"
+    },
+    {
+      "trigger": "openWrite\tOtvara datoteku s nazivom datoteke za pisanje. Ako datoteka prema datom nazivu datoteke ve\u0107 postoji, stara se verzija bri\u0161e i stvara se nova, prazna datoteka.\r",
+      "contents": "openWrite ${1:filename} ${2:binarymode}"
+    },
+    {
+      "trigger": "or\tDaje TRUE ako je najmanje jedan ulaz TRUE. Daje FALSE u suprotnom. Svi ulazi moraju biti TRUE ili FALSE.\r",
+      "contents": "or ${1:boolean1} ${2:boolean2}"
+    },
+    {
+      "trigger": "or\tDaje TRUE ako je najmanje jedan ulaz TRUE. Daje FALSE u suprotnom. Svi ulazi moraju biti TRUE ili FALSE.\r",
+      "contents": "or ${1:boolean1} ${2:boolean2} ${3:boolean3} ${4:...}"
+    },
+    {
+      "trigger": "orientation\tIspisuje popis, svaki od kornja\u010da u [stupcu postavljanja] u stupnjevima. Va\u017eno je razumjeti svoju orijentaciju u 3D.\r",
+      "contents": "orientation "
+    },
+    {
+      "trigger": "outport\tPi\u0161e podatke u \"hardverski\" port naveden s portid. Ulaz podataka mora biti cijeli bajt od 2 bajta (broj od 0 do 65525).\r",
+      "contents": "outport ${1:portid} ${2:data}"
+    },
+    {
+      "trigger": "outportb\tPi\u0161e podatke u \"hardverski\" port naveden s portid. Ulaz podataka mora biti jedan bajt cijeli broj (broj od 0 do 255).\r",
+      "contents": "outportb ${1:portid} ${2:data}"
+    },
+    {
+      "trigger": "output\tZavr\u0161ava pokretanje postupka u kojem se pojavljuje. Taj postupak ispisuje vrijednost u kontekst u kojem je pozvan. Nemojte biti zbunjeni: OUTPUT sam je naredba, ali proce",
+      "contents": "output ${1:value}"
+    },
+    {
+      "trigger": "parse\tDaje popis koji bi nastao ako se rije\u010d unese kao odgovor na rad READLIST. To jest, PARSE READWORD daje istu vrijednost kao i READLIST za iste pro\u010ditane znakove.\r",
+      "contents": "parse ${1:word}"
+    },
+    {
+      "trigger": "pause\tNaredba ili radnja koja ulazi u interaktivnu stanku. Od korisnika se tra\u017ee upute s dijalo\u0161kim okvirom koji sadr\u017ei naziv procedure u kojoj je bio aktiviran PAUSE.\r",
+      "contents": "pause "
+    },
+    {
+      "trigger": "pc\tDaje informacije o boji olovke. To je ili indeks boje (broj od 0 - 15) ili popis intenziteta intenziteta crvene zelene boje, ovisno o tome kako je postavljena boja olovke",
+      "contents": "pc "
+    },
+    {
+      "trigger": "pd\tPostavlja polo\u017eaj olovke na \"dolje\", bez promjene na\u010dina rada.\r",
+      "contents": "pd "
+    },
+    {
+      "trigger": "pe\tPostavlja polo\u017eaj olovke na \"dolje\" i na\u010din rada olovke na \"brisanje\". U na\u010dinu brisanja, olovka crta u boji koju je opisao SCREENCOLOR. Koristite PENPAINT za vra\u0107anje ol",
+      "contents": "pe "
+    },
+    {
+      "trigger": "pen\tIspisuje popis koji sadr\u017ei polo\u017eaj olovke, na\u010din rada i zna\u010dajke specifi\u010dne za hardver, koje mo\u017ee koristiti SETPEN. Izlaz je popis s sljede\u0107im \u010dlanovima: [PENDOWNP PENMOD",
+      "contents": "pen "
+    },
+    {
+      "trigger": "penColor\tDaje informacije o boji olovke. To je ili indeks boje (broj od 0 - 15) ili popis intenziteta intenziteta crvene zelene boje, ovisno o tome kako je postavljena boja olovke",
+      "contents": "penColor "
+    },
+    {
+      "trigger": "penColour\tDaje informacije o boji olovke. To je ili indeks boje (broj od 0 - 15) ili popis intenziteta intenziteta crvene zelene boje, ovisno o tome kako je postavljena boja olovke",
+      "contents": "penColour "
+    },
+    {
+      "trigger": "penDown\tPostavlja polo\u017eaj olovke na \"dolje\", bez promjene na\u010dina rada.\r",
+      "contents": "penDown "
+    },
+    {
+      "trigger": "penDown?\tIspisuje TRUE ako je olovka dolje, FALSE ako je gore.\r",
+      "contents": "penDown? "
+    },
+    {
+      "trigger": "penDownp\tIspisuje TRUE ako je olovka dolje, FALSE ako je gore.\r",
+      "contents": "penDownp "
+    },
+    {
+      "trigger": "penErase\tPostavlja polo\u017eaj olovke na \"dolje\" i na\u010din rada olovke na \"brisanje\". U na\u010dinu brisanja, olovka crta u boji koju je opisao SCREENCOLOR. Koristite PENPAINT za vra\u0107anje ol",
+      "contents": "penErase "
+    },
+    {
+      "trigger": "penMode\tDaje jedna od rije\u010di \"paint\", \"erase\" ili \"reverse\" prema trenutnom na\u010dinu rada olovke.\r",
+      "contents": "penMode "
+    },
+    {
+      "trigger": "penNormal\tPostavlja stanje olovke na po\u010detne zadane postavke prema dolje i boje.\r",
+      "contents": "penNormal "
+    },
+    {
+      "trigger": "penPaint\tPostavlja polo\u017eaj olovke na \"dolje\", a na\u010din rada na olovku na \"bojenje\". U na\u010dinu boje, olovka crta u boji koju je opisao PENCOLOR. Ovo je zadani na\u010din rada.\r",
+      "contents": "penPaint "
+    },
+    {
+      "trigger": "penPattern\tPENPATTERN nije podr\u017ean u FMSLogo.\r",
+      "contents": "penPattern "
+    },
+    {
+      "trigger": "penReverse\tPostavlja polo\u017eaj olovke na \"dolje\", a na\u010din rada olovke na \"obrnuto\". U obrnutom na\u010dinu, olovka crta boju koja je bitna negacija bilo kojeg piksela ispod olovke.\r",
+      "contents": "penReverse "
+    },
+    {
+      "trigger": "penSize\tIzvodi veli\u010dinu olovke kao popis s dvije stavke: [Width Height]. FMSLogo zanemaruje stavku \u0161irine.\r",
+      "contents": "penSize "
+    },
+    {
+      "trigger": "penUp\tPostavlja polo\u017eaj olovke na \"gore\", bez promjene na\u010dina rada.\r",
+      "contents": "penUp "
+    },
+    {
+      "trigger": "perspective\tNavodi kornja\u010di da u\u0111e u na\u010din \"perspektive\". Modus perspektive dodaje tre\u0107u dimenziju (os Z) kornja\u010di u kojoj \u017eivi. Perspektiva je izraz koji opisuje kako gledamo trodim",
+      "contents": "perspective "
+    },
+    {
+      "trigger": "pi\tDaje vrijednost pi (3,14159265358979 ...).\r",
+      "contents": "pi "
+    },
+    {
+      "trigger": "pick\tDaje iz nasumi\u010dno odabrane stavke.\r",
+      "contents": "pick ${1:thing}"
+    },
+    {
+      "trigger": "pitch\tDaje kut nagiba kornja\u010de u stupnjevima. Va\u017eno je razumjeti svoju orijentaciju u 3D.\r",
+      "contents": "pitch "
+    },
+    {
+      "trigger": "pixel\tDaje boju piksela koji je trenutno pod kornja\u010dom. Ovisno o tome kako je boja posljednje postavljena, izlaz je ili popis brojeva s tri stavke koji predstavlja intenzitet c",
+      "contents": "pixel "
+    },
+    {
+      "trigger": "playwave\tReproducira datoteku s valovima.\r",
+      "contents": "playwave ${1:wavefile} ${2:flags}"
+    },
+    {
+      "trigger": "plist\tIspisuje popis svojstava u popisu svojstava pod nazivom plistname. Neparne stavke u popisu su nazivi svojstava, a parne stavke su vrijednosti svojstava.\r",
+      "contents": "plist ${1:plistname}"
+    },
+    {
+      "trigger": "plists\tIspisuje popis sadr\u017eaja, koji je popis od tri popisa. Prva dva popisa su prazna, \u0161to zna\u010di da se ne vra\u0107aju nazivi procedura ili imena varijabli. Tre\u0107i popis je popis ime",
+      "contents": "plists "
+    },
+    {
+      "trigger": "pllist\tIspisuje popis sadr\u017eaja koji se sastoji od dva prazna popisa iza kojih slijedi popis imena ili naziva danih kao ulaz. Pod tre\u0107im podlistom podrazumijevaju se nazivi popis",
+      "contents": "pllist ${1:plistname}"
+    },
+    {
+      "trigger": "pllist\tIspisuje popis sadr\u017eaja koji se sastoji od dva prazna popisa iza kojih slijedi popis imena ili naziva danih kao ulaz. Pod tre\u0107im podlistom podrazumijevaju se nazivi popis",
+      "contents": "pllist ${1:plistnamelist}"
+    },
+    {
+      "trigger": "po\tIspisuje definicije svih postupaka, varijabli i popisa svojstava imenovanih u listi sadr\u017eaja na trenutni tok pisanja. Pogledajte odjeljak Upiti radnog prostora za obja\u0161nj",
+      "contents": "po ${1:contentslist}"
+    },
+    {
+      "trigger": "poall\tIspisuje sve nepokorene definicije u radnom prostoru u trenutni tok pisanja. POALL skra\u0107uje PO SADR\u017dAJ.\r",
+      "contents": "poall "
+    },
+    {
+      "trigger": "polyend\tDovr\u0161ava definiciju poligona koji je pokrenut s najnovijim POLYSTART pozivom.\r",
+      "contents": "polyend "
+    },
+    {
+      "trigger": "polystart\tPokre\u0107e definiciju novog poligona. Svaki sljede\u0107i potez dok je kornja\u010da spu\u0161tena dodaje koordinat odredi\u0161ta kao vrh na poligon. Definicija poligona dovr\u0161ena je pokretanje",
+      "contents": "polystart "
+    },
+    {
+      "trigger": "polyview\tPOLYVIEW bri\u0161e zaslon i prikazuje sve poligone definirane s POLYSTART i POLYEND kao zasjenjene poligone. Prikazuju se samo zasjenjeni poligoni. Poligoni su osvijetljeni u",
+      "contents": "polyview "
+    },
+    {
+      "trigger": "pon\tIspisuje definicije imenovanih varijabli u trenutni tok pisanja. PON skra\u0107uje PO NAMELIST.\r",
+      "contents": "pon ${1:varname}"
+    },
+    {
+      "trigger": "pon\tIspisuje definicije imenovanih varijabli u trenutni tok pisanja. PON skra\u0107uje PO NAMELIST.\r",
+      "contents": "pon ${1:varlistname}"
+    },
+    {
+      "trigger": "pons\tIspisuje definicije svih nepokopanih varijabli u radnom prostoru u trenutni tok pisanja. PONS skra\u0107uje PO NAMES.\r",
+      "contents": "pons "
+    },
+    {
+      "trigger": "pop\tIspisuje najnoviju stvar koju je gurnuo na stack imenovan stackname (koriste\u0107i PUSH) i uklanja tog \u010dlana iz stog.\r",
+      "contents": "pop ${1:stackname}"
+    },
+    {
+      "trigger": "popdir\tIzbacuje vas (1 razina) iz direktorija. To je jednako: CHDIR \"..\r",
+      "contents": "popdir "
+    },
+    {
+      "trigger": "popl\tIspisuje sadr\u017eaj imenovanih popisa svojstava u trenutni tok pisanja. POPL skra\u0107uje PO PLLIST.\r",
+      "contents": "popl ${1:plname}"
+    },
+    {
+      "trigger": "popl\tIspisuje sadr\u017eaj imenovanih popisa svojstava u trenutni tok pisanja. POPL skra\u0107uje PO PLLIST.\r",
+      "contents": "popl ${1:plnamelist}"
+    },
+    {
+      "trigger": "popls\tIspisuje sadr\u017eaj svih nepokrpanih popisa svojstava u radnom prostoru u trenutni tok pisanja. POPLS skra\u0107uje PO PLISTE.\r",
+      "contents": "popls "
+    },
+    {
+      "trigger": "pops\tIspisuje definicije svih nepokopanih postupaka u radnom prostoru u trenutni tok pisanja. POPS skra\u0107uje PO POSTUPKE.\r",
+      "contents": "pops "
+    },
+    {
+      "trigger": "portClose\tZatvara port koji je otvorio PORTOPEN.\r",
+      "contents": "portClose "
+    },
+    {
+      "trigger": "portFlush\tIsprazni sve izlazne podatke puferovane memorije na otvoreni priklju\u010dak.\r",
+      "contents": "portFlush ${1:input}"
+    },
+    {
+      "trigger": "portMode\tPostavlja na\u010din rada (brzina, paritet, podatkovni bitovi i zaustavni bitovi) otvorenog COM porta. Zna\u010dajka kontrole protoka ne mo\u017ee se podesiti preko FMSLogo.\r",
+      "contents": "portMode ${1:modestring}"
+    },
+    {
+      "trigger": "portOpen\tOmogu\u0107uje vam pristup serijskim i paralelnim priklju\u010dcima ra\u010dunala. Ulazni ulaz je niz koji je naziv porta koji \u017eelite otvoriti (na primjer, COM1-COM4 i LPT1-LPT3).\r",
+      "contents": "portOpen ${1:port}"
+    },
+    {
+      "trigger": "portReadArray\t\u010cita podatke iz trenutno otvorenog porta u dani me\u0111uspremnik. PORTREADARRAY poku\u0161ava \u010ditati brojeve bajtova iz porta, ako su dostupni. Kada se bajtovi upisuju u me\u0111usprem",
+      "contents": "portReadArray ${1:count} ${2:buffer}"
+    },
+    {
+      "trigger": "portReadChar\t\u010cita jedan bajt iz trenutno otvorenog porta i daje kao cijeli broj od -128 do 127. Tako\u0111er daje \"-1\" ako znak nije dostupan. Stoga, ako PORTREADCHAR daje -1, to mo\u017ee biti",
+      "contents": "portReadChar "
+    },
+    {
+      "trigger": "portWriteArray\tPORTWRITEARRAY pi\u0161e u trenutno otvoreni port s podacima u me uspremniku, koji mora biti niz cijelih brojeva veli\u010dine bajta. Poku\u0161ava napisati broj bajtova u port, ako je ",
+      "contents": "portWriteArray ${1:count} ${2:buffer}"
+    },
+    {
+      "trigger": "portWriteChar\tPi\u0161e jedan bajt u trenutno otvoreni port. PORTWRITECHAR daje 1 ako je bajt uspje\u0161no napisan i daje -1 u suprotnom. Ulaz podataka mora biti cijeli broj od 0 do 255.\r",
+      "contents": "portWriteChar ${1:data}"
+    },
+    {
+      "trigger": "pos\tIspisuje trenutni polo\u017eaj kornja\u010de, kao popis dva broja, X i Y koordinate.\r",
+      "contents": "pos "
+    },
+    {
+      "trigger": "posxyz\tIspisuje trenutni polo\u017eaj kornja\u010de, kao popis od tri broja, X, Y i Z koordinata.\r",
+      "contents": "posxyz "
+    },
+    {
+      "trigger": "pot\tIspisuje naslovne linije imenovanih postupaka, definicije imenovanih varijabli i sadr\u017eaj imenovanih popisa svojstava u trenutni tok pisanja. Za popise svojstava, cijeli p",
+      "contents": "pot ${1:contentslist}"
+    },
+    {
+      "trigger": "pots\tIspisuje redak naslova svih nepokopanih postupaka u radnom prostoru u trenutni tok pisanja. POTS skra\u0107uje POT PROCEDURE.\r",
+      "contents": "pots "
+    },
+    {
+      "trigger": "power\tIzlazna baza podignuta je na snagu eksponenta. Ako je baza negativna, tada eksponent mora biti cijeli broj.\r",
+      "contents": "power ${1:base} ${2:exponent}"
+    },
+    {
+      "trigger": "pprop\tDodaje svojstvo popisu svojstava pod nazivom plistname. Svojstvo se zove ime svojstva i ima vrijednost vrijednosti. Ako ne postoji popis svojstava pod nazivom plistname, ",
+      "contents": "pprop ${1:plistname} ${2:propertyname} ${3:value}"
+    },
+    {
+      "trigger": "ppt\tPostavlja polo\u017eaj olovke na \"dolje\", a na\u010din rada na olovku na \"bojenje\". U na\u010dinu boje, olovka crta u boji koju je opisao PENCOLOR. Ovo je zadani na\u010din rada.\r",
+      "contents": "ppt "
+    },
+    {
+      "trigger": "pr\tIspisuje ulaz ili ulaz u trenutni tok pisanja (u po\u010detku prozor za naredbe-podsjetnik). Svi su ulazi ispisani u jednom retku, odvojeni razmacima, a zavr\u0161avaju se novim re",
+      "contents": "pr ${1:thing}"
+    },
+    {
+      "trigger": "pr\tIspisuje ulaz ili ulaz u trenutni tok pisanja (u po\u010detku prozor za naredbe-podsjetnik). Svi su ulazi ispisani u jednom retku, odvojeni razmacima, a zavr\u0161avaju se novim re",
+      "contents": "pr ${1:thing1} ${2:thing2} ${3:...}"
+    },
+    {
+      "trigger": "primitive?\tIzlaz TRUE ako je ulaz ime primitivnog (onaj koji je ugra\u0111en u FMSLogo), ina\u010de daje FALSE. Napominjemo da su mnoge procedure FMSLogo-a knji\u017eni\u010dne procedure, a ne primitiv",
+      "contents": "primitive? ${1:name}"
+    },
+    {
+      "trigger": "primitivep\tIzlaz TRUE ako je ulaz ime primitivnog (onaj koji je ugra\u0111en u FMSLogo), ina\u010de daje FALSE. Napominjemo da su mnoge procedure FMSLogo-a knji\u017eni\u010dne procedure, a ne primitiv",
+      "contents": "primitivep ${1:name}"
+    },
+    {
+      "trigger": "print\tIspisuje ulaz ili ulaz u trenutni tok pisanja (u po\u010detku prozor za naredbe-podsjetnik). Svi su ulazi ispisani u jednom retku, odvojeni razmacima, a zavr\u0161avaju se novim re",
+      "contents": "print ${1:thing}"
+    },
+    {
+      "trigger": "print\tIspisuje ulaz ili ulaz u trenutni tok pisanja (u po\u010detku prozor za naredbe-podsjetnik). Svi su ulazi ispisani u jednom retku, odvojeni razmacima, a zavr\u0161avaju se novim re",
+      "contents": "print ${1:thing1} ${2:thing2} ${3:...}"
+    },
+    {
+      "trigger": "printDepthLimit\tPRINTDEPTHLIMIT je posebna varijabla. Ako je njegova vrijednost ne-negativan cijeli broj, tada FMSLogo tretira svoju vrijednost kao maksimalnu dubinu strukture podliste (",
+      "contents": "printDepthLimit "
+    },
+    {
+      "trigger": "printWidthLimit\tPRINTWIDTHLIMIT je posebna varijabla. Ako je njegova vrijednost ne-negativan cijeli broj, FMSLogo svoju vrijednost tretira kao maksimalni broj stavki u bilo kojem popisu ",
+      "contents": "printWidthLimit "
+    },
+    {
+      "trigger": "procedure?\tIzlaz TRUE ako je ulaz ime postupka, druga\u010dije daje FALSE.\r",
+      "contents": "procedure? ${1:name}"
+    },
+    {
+      "trigger": "procedurep\tIzlaz TRUE ako je ulaz ime postupka, druga\u010dije daje FALSE.\r",
+      "contents": "procedurep ${1:name}"
+    },
+    {
+      "trigger": "procedures\tIspisuje popis sadr\u017eaja koji se sastoji od svih nepokarenih korisni\u010dki definiranih postupaka u radnom prostoru.\r",
+      "contents": "procedures "
+    },
+    {
+      "trigger": "product\tDaje umno\u017eak ulaza. Ako nema ulaza, tada PRODUCT daje 1.\r",
+      "contents": "product ${1:factor1} ${2:factor2}"
+    },
+    {
+      "trigger": "product\tDaje umno\u017eak ulaza. Ako nema ulaza, tada PRODUCT daje 1.\r",
+      "contents": "product ${1:factor1} ${2:factor2} ${3:...} ${4:factor1}"
+    },
+    {
+      "trigger": "proplist?\tIzlaz TRUE ako je ulaz ime popisa svojstava, druga\u010dije daje FALSE.\r",
+      "contents": "proplist? ${1:name}"
+    },
+    {
+      "trigger": "proplistp\tIzlaz TRUE ako je ulaz ime popisa svojstava, druga\u010dije daje FALSE.\r",
+      "contents": "proplistp ${1:name}"
+    },
+    {
+      "trigger": "pu\tPostavlja polo\u017eaj olovke na \"gore\", bez promjene na\u010dina rada.\r",
+      "contents": "pu "
+    },
+    {
+      "trigger": "push\tDodaje stvar na prednji dio stog \u010dije ime je stackname.\r",
+      "contents": "push ${1:stackname} ${2:value}"
+    },
+    {
+      "trigger": "px\tPostavlja polo\u017eaj olovke na \"dolje\", a na\u010din rada olovke na \"obrnuto\". U obrnutom na\u010dinu, olovka crta boju koja je bitna negacija bilo kojeg piksela ispod olovke.\r",
+      "contents": "px "
+    },
+    {
+      "trigger": "questionbox\tPrikazuje dijalo\u0161ki okvir s naslovom u naslovnoj traci, pitanje kao poruku i kontrolu ure\u0111ivanja za ulaz teksta. Dijalo\u0161ki okvir tako\u0111er ima gumbe \"OK\" i \"Cancel\". Obrada",
+      "contents": "questionbox ${1:title} ${2:question}"
+    },
+    {
+      "trigger": "queue\tDodaje stvar na stra\u017enji dio reda \u010dije je ime queuename.\r",
+      "contents": "queue ${1:queuename} ${2:value}"
+    },
+    {
+      "trigger": "quoted\tAko je ulaz rije\u010d, QUOTED daje s prednje strane s znakom dvostrukog citiranja (\"), ina\u010de QUOTED daje bez obzira na ulaz.\r",
+      "contents": "quoted ${1:thing}"
+    },
+    {
+      "trigger": "quotient\tPrikazuje koli\u010dnik ulaza. To jest, ispisuje dividendu podijeljenu s djeliteljem. QUOTIENT daje cijeli broj ako i samo ako je dividenda vi\u0161estruka od djelitelja. Na primje",
+      "contents": "quotient ${1:dividend} ${2:divisor}"
+    },
+    {
+      "trigger": "quotient\tPrikazuje koli\u010dnik ulaza. To jest, ispisuje dividendu podijeljenu s djeliteljem. QUOTIENT daje cijeli broj ako i samo ako je dividenda vi\u0161estruka od djelitelja. Na primje",
+      "contents": "quotient ${1:divisor} ${2:dividend}"
+    },
+    {
+      "trigger": "radarccos\tIzvodi inverzni kosinus ulaza. Izlaz je dan u radijanima u rasponu [0, PI]. num mora biti u rasponu [-1, 1].\r",
+      "contents": "radarccos ${1:num}"
+    },
+    {
+      "trigger": "radarcsin\tDaje inverzni sinus ulaza. Izlaz je dan u radijanima u rasponu [-PI / 2, PI / 2]. num mora biti u rasponu [-1, 1].\r",
+      "contents": "radarcsin ${1:num}"
+    },
+    {
+      "trigger": "radarctan\tS jednim ulazom daje inverzni tangentni kut od num. Izlaz je dan u radijanima u rasponu [-PI / 2, PI / 2].\r",
+      "contents": "radarctan ${1:angle}"
+    },
+    {
+      "trigger": "radarctan\tS jednim ulazom daje inverzni tangentni kut od num. Izlaz je dan u radijanima u rasponu [-PI / 2, PI / 2].\r",
+      "contents": "radarctan ${1:x} ${2:y}"
+    },
+    {
+      "trigger": "radcos\tDaje kosinus kuta, koji se uzima u radijanima.\r",
+      "contents": "radcos ${1:angle}"
+    },
+    {
+      "trigger": "radioButtonCreate\tStvara radio kontrolni gumb. Upravlja\u010dki gumb s gumbom omogu\u0107uje korisniku da odabere stavku s dva stanja (TRUE ili FALSE). No, uz to je ograni\u010denje da samo jedan radio g",
+      "contents": "radioButtonCreate ${1:parent} ${2:group} ${3:name} ${4:label} ${5:xpos} ${6:ypos} ${7:width} ${8:height}"
+    },
+    {
+      "trigger": "radioButtonDelete\tBri\u0161e (zatvara) radio gumb koji je ozna\u010den imenom.\r",
+      "contents": "radioButtonDelete ${1:name}"
+    },
+    {
+      "trigger": "radioButtonEnable\tOmogu\u0107uje ili onemogu\u0107uje radio gumb identificiran po imenu. Ako je stanje jednako TRUE, tada je omogu\u0107en radio gumb. Ako je stanje jednako FALSE, radio gumb je onemogu\u0107e",
+      "contents": "radioButtonEnable ${1:name} ${2:state}"
+    },
+    {
+      "trigger": "radioButtonGet\tDaje stanje (TRUE ili FALSE) radio gumba koji je ozna\u010den imenom.\r",
+      "contents": "radioButtonGet ${1:name}"
+    },
+    {
+      "trigger": "radioButtonSet\tPostavlja stanje radio gumba koji je ozna\u010den nazivom. stanje mora biti TRUE (pritisnuto) ili FALSE (neispisano).\r",
+      "contents": "radioButtonSet ${1:name} ${2:state}"
+    },
+    {
+      "trigger": "radsin\tDaje sinusni kut, koji se uzima u radijanima.\r",
+      "contents": "radsin ${1:angle}"
+    },
+    {
+      "trigger": "radtan\tDaje tangens kuta, koji se uzima u radijanima.\r",
+      "contents": "radtan ${1:angle}"
+    },
+    {
+      "trigger": "random\tDaje jednoli\u010dni slu\u010dajni cijeli broj od 0 do ulaza raspona (ne uklju\u010duju\u0107i ulaz za raspon). Ulaz raspona mora biti nenegativan cijeli broj.\r",
+      "contents": "random ${1:range}"
+    },
+    {
+      "trigger": "rawascii\tDaje broj koji predstavlja znak u va\u0161oj trenutnoj kodnoj stranici.\r",
+      "contents": "rawascii ${1:character}"
+    },
+    {
+      "trigger": "rc\t\u010cita jedan znak iz \u010ditanog toka i daje. Ako je \u010ditani tok otvoren za \u010ditanje teksta, tada se znak ispisuje kao rije\u010d. Ako je \u010ditani tok otvoren za binarno \u010ditanje, tada s",
+      "contents": "rc "
+    },
+    {
+      "trigger": "rcs\t\u010cita znakove brojeva iz \u010ditanog toka i daje te znakove kao rije\u010d. Ako je broj ve\u0107i od broja preostalih znakova u struji \u010ditanja, READCHARS \u0161alje ostatak toka \u010ditanja.\r",
+      "contents": "rcs ${1:number}"
+    },
+    {
+      "trigger": "readChar\t\u010cita jedan znak iz \u010ditanog toka i daje. Ako je \u010ditani tok otvoren za \u010ditanje teksta, tada se znak ispisuje kao rije\u010d. Ako je \u010ditani tok otvoren za binarno \u010ditanje, tada s",
+      "contents": "readChar "
+    },
+    {
+      "trigger": "readChars\t\u010cita znakove brojeva iz \u010ditanog toka i daje te znakove kao rije\u010d. Ako je broj ve\u0107i od broja preostalih znakova u struji \u010ditanja, READCHARS \u0161alje ostatak toka \u010ditanja.\r",
+      "contents": "readChars ${1:number}"
+    },
+    {
+      "trigger": "readEr\tDaje ime trenutne strujne datoteke za \u010ditanje, ili prazni popis, ako je \u010ditanje struja zapovjednik.\r",
+      "contents": "readEr "
+    },
+    {
+      "trigger": "readList\t\u010cita redak iz \u010ditanog toka (u po\u010detku je sko\u010dni dijalo\u0161ki okvir) i ispisuje taj redak kao popis. Redak je podijeljen na stavke kao da su u uputama upisivane u uglatim zag",
+      "contents": "readList "
+    },
+    {
+      "trigger": "readPos\tIspisuje polo\u017eaj znaka datoteke trenutne datoteke struje \u010ditanja kao broj. Izlazna vrijednost 0 zna\u010di da je polo\u017eaj \u010ditanja na po\u010detku toka.\r",
+      "contents": "readPos "
+    },
+    {
+      "trigger": "readRawLine\t\u010cita redak iz \u010ditanog toka i daje taj redak kao rije\u010d. READRAWLINE prikazuje to\u010dan niz znakova koji se pojavljuju u retku, bez posebnog zna\u010denja za obrnutu kosu crtu, ver",
+      "contents": "readRawLine "
+    },
+    {
+      "trigger": "readWord\t\u010cita liniju iz toka \u010ditanja i ispisuje taj redak kao rije\u010d (bez redoslijeda na kraju retka). Izlaz je jedna rije\u010d \u010dak i ako red sadr\u017ei razmake, zagrade itd.\r",
+      "contents": "readWord "
+    },
+    {
+      "trigger": "redefp\tAko je TRUE, dopu\u0161ta se primitivama da se izbri\u0161u (vidi ERASE) ili redefinirati (pogledajte COPYDEF).\r",
+      "contents": "redefp "
+    },
+    {
+      "trigger": "reduce\tIspisuje rezultat primjene predlo\u0161ka kako bi se akumulirale stavke ulaza podataka, dvije stavke odjednom.\r",
+      "contents": "reduce ${1:template} ${2:data}"
+    },
+    {
+      "trigger": "refresh\tKa\u017ee logotipu da zapamti kornja\u010deve prijedloge kako bi ih se moglo rekonstruirati u slu\u010daju da je grafi\u010dki prozor zaklonjen drugim prozorom.\r",
+      "contents": "refresh "
+    },
+    {
+      "trigger": "remainder\tIspisuje ostatak dijeljenja dividende prema djelitelju. I dividenda i djelitelj moraju biti brojevi, a djelitelj ne smije biti 0.\r",
+      "contents": "remainder ${1:dividend} ${2:divisor}"
+    },
+    {
+      "trigger": "remdup\tIspisuje kopiju ulaza s uklonjenim duplikatima. Ako su dva ili vi\u0161e \u010dlanova ulaza jednaki, krajnji desni \u010dlan je onaj koji ostaje u izlazu.\r",
+      "contents": "remdup ${1:things}"
+    },
+    {
+      "trigger": "remove\tDaje nova stvar koja je jednaka stvarima kod kojih su svi \u010dlanovi jednaki stvarima koje treba ukloniti.\r",
+      "contents": "remove ${1:thingtoremove} ${2:things}"
+    },
+    {
+      "trigger": "remprop\tUklanja svojstvo imenom ime iz popisa svojstava pod nazivom plistname, ako postoji. Ako REMPROP ukloni zavr\u0161no svojstvo iz popisa svojstava, tada se popis svojstava mo\u017ee ",
+      "contents": "remprop ${1:plistname} ${2:propertyname}"
+    },
+    {
+      "trigger": "repcount\tDaje broj trenutnog ponavljanja popisa naredbi REPEAT naredbe. To zna\u010di da daje 1 kada se prvi put pokre\u0107e popis naredbi, daje 2 po drugi put i tako dalje.\r",
+      "contents": "repcount "
+    },
+    {
+      "trigger": "repeat\tPonavlja upute u popisu s uputama, brojati puta.\r",
+      "contents": "repeat ${1:count} ${2:instructionlist}"
+    },
+    {
+      "trigger": "rerandom\tOmogu\u0107uje reprodukciju RANDOM reprodukcije. Obi\u010dno je redoslijed slu\u010dajnih brojeva razli\u010dit svaki put kad se koristi logotip. Ako vam je potreban isti redoslijed pseudo-s",
+      "contents": "rerandom "
+    },
+    {
+      "trigger": "rerandom\tOmogu\u0107uje reprodukciju RANDOM reprodukcije. Obi\u010dno je redoslijed slu\u010dajnih brojeva razli\u010dit svaki put kad se koristi logotip. Ako vam je potreban isti redoslijed pseudo-s",
+      "contents": "rerandom ${1:seed}"
+    },
+    {
+      "trigger": "restore\tVra\u0107a (unminimizes ili unmaximizes) prozor \u010diji naslov odgovara opisu veli\u010dine i polo\u017eaja koji je imao prije nego je minimiziran ili maksimiziran.\r",
+      "contents": "restore ${1:caption}"
+    },
+    {
+      "trigger": "reverse\tDaje obrnuto od ulaza.\r",
+      "contents": "reverse ${1:thing}"
+    },
+    {
+      "trigger": "right\tOkre\u0107e kornja\u010du u smjeru kazaljke na satu za odre\u0111eni kut, mjereno u stupnjevima (1/360 kruga).\r",
+      "contents": "right ${1:angle}"
+    },
+    {
+      "trigger": "rightroll\tVrtite kornja\u010du prema desnoj strani za odre\u0111eni kut, mjereno u stupnjevima (1/360 kruga).\r",
+      "contents": "rightroll ${1:angle}"
+    },
+    {
+      "trigger": "rl\t\u010cita redak iz \u010ditanog toka (u po\u010detku je sko\u010dni dijalo\u0161ki okvir) i ispisuje taj redak kao popis. Redak je podijeljen na stavke kao da su u uputama upisivane u uglatim zag",
+      "contents": "rl "
+    },
+    {
+      "trigger": "rmdir\tUklanja (bri\u0161e) direktorij imenom directoryname. Ulaz imenika direktorija mora biti rije\u010d (naziv postoje\u0107eg direktorija). Ne mo\u017eete ukloniti direktorij ako je to va\u0161 radn",
+      "contents": "rmdir ${1:directoryname}"
+    },
+    {
+      "trigger": "roll\tDaje kut okretanja kornja\u010de u stupnjevima. Va\u017eno je razumjeti svoju orijentaciju u 3D.\r",
+      "contents": "roll "
+    },
+    {
+      "trigger": "round\tNa ulaz unosi najbli\u017ei cijeli broj.\r",
+      "contents": "round ${1:num}"
+    },
+    {
+      "trigger": "rr\tVrtite kornja\u010du prema desnoj strani za odre\u0111eni kut, mjereno u stupnjevima (1/360 kruga).\r",
+      "contents": "rr ${1:angle}"
+    },
+    {
+      "trigger": "rseq\tDaje poredani popis brojeva jednako razmaknutih racionalnih brojeva koji po\u010dinju od i zavr\u0161avaju s do. Ako je od je ve\u0107i od do, onda RSEQ daje slijed koji se broji unatra",
+      "contents": "rseq ${1:from} ${2:to} ${3:count}"
+    },
+    {
+      "trigger": "rt\tOkre\u0107e kornja\u010du u smjeru kazaljke na satu za odre\u0111eni kut, mjereno u stupnjevima (1/360 kruga).\r",
+      "contents": "rt ${1:angle}"
+    },
+    {
+      "trigger": "run\tPokre\u0107e upute u popisu s uputama; daje ako popis sadr\u017ei izraz koji daje.\r",
+      "contents": "run ${1:instructionlist}"
+    },
+    {
+      "trigger": "runparse\tIspisuje popis koji bi nastao ako je rije\u010d (rije\u010d ili popis) unesena kao redak s uputama; znakovi kao \u0161to su infix operatori i zagrade su odvojeni \u010dlanovi izlaza.\r",
+      "contents": "runparse ${1:thing}"
+    },
+    {
+      "trigger": "runresult\tPokre\u0107e upute u popisu s uputama. RUNRESULT daje prazan popis ako te upute ne proizvode izlaz. Ina\u010de, ispisuje popis \u010diji je jedini \u010dlan izlaz iz pokretanja popisa s uput",
+      "contents": "runresult ${1:instructionlist}"
+    },
+    {
+      "trigger": "rw\t\u010cita liniju iz toka \u010ditanja i ispisuje taj redak kao rije\u010d (bez redoslijeda na kraju retka). Izlaz je jedna rije\u010d \u010dak i ako red sadr\u017ei razmake, zagrade itd.\r",
+      "contents": "rw "
+    },
+    {
+      "trigger": "save\tSprema definicije svih nepokopanih postupaka, varijabli i popisa svojstava u datoteci pod nazivom filename.\r",
+      "contents": "save ${1:filename}"
+    },
+    {
+      "trigger": "savel\tSprema definicije procedura, varijabli i popisa svojstava koje je odredila lista sadr\u017eaja u datoteku pod nazivom naziv datoteke.\r",
+      "contents": "savel ${1:contentslist} ${2:filename}"
+    },
+    {
+      "trigger": "screencolor\tDaje informacije o boji zaslona. To je ili indeks boje (broj od 0 do 15) ili popis intenziteta intenziteta, ovisno o tome kako je postavljena boja zaslona.\r",
+      "contents": "screencolor "
+    },
+    {
+      "trigger": "screencolour\tDaje informacije o boji zaslona. To je ili indeks boje (broj od 0 do 15) ili popis intenziteta intenziteta, ovisno o tome kako je postavljena boja zaslona.\r",
+      "contents": "screencolour "
+    },
+    {
+      "trigger": "scrollbarCreate\tStvara kontrolu kliza\u010da. Kontrole s pomi\u010dnom trakom omogu\u0107uju korisniku da odabere vrijednost pomicanjem \"scroller-a\" du\u017e trake koja predstavlja raspon mogu\u0107ih vrijednost",
+      "contents": "scrollbarCreate ${1:parent} ${2:name} ${3:xpos} ${4:ypos} ${5:width} ${6:height} ${7:callback}"
+    },
+    {
+      "trigger": "scrollbarDelete\tBri\u0161e (zatvara) kliza\u010d koji se identificira po imenu.\r",
+      "contents": "scrollbarDelete ${1:name}"
+    },
+    {
+      "trigger": "scrollbarEnable\tOmogu\u0107uje ili onemogu\u0107uje kliza\u010d s nazivom. Ako je stanje jednako TRUE, tada je kliza\u010d omogu\u0107en. Ako je stanje jednako FALSE, onda je klizna traka onemogu\u0107ena.\r",
+      "contents": "scrollbarEnable ${1:name} ${2:state}"
+    },
+    {
+      "trigger": "scrollbarGet\tIspi\u0161ite trenutnu poziciju kontrole kliza\u010da koja je ozna\u010dena imenom. Izlaz je unutar raspona koji je odredio SCROLLBARSET.\r",
+      "contents": "scrollbarGet ${1:name}"
+    },
+    {
+      "trigger": "scrollbarSet\tOdredite raspon i trenutnu poziciju kontrole kliza\u010da koja je ozna\u010dena imenom. SCROLLBARSET mo\u017eete pozvati vi\u0161e puta na istom kliza\u010du.\r",
+      "contents": "scrollbarSet ${1:name} ${2:min} ${3:max} ${4:position}"
+    },
+    {
+      "trigger": "scrollx\tPomi\u010de horizontalni kliza\u010d u prozoru \"Zaslon\". Ulaz deltaxa je iznos za pomicanje polo\u017eaja pomicanja. Pozitivni broj se pomi\u010de u desno, a negativan broj pomi\u010de lijevo.\r",
+      "contents": "scrollx ${1:deltax}"
+    },
+    {
+      "trigger": "scrolly\tPomi\u010de okomiti kliza\u010d u prozoru \"Zaslon\". Deltay je iznos za pomicanje polo\u017eaja pomicanja za. Pozitivni broj se pomi\u010de prema dolje, a negativan broj se pomi\u010de prema gore.",
+      "contents": "scrolly ${1:deltay}"
+    },
+    {
+      "trigger": "scrunch\tIspisuje popis koji sadr\u017ei dva broja, faktore X i Y, koje koristi SETSCRUNCH. Imajte na umu da SETSCRUNCH uzima dva broja kao ulaz, a ne jedan popis brojeva.\r",
+      "contents": "scrunch "
+    },
+    {
+      "trigger": "se\tIspisuje popis \u010diji su \u010dlanovi njegovi ulazi, ako ti ulazi nisu popisi. Daje \u010dlanovi ulaza, ako su ti ulazi popisi.\r",
+      "contents": "se ${1:thing1} ${2:thing2}"
+    },
+    {
+      "trigger": "se\tIspisuje popis \u010diji su \u010dlanovi njegovi ulazi, ako ti ulazi nisu popisi. Daje \u010dlanovi ulaza, ako su ti ulazi popisi.\r",
+      "contents": "se ${1:thing1} ${2:thing2} ${3:thing3} ${4:...}"
+    },
+    {
+      "trigger": "selectbox\tPrikazuje dijalo\u0161ki okvir s naslovom kao naslovnu traku i popisom odabira kao popis izbora. Dijalog tako\u0111er ima gumb \"OK\" i \"Cancel\". FMSLogo ne procjenjuje daljnje upute",
+      "contents": "selectbox ${1:title} ${2:choicelist}"
+    },
+    {
+      "trigger": "sentence\tIspisuje popis \u010diji su \u010dlanovi njegovi ulazi, ako ti ulazi nisu popisi. Daje \u010dlanovi ulaza, ako su ti ulazi popisi.\r",
+      "contents": "sentence ${1:thing1} ${2:thing2}"
+    },
+    {
+      "trigger": "sentence\tIspisuje popis \u010diji su \u010dlanovi njegovi ulazi, ako ti ulazi nisu popisi. Daje \u010dlanovi ulaza, ako su ti ulazi popisi.\r",
+      "contents": "sentence ${1:thing1} ${2:thing2} ${3:thing3} ${4:...}"
+    },
+    {
+      "trigger": "setActiveArea\tPostavlja aktivno podru\u010dje za ispis i spremanje slika. Ulaz podru\u010dja mora biti popis obrasca: [XLow YLow XHigh YHigh]. Svi \u010dlanovi moraju biti cijeli brojevi.\r",
+      "contents": "setActiveArea ${1:area}"
+    },
+    {
+      "trigger": "setBitindex\tPostavlja trenutni bafer rezanja bitmape prema indeksu. Ulaz indeksa mora biti broj od 0 do 1023. Njegova je svrha omogu\u0107iti pohranjivanje vi\u0161e slika u memoriju spremnih ",
+      "contents": "setBitindex ${1:index}"
+    },
+    {
+      "trigger": "setBitmode\tPostavlja trenutni na\u010din bitmapa u skladu s na\u010dinom rada. Na\u010din ulaza mora biti broj od 1 do 9. Zna\u010denje svake vrijednosti daje se u sljede\u0107oj tablici: Na\u010din Zna\u010denje 1 U",
+      "contents": "setBitmode ${1:mode}"
+    },
+    {
+      "trigger": "setCursor\tSETCURSOR nije podr\u017ean u FMSLogo.\r",
+      "contents": "setCursor ${1:vector}"
+    },
+    {
+      "trigger": "setCursorNowait\tSETCURSORNOWAIT mijenja pokaziva\u010d u poznati oblik strelice. To bi trebalo biti neposredno prije poziva na YIELD.\r",
+      "contents": "setCursorNowait "
+    },
+    {
+      "trigger": "setCursorWait\tSETCURSORWAIT postavlja pokaziva\u010d na poznati oblik pje\u0161\u010danog sata. Njegova je svrha ukazati na dvije stvari. Prvo, to zna\u010di da trenutna operacija mo\u017ee potrajati neko vrij",
+      "contents": "setCursorWait "
+    },
+    {
+      "trigger": "setFc\tPostavlja boju poplave u boju, koja mo\u017ee biti indeks boje ili vektor boje. Indeks boje je broj od 0 - 15. Vektor boja je popis intenziteta [crveno zelene], svaki u raspon",
+      "contents": "setFc ${1:color}"
+    },
+    {
+      "trigger": "setFloodColor\tPostavlja boju poplave u boju, koja mo\u017ee biti indeks boje ili vektor boje. Indeks boje je broj od 0 - 15. Vektor boja je popis intenziteta [crveno zelene], svaki u raspon",
+      "contents": "setFloodColor ${1:color}"
+    },
+    {
+      "trigger": "setFloodColour\tPostavlja boju poplave u boju, koja mo\u017ee biti indeks boje ili vektor boje. Indeks boje je broj od 0 - 15. Vektor boja je popis intenziteta [crveno zelene], svaki u raspon",
+      "contents": "setFloodColour ${1:color}"
+    },
+    {
+      "trigger": "setFocus\tOdabire prozor \u010diji je naslov (ili naslov) naslov. Kada je prozor fokusiran, on je odabran i sav ulaz tipkovnice je usmjeren na njega.\r",
+      "contents": "setFocus ${1:caption}"
+    },
+    {
+      "trigger": "setH\tPretvara kornja\u010du u novi apsolutni naslov. Kut ulaz je smjer u stupnjevima u smjeru kazaljke na satu od pozitivne Y-osi. U PERSPECTIVE modu, ulazni kut je smjer u stupnje",
+      "contents": "setH ${1:angle}"
+    },
+    {
+      "trigger": "setHeading\tPretvara kornja\u010du u novi apsolutni naslov. Kut ulaz je smjer u stupnjevima u smjeru kazaljke na satu od pozitivne Y-osi. U PERSPECTIVE modu, ulazni kut je smjer u stupnje",
+      "contents": "setHeading ${1:angle}"
+    },
+    {
+      "trigger": "setItem\tZamjenjuje indeksnu stavku ulaznog niza s novom vrijedno\u0161\u0107u.\r",
+      "contents": "setItem ${1:index} ${2:array} ${3:value}"
+    },
+    {
+      "trigger": "setLabelFont\tPostavlja font koji \u0107e koristiti naredba LABEL.\r",
+      "contents": "setLabelFont ${1:font}"
+    },
+    {
+      "trigger": "setLight\tOdre\u0111uje kako POLYVIEW osvjetljava poligone. Ulaz svojstava je popis od dva broja u rasponu od 0,0 do 1,0, koli\u010dini ambijentalnog i difuznog svjetla. Ambijentalna kompone",
+      "contents": "setLight ${1:properties}"
+    },
+    {
+      "trigger": "setMargins\tSETMARGINS nije podr\u017ean (ili nije potreban) u FMSLogo.\r",
+      "contents": "setMargins ${1:margins}"
+    },
+    {
+      "trigger": "setOrientation\tOrijentira kornja\u010du do nove apsolutne orijentacije. Ulaz za orijentaciju je popis, [tarifni broj skale] u stupnjevima. Va\u017eno je razumjeti svoju orijentaciju u 3D.\r",
+      "contents": "setOrientation ${1:orientation}"
+    },
+    {
+      "trigger": "setPc\tPostavlja boju olovke u boju, koja mo\u017ee biti indeks boje ili vektor boje. Indeks boje je broj od 0 - 15. Vektor boja je popis intenziteta [crveno zelene], svaki u rasponu",
+      "contents": "setPc ${1:color}"
+    },
+    {
+      "trigger": "setPen\tOdre\u0111uje polo\u017eaj olovke, na\u010din rada i karakteristike ovisne o hardveru u skladu s informacijama u unosu karakteristika. Ulaz karakteristika je popis sa sljede\u0107im \u010dlanovim",
+      "contents": "setPen ${1:characteristics}"
+    },
+    {
+      "trigger": "setPenColor\tPostavlja boju olovke u boju, koja mo\u017ee biti indeks boje ili vektor boje. Indeks boje je broj od 0 - 15. Vektor boja je popis intenziteta [crveno zelene], svaki u rasponu",
+      "contents": "setPenColor ${1:color}"
+    },
+    {
+      "trigger": "setPenColour\tPostavlja boju olovke u boju, koja mo\u017ee biti indeks boje ili vektor boje. Indeks boje je broj od 0 - 15. Vektor boja je popis intenziteta [crveno zelene], svaki u rasponu",
+      "contents": "setPenColour ${1:color}"
+    },
+    {
+      "trigger": "setPenPattern\tSETPENPATTERN nije podr\u017ean u FMSLogo.\r",
+      "contents": "setPenPattern ${1:pattern}"
+    },
+    {
+      "trigger": "setPenSize\tPostavite debljinu olovke. Ulaz veli\u010dine mora biti ili pozitivan cijeli broj koji ozna\u010dava \u0161irinu olovke ili popis oblika [\u0161irina visine]. Kada je ulaz veli\u010dine popis, SE",
+      "contents": "setPenSize ${1:size}"
+    },
+    {
+      "trigger": "setPitch\tKornja\u010du postavite na novu, apsolutnu visinu. Kut ulaz je nagib u stupnjevima koji je pozitivan od negativne Z-osi do pozitivne Y-osi koja se okre\u0107e oko X-osi.\r",
+      "contents": "setPitch ${1:angle}"
+    },
+    {
+      "trigger": "setPixel\tPostavlja piksel ispod kornja\u010de na boju koju opisuje colorvector. Ulaz colorvector mora biti popis od tri stavke intenziteta [crveno zelene], od kojih svaki mora biti cij",
+      "contents": "setPixel ${1:colorvector}"
+    },
+    {
+      "trigger": "setPos\tPomi\u010de kornja\u010du do apsolutne X, Y koordinate. Ulazni polo\u017eaj je popis dva broja, X i Y koordinata.\r",
+      "contents": "setPos ${1:position}"
+    },
+    {
+      "trigger": "setPosxyz\tPomi\u010de kornja\u010du do apsolutne X, Y, Z koordinate. Ulazni polo\u017eaj je popis od tri broja, X, Y i Z koordinata.\r",
+      "contents": "setPosxyz ${1:position}"
+    },
+    {
+      "trigger": "setRead\tPostavlja tok za \u010ditanje u datoteku pod nazivom naziv datoteke. Tok za \u010ditanje koristi READLIST, READWORD, itd. Datoteka mora ve\u0107 biti otvorena pomo\u0107u OPENREAD ili OPENUP",
+      "contents": "setRead ${1:filename}"
+    },
+    {
+      "trigger": "setReadPos\tPostavlja pokaziva\u010d datoteke za datoteku za \u010ditanje tako da sljede\u0107i READLIST, itd., Po\u010dne \u010ditati na char-ov znak u datoteci, ra\u010dunaju\u0107i od 0. (To jest, SETREADPOS 0 po\u010di",
+      "contents": "setReadPos ${1:charpos}"
+    },
+    {
+      "trigger": "setRoll\tVrtite kornja\u010du do nove apsolutne role. Kut ulaz je valjanje u stupnjevima koje je pozitivno od pozitivne X-osi do negativne Z-osi koja se okre\u0107e oko Y-osi.\r",
+      "contents": "setRoll ${1:angle}"
+    },
+    {
+      "trigger": "setSc\tPostavlja boju pozadine zaslona na boju i mijenja cijeli zaslon na tu boju. Ulaz boje mo\u017ee biti indeks boje ili vektor boje. Indeks boje je broj od 0 do 15.\r",
+      "contents": "setSc ${1:color}"
+    },
+    {
+      "trigger": "setScreenColor\tPostavlja boju pozadine zaslona na boju i mijenja cijeli zaslon na tu boju. Ulaz boje mo\u017ee biti indeks boje ili vektor boje. Indeks boje je broj od 0 do 15.\r",
+      "contents": "setScreenColor ${1:color}"
+    },
+    {
+      "trigger": "setScreenColour\tPostavlja boju pozadine zaslona na boju i mijenja cijeli zaslon na tu boju. Ulaz boje mo\u017ee biti indeks boje ili vektor boje. Indeks boje je broj od 0 do 15.\r",
+      "contents": "setScreenColour ${1:color}"
+    },
+    {
+      "trigger": "setScrunch\tSETSCRUNCH nije potreban za ispravljanje problema s prikazom, ali je dostupan osobama koje \u017eele namjerno pogre\u0161no prilagoditi omjer slike.\r",
+      "contents": "setScrunch ${1:xscale} ${2:yscale}"
+    },
+    {
+      "trigger": "setTimer\tPostavlja tajmer identificiran s id (broj od 1-31) za pozivanje naredbi u povratnom pozivu u ka\u0161njenju milisekundi. Ona nastavlja \"ispaljivati\" svako ka\u0161njenje milisekund",
+      "contents": "setTimer ${1:id} ${2:delay} ${3:callback}"
+    },
+    {
+      "trigger": "setTurtle\tOdabir indeksa kornja\u010de za kontrolu. Ako kornja\u010da prethodno nije bila aktivirana, aktiviraju se sve kornja\u010de od nule do indeksa. Od sada, sve dok ne odaberete drugu kornj",
+      "contents": "setTurtle ${1:index}"
+    },
+    {
+      "trigger": "setTurtle\tOdabir indeksa kornja\u010de za kontrolu. Ako kornja\u010da prethodno nije bila aktivirana, aktiviraju se sve kornja\u010de od nule do indeksa. Od sada, sve dok ne odaberete drugu kornj",
+      "contents": "setTurtle ${1:index} ${2:hasownpen}"
+    },
+    {
+      "trigger": "setTurtleMode\tPostavlja na\u010din bitmapa za trenutno odabranu kornja\u010du. Na\u010din bitmape kontrolira kako bitmapirane kornja\u010de (vidi BITMAPTURTLE) lijepe svoju sliku na zaslon. Ponekad \u017eelite",
+      "contents": "setTurtleMode ${1:mode}"
+    },
+    {
+      "trigger": "setWrite\tPostavlja tok zapisa na datoteku pod nazivom naziv datoteke. Tok ispisa koristi PRINT, SHOW, itd. Datoteka mora ve\u0107 biti otvorena s opcijama OPENWRITE, OPENAPPEND ili OPE",
+      "contents": "setWrite ${1:filename}"
+    },
+    {
+      "trigger": "setWritePos\tPostavlja pokaziva\u010d datoteke datoteke za tok zapisa tako da sljede\u0107i PRINT, itd., Po\u010dne pisati u char - tom znaku u datoteci, ra\u010dunaju\u0107i od 0. (To jest, SETWRITEPOS 0 po\u010d",
+      "contents": "setWritePos ${1:charpos}"
+    },
+    {
+      "trigger": "setX\tPomi\u010de kornja\u010du du\u017e osi X od trenutnog polo\u017eaja do nove apsolutne X koordinate. Xcor ulaz je nova X koordinata.\r",
+      "contents": "setX ${1:xcor}"
+    },
+    {
+      "trigger": "setXy\tPomi\u010de kornja\u010du do apsolutne X, Y koordinate. Dva ulaza su brojevi, X i Y koordinate za pomicanje.\r",
+      "contents": "setXy ${1:xcor} ${2:ycor}"
+    },
+    {
+      "trigger": "setXyz\tPomi\u010de kornja\u010du u apsolutni 3D polo\u017eaj. Tri ulaza su brojevi, X, Y i Z koordinate.\r",
+      "contents": "setXyz ${1:xcor} ${2:ycor} ${3:zcor}"
+    },
+    {
+      "trigger": "setY\tPomi\u010de kornja\u010du du\u017e Y osi od trenutnog polo\u017eaja do nove apsolutne Y koordinate. Ulaz ycor je nova Y koordinata.\r",
+      "contents": "setY ${1:ycor}"
+    },
+    {
+      "trigger": "setZ\tPomi\u010de kornja\u010du du\u017e osi Z od trenutnog polo\u017eaja do nove apsolutne Z koordinate. Zcor ulaz je nova Z koordinata.\r",
+      "contents": "setZ ${1:zcor}"
+    },
+    {
+      "trigger": "shell\tPokre\u0107e ulazni niz kao naredbu ljuske. Daje TRUE ako je naredba izvr\u0161ena, FALSE ina\u010de. Ako je naredba doslovni popis u redu naredbe, i ako \u017eelite da znak obrnute kose crt",
+      "contents": "shell ${1:command}"
+    },
+    {
+      "trigger": "shell\tPokre\u0107e ulazni niz kao naredbu ljuske. Daje TRUE ako je naredba izvr\u0161ena, FALSE ina\u010de. Ako je naredba doslovni popis u redu naredbe, i ako \u017eelite da znak obrnute kose crt",
+      "contents": "shell ${1:command} ${2:wait}"
+    },
+    {
+      "trigger": "show\tIspisuje ulaz ili ulaz u trenutni tok pisanja, ba\u0161 kao i PRINT, osim ako je ulaz popis, ispisuje se u uglatim zagradama.\r",
+      "contents": "show ${1:thing}"
+    },
+    {
+      "trigger": "show\tIspisuje ulaz ili ulaz u trenutni tok pisanja, ba\u0161 kao i PRINT, osim ako je ulaz popis, ispisuje se u uglatim zagradama.\r",
+      "contents": "show ${1:thing1} ${2:thing2} ${3:...}"
+    },
+    {
+      "trigger": "shown?\tDaje TRUE ako je kornja\u010da prikazana (vidljiva), FALSE ako je kornja\u010da skrivena. Mo\u017eete koristiti SHOWTURTLE i HIDETURTLE za prikaz i skrivanje kornja\u010de.\r",
+      "contents": "shown? "
+    },
+    {
+      "trigger": "shownp\tDaje TRUE ako je kornja\u010da prikazana (vidljiva), FALSE ako je kornja\u010da skrivena. Mo\u017eete koristiti SHOWTURTLE i HIDETURTLE za prikaz i skrivanje kornja\u010de.\r",
+      "contents": "shownp "
+    },
+    {
+      "trigger": "showturtle\t\u010cini kornja\u010du vidljivom. Ovo je suprotno od HIDETURTLE.\r",
+      "contents": "showturtle "
+    },
+    {
+      "trigger": "sign\tDaje znak (-1 ako je negativan, 0 ako je nula, 1 je pozitivan) ulaza. Ovo je zgodno kada \u017eelite primijeniti znak jednog broja na drugi.\r",
+      "contents": "sign ${1:num}"
+    },
+    {
+      "trigger": "sin\tDaje sinusni kut, koji se uzima u stupnjevima.\r",
+      "contents": "sin ${1:angle}"
+    },
+    {
+      "trigger": "slowdraw\tRedefinira FORWARD, BACK, FD i BK da traje du\u017ee, tako da mo\u017eete vidjeti kornja\u010du kako se kre\u0107e (ina\u010de, kornja\u010da se kre\u0107e \u0161to je br\u017ee mogu\u0107e). Ulaz za sporost kontrolira k",
+      "contents": "slowdraw ${1:slowness}"
+    },
+    {
+      "trigger": "sort\tSortira niz (popis, polje ili rije\u010d) uzlaznim redoslijedom ili prema zadanom predikatu. Izlaz je novi slijed istog tipa kao i slijed koji sadr\u017ei iste naru\u010dene stavke tako",
+      "contents": "sort ${1:sequence}"
+    },
+    {
+      "trigger": "sort\tSortira niz (popis, polje ili rije\u010d) uzlaznim redoslijedom ili prema zadanom predikatu. Izlaz je novi slijed istog tipa kao i slijed koji sadr\u017ei iste naru\u010dene stavke tako",
+      "contents": "sort ${1:sequence} ${2:predicate}"
+    },
+    {
+      "trigger": "sound\tReproducira niz tonova na PC zvu\u010dniku.\r",
+      "contents": "sound ${1:soundlist}"
+    },
+    {
+      "trigger": "soundoff\tIsklju\u010dite zvuk koji je uklju\u010dio SOUNDON.\r",
+      "contents": "soundoff "
+    },
+    {
+      "trigger": "soundon\tPo\u010detak reprodukcije zvuka na PC zvu\u010dniku. Zvuk se nastavlja reproducirati dok ne nazovete SOUNDOFF.\r",
+      "contents": "soundon ${1:frequency}"
+    },
+    {
+      "trigger": "splitscreen\tPri\u010dvrstite prozor zapovjednika i prozor prozora unutar istog okvira i odvaja dva s pokretnom razdjelnom trakom. To ostavlja prostor za tekstualnu interakciju dok istovre",
+      "contents": "splitscreen "
+    },
+    {
+      "trigger": "sqrt\tDaje kvadratni korijen ulaza, koji mora biti negativan.\r",
+      "contents": "sqrt ${1:num}"
+    },
+    {
+      "trigger": "ss\tPri\u010dvrstite prozor zapovjednika i prozor prozora unutar istog okvira i odvaja dva s pokretnom razdjelnom trakom. To ostavlja prostor za tekstualnu interakciju dok istovre",
+      "contents": "ss "
+    },
+    {
+      "trigger": "st\t\u010cini kornja\u010du vidljivom. Ovo je suprotno od HIDETURTLE.\r",
+      "contents": "st "
+    },
+    {
+      "trigger": "standout\tSTANDOUT jo\u0161 nije podr\u017ean u FMSLogo.\r",
+      "contents": "standout ${1:thing}"
+    },
+    {
+      "trigger": "startup\tAko je dodijeljena vrijednost popisa u datoteci koju u\u010dita LOAD, ta se vrijednost nakon u\u010ditavanja izvodi kao popis naredbi.\r",
+      "contents": "startup "
+    },
+    {
+      "trigger": "staticCreate\tStvara stati\u010dku kontrolu teksta. Stati\u010dka kontrola se koristi za jednostavno prikazivanje teksta. Pojam \"stati\u010dka kontrola\" donekle je zabludu, jer se tekst koji prikazuj",
+      "contents": "staticCreate ${1:parent} ${2:name} ${3:text} ${4:xpos} ${5:ypos} ${6:width} ${7:height}"
+    },
+    {
+      "trigger": "staticDelete\tBri\u0161e (zatvara) stati\u010dku kontrolu koja je identificirana imenom.\r",
+      "contents": "staticDelete ${1:name}"
+    },
+    {
+      "trigger": "staticUpdate\tZamjenjuje tekst stati\u010dke kontrole identificirane imenom s tekstom. Ako postoji vi\u0161e teksta nego \u0161to se mo\u017ee smjestiti unutar \u0161irine stati\u010dke kontrole na jednom retku, ta",
+      "contents": "staticUpdate ${1:name} ${2:text}"
+    },
+    {
+      "trigger": "status\tPrikazuje prozor sko\u010dnog statusa. Ova naredba ima isti u\u010dinak kao i pritiskom na gumb stanja.\r",
+      "contents": "status "
+    },
+    {
+      "trigger": "step\tOzna\u010dava stavke na popisu sadr\u017eaja za kora\u010danje.\r",
+      "contents": "step ${1:contentslist}"
+    },
+    {
+      "trigger": "stepped\tIspisuje popis sadr\u017eaja koji se sastoji od popisa stepenastih procedura nakon \u010dega slijede dva prazna popisa.\r",
+      "contents": "stepped "
+    },
+    {
+      "trigger": "stop\tZavr\u0161ava pokretanje postupka u kojem se pojavljuje. Kontrola se vra\u0107a u kontekst u kojem je taj postupak pozvan. Postupak zaustavljanja ne daje vrijednost.\r",
+      "contents": "stop "
+    },
+    {
+      "trigger": "substring?\tAko je thing2 rije\u010d, SUBSTRINGP daje TRUE ako je thing1 EQUALP na podniz u stvarima 2, FALSE ina\u010de.\r",
+      "contents": "substring? ${1:thing1} ${2:thing2}"
+    },
+    {
+      "trigger": "substringp\tAko je thing2 rije\u010d, SUBSTRINGP daje TRUE ako je thing1 EQUALP na podniz u stvarima 2, FALSE ina\u010de.\r",
+      "contents": "substringp ${1:thing1} ${2:thing2}"
+    },
+    {
+      "trigger": "sum\tDaje zbroj ulaza. Ako nema ulaza, SUM daje 0.\r",
+      "contents": "sum ${1:addend1} ${2:addend2}"
+    },
+    {
+      "trigger": "sum\tDaje zbroj ulaza. Ako nema ulaza, SUM daje 0.\r",
+      "contents": "sum ${1:addend1} ${2:addend2} ${3:...} ${4:addend1}"
+    },
+    {
+      "trigger": "tag\tTAG ozna\u010dava to\u010dku u proceduri kojoj GOTO instrukcija s istim unosom oznake mo\u017ee sko\u010diti. TAG se mo\u017ee koristiti samo unutar postupka. Ulaz oznake mora biti rije\u010d.\r",
+      "contents": "tag ${1:tag}"
+    },
+    {
+      "trigger": "tan\tDaje tangens kuta, koji se uzima u stupnjevima.\r",
+      "contents": "tan ${1:angle}"
+    },
+    {
+      "trigger": "test\tTEST pamti svoj ulazni uvjet, koji mora biti TRUE ili FALSE, tako da ga kasnije mogu koristiti IFTRUE ili IFFALSE upute. U\u010dinak TEST-a je lokalan na postupak u kojem se k",
+      "contents": "test ${1:condition}"
+    },
+    {
+      "trigger": "text\tIspisuje tekst postupka pod nazivom procname u obliku koji o\u010dekuje DEFINE: popis popisa, od kojih prvi opisuje ulaze u postupak, a ostatak su linije tijela.\r",
+      "contents": "text ${1:procname}"
+    },
+    {
+      "trigger": "textScreen\tOdvojite prozor zapovjednika iz prozora zaslona kako biste mogli promijeniti veli\u010dinu kako biste pove\u0107ali prostor za interakciju teksta.\r",
+      "contents": "textScreen "
+    },
+    {
+      "trigger": "thing\tDaje vrijednost varijable \u010dije je ime ulazna rije\u010d. Ako postoji vi\u0161e od jedne takve varijable, odabrana je unutarnja lokalna varijabla tog imena.\r",
+      "contents": "thing ${1:varname} ${2:varname}"
+    },
+    {
+      "trigger": "throw\tZavr\u0161ava izvo\u0111enje ulaza s popisom s uputama za CATCH naredbe. THROW se mora koristiti unutar opsega CATCH naredbe koja ima oznaku jednaku oznaci. Ako je THROW dobio ulaz",
+      "contents": "throw ${1:tag}"
+    },
+    {
+      "trigger": "throw\tZavr\u0161ava izvo\u0111enje ulaza s popisom s uputama za CATCH naredbe. THROW se mora koristiti unutar opsega CATCH naredbe koja ima oznaku jednaku oznaci. Ako je THROW dobio ulaz",
+      "contents": "throw ${1:tag} ${2:value}"
+    },
+    {
+      "trigger": "throw\tZavr\u0161ava izvo\u0111enje ulaza s popisom s uputama za CATCH naredbe. THROW se mora koristiti unutar opsega CATCH naredbe koja ima oznaku jednaku oznaci. Ako je THROW dobio ulaz",
+      "contents": "throw ${1:errortext}"
+    },
+    {
+      "trigger": "throw\tZavr\u0161ava izvo\u0111enje ulaza s popisom s uputama za CATCH naredbe. THROW se mora koristiti unutar opsega CATCH naredbe koja ima oznaku jednaku oznaci. Ako je THROW dobio ulaz",
+      "contents": "throw ${1:4} ${2:badvalue}"
+    },
+    {
+      "trigger": "time\tIzvodi trenutno vrijeme na sustavu kao popis rije\u010di.\r",
+      "contents": "time "
+    },
+    {
+      "trigger": "timemilli\tDaje vrijeme od po\u010detka sustava Windows, mjereno u milisekundama. Koristite ovo za precizno mjerenje vremena. Izlaz je tako\u0111er poznat kao \"kva\u010dica\".\r",
+      "contents": "timemilli "
+    },
+    {
+      "trigger": "to\tNaredba koja priprema logotip za prihva\u0107anje definicije postupka. Postupak se naziva procname i ne smije ve\u0107 postojati postupak po tom imenu. Ulazi se nazivaju input1, in",
+      "contents": "to ${1:procname} ${2::input1} ${3::input2} ${4:...}\n\t\nend\n\n"
+    },
+    {
+      "trigger": "tone\tReproducira ton na PC zvu\u010dniku.\r",
+      "contents": "tone ${1:frequency} ${2:duration}"
+    },
+    {
+      "trigger": "towards\tDaje naslov u stupnjevima, na kojem kornja\u010da treba biti usmjerena tako da pokazuje od svog trenutnog polo\u017eaja prema ulazu polo\u017eaja. Ulaz polo\u017eaja mora se dati kao popis s",
+      "contents": "towards ${1:position}"
+    },
+    {
+      "trigger": "towardsxyz\tDaje popis s naslovom [roll pitch] u kojem kornja\u010da treba biti orijentirana tako da pokazuje od svog trenutnog polo\u017eaja do danog polo\u017eaja. Polo\u017eaj se mora dati kao popis ",
+      "contents": "towardsxyz ${1:position}"
+    },
+    {
+      "trigger": "trace\tOzna\u010dava imenovane stavke za pra\u0107enje. Poruka se ispisuje svaki put kad se pozove prate\u0107i postupak, daju\u0107i stvarne ulazne vrijednosti, i kad god postupak pra\u0107enja pokre\u0107e",
+      "contents": "trace ${1:contentslist}"
+    },
+    {
+      "trigger": "traced\tIspisuje popis sadr\u017eaja koji se sastoji od popisa pra\u0107enih stavki.\r",
+      "contents": "traced "
+    },
+    {
+      "trigger": "transfer\tDaje rezultat ponovljene procjene ulaza predlo\u0161ka. Predlo\u017eak se jednom procjenjuje za svakog \u010dlana popisa u ko\u0161arici. TRANSFER odr\u017eava \"vanjsku ko\u0161aru\" koja je u po\u010detku ",
+      "contents": "transfer ${1:endtest} ${2:template} ${3:inbasket}"
+    },
+    {
+      "trigger": "true\tOvo je posebna rije\u010d koja ozna\u010dava pozitivno stanje. TRUE je rezervirana vrijednost, a ne postupak ili varijabla.\r",
+      "contents": "true "
+    },
+    {
+      "trigger": "ts\tOdvojite prozor zapovjednika iz prozora zaslona kako biste mogli promijeniti veli\u010dinu kako biste pove\u0107ali prostor za interakciju teksta.\r",
+      "contents": "ts "
+    },
+    {
+      "trigger": "turtle\tDaje broj koji odgovara trenutno odabranoj kornja\u010di (koja slu\u017ei svim naredbama kornja\u010da). Koristite SETTURTLE za odabir kornja\u010de.\r",
+      "contents": "turtle "
+    },
+    {
+      "trigger": "turtleMode\tDaje odabrani na\u010din kornja\u010de. Pogledajte SETTURTLEMODE za obja\u0161njenje na\u010dina kornja\u010da.\r",
+      "contents": "turtleMode "
+    },
+    {
+      "trigger": "turtleS\tDaje maksimalnu kornja\u010du koja je odabrana od zadnjeg izvr\u0161avanja CLEARSCREEN-a.\r",
+      "contents": "turtleS "
+    },
+    {
+      "trigger": "type\tIspisuje ulaz ili ulaz kao \u0161to je PRINT, osim \u0161to se na kraju ne ispisuje znak novog znaka, a vi\u0161estruki ulazi nisu odvojeni razmacima.\r",
+      "contents": "type ${1:thing}"
+    },
+    {
+      "trigger": "type\tIspisuje ulaz ili ulaz kao \u0161to je PRINT, osim \u0161to se na kraju ne ispisuje znak novog znaka, a vi\u0161estruki ulazi nisu odvojeni razmacima.\r",
+      "contents": "type ${1:thing1} ${2:thing2} ${3:...}"
+    },
+    {
+      "trigger": "unbury\tPoni\u0161tava procedure, varijable i popise svojstava imenovanih u ulazu. To jest, imenovane stavke se vra\u0107aju na pregled u SADR\u017dAJU i sli\u010dnim postupcima.\r",
+      "contents": "unbury ${1:contentslist}"
+    },
+    {
+      "trigger": "unburyAll\tUklanja sve procedure, varijable i popise svojstava u radnom prostoru. UNBURYALL skra\u0107uje UNBURY SADR\u017dAJ.\r",
+      "contents": "unburyAll "
+    },
+    {
+      "trigger": "unburyName\tOtka\u017ee varijable navedene u ulazu. UNBURYNAME skra\u0107uje UNBURY NAMELIST.\r",
+      "contents": "unburyName ${1:varname}"
+    },
+    {
+      "trigger": "unburyName\tOtka\u017ee varijable navedene u ulazu. UNBURYNAME skra\u0107uje UNBURY NAMELIST.\r",
+      "contents": "unburyName ${1:varnamelist}"
+    },
+    {
+      "trigger": "unicon\tUnminimizira (vra\u0107a) prozor \u010diji se naslov podudara s opisom. Pojam \"ICON\" dolazi iz starih vremena kada su Windows aplikacije minimizirane u male ikone.\r",
+      "contents": "unicon ${1:caption}"
+    },
+    {
+      "trigger": "unstep\tIsklju\u010duje kora\u010danje za stavke na popisu sadr\u017eaja.\r",
+      "contents": "unstep ${1:contentslist}"
+    },
+    {
+      "trigger": "until\tPonavljano vrednuje popis instrukcija sve dok se procijenjeni conditionlist i dalje prikazuje FALSE. UNTIL procjenjuje popis uvjeta prije popisa uputa, tako da se popis i",
+      "contents": "until ${1:conditionlist} ${2:instructionlist}"
+    },
+    {
+      "trigger": "untrace\tIsklju\u010duje pra\u0107enje za imenovane stavke.\r",
+      "contents": "untrace ${1:contentslist}"
+    },
+    {
+      "trigger": "up\tUsmjerite nos kornja\u010de prema gore navedenom kutu, mjereno u stupnjevima (1/360 kruga).\r",
+      "contents": "up ${1:angle}"
+    },
+    {
+      "trigger": "uppercase\tDaje rije\u010d koja je kopija rije\u010di, ali sa svim malim slovima promijenjenim u odgovaraju\u0107e veliko slovo.\r",
+      "contents": "uppercase ${1:word}"
+    },
+    {
+      "trigger": "uppitch\tUsmjerite nos kornja\u010de prema gore navedenom kutu, mjereno u stupnjevima (1/360 kruga).\r",
+      "contents": "uppitch ${1:angle}"
+    },
+    {
+      "trigger": "wait\tOdga\u0111a daljnje izvr\u0161enje za oko 60 sekundi. To tako\u0111er doprinosi drugim procesima koji se izvode na va\u0161em sustavu.\r",
+      "contents": "wait ${1:delay}"
+    },
+    {
+      "trigger": "while\tPonavljano vrednuje popis instrukcija sve dok se procijenjeni conditionlist zadr\u017ei TRUE. WHILE procjenjuje listu uvjeta prije popisa uputa, tako da se popis instrukcija u",
+      "contents": "while ${1:conditionlist} ${2:instructionlist}"
+    },
+    {
+      "trigger": "window\tNavodi kornja\u010di da u\u0111e u \"prozorski\" na\u010din. Od sada, kada se od kornja\u010de tra\u017ei da prije\u0111e granicu grafi\u010dkog prozora, pomi\u010de se s ekrana. Vidljivi grafi\u010dki prozor smatra s",
+      "contents": "window "
+    },
+    {
+      "trigger": "windowCreate\tStvara prozor. Prozor se koristi kao okvir u koji dodajete druge prozore ili kontrole (ponekad se nazivaju widgeti). Mo\u017eete dodati stvari kao \u0161to su gumbi, trake za pomic",
+      "contents": "windowCreate ${1:parent} ${2:name} ${3:title} ${4:xpos} ${5:ypos} ${6:width} ${7:height} ${8:setup}"
+    },
+    {
+      "trigger": "windowDelete\tBri\u0161e (zatvara) prozor \u010dije je ime ime. Svi dje\u010dji prozori i kontrole su tako\u0111er izbrisani. Ako ne postoji prozor s navedenim nazivom, izbrisat \u0107e se svi prozori i sve ko",
+      "contents": "windowDelete ${1:name}"
+    },
+    {
+      "trigger": "windowEnable\tOmogu\u0107uje ili onemogu\u0107uje prozor s nazivom. Ako je stanje jednako TRUE, tada je prozor omogu\u0107en. Ako je stanje jednako FALSE, prozor je onemogu\u0107en.\r",
+      "contents": "windowEnable ${1:name} ${2:state}"
+    },
+    {
+      "trigger": "windowFileEdit\tOtvara ure\u0111iva\u010d u datoteci s danim nazivom datoteke. Kada je sadr\u017eaj datoteke spremljen, on se sprema u datoteku, a ne u radni prostor. Popis instrukcija povratnog poziva",
+      "contents": "windowFileEdit ${1:filename} ${2:callback}"
+    },
+    {
+      "trigger": "windowSet\tPostavlja \"na\u010din\" (na primjer, skriven, vidljiv, itd.) Za prozor \u010diji naslov odgovara upisu. Ova naredba je dizajnirana za stru\u010dnjake, mo\u017eete izgubiti kontrolu nad FMSLog",
+      "contents": "windowSet ${1:caption} ${2:mode}"
+    },
+    {
+      "trigger": "winhelp\tWINHELP ima dva oblika: sa i bez ulaza klju\u010dne rije\u010di. Kada nema klju\u010dne rije\u010di, FMSLogo otvara Windows pomo\u0107 za naziv datoteke u tablici sadr\u017eaja. Kada je klju\u010dna rije\u010d ",
+      "contents": "winhelp ${1:filename}"
+    },
+    {
+      "trigger": "winhelp\tWINHELP ima dva oblika: sa i bez ulaza klju\u010dne rije\u010di. Kada nema klju\u010dne rije\u010di, FMSLogo otvara Windows pomo\u0107 za naziv datoteke u tablici sadr\u017eaja. Kada je klju\u010dna rije\u010d ",
+      "contents": "winhelp ${1:filename} ${2:keyword}"
+    },
+    {
+      "trigger": "word\tIzvodi rije\u010d formiranu ulan\u010davanjem ulaza.\r",
+      "contents": "word ${1:word1} ${2:word2}"
+    },
+    {
+      "trigger": "word\tIzvodi rije\u010d formiranu ulan\u010davanjem ulaza.\r",
+      "contents": "word ${1:word1} ${2:word2} ${3:word3} ${4:...}"
+    },
+    {
+      "trigger": "word?\tIzlaz TRUE ako je ulaz rije\u010d, FALSE ina\u010de.\r",
+      "contents": "word? ${1:thing}"
+    },
+    {
+      "trigger": "wordp\tIzlaz TRUE ako je ulaz rije\u010d, FALSE ina\u010de.\r",
+      "contents": "wordp ${1:thing}"
+    },
+    {
+      "trigger": "wrap\tGovori kornja\u010di za ulazak u \"wrap\" na\u010din. Od sada, kada se od kornja\u010de tra\u017ei da prije\u0111e granicu prozora FMSLogo zaslona, \u200b\u200bona se \"preokre\u0107e\" i ponovno se pojavljuje na s",
+      "contents": "wrap "
+    },
+    {
+      "trigger": "writepos\tIspisuje poziciju datoteke trenutne datoteke struje za pisanje kao broj. Izlazna vrijednost 0 zna\u010di da je polo\u017eaj za pisanje na po\u010detku toka.\r",
+      "contents": "writepos "
+    },
+    {
+      "trigger": "writer\tIspisuje naziv trenutne datoteke struje pisanja ili praznog popisa ako je zapis za pisanje zapovjednik.\r",
+      "contents": "writer "
+    },
+    {
+      "trigger": "xcor\tDaje X koordinatu kornja\u010de.\r",
+      "contents": "xcor "
+    },
+    {
+      "trigger": "ycor\tIspisuje Y koordinatu kornja\u010de.\r",
+      "contents": "ycor "
+    },
+    {
+      "trigger": "yesnobox\tPrikazuje dijalo\u0161ki okvir s naslovom u naslovnoj traci i pitanje kao poruku. Dijalog tako\u0111er ima gumbe \"Da\", \"Ne\" i \"Odustani\". FMSLogo ne procjenjuje daljnje upute dok k",
+      "contents": "yesnobox ${1:title} ${2:question}"
+    },
+    {
+      "trigger": "yield\tYIELD ka\u017ee FMSLogu da je u redu prekinuti pokretanje koda logotipa kako bi se procesirale poruke prozora, kao \u0161to su ulaz tipkovnice, klikovi mi\u0161em ili obavijesti da bi s",
+      "contents": "yield "
+    },
+    {
+      "trigger": "zcor\tDaje Z koordinatu kornja\u010de.\r",
+      "contents": "zcor "
+    },
+    {
+      "trigger": "zoom\tPostavljanje razmjera prozora \"Zaslon\". Ulazna skala je iznos za zumiranje (skala). Broj ve\u0107i od 1.0 \u010dini stvari ve\u0107im (na primjer, 2.0 \u010dini ih dvostruko ve\u0107im), broj man",
+      "contents": "zoom ${1:scale}"
+    }
+  ]
+}

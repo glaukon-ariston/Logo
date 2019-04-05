@@ -1,10 +1,10 @@
 # Syntax Highlighting, Auto Completion and Inline Help for Logo files in SublimeText
 
-A SublimeText package that adds syntax highlighting, auto completion and inline help for Logo files.
+A SublimeText package that adds syntax highlighting, auto completion and inline help for Logo files. Inline help provided in English and Croatian. 
 
 ## Installation
 
-Download the Logo directory and place it in the Packages/User subdirectory (in SublimeText click on Preferences|Browse Packages...).
+Download the Logo directory and place it in the Packages/User subdirectory (in SublimeText click on Preferences|Browse Packages...). Then go into the Logo directory and copy either `Logo.sublime-completions_en` or `Logo.sublime-completions_en` into `Logo.sublime-completions` . This way you choose between English and Croatian inline help. The Croatian help has been Google translated and then programmatically corrected so align your expectation accordingly.  
 
 ## Useful SublimeText Links
 - [SublimeText - Syntax Definitions](http://www.sublimetext.com/docs/3/syntax.html)
