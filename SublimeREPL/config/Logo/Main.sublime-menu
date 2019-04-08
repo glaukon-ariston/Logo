@@ -1,27 +1,62 @@
 [
      {
         "id": "tools",
-        "children":
-        [{
-            "caption": "SublimeREPL",
-            "mnemonic": "r",
-            "id": "SublimeREPL",
-            "children":
-            [
-                {"command": "repl_open", 
-                 "caption": "Logo",
-                 "id": "repl_logo",
-                 "mnemonic": "l",
-                 "args": {
-                    "type": "sublime_logo",
-                    "encoding": "utf8",
-                    "cmd": ["usblogo.exe -l"],
-                    "cwd": "$file_path",
-                    "external_id": "Logo",
-                    "syntax": "Packages/Logo/Logo.sublime-syntax"
+        "children": [
+            {"caption": "SublimeREPL",
+             "mnemonic": "r",
+             "id": "SublimeREPL",
+             "children": [
+                {"caption": "Logo",
+                 "id": "Logo",
+                 "children":[
+                    {"command": "repl_open", 
+                     "caption": "FMSLogo",
+                     "id": "repl_fmslogo",
+                     "mnemonic": "f",
+                     "args": {
+                        "type": "subprocess",
+                        "encoding": "utf8",
+                        "autocomplete_server": true,
+                        "cmd": {
+                            "osx": ["python", "-u", "${packages}/SublimeREPL/config/Logo/fmsLogo_repl.py"],
+                            "linux": ["python", "-u", "${packages}/SublimeREPL/config/Logo/fmsLogo_repl.py"],
+                            "windows": ["python", "-u", "${packages}/SublimeREPL/config/Logo/fmsLogo_repl.py"]
+                        },
+                        "cwd": "$file_path",
+                        "external_id": "Logo",
+                        "syntax": "${packages}/User/Logo/Logo.sublime-syntax",
+                        "extend_env": {
+                            "PYTHONIOENCODING": "utf-8",
+                            "SUBLIMEREPL_EDITOR": "$editor"
+                        }
+                     }
+                    },
+                    {"command": "repl_open", 
+                     "caption": "UCBLogo",
+                     "id": "repl_ucblogo",
+                     "mnemonic": "f",
+                     "args": {
+                        "type": "subprocess",
+                        "encoding": "utf8",
+                        "autocomplete_server": true,
+                        "cmd": {
+                            "osx": ["python", "-u", "${packages}/SublimeREPL/config/Logo/ucbLogo_repl.py"],
+                            "linux": ["python", "-u", "${packages}/SublimeREPL/config/Logo/ucbLogo_repl.py"],
+                            "windows": ["python", "-u", "${packages}/SublimeREPL/config/Logo/ucbLogo_repl.py"]
+                        },
+                        "cwd": "$file_path",
+                        "external_id": "Logo",
+                        "syntax": "${packages}/User/Logo/Logo.sublime-syntax",
+                        "extend_env": {
+                            "PYTHONIOENCODING": "utf-8",
+                            "SUBLIMEREPL_EDITOR": "$editor"
+                        }
+                     }
                     }
+                 ]   
                 }
-            ]   
-        }]
+             ]
+            }
+        ]
     }
 ]

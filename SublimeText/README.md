@@ -41,20 +41,32 @@ from pywinauto.application import Application
 # app = Application().connect(path=r"c:\path\to\your\application")
 # app = Application().connect(title_re=".*FMSLogo", class_name="FMSLogo")
 app = Application().start(r"C:/app/dev/FMSLogo/FMSLogo.exe")
+app = Application().connect(title_re="FMSLogo")
 app.FMSLogo.menu_select("Datoteka->Učitaj")  # Croatian FMSLogo
 app.FMSLogo.menu_select("File->Open")   # English FMSLogo
 dialogs = app.windows()
 dlg = app.top_window()
 dlg.print_control_identifiers()
 dlg.stcwindow.type_keys('help')
-dlg.['IzvršiButton'].click()
+dlg['IzvršiButton'].click()
 dlg.stcwindow.type_keys('forward{VK_SPACE}100')
 dlg['Button7'].click()
 dlg.stcwindow.type_keys('rt{VK_SPACE}90{VK_SPACE}forward{VK_SPACE}50{ENTER}')
 dlg.stcwindow.type_keys('rt{ }90{ }forward{ }50{ENTER}')
 dlg.stcwindow.set_text('rt 90 forward 50')
-dlg.text.DrawOutline("red")
-dlg.child_window(title="text", class_name="wxWindow").DrawOutline("red")
+dlg.text.draw_outline("red")
+dlg.child_window(title="text", class_name="wxWindow").draw_outline("red")
 dlg.child_window(title="text", class_name="wxWindow").texts()
+
+# Copy text to clipboard
+dlg.text.set_focus()
+dlg.text.type_keys('^a^c')
+import win32clipboard
+
+# Get the text from the clipboard
+win32clipboard.OpenClipboard()
+data = win32clipboard.GetClipboardData()
+win32clipboard.CloseClipboard()
+print data
 ```
 
